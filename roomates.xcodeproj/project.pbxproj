@@ -1,0 +1,282 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5F703C441598FECD00EA51DF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F703C431598FECD00EA51DF /* UIKit.framework */; };
+		5F703C461598FECD00EA51DF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F703C451598FECD00EA51DF /* Foundation.framework */; };
+		5F703C481598FECD00EA51DF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F703C471598FECD00EA51DF /* CoreGraphics.framework */; };
+		5F703C4E1598FECD00EA51DF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5F703C4C1598FECD00EA51DF /* InfoPlist.strings */; };
+		5F703C501598FECD00EA51DF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F703C4F1598FECD00EA51DF /* main.m */; };
+		5F703C541598FECD00EA51DF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F703C531598FECD00EA51DF /* AppDelegate.m */; };
+		5F703C571598FECD00EA51DF /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F703C551598FECD00EA51DF /* MainStoryboard.storyboard */; };
+		5F703C5A1598FECD00EA51DF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F703C591598FECD00EA51DF /* ViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		5F703C3F1598FECD00EA51DF /* roomates.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = roomates.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F703C431598FECD00EA51DF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		5F703C451598FECD00EA51DF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		5F703C471598FECD00EA51DF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		5F703C4B1598FECD00EA51DF /* roomates-Info.plist */ = {isa = PBXFileReference; path = "roomates-Info.plist"; sourceTree = "<group>"; };
+		5F703C4D1598FECD00EA51DF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		5F703C4F1598FECD00EA51DF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		5F703C511598FECD00EA51DF /* roomates-Prefix.pch */ = {isa = PBXFileReference; path = "roomates-Prefix.pch"; sourceTree = "<group>"; };
+		5F703C521598FECD00EA51DF /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		5F703C531598FECD00EA51DF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		5F703C561598FECD00EA51DF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		5F703C581598FECD00EA51DF /* ViewController.h */ = {isa = PBXFileReference; path = ViewController.h; sourceTree = "<group>"; };
+		5F703C591598FECD00EA51DF /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5F703C3C1598FECD00EA51DF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5F703C441598FECD00EA51DF /* UIKit.framework in Frameworks */,
+				5F703C461598FECD00EA51DF /* Foundation.framework in Frameworks */,
+				5F703C481598FECD00EA51DF /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5F703C341598FECC00EA51DF = {
+			isa = PBXGroup;
+			children = (
+				5F703C491598FECD00EA51DF /* roomates */,
+				5F703C421598FECD00EA51DF /* Frameworks */,
+				5F703C401598FECD00EA51DF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5F703C401598FECD00EA51DF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5F703C3F1598FECD00EA51DF /* roomates.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5F703C421598FECD00EA51DF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5F703C431598FECD00EA51DF /* UIKit.framework */,
+				5F703C451598FECD00EA51DF /* Foundation.framework */,
+				5F703C471598FECD00EA51DF /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5F703C491598FECD00EA51DF /* roomates */ = {
+			isa = PBXGroup;
+			children = (
+				5F703C521598FECD00EA51DF /* AppDelegate.h */,
+				5F703C531598FECD00EA51DF /* AppDelegate.m */,
+				5F703C551598FECD00EA51DF /* MainStoryboard.storyboard */,
+				5F703C581598FECD00EA51DF /* ViewController.h */,
+				5F703C591598FECD00EA51DF /* ViewController.m */,
+				5F703C4A1598FECD00EA51DF /* Supporting Files */,
+			);
+			path = roomates;
+			sourceTree = "<group>";
+		};
+		5F703C4A1598FECD00EA51DF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5F703C4B1598FECD00EA51DF /* roomates-Info.plist */,
+				5F703C4C1598FECD00EA51DF /* InfoPlist.strings */,
+				5F703C4F1598FECD00EA51DF /* main.m */,
+				5F703C511598FECD00EA51DF /* roomates-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5F703C3E1598FECD00EA51DF /* roomates */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5F703C5D1598FECD00EA51DF /* Build configuration list for PBXNativeTarget "roomates" */;
+			buildPhases = (
+				5F703C3B1598FECD00EA51DF /* Sources */,
+				5F703C3C1598FECD00EA51DF /* Frameworks */,
+				5F703C3D1598FECD00EA51DF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = roomates;
+			productName = roomates;
+			productReference = 5F703C3F1598FECD00EA51DF /* roomates.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5F703C361598FECC00EA51DF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+				ORGANIZATIONNAME = drewish.com;
+			};
+			buildConfigurationList = 5F703C391598FECC00EA51DF /* Build configuration list for PBXProject "roomates" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 5F703C341598FECC00EA51DF;
+			productRefGroup = 5F703C401598FECD00EA51DF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5F703C3E1598FECD00EA51DF /* roomates */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5F703C3D1598FECD00EA51DF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5F703C4E1598FECD00EA51DF /* InfoPlist.strings in Resources */,
+				5F703C571598FECD00EA51DF /* MainStoryboard.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5F703C3B1598FECD00EA51DF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5F703C501598FECD00EA51DF /* main.m in Sources */,
+				5F703C541598FECD00EA51DF /* AppDelegate.m in Sources */,
+				5F703C5A1598FECD00EA51DF /* ViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		5F703C4C1598FECD00EA51DF /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5F703C4D1598FECD00EA51DF /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		5F703C551598FECD00EA51DF /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5F703C561598FECD00EA51DF /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5F703C5B1598FECD00EA51DF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		5F703C5C1598FECD00EA51DF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5F703C5E1598FECD00EA51DF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "roomates/roomates-Prefix.pch";
+				INFOPLIST_FILE = "roomates/roomates-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		5F703C5F1598FECD00EA51DF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "roomates/roomates-Prefix.pch";
+				INFOPLIST_FILE = "roomates/roomates-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5F703C391598FECC00EA51DF /* Build configuration list for PBXProject "roomates" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5F703C5B1598FECD00EA51DF /* Debug */,
+				5F703C5C1598FECD00EA51DF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5F703C5D1598FECD00EA51DF /* Build configuration list for PBXNativeTarget "roomates" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5F703C5E1598FECD00EA51DF /* Debug */,
+				5F703C5F1598FECD00EA51DF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5F703C361598FECC00EA51DF /* Project object */;
+}
