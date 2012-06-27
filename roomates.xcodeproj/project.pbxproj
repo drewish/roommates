@@ -15,22 +15,92 @@
 		5F703C541598FECD00EA51DF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F703C531598FECD00EA51DF /* AppDelegate.m */; };
 		5F703C571598FECD00EA51DF /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F703C551598FECD00EA51DF /* MainStoryboard.storyboard */; };
 		5F703C5A1598FECD00EA51DF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F703C591598FECD00EA51DF /* ViewController.m */; };
+		5FD475B2159B536C00F4907C /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FD475B0159B536C00F4907C /* CFNetwork.framework */; };
+		5FD475B3159B536C00F4907C /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FD475B1159B536C00F4907C /* CoreData.framework */; };
+		5FD475B5159B537C00F4907C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FD475B4159B537C00F4907C /* Security.framework */; };
+		5FD475B7159B539400F4907C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FD475B6159B539400F4907C /* QuartzCore.framework */; };
+		5FD475B9159B539E00F4907C /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FD475B8159B539E00F4907C /* libxml2.dylib */; };
+		5FD475BB159B53A800F4907C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FD475BA159B53A800F4907C /* SystemConfiguration.framework */; };
+		5FD475BD159B53C200F4907C /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FD475BC159B53C200F4907C /* MobileCoreServices.framework */; };
+		5FD475C0159B552600F4907C /* libRestKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FD475A3159B51CA00F4907C /* libRestKit.a */; };
+		5FD475C4159B5B0500F4907C /* RMUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FD475C3159B5B0500F4907C /* RMUser.m */; };
+		5FD475C7159B667400F4907C /* RMSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FD475C6159B667400F4907C /* RMSession.m */; };
+		5FD809E9159BABCB00621038 /* RMHousehold.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FD809E8159BABCB00621038 /* RMHousehold.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5FD475A2159B51CA00F4907C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5FD47597159B51C900F4907C /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 25160D1614564E810060A5C5;
+			remoteInfo = RestKit;
+		};
+		5FD475A4159B51CA00F4907C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5FD47597159B51C900F4907C /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 25160D2614564E820060A5C5;
+			remoteInfo = RestKitTests;
+		};
+		5FD475A6159B51CA00F4907C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5FD47597159B51C900F4907C /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 25160E62145651060060A5C5;
+			remoteInfo = RestKitFramework;
+		};
+		5FD475A8159B51CA00F4907C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5FD47597159B51C900F4907C /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 25160E78145651060060A5C5;
+			remoteInfo = RestKitFrameworkTests;
+		};
+		5FD475AA159B51CA00F4907C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5FD47597159B51C900F4907C /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 259C301615128079003066A2;
+			remoteInfo = RestKitResources;
+		};
+		5FD475BE159B54D800F4907C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5FD47597159B51C900F4907C /* RestKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 25160D1514564E810060A5C5;
+			remoteInfo = RestKit;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		5F703C3F1598FECD00EA51DF /* roomates.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = roomates.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F703C431598FECD00EA51DF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5F703C451598FECD00EA51DF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5F703C471598FECD00EA51DF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		5F703C4B1598FECD00EA51DF /* roomates-Info.plist */ = {isa = PBXFileReference; path = "roomates-Info.plist"; sourceTree = "<group>"; };
+		5F703C4B1598FECD00EA51DF /* roomates-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "roomates-Info.plist"; sourceTree = "<group>"; };
 		5F703C4D1598FECD00EA51DF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5F703C4F1598FECD00EA51DF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		5F703C511598FECD00EA51DF /* roomates-Prefix.pch */ = {isa = PBXFileReference; path = "roomates-Prefix.pch"; sourceTree = "<group>"; };
-		5F703C521598FECD00EA51DF /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		5F703C511598FECD00EA51DF /* roomates-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "roomates-Prefix.pch"; sourceTree = "<group>"; };
+		5F703C521598FECD00EA51DF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5F703C531598FECD00EA51DF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		5F703C561598FECD00EA51DF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		5F703C581598FECD00EA51DF /* ViewController.h */ = {isa = PBXFileReference; path = ViewController.h; sourceTree = "<group>"; };
+		5F703C581598FECD00EA51DF /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		5F703C591598FECD00EA51DF /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		5FD47597159B51C900F4907C /* RestKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RestKit.xcodeproj; path = RestKit/RestKit.xcodeproj; sourceTree = "<group>"; };
+		5FD475B0159B536C00F4907C /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		5FD475B1159B536C00F4907C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		5FD475B4159B537C00F4907C /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		5FD475B6159B539400F4907C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		5FD475B8159B539E00F4907C /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		5FD475BA159B53A800F4907C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		5FD475BC159B53C200F4907C /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		5FD475C2159B5B0500F4907C /* RMUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMUser.h; sourceTree = "<group>"; };
+		5FD475C3159B5B0500F4907C /* RMUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMUser.m; sourceTree = "<group>"; };
+		5FD475C5159B667400F4907C /* RMSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMSession.h; sourceTree = "<group>"; };
+		5FD475C6159B667400F4907C /* RMSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMSession.m; sourceTree = "<group>"; };
+		5FD809E7159BABCB00621038 /* RMHousehold.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMHousehold.h; sourceTree = "<group>"; };
+		5FD809E8159BABCB00621038 /* RMHousehold.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMHousehold.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +108,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5FD475C0159B552600F4907C /* libRestKit.a in Frameworks */,
+				5FD475B9159B539E00F4907C /* libxml2.dylib in Frameworks */,
+				5FD475B7159B539400F4907C /* QuartzCore.framework in Frameworks */,
+				5FD475BB159B53A800F4907C /* SystemConfiguration.framework in Frameworks */,
+				5FD475B5159B537C00F4907C /* Security.framework in Frameworks */,
+				5FD475BD159B53C200F4907C /* MobileCoreServices.framework in Frameworks */,
+				5FD475B3159B536C00F4907C /* CoreData.framework in Frameworks */,
+				5FD475B2159B536C00F4907C /* CFNetwork.framework in Frameworks */,
 				5F703C441598FECD00EA51DF /* UIKit.framework in Frameworks */,
 				5F703C461598FECD00EA51DF /* Foundation.framework in Frameworks */,
 				5F703C481598FECD00EA51DF /* CoreGraphics.framework in Frameworks */,
@@ -50,6 +128,14 @@
 		5F703C341598FECC00EA51DF = {
 			isa = PBXGroup;
 			children = (
+				5FD475BC159B53C200F4907C /* MobileCoreServices.framework */,
+				5FD475BA159B53A800F4907C /* SystemConfiguration.framework */,
+				5FD475B8159B539E00F4907C /* libxml2.dylib */,
+				5FD475B6159B539400F4907C /* QuartzCore.framework */,
+				5FD475B4159B537C00F4907C /* Security.framework */,
+				5FD475B0159B536C00F4907C /* CFNetwork.framework */,
+				5FD475B1159B536C00F4907C /* CoreData.framework */,
+				5FD47597159B51C900F4907C /* RestKit.xcodeproj */,
 				5F703C491598FECD00EA51DF /* roomates */,
 				5F703C421598FECD00EA51DF /* Frameworks */,
 				5F703C401598FECD00EA51DF /* Products */,
@@ -77,8 +163,7 @@
 		5F703C491598FECD00EA51DF /* roomates */ = {
 			isa = PBXGroup;
 			children = (
-				5F703C521598FECD00EA51DF /* AppDelegate.h */,
-				5F703C531598FECD00EA51DF /* AppDelegate.m */,
+				5FD475C1159B5ADA00F4907C /* DataObjects */,
 				5F703C551598FECD00EA51DF /* MainStoryboard.storyboard */,
 				5F703C581598FECD00EA51DF /* ViewController.h */,
 				5F703C591598FECD00EA51DF /* ViewController.m */,
@@ -90,12 +175,39 @@
 		5F703C4A1598FECD00EA51DF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5F703C521598FECD00EA51DF /* AppDelegate.h */,
+				5F703C531598FECD00EA51DF /* AppDelegate.m */,
 				5F703C4B1598FECD00EA51DF /* roomates-Info.plist */,
 				5F703C4C1598FECD00EA51DF /* InfoPlist.strings */,
 				5F703C4F1598FECD00EA51DF /* main.m */,
 				5F703C511598FECD00EA51DF /* roomates-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5FD47598159B51C900F4907C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5FD475A3159B51CA00F4907C /* libRestKit.a */,
+				5FD475A5159B51CA00F4907C /* RestKitTests.octest */,
+				5FD475A7159B51CA00F4907C /* RestKit.framework */,
+				5FD475A9159B51CA00F4907C /* RestKitFrameworkTests.octest */,
+				5FD475AB159B51CA00F4907C /* RestKitResources.bundle */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5FD475C1159B5ADA00F4907C /* DataObjects */ = {
+			isa = PBXGroup;
+			children = (
+				5FD475C2159B5B0500F4907C /* RMUser.h */,
+				5FD475C3159B5B0500F4907C /* RMUser.m */,
+				5FD475C5159B667400F4907C /* RMSession.h */,
+				5FD475C6159B667400F4907C /* RMSession.m */,
+				5FD809E7159BABCB00621038 /* RMHousehold.h */,
+				5FD809E8159BABCB00621038 /* RMHousehold.m */,
+			);
+			name = DataObjects;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -112,6 +224,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				5FD475BF159B54D800F4907C /* PBXTargetDependency */,
 			);
 			name = roomates;
 			productName = roomates;
@@ -137,12 +250,56 @@
 			mainGroup = 5F703C341598FECC00EA51DF;
 			productRefGroup = 5F703C401598FECD00EA51DF /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 5FD47598159B51C900F4907C /* Products */;
+					ProjectRef = 5FD47597159B51C900F4907C /* RestKit.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				5F703C3E1598FECD00EA51DF /* roomates */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		5FD475A3159B51CA00F4907C /* libRestKit.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRestKit.a;
+			remoteRef = 5FD475A2159B51CA00F4907C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		5FD475A5159B51CA00F4907C /* RestKitTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = RestKitTests.octest;
+			remoteRef = 5FD475A4159B51CA00F4907C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		5FD475A7159B51CA00F4907C /* RestKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = RestKit.framework;
+			remoteRef = 5FD475A6159B51CA00F4907C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		5FD475A9159B51CA00F4907C /* RestKitFrameworkTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = RestKitFrameworkTests.octest;
+			remoteRef = 5FD475A8159B51CA00F4907C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		5FD475AB159B51CA00F4907C /* RestKitResources.bundle */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = RestKitResources.bundle;
+			remoteRef = 5FD475AA159B51CA00F4907C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		5F703C3D1598FECD00EA51DF /* Resources */ = {
@@ -164,10 +321,21 @@
 				5F703C501598FECD00EA51DF /* main.m in Sources */,
 				5F703C541598FECD00EA51DF /* AppDelegate.m in Sources */,
 				5F703C5A1598FECD00EA51DF /* ViewController.m in Sources */,
+				5FD475C4159B5B0500F4907C /* RMUser.m in Sources */,
+				5FD475C7159B667400F4907C /* RMSession.m in Sources */,
+				5FD809E9159BABCB00621038 /* RMHousehold.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5FD475BF159B54D800F4907C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = RestKit;
+			targetProxy = 5FD475BE159B54D800F4907C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		5F703C4C1598FECD00EA51DF /* InfoPlist.strings */ = {
@@ -239,7 +407,9 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "roomates/roomates-Prefix.pch";
+				HEADER_SEARCH_PATHS = "\"$(BUILT_PRODUCTS_DIR)/../../Headers\"";
 				INFOPLIST_FILE = "roomates/roomates-Info.plist";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -250,7 +420,9 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "roomates/roomates-Prefix.pch";
+				HEADER_SEARCH_PATHS = "\"$(BUILT_PRODUCTS_DIR)/../../Headers\"";
 				INFOPLIST_FILE = "roomates/roomates-Info.plist";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -275,6 +447,7 @@
 				5F703C5F1598FECD00EA51DF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
