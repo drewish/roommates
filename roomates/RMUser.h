@@ -7,13 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <RestKit/RestKit.h>
+#import "RMDataObject.h"
 
-@interface RMUser : NSObject
+@interface RMUser : RMDataObject
 @property (nonatomic, retain) NSNumber *userId;      // ID of the user
 @property (nonatomic, retain) NSString *firstName;   // User’s first name
 @property (nonatomic, retain) NSString *lastName;    // User’s last name
 @property (nonatomic, retain) NSString *displayName; // User’s display name
 @property (nonatomic, retain) NSString *fullName;    // User’s full name
-+ (RKObjectMapping*) addMappingsTo:(RKObjectMapping*) mapping;
 @end

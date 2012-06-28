@@ -11,4 +11,7 @@
 @interface RMSession : RMUser
 @property (nonatomic, retain) NSURL *avatar;         // User’s avatar url
 @property (nonatomic, retain) NSString *apiToken;    // Token that should be used for accessing the api
++ (void)startSessionEmail:(NSString*) email Password:(NSString*) password
+                OnSuccess:(RKObjectLoaderDidLoadObjectBlock) success 
+                OnFailure:(RKObjectLoaderDidFailWithErrorBlock) failure;
 @end

@@ -15,6 +15,12 @@
     displayName,
     fullName;
 
++ (void) registerMappingsWith:(RKObjectMappingProvider*) provider 
+{
+    RKObjectMapping* mapping = [self addMappingsTo:[RKObjectMapping mappingForClass:[self class]]];
+    [provider setObjectMapping:mapping forResourcePathPattern:@"/api/users"];
+}
+
 + (RKObjectMapping*) addMappingsTo:(RKObjectMapping*) mapping
 {
     [mapping mapKeyPath:@"id" toAttribute:@"userId"];

@@ -7,13 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <RestKit/RestKit.h>
+#import "RMDataObject.h"
 
-@interface RMHousehold : NSObject
+@interface RMHousehold : RMDataObject
 @property (nonatomic, retain) NSNumber* householdId; // ID of the household
 @property (nonatomic, retain) NSString* displayName; // Household nickname, or address if no nickname specified 
 @property (nonatomic, retain) NSNumber* current;     // Whether it is the current household for given user
 
-+ (RKObjectMapping*) addMappingsTo:(RKObjectMapping*) mapping;
-
++ (void)getHouseholdsOnSuccess:(RKObjectLoaderDidLoadObjectsBlock) success 
+                     OnFailure:(RKObjectLoaderDidFailWithErrorBlock) failure;
 @end

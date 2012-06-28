@@ -25,6 +25,8 @@
 		5FD475C0159B552600F4907C /* libRestKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FD475A3159B51CA00F4907C /* libRestKit.a */; };
 		5FD475C4159B5B0500F4907C /* RMUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FD475C3159B5B0500F4907C /* RMUser.m */; };
 		5FD475C7159B667400F4907C /* RMSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FD475C6159B667400F4907C /* RMSession.m */; };
+		5FD56C0A159C26AA00FCAF22 /* RMDataObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FD56C09159C26AA00FCAF22 /* RMDataObject.m */; };
+		5FD56C0D159C2B6E00FCAF22 /* RMLogEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FD56C0C159C2B6E00FCAF22 /* RMLogEntry.m */; };
 		5FD809E9159BABCB00621038 /* RMHousehold.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FD809E8159BABCB00621038 /* RMHousehold.m */; };
 /* End PBXBuildFile section */
 
@@ -99,6 +101,10 @@
 		5FD475C3159B5B0500F4907C /* RMUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMUser.m; sourceTree = "<group>"; };
 		5FD475C5159B667400F4907C /* RMSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMSession.h; sourceTree = "<group>"; };
 		5FD475C6159B667400F4907C /* RMSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMSession.m; sourceTree = "<group>"; };
+		5FD56C08159C26AA00FCAF22 /* RMDataObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMDataObject.h; sourceTree = "<group>"; };
+		5FD56C09159C26AA00FCAF22 /* RMDataObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMDataObject.m; sourceTree = "<group>"; };
+		5FD56C0B159C2B6E00FCAF22 /* RMLogEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMLogEntry.h; sourceTree = "<group>"; };
+		5FD56C0C159C2B6E00FCAF22 /* RMLogEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMLogEntry.m; sourceTree = "<group>"; };
 		5FD809E7159BABCB00621038 /* RMHousehold.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMHousehold.h; sourceTree = "<group>"; };
 		5FD809E8159BABCB00621038 /* RMHousehold.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMHousehold.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -200,12 +206,16 @@
 		5FD475C1159B5ADA00F4907C /* DataObjects */ = {
 			isa = PBXGroup;
 			children = (
+				5FD56C08159C26AA00FCAF22 /* RMDataObject.h */,
+				5FD56C09159C26AA00FCAF22 /* RMDataObject.m */,
 				5FD475C2159B5B0500F4907C /* RMUser.h */,
 				5FD475C3159B5B0500F4907C /* RMUser.m */,
 				5FD475C5159B667400F4907C /* RMSession.h */,
 				5FD475C6159B667400F4907C /* RMSession.m */,
 				5FD809E7159BABCB00621038 /* RMHousehold.h */,
 				5FD809E8159BABCB00621038 /* RMHousehold.m */,
+				5FD56C0B159C2B6E00FCAF22 /* RMLogEntry.h */,
+				5FD56C0C159C2B6E00FCAF22 /* RMLogEntry.m */,
 			);
 			name = DataObjects;
 			sourceTree = "<group>";
@@ -324,6 +334,8 @@
 				5FD475C4159B5B0500F4907C /* RMUser.m in Sources */,
 				5FD475C7159B667400F4907C /* RMSession.m in Sources */,
 				5FD809E9159BABCB00621038 /* RMHousehold.m in Sources */,
+				5FD56C0A159C26AA00FCAF22 /* RMDataObject.m in Sources */,
+				5FD56C0D159C2B6E00FCAF22 /* RMLogEntry.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
