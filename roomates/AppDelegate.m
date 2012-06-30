@@ -7,9 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "RMSession.h"
-#import "RMHousehold.h"
-#import "RMLogEntry.h"
+
 
 @implementation AppDelegate
 
@@ -17,47 +15,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {   
-    RKLogConfigureByName("RestKit", RKLogLevelTrace);
-//    RKLogConfigureByName("RestKit/Network", RKLogLevelTrace);
-    RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelTrace);
-//    RKLogConfigureByName("RestKit/CoreData", RKLogLevelTrace);
-    
-    NSString *url = @"http://roommates-staging.herokuapp.com";
-    
-    RKObjectManager* mgr = [RKObjectManager managerWithBaseURLString:url];
-    mgr.serializationMIMEType = RKMIMETypeJSON;
-    [mgr.client setValue:@"application/roommates.v1" forHTTPHeaderField:@"Accept"];
-
-    // Setup our mappings.
-    [RMUser registerMappingsWith:mgr.mappingProvider];
-    [RMHousehold registerMappingsWith:mgr.mappingProvider];
-    [RMLogEntry registerMappingsWith:mgr.mappingProvider];
-    
-    //TODO: these might be useful later when I'm uploading
-//    // Setup out class routes.
-//    [mgr.router routeClass:[RMUser class] toResourcePath:@"/api/users" forMethod:RKRequestMethodGET];
-//    [mgr.router routeClass:[RMHousehold class] toResourcePath:@"/api/households" forMethod:RKRequestMethodGET];
-
-
-    [RMSession startSessionEmail:@"delany@gmail.com" Password:@"123456" OnSuccess:^(RMSession *session) {
-        NSLog(@"Loaded User ID #%@ -> Name: %@, token: %@", session.userId, session.fullName, session.apiToken);
-        [RMHousehold getHouseholdsOnSuccess:^(NSArray *households) {
-            NSLog(@"Households: %@", households);
-            RMHousehold *first = [households objectAtIndex:0];
-            [RMLogEntry getLogEntriesForHousehold:first.householdId OnSuccess:^(NSArray *logEntries) {
-                for (RMLogEntry *entry in logEntries) {
-                    NSLog(@"%@", entry);
-                }
-            } OnFailure:^(NSError *error) {
-                NSLog(@"Couldn't fetch feeds: %@", error);
-            }];
-        } OnFailure:^(NSError *error) {
-            NSLog(@"Couldn't fetch households: %@", error);
-        }];
-    } OnFailure:^(NSError *error) {
-        NSLog(@"Encountered an error: %@", error);
-    }];
-
     // Override point for customization after application launch.
     return YES;
 }

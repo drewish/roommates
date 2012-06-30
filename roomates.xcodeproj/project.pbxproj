@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5F034123159E77D000A81275 /* LogEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F034122159E77D000A81275 /* LogEntryViewController.m */; };
+		5F286C2D159E93E400310016 /* LogEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F286C2C159E93E400310016 /* LogEntryCell.m */; };
 		5F703C441598FECD00EA51DF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F703C431598FECD00EA51DF /* UIKit.framework */; };
 		5F703C461598FECD00EA51DF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F703C451598FECD00EA51DF /* Foundation.framework */; };
 		5F703C481598FECD00EA51DF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F703C471598FECD00EA51DF /* CoreGraphics.framework */; };
@@ -76,6 +78,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5F034121159E77D000A81275 /* LogEntryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogEntryViewController.h; sourceTree = "<group>"; };
+		5F034122159E77D000A81275 /* LogEntryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogEntryViewController.m; sourceTree = "<group>"; };
+		5F286C2B159E93E400310016 /* LogEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogEntryCell.h; sourceTree = "<group>"; };
+		5F286C2C159E93E400310016 /* LogEntryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogEntryCell.m; sourceTree = "<group>"; };
 		5F703C3F1598FECD00EA51DF /* roomates.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = roomates.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F703C431598FECD00EA51DF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5F703C451598FECD00EA51DF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -131,6 +137,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5F286C2A159E93C500310016 /* ActivityFeed */ = {
+			isa = PBXGroup;
+			children = (
+				5F034121159E77D000A81275 /* LogEntryViewController.h */,
+				5F034122159E77D000A81275 /* LogEntryViewController.m */,
+				5F286C2B159E93E400310016 /* LogEntryCell.h */,
+				5F286C2C159E93E400310016 /* LogEntryCell.m */,
+			);
+			name = ActivityFeed;
+			sourceTree = "<group>";
+		};
 		5F703C341598FECC00EA51DF = {
 			isa = PBXGroup;
 			children = (
@@ -173,6 +190,7 @@
 				5F703C551598FECD00EA51DF /* MainStoryboard.storyboard */,
 				5F703C581598FECD00EA51DF /* ViewController.h */,
 				5F703C591598FECD00EA51DF /* ViewController.m */,
+				5F286C2A159E93C500310016 /* ActivityFeed */,
 				5F703C4A1598FECD00EA51DF /* Supporting Files */,
 			);
 			path = roomates;
@@ -336,6 +354,8 @@
 				5FD809E9159BABCB00621038 /* RMHousehold.m in Sources */,
 				5FD56C0A159C26AA00FCAF22 /* RMDataObject.m in Sources */,
 				5FD56C0D159C2B6E00FCAF22 /* RMLogEntry.m in Sources */,
+				5F034123159E77D000A81275 /* LogEntryViewController.m in Sources */,
+				5F286C2D159E93E400310016 /* LogEntryCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

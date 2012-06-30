@@ -9,7 +9,7 @@
 #import "RMLogEntry.h"
 
 @implementation RMLogEntry
-@synthesize entryId, label, action, actorId, updatedAt, loggableId, loggableType;
+@synthesize entryId, label, description, action, actorId, updatedAt, loggableId, loggableType;
 @synthesize householdId;
 
 + (void) registerMappingsWith:(RKObjectMappingProvider*) provider 
@@ -23,6 +23,7 @@
 //    [mapping mapKeyPathsToAttributes:@"label", @"action", nil];
     [mapping mapKeyPath:@"id" toAttribute:@"entryId"];
     [mapping mapKeyPath:@"label" toAttribute:@"label"];
+    [mapping mapKeyPath:@"description" toAttribute:@"description"];
     [mapping mapKeyPath:@"action" toAttribute:@"action"];
     [mapping mapKeyPath:@"actor_id" toAttribute:@"actorId"];
     [mapping mapKeyPath:@"updated_at" toAttribute:@"updatedAt"];

@@ -11,6 +11,7 @@
 @interface RMLogEntry : RMDataObject
 @property (nonatomic, retain) NSNumber* entryId;        // entry id
 @property (nonatomic, retain) NSString* label;          // entry kind (shopping, todo, note, expense, reimbursal, comment) description – entry description
+@property (nonatomic, retain) NSString* description;    // entry description
 @property (nonatomic, retain) NSString* action;         // entry action (e.g. “Posted by”)
 @property (nonatomic, retain) NSNumber* actorId;        // id of user who performed specified action
 @property (nonatomic, retain) NSNumber* updatedAt;      // timestamp
