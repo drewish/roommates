@@ -1,5 +1,5 @@
 //
-// Prefix header for all source files of the 'roomates' target in the 'roomates' project
+// Prefix header for all source files of the 'roommates' target in the 'roommates' project
 //
 
 #import <Availability.h>

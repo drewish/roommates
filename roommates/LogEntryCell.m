@@ -1,6 +1,6 @@
 //
 //  LogEntryCell.m
-//  roomates
+//  roommates
 //
 //  Created by andrew morton on 6/29/12.
 //  Copyright (c) 2012 drewish.com. All rights reserved.

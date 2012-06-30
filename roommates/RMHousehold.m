@@ -1,6 +1,6 @@
 //
 //  RMHousehold.m
-//  roomates
+//  roommates
 //
 //  Created by andrew morton on 6/27/12.
 //  Copyright (c) 2012 drewish.com. All rights reserved.
@@ -11,7 +11,7 @@
 @implementation RMHousehold
 @synthesize householdId, displayName, current;
 
-+ (void) registerMappingsWith:(RKObjectMappingProvider*) provider 
++ (void) registerMappingsWith:(RKObjectMappingProvider*) provider
 {
     RKObjectMapping* mapping = [self addMappingsTo:[RKObjectMapping mappingForClass:[self class]]];
     [provider setObjectMapping:mapping forResourcePathPattern:@"/api/households"];
@@ -25,7 +25,7 @@
     return mapping;
 }
 
-+ (void)getHouseholdsOnSuccess:(RKObjectLoaderDidLoadObjectsBlock) success 
++ (void)getHouseholdsOnSuccess:(RKObjectLoaderDidLoadObjectsBlock) success
                      OnFailure:(RKObjectLoaderDidFailWithErrorBlock) failure
 {
     [[RKObjectManager sharedManager] loadObjectsAtResourcePath:@"/api/households" usingBlock:^(RKObjectLoader *loader) {

@@ -82,14 +82,14 @@
 		5F034122159E77D000A81275 /* LogEntryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogEntryViewController.m; sourceTree = "<group>"; };
 		5F286C2B159E93E400310016 /* LogEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogEntryCell.h; sourceTree = "<group>"; };
 		5F286C2C159E93E400310016 /* LogEntryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogEntryCell.m; sourceTree = "<group>"; };
-		5F703C3F1598FECD00EA51DF /* roomates.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = roomates.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F703C3F1598FECD00EA51DF /* roommates.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = roommates.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F703C431598FECD00EA51DF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5F703C451598FECD00EA51DF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5F703C471598FECD00EA51DF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		5F703C4B1598FECD00EA51DF /* roomates-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "roomates-Info.plist"; sourceTree = "<group>"; };
+		5F703C4B1598FECD00EA51DF /* roommates-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "roommates-Info.plist"; sourceTree = "<group>"; };
 		5F703C4D1598FECD00EA51DF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5F703C4F1598FECD00EA51DF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		5F703C511598FECD00EA51DF /* roomates-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "roomates-Prefix.pch"; sourceTree = "<group>"; };
+		5F703C511598FECD00EA51DF /* roommates-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "roommates-Prefix.pch"; sourceTree = "<group>"; };
 		5F703C521598FECD00EA51DF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5F703C531598FECD00EA51DF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		5F703C561598FECD00EA51DF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
@@ -159,7 +159,7 @@
 				5FD475B0159B536C00F4907C /* CFNetwork.framework */,
 				5FD475B1159B536C00F4907C /* CoreData.framework */,
 				5FD47597159B51C900F4907C /* RestKit.xcodeproj */,
-				5F703C491598FECD00EA51DF /* roomates */,
+				5F703C491598FECD00EA51DF /* roommates */,
 				5F703C421598FECD00EA51DF /* Frameworks */,
 				5F703C401598FECD00EA51DF /* Products */,
 			);
@@ -168,7 +168,7 @@
 		5F703C401598FECD00EA51DF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5F703C3F1598FECD00EA51DF /* roomates.app */,
+				5F703C3F1598FECD00EA51DF /* roommates.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -183,7 +183,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		5F703C491598FECD00EA51DF /* roomates */ = {
+		5F703C491598FECD00EA51DF /* roommates */ = {
 			isa = PBXGroup;
 			children = (
 				5FD475C1159B5ADA00F4907C /* DataObjects */,
@@ -193,7 +193,8 @@
 				5F286C2A159E93C500310016 /* ActivityFeed */,
 				5F703C4A1598FECD00EA51DF /* Supporting Files */,
 			);
-			path = roomates;
+			name = roommates;
+			path = roommates;
 			sourceTree = "<group>";
 		};
 		5F703C4A1598FECD00EA51DF /* Supporting Files */ = {
@@ -201,10 +202,10 @@
 			children = (
 				5F703C521598FECD00EA51DF /* AppDelegate.h */,
 				5F703C531598FECD00EA51DF /* AppDelegate.m */,
-				5F703C4B1598FECD00EA51DF /* roomates-Info.plist */,
+				5F703C4B1598FECD00EA51DF /* roommates-Info.plist */,
 				5F703C4C1598FECD00EA51DF /* InfoPlist.strings */,
 				5F703C4F1598FECD00EA51DF /* main.m */,
-				5F703C511598FECD00EA51DF /* roomates-Prefix.pch */,
+				5F703C511598FECD00EA51DF /* roommates-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -241,9 +242,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5F703C3E1598FECD00EA51DF /* roomates */ = {
+		5F703C3E1598FECD00EA51DF /* roommates */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5F703C5D1598FECD00EA51DF /* Build configuration list for PBXNativeTarget "roomates" */;
+			buildConfigurationList = 5F703C5D1598FECD00EA51DF /* Build configuration list for PBXNativeTarget "roommates" */;
 			buildPhases = (
 				5F703C3B1598FECD00EA51DF /* Sources */,
 				5F703C3C1598FECD00EA51DF /* Frameworks */,
@@ -254,9 +255,9 @@
 			dependencies = (
 				5FD475BF159B54D800F4907C /* PBXTargetDependency */,
 			);
-			name = roomates;
-			productName = roomates;
-			productReference = 5F703C3F1598FECD00EA51DF /* roomates.app */;
+			name = roommates;
+			productName = roommates;
+			productReference = 5F703C3F1598FECD00EA51DF /* roommates.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -268,7 +269,7 @@
 				LastUpgradeCheck = 0430;
 				ORGANIZATIONNAME = drewish.com;
 			};
-			buildConfigurationList = 5F703C391598FECC00EA51DF /* Build configuration list for PBXProject "roomates" */;
+			buildConfigurationList = 5F703C391598FECC00EA51DF /* Build configuration list for PBXProject "roommates" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -286,7 +287,7 @@
 			);
 			projectRoot = "";
 			targets = (
-				5F703C3E1598FECD00EA51DF /* roomates */,
+				5F703C3E1598FECD00EA51DF /* roommates */,
 			);
 		};
 /* End PBXProject section */
@@ -438,9 +439,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "roomates/roomates-Prefix.pch";
+				GCC_PREFIX_HEADER = "roommates/roommates-Prefix.pch";
 				HEADER_SEARCH_PATHS = "\"$(BUILT_PRODUCTS_DIR)/../../Headers\"";
-				INFOPLIST_FILE = "roomates/roomates-Info.plist";
+				INFOPLIST_FILE = "roommates/roommates-Info.plist";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -451,9 +452,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "roomates/roomates-Prefix.pch";
+				GCC_PREFIX_HEADER = "roommates/roommates-Prefix.pch";
 				HEADER_SEARCH_PATHS = "\"$(BUILT_PRODUCTS_DIR)/../../Headers\"";
-				INFOPLIST_FILE = "roomates/roomates-Info.plist";
+				INFOPLIST_FILE = "roommates/roommates-Info.plist";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -463,7 +464,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5F703C391598FECC00EA51DF /* Build configuration list for PBXProject "roomates" */ = {
+		5F703C391598FECC00EA51DF /* Build configuration list for PBXProject "roommates" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5F703C5B1598FECD00EA51DF /* Debug */,
@@ -472,7 +473,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5F703C5D1598FECD00EA51DF /* Build configuration list for PBXNativeTarget "roomates" */ = {
+		5F703C5D1598FECD00EA51DF /* Build configuration list for PBXNativeTarget "roommates" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5F703C5E1598FECD00EA51DF /* Debug */,

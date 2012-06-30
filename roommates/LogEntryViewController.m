@@ -1,6 +1,6 @@
 //
 //  LogEntryViewController.m
-//  roomates
+//  roommates
 //
 //  Created by andrew morton on 6/29/12.
 //  Copyright (c) 2012 drewish.com. All rights reserved.
@@ -32,70 +32,70 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+
 //    RKLogConfigureByName("RestKit", RKLogLevelTrace);
     RKLogConfigureByName("RestKit/Network", RKLogLevelTrace);
 //    RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelTrace);
 //    RKLogConfigureByName("RestKit/CoreData", RKLogLevelTrace);
-    
+
     NSString *url = @"http://roommates-staging.herokuapp.com";
-    
+
     RKObjectManager* mgr = [RKObjectManager managerWithBaseURLString:url];
     mgr.serializationMIMEType = RKMIMETypeJSON;
     mgr.client.requestQueue.showsNetworkActivityIndicatorWhenBusy = YES;
     [mgr.client setValue:@"application/roommates.v1" forHTTPHeaderField:@"Accept"];
-    
+
     // Setup our mappings.
     [RMUser registerMappingsWith:mgr.mappingProvider];
     [RMHousehold registerMappingsWith:mgr.mappingProvider];
     [RMLogEntry registerMappingsWith:mgr.mappingProvider];
-    
+
     //TODO: these might be useful later when I'm uploading
     //    // Setup out class routes.
     //    [mgr.router routeClass:[RMUser class] toResourcePath:@"/api/users" forMethod:RKRequestMethodGET];
     //    [mgr.router routeClass:[RMHousehold class] toResourcePath:@"/api/households" forMethod:RKRequestMethodGET];
-    
-    
+
+
     [RMSession startSessionEmail:@"delany@gmail.com" Password:@"123456" OnSuccess:^(RMSession *session) {
         NSLog(@"Loaded User ID #%@ -> Name: %@, token: %@", session.userId, session.fullName, session.apiToken);
         // FIXME: hardcoding this for now
         NSNumber *theId = [NSNumber numberWithInt:1];
-        
+
         [RMLogEntry getLogEntriesForHousehold:theId OnSuccess:^(NSArray *logEntries_) {
             logEntries = logEntries_;
-            [self.tableView reloadData]; 
+            [self.tableView reloadData];
         } OnFailure:^(NSError *error) {
             NSLog(@"Couldn't fetch feeds: %@", error);
-            [[[UIAlertView alloc] initWithTitle:@"Error" 
-                                        message:[error localizedDescription] 
-                                       delegate:nil 
-                              cancelButtonTitle:@"OK" 
+            [[[UIAlertView alloc] initWithTitle:@"Error"
+                                        message:[error localizedDescription]
+                                       delegate:nil
+                              cancelButtonTitle:@"OK"
                               otherButtonTitles:nil] show];
         }];
-        
+
         [RMHousehold getHouseholdsOnSuccess:^(NSArray *households) {
             NSLog(@"Households: %@", households);
             // TODO store this some place:....
         } OnFailure:^(NSError *error) {
             NSLog(@"Couldn't fetch households: %@", error);
-            [[[UIAlertView alloc] initWithTitle:@"Error" 
-                                        message:[error localizedDescription] 
-                                       delegate:nil 
-                              cancelButtonTitle:@"OK" 
+            [[[UIAlertView alloc] initWithTitle:@"Error"
+                                        message:[error localizedDescription]
+                                       delegate:nil
+                              cancelButtonTitle:@"OK"
                               otherButtonTitles:nil] show];
         }];
     } OnFailure:^(NSError *error) {
         NSLog(@"Encountered an error: %@", error);
-        [[[UIAlertView alloc] initWithTitle:@"Error" 
-                                    message:[error localizedDescription] 
-                                   delegate:nil 
-                          cancelButtonTitle:@"OK" 
+        [[[UIAlertView alloc] initWithTitle:@"Error"
+                                    message:[error localizedDescription]
+                                   delegate:nil
+                          cancelButtonTitle:@"OK"
                           otherButtonTitles:nil] show];
     }];
-    
+
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
- 
+
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
@@ -128,10 +128,10 @@
 {
     static NSString *CellIdentifier = @"LogEntry";
     LogEntryCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    
+
     // Configure the cell...
     RMLogEntry *le = [self.logEntries objectAtIndex:indexPath.row];
-    
+
     UIColor *lableColor;
     if ([le.label isEqualToString:@"agreement"]) {
         lableColor = [UIColor colorWithRed:0.616 green:0.149 blue:0.114 alpha:1.000];
@@ -181,10 +181,10 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
         [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
+    }
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+    }
 }
 */
 

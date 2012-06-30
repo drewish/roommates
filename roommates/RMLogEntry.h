@@ -1,6 +1,6 @@
 //
 //  RMLogEntry.h
-//  roomates
+//  roommates
 //
 //  Created by andrew morton on 6/28/12.
 //  Copyright (c) 2012 drewish.com. All rights reserved.
@@ -21,6 +21,6 @@
 @property (nonatomic, retain) NSNumber* householdId;        // TESTING THIS to see if it'll get it working.
 
 + (void)getLogEntriesForHousehold:(NSNumber*) householdId
-                        OnSuccess:(RKObjectLoaderDidLoadObjectsBlock) success 
+                        OnSuccess:(RKObjectLoaderDidLoadObjectsBlock) success
                         OnFailure:(RKObjectLoaderDidFailWithErrorBlock) failure;
 @end

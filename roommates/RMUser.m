@@ -1,6 +1,6 @@
 //
 //  RMUser.m
-//  roomates
+//  roommates
 //
 //  Created by andrew morton on 6/27/12.
 //  Copyright (c) 2012 drewish.com. All rights reserved.
@@ -9,13 +9,13 @@
 #import "RMUser.h"
 
 @implementation RMUser
-@synthesize userId, 
+@synthesize userId,
     firstName,
     lastName,
     displayName,
     fullName;
 
-+ (void) registerMappingsWith:(RKObjectMappingProvider*) provider 
++ (void) registerMappingsWith:(RKObjectMappingProvider*) provider
 {
     RKObjectMapping* mapping = [self addMappingsTo:[RKObjectMapping mappingForClass:[self class]]];
     [provider setObjectMapping:mapping forResourcePathPattern:@"/api/users"];

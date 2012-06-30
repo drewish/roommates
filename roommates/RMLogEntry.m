@@ -1,6 +1,6 @@
 //
 //  RMLogEntry.m
-//  roomates
+//  roommates
 //
 //  Created by andrew morton on 6/28/12.
 //  Copyright (c) 2012 drewish.com. All rights reserved.
@@ -12,7 +12,7 @@
 @synthesize entryId, label, description, action, actorId, updatedAt, loggableId, loggableType;
 @synthesize householdId;
 
-+ (void) registerMappingsWith:(RKObjectMappingProvider*) provider 
++ (void) registerMappingsWith:(RKObjectMappingProvider*) provider
 {
     RKObjectMapping* mapping = [self addMappingsTo:[RKObjectMapping mappingForClass:[self class]]];
     [provider setObjectMapping:mapping forResourcePathPattern:@"/api/households/:householdId/log_entries"];
@@ -33,7 +33,7 @@
 }
 
 + (void)getLogEntriesForHousehold:(NSNumber*) householdId
-                        OnSuccess:(RKObjectLoaderDidLoadObjectsBlock) success 
+                        OnSuccess:(RKObjectLoaderDidLoadObjectsBlock) success
                      OnFailure:(RKObjectLoaderDidFailWithErrorBlock) failure
 {
     NSString *path = [NSString stringWithFormat:@"/api/households/%i/log_entries", householdId.intValue];
