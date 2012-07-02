@@ -10,7 +10,7 @@
 
 @implementation LogEntryCell
 
-@synthesize descriptionLabel;
+@synthesize summaryLabel;
 @synthesize labelLabel;
 @synthesize actionLabel;
 @synthesize agoLabel;

@@ -151,16 +151,28 @@
     else if ([le.label isEqualToString:@"shopping"] || [le.label isEqualToString:@"todo"]) {
         lableColor = [UIColor colorWithRed:0.973 green:0.580 blue:0.024 alpha:1.000];
     }
-
     cell.labelLabel.textColor = lableColor;
     cell.labelLabel.text = le.label;
-    CGRect newBounds = cell.descriptionLabel.bounds;
-    newBounds.origin.x = cell.labelLabel.bounds.origin.x + cell.labelLabel.bounds.size.width + 10;
-    cell.descriptionLabel.bounds = newBounds;
-    cell.descriptionLabel.text = le.description;
+    
     // TODO: should convert the user id into a user's display name.
-    cell.actionLabel.text = [NSString stringWithFormat:@"%@ %@", le.action, le.actorId];
+    cell.actionLabel.text = [NSString stringWithFormat:@"%@ User# %@", le.action, le.actorId];
+
+    // Move the action over next to the label
+    CGSize labelSize = [le.label sizeWithFont:cell.labelLabel.font];
+    CGRect frame = cell.actionLabel.frame;
+    frame.origin.x = cell.labelLabel.frame.origin.x + labelSize.width + 10;
+    cell.actionLabel.frame = frame;
+    
+    // TODO the API should be returning a timestamp that we can format as time ago...
     cell.agoLabel.text = [le.updatedAt stringValue];
+
+    cell.summaryLabel.text = le.summary;
+    // If this is a completed list item denote that using strike through text.
+    if ([le.action isEqualToString:@"Completed by"]) {
+        // TODO: iOS doesn't support strike through but we should be able to
+        // just draw a line across. for now we'll just stick dashes in there.
+        cell.summaryLabel.text = [NSString stringWithFormat:@"-%@-", [le.summary stringByReplacingOccurrencesOfString:@" " withString:@"-"]];
+    }
 
     return cell;
 }

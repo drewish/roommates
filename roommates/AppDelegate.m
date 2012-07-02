@@ -16,6 +16,12 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+  
+    // TODO Need to get the actual RGB value.
+    [[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:0.706 green:0.196 blue:0.086 alpha:1.000]];
+    // Lets darken up the buttons for now.
+    [[UIToolbar appearance] setTintColor:[UIColor blackColor]];
+    
     return YES;
 }
 

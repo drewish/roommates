@@ -12,6 +12,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *labelLabel;
 @property (weak, nonatomic) IBOutlet UILabel *actionLabel;
 @property (weak, nonatomic) IBOutlet UILabel *agoLabel;
-@property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
-
+@property (weak, nonatomic) IBOutlet UILabel *summaryLabel;
 @end

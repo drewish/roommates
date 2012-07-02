@@ -30,4 +30,8 @@
     [mapping mapKeyPath:@"full_name" toAttribute:@"fullName"];
     return mapping;
 }
+
+- (NSString*)description {
+	return [NSString stringWithFormat:@"RMUser (id: %@, first: %@, last: %@, display: %@)", self.userId, self.firstName, self.lastName, self.displayName];
+}
 @end

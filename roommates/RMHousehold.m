@@ -33,4 +33,10 @@
         loader.onDidFailWithError = failure;
     }];
 }
+
+- (NSString*)description {
+	return [NSString stringWithFormat:@"RMHousehold (id: %@, displayName: %@ current: %@)", 
+            self.householdId, self.displayName, self.current];
+}
+
 @end

@@ -10,7 +10,7 @@
 #import <RestKit/RestKit.h>
 
 @interface LogEntryViewController : UITableViewController <UITableViewDelegate,
-    UITableViewDataSource, RKObjectLoaderDelegate>
+    UITableViewDataSource>
 
 @property (nonatomic, retain) NSArray* logEntries;
 
