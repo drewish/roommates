@@ -6,9 +6,13 @@
 //  Copyright (c) 2012 drewish.com. All rights reserved.
 //
 
-#import "RMDataObject.h"
+#import "RMObject.h"
 
-@interface RMLogEntry : RMDataObject
+@interface RMLogEntry : NSObject <RMObject>
++ (void)getLogEntriesForHousehold:(NSNumber*) householdId
+                        OnSuccess:(RKObjectLoaderDidLoadObjectsBlock) success
+                        OnFailure:(RKObjectLoaderDidFailWithErrorBlock) failure;
+
 @property (nonatomic, retain) NSNumber* entryId;        // entry id
 @property (nonatomic, retain) NSString* label;          // entry kind (shopping, todo, note, expense, reimbursal, comment) description – entry description
 @property (nonatomic, retain) NSString* summary;        // entry description (renamed because it conflicts with the Objective-C description message).
@@ -20,7 +24,4 @@
 
 @property (nonatomic, retain) NSNumber* householdId;        // TESTING THIS to see if it'll get it working.
 
-+ (void)getLogEntriesForHousehold:(NSNumber*) householdId
-                        OnSuccess:(RKObjectLoaderDidLoadObjectsBlock) success
-                        OnFailure:(RKObjectLoaderDidFailWithErrorBlock) failure;
 @end

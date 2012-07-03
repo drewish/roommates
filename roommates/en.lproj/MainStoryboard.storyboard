@@ -6,11 +6,11 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1181"/>
     </dependencies>
     <scenes>
-        <!--ActivityList-->
+        <!--Log Entry View Controller - Activity Feed-->
         <scene sceneID="zjV-vM-4rg">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DeI-YY-qOa" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tableViewController storyboardIdentifier="ActivityFeed" id="buW-vF-Tn7" userLabel="ActivityList" customClass="LogEntryViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="LogEntryList" id="buW-vF-Tn7" customClass="LogEntryViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="52" sectionHeaderHeight="10" sectionFooterHeight="10" id="I8r-EE-R00">
                         <rect key="frame" x="0.0" y="64" width="320" height="372"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -82,11 +82,40 @@
             </objects>
             <point key="canvasLocation" x="876" y="91"/>
         </scene>
-        <!--MenuViewController-->
+        <!--Table View Controller-->
+        <scene sceneID="ifs-4T-ELP">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5Aj-ZF-jYw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewController storyboardIdentifier="NoteList" id="apE-yS-col" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="nH3-ka-ugl">
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="R9O-CA-sgQ">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="apE-yS-col" id="HTt-05-Ofv"/>
+                            <outlet property="delegate" destination="apE-yS-col" id="5gx-7K-K6C"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+            </objects>
+            <point key="canvasLocation" x="876" y="729"/>
+        </scene>
+        <!--Menu View Controller-->
         <scene sceneID="9fd-hc-8PW">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZhT-Ml-HVY" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tableViewController storyboardIdentifier="Menu" id="hLV-Ac-HHo" userLabel="MenuViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="Menu" id="hLV-Ac-HHo" customClass="MenuViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="TcX-dT-lNf">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -234,7 +263,7 @@
                     </tableView>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="857" y="-530"/>
+            <point key="canvasLocation" x="344" y="696"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="MoL-Ss-7mq">
@@ -261,20 +290,6 @@
             <point key="canvasLocation" x="344" y="91"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="LogEntryCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LogEntryCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="actionLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="agoLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="labelLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="summaryLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="LogEntryViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LogEntryViewController.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

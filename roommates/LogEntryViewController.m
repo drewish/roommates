@@ -9,8 +9,10 @@
 #import "LogEntryViewController.h"
 #import "LogEntryCell.h"
 #import "RMSession.h"
+#import "RMUser.h"
 #import "RMHousehold.h"
 #import "RMLogEntry.h"
+
 @interface LogEntryViewController ()
 
 @end
@@ -29,39 +31,10 @@
     return self;
 }
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-
-//    RKLogConfigureByName("RestKit", RKLogLevelTrace);
-    RKLogConfigureByName("RestKit/Network", RKLogLevelTrace);
-//    RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelTrace);
-//    RKLogConfigureByName("RestKit/CoreData", RKLogLevelTrace);
-
-    NSString *url = @"http://roommates-staging.herokuapp.com";
-
-    RKObjectManager* mgr = [RKObjectManager managerWithBaseURLString:url];
-    mgr.serializationMIMEType = RKMIMETypeJSON;
-    mgr.client.requestQueue.showsNetworkActivityIndicatorWhenBusy = YES;
-    [mgr.client setValue:@"application/roommates.v1" forHTTPHeaderField:@"Accept"];
-
-    // Setup our mappings.
-    [RMUser registerMappingsWith:mgr.mappingProvider];
-    [RMHousehold registerMappingsWith:mgr.mappingProvider];
-    [RMLogEntry registerMappingsWith:mgr.mappingProvider];
-
-    //TODO: these might be useful later when I'm uploading
-    //    // Setup out class routes.
-    //    [mgr.router routeClass:[RMUser class] toResourcePath:@"/api/users" forMethod:RKRequestMethodGET];
-    //    [mgr.router routeClass:[RMHousehold class] toResourcePath:@"/api/households" forMethod:RKRequestMethodGET];
-
-
-    [RMSession startSessionEmail:@"delany@gmail.com" Password:@"123456" OnSuccess:^(RMSession *session) {
-        NSLog(@"Loaded User ID #%@ -> Name: %@, token: %@", session.userId, session.fullName, session.apiToken);
-        // FIXME: hardcoding this for now
-        NSNumber *theId = [NSNumber numberWithInt:1];
-
-        [RMLogEntry getLogEntriesForHousehold:theId OnSuccess:^(NSArray *logEntries_) {
+- (void)fetchTheFeeds {
+    RMHousehold *current = [RMHousehold current];
+    if (current != nil) {
+        [RMLogEntry getLogEntriesForHousehold:current.householdId OnSuccess:^(NSArray *logEntries_) {
             logEntries = logEntries_;
             [self.tableView reloadData];
         } OnFailure:^(NSError *error) {
@@ -72,18 +45,37 @@
                               cancelButtonTitle:@"OK"
                               otherButtonTitles:nil] show];
         }];
+    }
+}
 
-        [RMHousehold getHouseholdsOnSuccess:^(NSArray *households) {
-            NSLog(@"Households: %@", households);
-            // TODO store this some place:....
-        } OnFailure:^(NSError *error) {
-            NSLog(@"Couldn't fetch households: %@", error);
-            [[[UIAlertView alloc] initWithTitle:@"Error"
-                                        message:[error localizedDescription]
-                                       delegate:nil
-                              cancelButtonTitle:@"OK"
-                              otherButtonTitles:nil] show];
-        }];
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+
+    self.navigationItem.leftBarButtonItem.target = self.navigationController.parentViewController;
+    self.navigationItem.leftBarButtonItem.action = @selector(revealToggle:);
+
+
+    [RMSession startSessionEmail:@"delany@gmail.com" Password:@"123456" OnSuccess:^(RMSession *session) {
+        NSLog(@"Loaded User ID #%@ -> Name: %@, token: %@", session.userId, session.fullName, session.apiToken);
+
+        // Try to figure out if we know about any households before fetching
+        // the log entries.
+        NSArray *households = [RMHousehold households];
+        if (households.count > 1) {
+            [self fetchTheFeeds];
+        }
+        else {
+            [RMHousehold getHouseholdsOnSuccess:^(NSArray *objects) {
+                [self fetchTheFeeds];
+            } OnFailure:^(NSError *error) {
+                [[[UIAlertView alloc] initWithTitle:@"Error"
+                                            message:[error localizedDescription]
+                                           delegate:nil
+                                  cancelButtonTitle:@"OK"
+                                  otherButtonTitles:nil] show];
+            }];
+        }
     } OnFailure:^(NSError *error) {
         NSLog(@"Encountered an error: %@", error);
         [[[UIAlertView alloc] initWithTitle:@"Error"
@@ -129,6 +121,7 @@
     static NSString *CellIdentifier = @"LogEntry";
     LogEntryCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 
+    // TODO this should move into LogEntryCell.m?
     // Configure the cell...
     RMLogEntry *le = [self.logEntries objectAtIndex:indexPath.row];
 

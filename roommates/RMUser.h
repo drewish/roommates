@@ -7,9 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "RMDataObject.h"
+#import "RMManagedObject.h"
 
-@interface RMUser : RMDataObject
+@interface RMUser : NSManagedObject <RMManagedObject>
++ (NSArray *)users;
+
 @property (nonatomic, retain) NSNumber *userId;      // ID of the user
 @property (nonatomic, retain) NSString *firstName;   // User’s first name
 @property (nonatomic, retain) NSString *lastName;    // User’s last name

@@ -7,7 +7,11 @@
 //
 
 #import "AppDelegate.h"
-
+#import "ZUUIRevealController.h"
+#import "RMSession.h"
+#import "RMUser.h"
+#import "RMHousehold.h"
+#import "RMLogEntry.h"
 
 @implementation AppDelegate
 
@@ -16,12 +20,51 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-  
+
+    //    RKLogConfigureByName("RestKit", RKLogLevelTrace);
+    RKLogConfigureByName("RestKit/Network", RKLogLevelTrace);
+    //    RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelTrace);
+    //    RKLogConfigureByName("RestKit/CoreData", RKLogLevelTrace);
+
+    NSString *url = @"http://roommates-staging.herokuapp.com";
+
+    RKObjectManager* mgr = [RKObjectManager managerWithBaseURLString:url];
+    mgr.serializationMIMEType = RKMIMETypeJSON;
+    mgr.client.requestQueue.showsNetworkActivityIndicatorWhenBusy = YES;
+    [mgr.client setValue:@"application/roommates.v1" forHTTPHeaderField:@"Accept"];
+
+    RKManagedObjectStore* objectStore = [RKManagedObjectStore objectStoreWithStoreFilename:@"RMData.sqlite"];
+    mgr.objectStore = objectStore;
+
+    // Setup our mappings.
+    [RMUser registerMappingsWith:mgr.mappingProvider inManagedObjectStore:objectStore];
+    [RMHousehold registerMappingsWith:mgr.mappingProvider inManagedObjectStore:objectStore];
+    [RMLogEntry registerMappingsWith:mgr.mappingProvider];
+
+    //TODO: these might be useful later when I'm uploading
+    //    // Setup out class routes.
+    //    [mgr.router routeClass:[RMUser class] toResourcePath:@"/api/users" forMethod:RKRequestMethodGET];
+    //    [mgr.router routeClass:[RMHousehold class] toResourcePath:@"/api/households" forMethod:RKRequestMethodGET];
+
+
     // TODO Need to get the actual RGB value.
     [[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:0.706 green:0.196 blue:0.086 alpha:1.000]];
     // Lets darken up the buttons for now.
     [[UIToolbar appearance] setTintColor:[UIColor blackColor]];
-    
+
+    UIWindow *window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+	self.window = window;
+
+    UIStoryboard* mainStoryboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+//    UIViewController* frontViewController = [mainStoryboard instantiateViewControllerWithIdentifier:@"Menu"];
+    UIViewController* frontViewController = [mainStoryboard instantiateInitialViewController];
+    UIViewController* rearViewController = [mainStoryboard instantiateViewControllerWithIdentifier:@"Menu"];
+
+	ZUUIRevealController *revealController = [[ZUUIRevealController alloc] initWithFrontViewController:frontViewController rearViewController:rearViewController];
+
+	self.window.rootViewController = revealController;
+	[self.window makeKeyAndVisible];
+
     return YES;
 }
 

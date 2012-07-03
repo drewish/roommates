@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1171" systemVersion="11E53" minimumToolsVersion="Xcode 4.1" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="RMHousehold" syncable="YES">
+        <attribute name="current" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="displayName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="householdId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="users" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RMUser" inverseName="households" inverseEntity="RMUser" syncable="YES"/>
+    </entity>
+    <entity name="RMUser" syncable="YES">
+        <attribute name="displayName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="fullName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="households" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RMHousehold" inverseName="users" inverseEntity="RMHousehold" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="RMHousehold" positionX="-234" positionY="201" width="128" height="105"/>
+        <element name="RMUser" positionX="-495" positionY="198" width="128" height="135"/>
+    </elements>
+</model>

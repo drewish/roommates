@@ -9,8 +9,6 @@
 #import "RMSession.h"
 
 @implementation RMSession
-@synthesize avatar, apiToken;
-
 
 // FIXME: this probably isn't the best way to handle this since they
 // need to call startSessionEmail:... before this is initialized but
@@ -30,7 +28,11 @@ static RMSession *gInstance = nil;
 
 + (RKObjectMapping*) addMappingsTo:(RKObjectMapping*) mapping
 {
-    [super addMappingsTo:mapping];
+    [mapping mapKeyPath:@"id" toAttribute:@"userId"];
+    [mapping mapKeyPath:@"first_name" toAttribute:@"firstName"];
+    [mapping mapKeyPath:@"last_name" toAttribute:@"lastName"];
+    [mapping mapKeyPath:@"display_name" toAttribute:@"displayName"];
+    [mapping mapKeyPath:@"full_name" toAttribute:@"fullName"];
     [mapping mapKeyPath:@"avatar" toAttribute:@"avatar"];
     [mapping mapKeyPath:@"api_token" toAttribute:@"apiToken"];
     return mapping;
@@ -70,5 +72,18 @@ static RMSession *gInstance = nil;
         };
         loader.onDidFailWithError = failure;
     }];
+}
+
+
+@synthesize userId,
+    firstName,
+    lastName,
+    displayName,
+    fullName,
+    avatar, 
+    apiToken;
+
+- (NSString*)description {
+	return [NSString stringWithFormat:@"RMSession (id: %@, apiToken: %@)", self.userId, self.apiToken];
 }
 @end

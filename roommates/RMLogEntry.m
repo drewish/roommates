@@ -9,8 +9,6 @@
 #import "RMLogEntry.h"
 
 @implementation RMLogEntry
-@synthesize entryId, label, summary, action, actorId, updatedAt, loggableId, loggableType;
-@synthesize householdId;
 
 + (void) registerMappingsWith:(RKObjectMappingProvider*) provider
 {
@@ -20,7 +18,6 @@
 
 + (RKObjectMapping*) addMappingsTo:(RKObjectMapping*) mapping
 {
-//    [mapping mapKeyPathsToAttributes:@"label", @"action", nil];
     [mapping mapKeyPath:@"id" toAttribute:@"entryId"];
     [mapping mapKeyPath:@"label" toAttribute:@"label"];
     [mapping mapKeyPath:@"description" toAttribute:@"summary"];
@@ -42,6 +39,17 @@
         loader.onDidFailWithError = failure;
     }];
 }
+
+
+@synthesize entryId, 
+    label,
+    summary,
+    action,
+    actorId,
+    updatedAt,
+    loggableId,
+    loggableType;
+@synthesize householdId;
 
 - (NSString*)description {
 	return [NSString stringWithFormat:@"RMLogEntry (id: %@, %@ %@ by %@ %@)", 

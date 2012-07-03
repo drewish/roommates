@@ -16,7 +16,9 @@
 		5F703C501598FECD00EA51DF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F703C4F1598FECD00EA51DF /* main.m */; };
 		5F703C541598FECD00EA51DF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F703C531598FECD00EA51DF /* AppDelegate.m */; };
 		5F703C571598FECD00EA51DF /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F703C551598FECD00EA51DF /* MainStoryboard.storyboard */; };
-		5F703C5A1598FECD00EA51DF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F703C591598FECD00EA51DF /* ViewController.m */; };
+		5FAD766D15A13F01005BBCAC /* ZUUIRevealController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FAD766C15A13F01005BBCAC /* ZUUIRevealController.m */; };
+		5FAD767915A16321005BBCAC /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FAD767815A16321005BBCAC /* MenuViewController.m */; };
+		5FAD767E15A218F0005BBCAC /* RMData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5FAD767C15A218F0005BBCAC /* RMData.xcdatamodeld */; };
 		5FD475B2159B536C00F4907C /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FD475B0159B536C00F4907C /* CFNetwork.framework */; };
 		5FD475B3159B536C00F4907C /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FD475B1159B536C00F4907C /* CoreData.framework */; };
 		5FD475B5159B537C00F4907C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FD475B4159B537C00F4907C /* Security.framework */; };
@@ -27,7 +29,6 @@
 		5FD475C0159B552600F4907C /* libRestKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FD475A3159B51CA00F4907C /* libRestKit.a */; };
 		5FD475C4159B5B0500F4907C /* RMUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FD475C3159B5B0500F4907C /* RMUser.m */; };
 		5FD475C7159B667400F4907C /* RMSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FD475C6159B667400F4907C /* RMSession.m */; };
-		5FD56C0A159C26AA00FCAF22 /* RMDataObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FD56C09159C26AA00FCAF22 /* RMDataObject.m */; };
 		5FD56C0D159C2B6E00FCAF22 /* RMLogEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FD56C0C159C2B6E00FCAF22 /* RMLogEntry.m */; };
 		5FD809E9159BABCB00621038 /* RMHousehold.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FD809E8159BABCB00621038 /* RMHousehold.m */; };
 /* End PBXBuildFile section */
@@ -93,8 +94,13 @@
 		5F703C521598FECD00EA51DF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5F703C531598FECD00EA51DF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		5F703C561598FECD00EA51DF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		5F703C581598FECD00EA51DF /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		5F703C591598FECD00EA51DF /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		5FAD766A15A13F01005BBCAC /* ZUUIRevealController-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ZUUIRevealController-Prefix.pch"; sourceTree = "<group>"; };
+		5FAD766B15A13F01005BBCAC /* ZUUIRevealController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZUUIRevealController.h; sourceTree = "<group>"; };
+		5FAD766C15A13F01005BBCAC /* ZUUIRevealController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZUUIRevealController.m; sourceTree = "<group>"; };
+		5FAD767715A16321005BBCAC /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
+		5FAD767815A16321005BBCAC /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
+		5FAD767A15A20ED0005BBCAC /* RMManagedObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RMManagedObject.h; sourceTree = "<group>"; };
+		5FAD767D15A218F0005BBCAC /* RMData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RMData.xcdatamodel; sourceTree = "<group>"; };
 		5FD47597159B51C900F4907C /* RestKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RestKit.xcodeproj; path = RestKit/RestKit.xcodeproj; sourceTree = "<group>"; };
 		5FD475B0159B536C00F4907C /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		5FD475B1159B536C00F4907C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -107,8 +113,6 @@
 		5FD475C3159B5B0500F4907C /* RMUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMUser.m; sourceTree = "<group>"; };
 		5FD475C5159B667400F4907C /* RMSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMSession.h; sourceTree = "<group>"; };
 		5FD475C6159B667400F4907C /* RMSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMSession.m; sourceTree = "<group>"; };
-		5FD56C08159C26AA00FCAF22 /* RMDataObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMDataObject.h; sourceTree = "<group>"; };
-		5FD56C09159C26AA00FCAF22 /* RMDataObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMDataObject.m; sourceTree = "<group>"; };
 		5FD56C0B159C2B6E00FCAF22 /* RMLogEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMLogEntry.h; sourceTree = "<group>"; };
 		5FD56C0C159C2B6E00FCAF22 /* RMLogEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMLogEntry.m; sourceTree = "<group>"; };
 		5FD809E7159BABCB00621038 /* RMHousehold.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMHousehold.h; sourceTree = "<group>"; };
@@ -151,13 +155,6 @@
 		5F703C341598FECC00EA51DF = {
 			isa = PBXGroup;
 			children = (
-				5FD475BC159B53C200F4907C /* MobileCoreServices.framework */,
-				5FD475BA159B53A800F4907C /* SystemConfiguration.framework */,
-				5FD475B8159B539E00F4907C /* libxml2.dylib */,
-				5FD475B6159B539400F4907C /* QuartzCore.framework */,
-				5FD475B4159B537C00F4907C /* Security.framework */,
-				5FD475B0159B536C00F4907C /* CFNetwork.framework */,
-				5FD475B1159B536C00F4907C /* CoreData.framework */,
 				5FD47597159B51C900F4907C /* RestKit.xcodeproj */,
 				5F703C491598FECD00EA51DF /* roommates */,
 				5F703C421598FECD00EA51DF /* Frameworks */,
@@ -176,6 +173,13 @@
 		5F703C421598FECD00EA51DF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5FD475BC159B53C200F4907C /* MobileCoreServices.framework */,
+				5FD475BA159B53A800F4907C /* SystemConfiguration.framework */,
+				5FD475B8159B539E00F4907C /* libxml2.dylib */,
+				5FD475B6159B539400F4907C /* QuartzCore.framework */,
+				5FD475B4159B537C00F4907C /* Security.framework */,
+				5FD475B0159B536C00F4907C /* CFNetwork.framework */,
+				5FD475B1159B536C00F4907C /* CoreData.framework */,
 				5F703C431598FECD00EA51DF /* UIKit.framework */,
 				5F703C451598FECD00EA51DF /* Foundation.framework */,
 				5F703C471598FECD00EA51DF /* CoreGraphics.framework */,
@@ -188,12 +192,11 @@
 			children = (
 				5FD475C1159B5ADA00F4907C /* DataObjects */,
 				5F703C551598FECD00EA51DF /* MainStoryboard.storyboard */,
-				5F703C581598FECD00EA51DF /* ViewController.h */,
-				5F703C591598FECD00EA51DF /* ViewController.m */,
+				5FAD767215A144F1005BBCAC /* Menu */,
 				5F286C2A159E93C500310016 /* ActivityFeed */,
 				5F703C4A1598FECD00EA51DF /* Supporting Files */,
+				5FAD766915A13F01005BBCAC /* ZUUIRevealController */,
 			);
-			name = roommates;
 			path = roommates;
 			sourceTree = "<group>";
 		};
@@ -208,6 +211,26 @@
 				5F703C511598FECD00EA51DF /* roommates-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5FAD766915A13F01005BBCAC /* ZUUIRevealController */ = {
+			isa = PBXGroup;
+			children = (
+				5FAD766A15A13F01005BBCAC /* ZUUIRevealController-Prefix.pch */,
+				5FAD766B15A13F01005BBCAC /* ZUUIRevealController.h */,
+				5FAD766C15A13F01005BBCAC /* ZUUIRevealController.m */,
+			);
+			name = ZUUIRevealController;
+			path = ZUUIRevealController/ZUUIRevealController;
+			sourceTree = SOURCE_ROOT;
+		};
+		5FAD767215A144F1005BBCAC /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				5FAD767715A16321005BBCAC /* MenuViewController.h */,
+				5FAD767815A16321005BBCAC /* MenuViewController.m */,
+			);
+			name = Menu;
 			sourceTree = "<group>";
 		};
 		5FD47598159B51C900F4907C /* Products */ = {
@@ -225,8 +248,8 @@
 		5FD475C1159B5ADA00F4907C /* DataObjects */ = {
 			isa = PBXGroup;
 			children = (
-				5FD56C08159C26AA00FCAF22 /* RMDataObject.h */,
-				5FD56C09159C26AA00FCAF22 /* RMDataObject.m */,
+				5FAD767C15A218F0005BBCAC /* RMData.xcdatamodeld */,
+				5FAD767A15A20ED0005BBCAC /* RMManagedObject.h */,
 				5FD475C2159B5B0500F4907C /* RMUser.h */,
 				5FD475C3159B5B0500F4907C /* RMUser.m */,
 				5FD475C5159B667400F4907C /* RMSession.h */,
@@ -349,14 +372,15 @@
 			files = (
 				5F703C501598FECD00EA51DF /* main.m in Sources */,
 				5F703C541598FECD00EA51DF /* AppDelegate.m in Sources */,
-				5F703C5A1598FECD00EA51DF /* ViewController.m in Sources */,
 				5FD475C4159B5B0500F4907C /* RMUser.m in Sources */,
 				5FD475C7159B667400F4907C /* RMSession.m in Sources */,
 				5FD809E9159BABCB00621038 /* RMHousehold.m in Sources */,
-				5FD56C0A159C26AA00FCAF22 /* RMDataObject.m in Sources */,
 				5FD56C0D159C2B6E00FCAF22 /* RMLogEntry.m in Sources */,
 				5F034123159E77D000A81275 /* LogEntryViewController.m in Sources */,
 				5F286C2D159E93E400310016 /* LogEntryCell.m in Sources */,
+				5FAD766D15A13F01005BBCAC /* ZUUIRevealController.m in Sources */,
+				5FAD767915A16321005BBCAC /* MenuViewController.m in Sources */,
+				5FAD767E15A218F0005BBCAC /* RMData.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -483,6 +507,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		5FAD767C15A218F0005BBCAC /* RMData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				5FAD767D15A218F0005BBCAC /* RMData.xcdatamodel */,
+			);
+			currentVersion = 5FAD767D15A218F0005BBCAC /* RMData.xcdatamodel */;
+			path = RMData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 5F703C361598FECC00EA51DF /* Project object */;
 }
