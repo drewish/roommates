@@ -4,3 +4,6 @@
 [submodule "SVProgressHUD"]
 	path = SVProgressHUD
 	url = git://github.com/samvermette/SVProgressHUD.git
+[submodule "ZUUIRevealController"]
+	path = ZUUIRevealController
+	url = git://github.com/drewish/ZUUIRevealController.git
