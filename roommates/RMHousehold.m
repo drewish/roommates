@@ -12,6 +12,7 @@
 @implementation RMHousehold
 
 static NSArray *cachedObjects = nil;
+static RMHousehold *current = nil;
 
 + (void) registerMappingsWith:(RKObjectMappingProvider*) provider inManagedObjectStore:(RKManagedObjectStore *)objectStore
 {
@@ -25,18 +26,23 @@ static NSArray *cachedObjects = nil;
     [mapping mapKeyPath:@"id" toAttribute:@"householdId"];
     [mapping mapKeyPath:@"display_name" toAttribute:@"displayName"];
     [mapping mapKeyPath:@"current" toAttribute:@"current"];
-    [mapping mapKeyPath:@"users" toRelationship:@"users" withMapping:[RKObjectMapping mappingForClass:[RMUser class]]];
+//    [mapping mapKeyPath:@"users" toRelationship:@"users" withMapping:[RKObjectMapping mappingForClass:[RMUser class]]];
     return mapping;
 }
 
 + (RMHousehold *)current
 {
-    for (RMHousehold *h in [self households]) {
-        if ([h.current isEqualToNumber:[NSNumber numberWithBool:TRUE]]) {
-            return h;
-        }
+    // households inits this so make sure it's been called.
+    [self households];
+    return current;
+}
+
++ (void)setCurrent:(RMHousehold*)household
+{
+    @synchronized(self) {
+        current = household;
+        // TODO Make a call to get this set server side.
     }
-    return nil;
 }
 
 + (NSArray *)households
@@ -44,10 +50,22 @@ static NSArray *cachedObjects = nil;
     @synchronized(self) {
         // Load it from the database initially.
         if (cachedObjects == nil) {
-            cachedObjects = [self objectsWithFetchRequest:[self fetchRequest]];
+            [self setHouseholds: [self objectsWithFetchRequest:[self fetchRequest]]];
         }
     }
     return cachedObjects;
+}
+
++ (void)setHouseholds:(NSArray*)households
+{
+    cachedObjects = households;
+    for (RMHousehold *h in cachedObjects) {
+        if ([h.current isEqualToNumber:[NSNumber numberWithBool:TRUE]]) {
+            [self setCurrent: h];
+            return;
+        }
+    }
+    [self setCurrent: nil];
 }
 
 + (void)getHouseholdsOnSuccess:(RKObjectLoaderDidLoadObjectsBlock) success
@@ -64,11 +82,11 @@ static NSArray *cachedObjects = nil;
                 NSLog(@"Save error: %@", error);
             }
 
-            cachedObjects = households;
-            success(cachedObjects);
+            [self setHouseholds: households];
+            success(households);
         };
         loader.onDidFailWithError = ^(NSError *error) {
-            cachedObjects = nil;
+            [self setHouseholds:nil];
             failure(error);
         };
     }];

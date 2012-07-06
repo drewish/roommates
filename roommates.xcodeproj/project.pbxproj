@@ -31,6 +31,8 @@
 		5FD475C7159B667400F4907C /* RMSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FD475C6159B667400F4907C /* RMSession.m */; };
 		5FD56C0D159C2B6E00FCAF22 /* RMLogEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FD56C0C159C2B6E00FCAF22 /* RMLogEntry.m */; };
 		5FD809E9159BABCB00621038 /* RMHousehold.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FD809E8159BABCB00621038 /* RMHousehold.m */; };
+		5FFBCFC115A68F1700CF161A /* NoteListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FFBCFC015A68F1700CF161A /* NoteListViewController.m */; };
+		5FFBCFC815A69B4500CF161A /* RMListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FFBCFC715A69B4500CF161A /* RMListViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +96,7 @@
 		5F703C521598FECD00EA51DF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5F703C531598FECD00EA51DF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		5F703C561598FECD00EA51DF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		5F9E5ED015A29C08007D355C /* RMObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RMObject.h; sourceTree = "<group>"; };
 		5FAD766A15A13F01005BBCAC /* ZUUIRevealController-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ZUUIRevealController-Prefix.pch"; sourceTree = "<group>"; };
 		5FAD766B15A13F01005BBCAC /* ZUUIRevealController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZUUIRevealController.h; sourceTree = "<group>"; };
 		5FAD766C15A13F01005BBCAC /* ZUUIRevealController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZUUIRevealController.m; sourceTree = "<group>"; };
@@ -117,6 +120,10 @@
 		5FD56C0C159C2B6E00FCAF22 /* RMLogEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMLogEntry.m; sourceTree = "<group>"; };
 		5FD809E7159BABCB00621038 /* RMHousehold.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMHousehold.h; sourceTree = "<group>"; };
 		5FD809E8159BABCB00621038 /* RMHousehold.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMHousehold.m; sourceTree = "<group>"; };
+		5FFBCFBF15A68F1700CF161A /* NoteListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteListViewController.h; sourceTree = "<group>"; };
+		5FFBCFC015A68F1700CF161A /* NoteListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteListViewController.m; sourceTree = "<group>"; };
+		5FFBCFC615A69B4500CF161A /* RMListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMListViewController.h; sourceTree = "<group>"; };
+		5FFBCFC715A69B4500CF161A /* RMListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMListViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,8 +201,11 @@
 				5F703C551598FECD00EA51DF /* MainStoryboard.storyboard */,
 				5FAD767215A144F1005BBCAC /* Menu */,
 				5F286C2A159E93C500310016 /* ActivityFeed */,
+				5FFBCFBE15A68E8100CF161A /* Notes */,
 				5F703C4A1598FECD00EA51DF /* Supporting Files */,
 				5FAD766915A13F01005BBCAC /* ZUUIRevealController */,
+				5FFBCFC615A69B4500CF161A /* RMListViewController.h */,
+				5FFBCFC715A69B4500CF161A /* RMListViewController.m */,
 			);
 			path = roommates;
 			sourceTree = "<group>";
@@ -249,6 +259,7 @@
 			isa = PBXGroup;
 			children = (
 				5FAD767C15A218F0005BBCAC /* RMData.xcdatamodeld */,
+				5F9E5ED015A29C08007D355C /* RMObject.h */,
 				5FAD767A15A20ED0005BBCAC /* RMManagedObject.h */,
 				5FD475C2159B5B0500F4907C /* RMUser.h */,
 				5FD475C3159B5B0500F4907C /* RMUser.m */,
@@ -260,6 +271,15 @@
 				5FD56C0C159C2B6E00FCAF22 /* RMLogEntry.m */,
 			);
 			name = DataObjects;
+			sourceTree = "<group>";
+		};
+		5FFBCFBE15A68E8100CF161A /* Notes */ = {
+			isa = PBXGroup;
+			children = (
+				5FFBCFBF15A68F1700CF161A /* NoteListViewController.h */,
+				5FFBCFC015A68F1700CF161A /* NoteListViewController.m */,
+			);
+			name = Notes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -381,6 +401,8 @@
 				5FAD766D15A13F01005BBCAC /* ZUUIRevealController.m in Sources */,
 				5FAD767915A16321005BBCAC /* MenuViewController.m in Sources */,
 				5FAD767E15A218F0005BBCAC /* RMData.xcdatamodeld in Sources */,
+				5FFBCFC115A68F1700CF161A /* NoteListViewController.m in Sources */,
+				5FFBCFC815A69B4500CF161A /* RMListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,7 +456,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -452,7 +474,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;

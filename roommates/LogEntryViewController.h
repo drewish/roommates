@@ -7,11 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <RestKit/RestKit.h>
+#import "RMListViewController.h"
 
-@interface LogEntryViewController : UITableViewController <UITableViewDelegate,
+@interface LogEntryViewController : RMListViewController <UITableViewDelegate,
     UITableViewDataSource>
-
-@property (nonatomic, retain) NSArray* logEntries;
 
 @end

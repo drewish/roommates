@@ -7,14 +7,16 @@
 //
 
 #import "MenuViewController.h"
-#import "ZUUIRevealController.h"
 #import "LogEntryViewController.h"
+#import "NoteListViewController.h"
+#import "RMHousehold.h"
 
 @interface MenuViewController ()
 
 @end
 
 @implementation MenuViewController
+@synthesize revealController;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -31,9 +33,6 @@
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)viewDidUnload
@@ -48,116 +47,107 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-//-(NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
-//{
-//    return [NSArray arrayWithObjects:@"HOUSERHOLD", @"Settings", nil];
-//}
+-(void)didMoveToParentViewController:(UIViewController *)parent
+{
+    // Grab a handle to the reveal controller, as if you'd do with a navigtion 
+    // controller via self.navigationController.
+	self.revealController =[self.parentViewController isKindOfClass:[ZUUIRevealController class]] ? (ZUUIRevealController *)self.parentViewController : nil;
+}
 
-//#pragma marl - UITableView Data Source
-//
-//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-//{
-//	return 4;
-//}
-//
-//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//	static NSString *cellIdentifier = @"Cell";
-//	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-//	
-//	if (nil == cell)
-//	{
-//		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellIdentifier];
-//	}
-//	
-//	if (indexPath.row == 0)
-//	{
-//		cell.textLabel.text = @"Front View Controller";
-//	}
-//	else if (indexPath.row == 1)
-//	{
-//		cell.textLabel.text = @"Map View Controller";
-//	}
-//	else if (indexPath.row == 2)
-//	{
-//		cell.textLabel.text = @"Enter Presentation Mode";
-//	}
-//	else if (indexPath.row == 3)
-//	{
-//		cell.textLabel.text = @"Resign Presentation Mode";
-//	}
-//	
-//	return cell;
-//}
-//
-//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//	// Grab a handle to the reveal controller, as if you'd do with a navigtion 
-//    // controller via self.navigationController.
-//	ZUUIRevealController *revealController = [self.parentViewController isKindOfClass:[ZUUIRevealController class]] ? (ZUUIRevealController *)self.parentViewController : nil;
-//    
-//	// Here you'd implement some of your own logic... I simply take for granted 
-//    // that the first row (=0) corresponds to the "FrontViewController".
-//	if (indexPath.row == 0)
-//	{
-//		// Now let's see if we're not attempting to swap the current 
-//        // frontViewController for a new instance of ITSELF, which'd be highly redundant.
-//		if ([revealController.frontViewController isKindOfClass:[UINavigationController class]] && 
-//            ![((UINavigationController *)revealController.frontViewController).topViewController isKindOfClass:[LogEntryViewController class]])
-//		{
-//            UIStoryboard* mainStoryboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-//            UIViewController* frontViewController = [mainStoryboard instantiateViewControllerWithIdentifier:@"LogEntryList"];
-//			[revealController setFrontViewController:frontViewController animated:NO];
-//
-////			FrontViewController *frontViewController = [[FrontViewController alloc] init];
-////			UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:frontViewController];
-////			[revealController setFrontViewController:navigationController animated:NO];
-//			
-//		}
-//		// Seems the user attempts to 'switch' to exactly the same controller he came from!
-//		else
-//		{
-//			[revealController revealToggle:self];
-//		}
-//	}
-//	// ... and the second row (=1) corresponds to the "MapViewController".
-//	else if (indexPath.row == 1)
-//	{
-////		// Now let's see if we're not attempting to swap the current frontViewController for a new instance of ITSELF, which'd be highly redundant.
-////		if ([revealController.frontViewController isKindOfClass:[UINavigationController class]] && ![((UINavigationController *)revealController.frontViewController).topViewController isKindOfClass:[MapViewController class]])
-////		{
-////			MapViewController *mapViewController = [[MapViewController alloc] init];
-////			UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:mapViewController];
-////			[revealController setFrontViewController:navigationController animated:NO];
-////		}
-////		// Seems the user attempts to 'switch' to exactly the same controller he came from!
-////		else
-////		{
-////			[revealController revealToggle:self];
-////		}
-//	}
-//	else if (indexPath.row == 2)
-//	{
-//		[revealController hideFrontView];
-//	}
-//	else if (indexPath.row == 3)
-//	{
-//		[revealController showFrontViewCompletely:NO];
-//	}
-//}
+#pragma marl - UITableView Data Source
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 2;
+}
 
-//#pragma mark - Table view delegate
-//
-//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    // Navigation logic may go here. Create and push another view controller.
-//    /*
-//     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-//     // ...
-//     // Pass the selected object to the new view controller.
-//     [self.navigationController pushViewController:detailViewController animated:YES];
-//     */
-//    
-//}
+#pragma mark - Table view delegate
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{   RMHousehold *current;
+    switch (section) {
+        case 0:
+            current = RMHousehold.current;
+            return current == nil ? @"No household" : current.displayName;
+        case 1:
+            return @"Settings";
+        default:
+            return @"";
+    }
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == 0) {
+        switch (indexPath.row) {
+            case 0:
+                return [self showActivityFeed:nil];
+            case 1:
+                return [self showExpenses:nil];
+            case 2:
+                return [self showShoppingList:nil];
+            case 3:
+                return [self showTodos:nil];
+            case 4:
+                return [self showNotes:nil];
+        }
+    }
+    else if (indexPath.section == 1) {
+        switch (indexPath.row) {
+            case 0:
+                return [self switchHousehold:nil];
+            case 1:
+                return [self signOut:nil];
+        }
+    }
+}
+
+// Little helper function to pick the right viewcontroller from the story board
+// and get it setup inside a navigation controller.
+- (void)switchToView:(Class)aClass withStoryBoardIdentifier:(NSString*)identifer
+{
+    if ([revealController.frontViewController isKindOfClass:[UINavigationController class]]) {
+        UINavigationController *nav = ((UINavigationController *)revealController.frontViewController);
+        // Now let's see if we're not attempting to swap the current 
+        // frontViewController for a new instance of ITSELF, which'd be highly redundant.
+        if (![nav.topViewController isKindOfClass:aClass]) {
+            UIStoryboard* mainStoryboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+            UIViewController* frontViewController = [mainStoryboard instantiateViewControllerWithIdentifier:identifer];
+			UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:frontViewController];
+			[revealController setFrontViewController:navigationController animated:NO];
+            return;
+        }
+    }
+    // Seem like they want to stay where they are.
+    [revealController revealToggle:self];
+}
+
+- (IBAction)showActivityFeed:(id)sender {
+    NSLog(@"Activity Feed");
+    [self switchToView:[LogEntryViewController class] withStoryBoardIdentifier:@"LogEntryList"];
+}
+
+- (IBAction)showExpenses:(id)sender {
+    NSLog(@"Expenses");
+}
+
+- (IBAction)showShoppingList:(id)sender {
+    NSLog(@"Shopping List");
+}
+
+- (IBAction)showTodos:(id)sender {
+    NSLog(@"To-Do's");
+}
+
+- (IBAction)showNotes:(id)sender {
+    NSLog(@"Notes");
+    [self switchToView:[NoteListViewController class] withStoryBoardIdentifier:@"NoteList"];
+}
+
+- (IBAction)signOut:(id)sender {
+    NSLog(@"sign out..");
+}
+
+- (IBAction)switchHousehold:(id)sender {
+    NSLog(@"switch users");
+}
 
 @end
