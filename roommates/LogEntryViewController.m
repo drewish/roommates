@@ -8,9 +8,6 @@
 
 #import "LogEntryViewController.h"
 #import "LogEntryCell.h"
-#import "RMSession.h"
-#import "RMUser.h"
-#import "RMHousehold.h"
 #import "RMLogEntry.h"
 
 @interface LogEntryViewController ()
@@ -19,53 +16,20 @@
 
 @implementation LogEntryViewController
 
-- (id)initWithStyle:(UITableViewStyle)style
+- (id)initWithCoder:(NSCoder *)aDecoder
 {
-    self = [super initWithStyle:style];
+    self = [super initWithCoder:aDecoder];
     if (self) {
         // Custom initialization
+        super.dataClass = [RMLogEntry class];
     }
     return self;
 }
 
-- (void)fetchTheFeeds {
-    RMHousehold *current = [RMHousehold current];
-    if (current != nil) {
-        [RMLogEntry getLogEntriesForHousehold:current.householdId OnSuccess:^(NSArray *logEntries_) {
-            self.items = logEntries_;
-            [self.tableView reloadData];
-        } OnFailure:^(NSError *error) {
-            NSLog(@"Couldn't fetch feeds: %@", error);
-            [[[UIAlertView alloc] initWithTitle:@"Error"
-                                        message:[error localizedDescription]
-                                       delegate:nil
-                              cancelButtonTitle:@"OK"
-                              otherButtonTitles:nil] show];
-        }];
-    }
-}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    // Try to figure out if we know about any households before fetching
-    // the log entries.
-    NSArray *households = [RMHousehold households];
-    if (households.count > 1) {
-        [self fetchTheFeeds];
-    }
-    else {
-        [RMHousehold getHouseholdsOnSuccess:^(NSArray *objects) {
-            [self fetchTheFeeds];
-        } OnFailure:^(NSError *error) {
-            [[[UIAlertView alloc] initWithTitle:@"Error"
-                                        message:[error localizedDescription]
-                                       delegate:nil
-                              cancelButtonTitle:@"OK"
-                              otherButtonTitles:nil] show];
-        }];
-    }
 }
 
 - (void)viewDidUnload

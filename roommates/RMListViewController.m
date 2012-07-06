@@ -7,6 +7,9 @@
 //
 
 #import "RMListViewController.h"
+#import "RMObject.h"
+
+#import "RMLogEntry.h"
 
 @interface RMListViewController ()
 
@@ -14,7 +17,7 @@
 
 @implementation RMListViewController
 
-@synthesize items;
+@synthesize items, dataClass = _dataClass;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -41,6 +44,24 @@
 
 		self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Reveal", @"Reveal") style:UIBarButtonItemStylePlain target:self.navigationController.parentViewController action:@selector(revealToggle:)];
 	}
+    
+    // Try to figure out if we know about any households before fetching
+    // the log entries.
+    NSArray *households = [RMHousehold households];
+    if (households.count > 1) {
+        [self fetchItems];
+    }
+    else {
+        [RMHousehold getHouseholdsOnSuccess:^(NSArray *objects) {
+            [self fetchItems];
+        } OnFailure:^(NSError *error) {
+            [[[UIAlertView alloc] initWithTitle:@"Error"
+                                        message:[error localizedDescription]
+                                       delegate:nil
+                              cancelButtonTitle:@"OK"
+                              otherButtonTitles:nil] show];
+        }];
+    }
 }
 
 - (void)viewDidUnload
@@ -55,6 +76,24 @@
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
+
+- (void)fetchItems {
+    RMHousehold *current = [RMHousehold current];
+    if (current != nil) {
+        [_dataClass fetchForHousehold:current.householdId OnSuccess:^(NSArray *items_) {
+            self.items = items_;
+            [self.tableView reloadData];
+        } OnFailure:^(NSError *error) {
+            NSLog(@"Couldn't fetch items: %@", error);
+            [[[UIAlertView alloc] initWithTitle:@"Error"
+                                        message:[error localizedDescription]
+                                       delegate:nil
+                              cancelButtonTitle:@"OK"
+                              otherButtonTitles:nil] show];
+        }];
+    }
+}
+
 
 #pragma mark - Table view data source
 

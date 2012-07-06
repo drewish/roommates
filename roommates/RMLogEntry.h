@@ -9,9 +9,9 @@
 #import "RMObject.h"
 
 @interface RMLogEntry : NSObject <RMObject>
-+ (void)getLogEntriesForHousehold:(NSNumber*) householdId
-                        OnSuccess:(RKObjectLoaderDidLoadObjectsBlock) success
-                        OnFailure:(RKObjectLoaderDidFailWithErrorBlock) failure;
++ (void)fetchForHousehold:(NSNumber*) householdId
+                OnSuccess:(RKObjectLoaderDidLoadObjectsBlock) success
+                OnFailure:(RKObjectLoaderDidFailWithErrorBlock) failure;
 
 @property (nonatomic, retain) NSNumber* entryId;        // entry id
 @property (nonatomic, retain) NSString* label;          // entry kind (shopping, todo, note, expense, reimbursal, comment) description – entry description

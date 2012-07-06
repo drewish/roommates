@@ -12,6 +12,7 @@
 #import "RMUser.h"
 #import "RMHousehold.h"
 #import "RMLogEntry.h"
+#import "RMNote.h"
 
 @implementation AppDelegate
 
@@ -21,10 +22,10 @@
 {
     // Override point for customization after application launch.
 
-    //    RKLogConfigureByName("RestKit", RKLogLevelTrace);
-    RKLogConfigureByName("RestKit/Network", RKLogLevelTrace);
-    //    RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelTrace);
-    //    RKLogConfigureByName("RestKit/CoreData", RKLogLevelTrace);
+    RKLogConfigureByName("RestKit", RKLogLevelTrace);
+//    RKLogConfigureByName("RestKit/Network", RKLogLevelTrace);
+    RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelTrace);
+//    RKLogConfigureByName("RestKit/CoreData", RKLogLevelTrace);
 
     NSString *url = @"http://roommates-staging.herokuapp.com";
 
@@ -40,7 +41,9 @@
     [RMUser registerMappingsWith:mgr.mappingProvider inManagedObjectStore:objectStore];
     [RMHousehold registerMappingsWith:mgr.mappingProvider inManagedObjectStore:objectStore];
     [RMLogEntry registerMappingsWith:mgr.mappingProvider];
+    [RMNote registerMappingsWith:mgr.mappingProvider];
 
+    
     //TODO: these might be useful later when I'm uploading
     //    // Setup out class routes.
     //    [mgr.router routeClass:[RMUser class] toResourcePath:@"/api/users" forMethod:RKRequestMethodGET];

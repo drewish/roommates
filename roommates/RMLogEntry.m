@@ -29,7 +29,7 @@
     return mapping;
 }
 
-+ (void)getLogEntriesForHousehold:(NSNumber*) householdId
++ (void)fetchForHousehold:(NSNumber*) householdId
                         OnSuccess:(RKObjectLoaderDidLoadObjectsBlock) success
                      OnFailure:(RKObjectLoaderDidFailWithErrorBlock) failure
 {
@@ -39,7 +39,6 @@
         loader.onDidFailWithError = failure;
     }];
 }
-
 
 @synthesize entryId, 
     label,
