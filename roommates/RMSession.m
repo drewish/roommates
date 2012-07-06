@@ -17,7 +17,9 @@
 static RMSession *gInstance = nil;
 + (RMSession *)instance
 {
-    return(gInstance);
+    @synchronized(self) {
+        return gInstance;
+    }
 }
 
 + (void) registerMappingsWith:(RKObjectMappingProvider*) provider

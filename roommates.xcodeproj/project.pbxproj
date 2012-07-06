@@ -33,6 +33,12 @@
 		5FD809E9159BABCB00621038 /* RMHousehold.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FD809E8159BABCB00621038 /* RMHousehold.m */; };
 		5FFBCFC115A68F1700CF161A /* NoteListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FFBCFC015A68F1700CF161A /* NoteListViewController.m */; };
 		5FFBCFC815A69B4500CF161A /* RMListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FFBCFC715A69B4500CF161A /* RMListViewController.m */; };
+		5FFBCFCD15A6A41500CF161A /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5FFBCFCA15A6A41500CF161A /* SVProgressHUD.bundle */; };
+		5FFBCFCE15A6A41500CF161A /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FFBCFCC15A6A41500CF161A /* SVProgressHUD.m */; };
+		5FFBCFD115A6A9D600CF161A /* default.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FFBCFCF15A6A9D600CF161A /* default.png */; };
+		5FFBCFD215A6A9D600CF161A /* default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FFBCFD015A6A9D600CF161A /* default@2x.png */; };
+		5FFBCFD515A6AB4300CF161A /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FFBCFD315A6AB4200CF161A /* Icon.png */; };
+		5FFBCFDA15A6ACB800CF161A /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FFBCFD915A6ACB800CF161A /* Icon@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -124,6 +130,13 @@
 		5FFBCFC015A68F1700CF161A /* NoteListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteListViewController.m; sourceTree = "<group>"; };
 		5FFBCFC615A69B4500CF161A /* RMListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMListViewController.h; sourceTree = "<group>"; };
 		5FFBCFC715A69B4500CF161A /* RMListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMListViewController.m; sourceTree = "<group>"; };
+		5FFBCFCA15A6A41500CF161A /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
+		5FFBCFCB15A6A41500CF161A /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
+		5FFBCFCC15A6A41500CF161A /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
+		5FFBCFCF15A6A9D600CF161A /* default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default.png; sourceTree = "<group>"; };
+		5FFBCFD015A6A9D600CF161A /* default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "default@2x.png"; sourceTree = "<group>"; };
+		5FFBCFD315A6AB4200CF161A /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		5FFBCFD915A6ACB800CF161A /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "../Icon@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,13 +212,14 @@
 			children = (
 				5FD475C1159B5ADA00F4907C /* DataObjects */,
 				5F703C551598FECD00EA51DF /* MainStoryboard.storyboard */,
+				5FFBCFC615A69B4500CF161A /* RMListViewController.h */,
+				5FFBCFC715A69B4500CF161A /* RMListViewController.m */,
 				5FAD767215A144F1005BBCAC /* Menu */,
 				5F286C2A159E93C500310016 /* ActivityFeed */,
 				5FFBCFBE15A68E8100CF161A /* Notes */,
 				5F703C4A1598FECD00EA51DF /* Supporting Files */,
+				5FFBCFC915A6A41500CF161A /* SVProgressHUD */,
 				5FAD766915A13F01005BBCAC /* ZUUIRevealController */,
-				5FFBCFC615A69B4500CF161A /* RMListViewController.h */,
-				5FFBCFC715A69B4500CF161A /* RMListViewController.m */,
 			);
 			path = roommates;
 			sourceTree = "<group>";
@@ -213,6 +227,10 @@
 		5F703C4A1598FECD00EA51DF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5FFBCFD315A6AB4200CF161A /* Icon.png */,
+				5FFBCFD915A6ACB800CF161A /* Icon@2x.png */,
+				5FFBCFCF15A6A9D600CF161A /* default.png */,
+				5FFBCFD015A6A9D600CF161A /* default@2x.png */,
 				5F703C521598FECD00EA51DF /* AppDelegate.h */,
 				5F703C531598FECD00EA51DF /* AppDelegate.m */,
 				5F703C4B1598FECD00EA51DF /* roommates-Info.plist */,
@@ -281,6 +299,17 @@
 			);
 			name = Notes;
 			sourceTree = "<group>";
+		};
+		5FFBCFC915A6A41500CF161A /* SVProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				5FFBCFCA15A6A41500CF161A /* SVProgressHUD.bundle */,
+				5FFBCFCB15A6A41500CF161A /* SVProgressHUD.h */,
+				5FFBCFCC15A6A41500CF161A /* SVProgressHUD.m */,
+			);
+			name = SVProgressHUD;
+			path = SVProgressHUD/SVProgressHUD;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -380,6 +409,11 @@
 			files = (
 				5F703C4E1598FECD00EA51DF /* InfoPlist.strings in Resources */,
 				5F703C571598FECD00EA51DF /* MainStoryboard.storyboard in Resources */,
+				5FFBCFCD15A6A41500CF161A /* SVProgressHUD.bundle in Resources */,
+				5FFBCFD115A6A9D600CF161A /* default.png in Resources */,
+				5FFBCFD215A6A9D600CF161A /* default@2x.png in Resources */,
+				5FFBCFD515A6AB4300CF161A /* Icon.png in Resources */,
+				5FFBCFDA15A6ACB800CF161A /* Icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -403,6 +437,7 @@
 				5FAD767E15A218F0005BBCAC /* RMData.xcdatamodeld in Sources */,
 				5FFBCFC115A68F1700CF161A /* NoteListViewController.m in Sources */,
 				5FFBCFC815A69B4500CF161A /* RMListViewController.m in Sources */,
+				5FFBCFCE15A6A41500CF161A /* SVProgressHUD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -49,34 +49,23 @@
 {
     [super viewDidLoad];
 
-    [RMSession startSessionEmail:@"delany@gmail.com" Password:@"123456" OnSuccess:^(RMSession *session) {
-        NSLog(@"Loaded User ID #%@ -> Name: %@, token: %@", session.userId, session.fullName, session.apiToken);
-
-        // Try to figure out if we know about any households before fetching
-        // the log entries.
-        NSArray *households = [RMHousehold households];
-        if (households.count > 1) {
+    // Try to figure out if we know about any households before fetching
+    // the log entries.
+    NSArray *households = [RMHousehold households];
+    if (households.count > 1) {
+        [self fetchTheFeeds];
+    }
+    else {
+        [RMHousehold getHouseholdsOnSuccess:^(NSArray *objects) {
             [self fetchTheFeeds];
-        }
-        else {
-            [RMHousehold getHouseholdsOnSuccess:^(NSArray *objects) {
-                [self fetchTheFeeds];
-            } OnFailure:^(NSError *error) {
-                [[[UIAlertView alloc] initWithTitle:@"Error"
-                                            message:[error localizedDescription]
-                                           delegate:nil
-                                  cancelButtonTitle:@"OK"
-                                  otherButtonTitles:nil] show];
-            }];
-        }
-    } OnFailure:^(NSError *error) {
-        NSLog(@"Encountered an error: %@", error);
-        [[[UIAlertView alloc] initWithTitle:@"Error"
-                                    message:[error localizedDescription]
-                                   delegate:nil
-                          cancelButtonTitle:@"OK"
-                          otherButtonTitles:nil] show];
-    }];
+        } OnFailure:^(NSError *error) {
+            [[[UIAlertView alloc] initWithTitle:@"Error"
+                                        message:[error localizedDescription]
+                                       delegate:nil
+                              cancelButtonTitle:@"OK"
+                              otherButtonTitles:nil] show];
+        }];
+    }
 }
 
 - (void)viewDidUnload
