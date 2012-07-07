@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "ZUUIRevealController.h"
+#import "LoginViewController.h"
 #import "RMSession.h"
 #import "RMUser.h"
 #import "RMHousehold.h"
@@ -49,21 +49,6 @@
     //    [mgr.router routeClass:[RMUser class] toResourcePath:@"/api/users" forMethod:RKRequestMethodGET];
     //    [mgr.router routeClass:[RMHousehold class] toResourcePath:@"/api/households" forMethod:RKRequestMethodGET];
 
-    [SVProgressHUD showWithStatus:@"Logging in" maskType: SVProgressHUDMaskTypeBlack];
-
-    [RMSession startSessionEmail:@"delany@gmail.com" Password:@"123456" OnSuccess:^(RMSession *session) {
-        NSLog(@"Loaded User ID #%@ -> Name: %@, token: %@", session.userId, session.fullName, session.apiToken);
-        [SVProgressHUD showSuccessWithStatus:[NSString stringWithFormat:@"Hi %@!", session.displayName]];
-    } OnFailure:^(NSError *error) {
-        NSLog(@"Encountered an error: %@", error);
-        [SVProgressHUD dismiss];
-        [[[UIAlertView alloc] initWithTitle:@"Error"
-                                    message:[error localizedDescription]
-                                   delegate:nil
-                          cancelButtonTitle:@"OK"
-                          otherButtonTitles:nil] show];
-    }];
-
 
     // TODO Need to get the actual RGB value.
     [[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:0.706 green:0.196 blue:0.086 alpha:1.000]];
@@ -71,15 +56,12 @@
     [[UIToolbar appearance] setTintColor:[UIColor blackColor]];
 
 	self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    [self.window makeKeyAndVisible];
 
     UIStoryboard* mainStoryboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-    UIViewController* frontViewController = [mainStoryboard instantiateInitialViewController];
-    UIViewController* rearViewController = [mainStoryboard instantiateViewControllerWithIdentifier:@"Menu"];
-	ZUUIRevealController *revealController = [[ZUUIRevealController alloc] initWithFrontViewController:frontViewController rearViewController:rearViewController];
-
-	self.window.rootViewController = revealController;
-	[self.window makeKeyAndVisible];
-
+    LoginViewController* loginViewController = [mainStoryboard instantiateViewControllerWithIdentifier:@"Login"];
+    self.window.rootViewController = loginViewController;
+    
     return YES;
 }
 

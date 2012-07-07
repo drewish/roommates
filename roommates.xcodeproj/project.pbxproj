@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5F034123159E77D000A81275 /* LogEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F034122159E77D000A81275 /* LogEntryViewController.m */; };
+		5F15615615A8BFB40065BAA2 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F15615515A8BFB40065BAA2 /* LoginViewController.m */; };
 		5F286C2D159E93E400310016 /* LogEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F286C2C159E93E400310016 /* LogEntryCell.m */; };
 		5F4540E315A736CE00386BEC /* RMNote.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F4540E215A736CE00386BEC /* RMNote.m */; };
 		5F703C441598FECD00EA51DF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F703C431598FECD00EA51DF /* UIKit.framework */; };
@@ -90,6 +91,8 @@
 /* Begin PBXFileReference section */
 		5F034121159E77D000A81275 /* LogEntryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogEntryViewController.h; sourceTree = "<group>"; };
 		5F034122159E77D000A81275 /* LogEntryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogEntryViewController.m; sourceTree = "<group>"; };
+		5F15615415A8BFB40065BAA2 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		5F15615515A8BFB40065BAA2 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		5F286C2B159E93E400310016 /* LogEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogEntryCell.h; sourceTree = "<group>"; };
 		5F286C2C159E93E400310016 /* LogEntryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogEntryCell.m; sourceTree = "<group>"; };
 		5F4540E115A736CE00386BEC /* RMNote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNote.h; sourceTree = "<group>"; };
@@ -164,6 +167,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5F15614F15A8BE350065BAA2 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				5F15615415A8BFB40065BAA2 /* LoginViewController.h */,
+				5F15615515A8BFB40065BAA2 /* LoginViewController.m */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
 		5F286C2A159E93C500310016 /* ActivityFeed */ = {
 			isa = PBXGroup;
 			children = (
@@ -217,6 +229,7 @@
 				5F703C551598FECD00EA51DF /* MainStoryboard.storyboard */,
 				5FFBCFC615A69B4500CF161A /* RMListViewController.h */,
 				5FFBCFC715A69B4500CF161A /* RMListViewController.m */,
+				5F15614F15A8BE350065BAA2 /* Login */,
 				5FAD767215A144F1005BBCAC /* Menu */,
 				5F286C2A159E93C500310016 /* ActivityFeed */,
 				5FFBCFBE15A68E8100CF161A /* Notes */,
@@ -444,6 +457,7 @@
 				5FFBCFC815A69B4500CF161A /* RMListViewController.m in Sources */,
 				5FFBCFCE15A6A41500CF161A /* SVProgressHUD.m in Sources */,
 				5F4540E315A736CE00386BEC /* RMNote.m in Sources */,
+				5F15615615A8BFB40065BAA2 /* LoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -45,23 +45,11 @@
 		self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Reveal", @"Reveal") style:UIBarButtonItemStylePlain target:self.navigationController.parentViewController action:@selector(revealToggle:)];
 	}
     
-    // Try to figure out if we know about any households before fetching
-    // the log entries.
+    // Make sure we've got household info before trying to load items.
     NSArray *households = [RMHousehold households];
-    if (households.count > 1) {
-        [self fetchItems];
-    }
-    else {
-        [RMHousehold getHouseholdsOnSuccess:^(NSArray *objects) {
-            [self fetchItems];
-        } OnFailure:^(NSError *error) {
-            [[[UIAlertView alloc] initWithTitle:@"Error"
-                                        message:[error localizedDescription]
-                                       delegate:nil
-                              cancelButtonTitle:@"OK"
-                              otherButtonTitles:nil] show];
-        }];
-    }
+    assert(households.count > 0);
+
+    [self fetchItems];
 }
 
 - (void)viewDidUnload

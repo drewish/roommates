@@ -7,6 +7,7 @@
 //
 
 #import "MenuViewController.h"
+#import "LoginViewController.h"
 #import "LogEntryViewController.h"
 #import "NoteListViewController.h"
 #import "RMHousehold.h"
@@ -144,10 +145,16 @@
 
 - (IBAction)signOut:(id)sender {
     NSLog(@"sign out..");
+    [RMSession endSession];
+
+    // TODO: figure out how to do this with a transition. It's too abrupt now.
+    UIStoryboard* mainStoryboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+    LoginViewController* loginViewController = [mainStoryboard instantiateViewControllerWithIdentifier:@"Login"];
+    UIApplication.sharedApplication.keyWindow.rootViewController = loginViewController;
 }
 
 - (IBAction)switchHousehold:(id)sender {
-    NSLog(@"switch users");
+    NSLog(@"switch households");
 }
 
 @end

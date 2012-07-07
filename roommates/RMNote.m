@@ -23,8 +23,8 @@
     [mapping mapKeyPath:@"created_at" toAttribute:@"createdAt"];
     [mapping mapKeyPath:@"creator_id" toAttribute:@"creatorId"];
     [mapping mapKeyPath:@"photo" toAttribute:@"photo"];
-//    [mapping mapKeyPath:@"abilities" toAttribute:@"abilities"];
-//    [mapping mapKeyPath:@"comments" toAttribute:@"comments"];
+    [mapping mapKeyPath:@"abilities" toAttribute:@"abilities"];
+    [mapping mapKeyPath:@"comments" toAttribute:@"comments"];
     return mapping;
 }
 

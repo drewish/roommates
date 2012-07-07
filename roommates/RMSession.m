@@ -76,6 +76,20 @@ static RMSession *gInstance = nil;
     }];
 }
 
++ (void)endSession
+{
+    // TODO Should probably send off a notification so that everything can 
+    // clear out any cached data.
+    @synchronized(self)
+    {
+        gInstance = nil;
+        [[RKObjectManager sharedManager].client setValue:nil forHTTPHeaderField:@"Authorization"];
+
+        // Kill off anything we've saved.
+        [[RKObjectManager sharedManager].objectStore deletePersistentStore];
+    }
+}
+
 
 @synthesize userId,
     firstName,
