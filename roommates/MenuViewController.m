@@ -17,7 +17,7 @@
 @end
 
 @implementation MenuViewController
-@synthesize revealController;
+@synthesize actionSheet, revealController;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -41,6 +41,8 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+    actionSheet = nil;
+    revealController = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -52,10 +54,10 @@
 {
     // Grab a handle to the reveal controller, as if you'd do with a navigtion 
     // controller via self.navigationController.
-	self.revealController =[self.parentViewController isKindOfClass:[ZUUIRevealController class]] ? (ZUUIRevealController *)self.parentViewController : nil;
+	self.revealController = [self.parentViewController isKindOfClass:[ZUUIRevealController class]] ? (ZUUIRevealController *)self.parentViewController : nil;
 }
 
-#pragma marl - UITableView Data Source
+#pragma mark - UITableView Data Source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 2;
@@ -121,6 +123,8 @@
     [revealController revealToggle:self];
 }
 
+#pragma mark - Actions
+
 - (IBAction)showActivityFeed:(id)sender {
     NSLog(@"Activity Feed");
     [self switchToView:[LogEntryViewController class] withStoryBoardIdentifier:@"LogEntryList"];
@@ -143,18 +147,108 @@
     [self switchToView:[NoteListViewController class] withStoryBoardIdentifier:@"NoteList"];
 }
 
-- (IBAction)signOut:(id)sender {
-    NSLog(@"sign out..");
-    [RMSession endSession];
-
-    // TODO: figure out how to do this with a transition. It's too abrupt now.
-    UIStoryboard* mainStoryboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-    LoginViewController* loginViewController = [mainStoryboard instantiateViewControllerWithIdentifier:@"Login"];
-    UIApplication.sharedApplication.keyWindow.rootViewController = loginViewController;
-}
-
 - (IBAction)switchHousehold:(id)sender {
     NSLog(@"switch households");
+    actionSheet = [[UIActionSheet alloc] initWithTitle:nil
+                                              delegate:nil
+                                     cancelButtonTitle:nil
+                                destructiveButtonTitle:nil
+                                     otherButtonTitles:nil];
+    actionSheet.tag = 0;
+    //    [actionSheet setActionSheetStyle:UIActionSheetStyleBlackTranslucent];
+
+    CGRect frame = CGRectMake(0, 0, self.view.bounds.size.width, 44);
+    UIToolbar *pickerToolbar = [[UIToolbar alloc] initWithFrame:frame];
+    //    pickerToolbar.barStyle = UIBarStyleBlackOpaque;
+    NSMutableArray *barItems = [[NSMutableArray alloc] init];
+
+    UIBarButtonItem *flexSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    [barItems addObject:flexSpace];
+
+    UILabel *toolBarItemlabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 180, 30)];
+    toolBarItemlabel.textAlignment = UITextAlignmentCenter;
+    toolBarItemlabel.textColor = [UIColor whiteColor];
+    toolBarItemlabel.font = [UIFont boldSystemFontOfSize:16];
+    toolBarItemlabel.backgroundColor = [UIColor clearColor];
+    toolBarItemlabel.text = @"Pick a household";
+    UIBarButtonItem *labelButton = [[UIBarButtonItem alloc] initWithCustomView:toolBarItemlabel];
+    [barItems addObject:labelButton];
+
+    [barItems addObject:flexSpace];
+
+    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(householdPickerDone:)];
+    [barItems addObject:doneButton];
+
+    pickerToolbar.items = barItems;
+    [actionSheet addSubview:pickerToolbar];
+
+
+    UIPickerView *pickerView = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 40, 0, 0)];
+    pickerView.showsSelectionIndicator = YES;
+    pickerView.dataSource = self;
+    pickerView.delegate = self;
+    [pickerView selectRow:[[RMHousehold households] indexOfObject:[RMHousehold current]] inComponent:0 animated:NO];
+    [actionSheet addSubview:pickerView];
+
+    // The order of these calls seems backwards but it's the correct way.
+    [actionSheet showInView:[[UIApplication sharedApplication] keyWindow]];
+    [actionSheet setBounds:CGRectMake(0, 0, 320, 485)];
+}
+
+- (IBAction)signOut:(id)sender {
+    actionSheet = [[UIActionSheet alloc] initWithTitle:@"Signing out remove your roommat.es account information from your iPhone."
+                                              delegate:self
+                                     cancelButtonTitle:@"Cancel"
+                                destructiveButtonTitle:@"Sign out"
+                                     otherButtonTitles:nil];
+    actionSheet.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
+    actionSheet.tag = 1;
+    [actionSheet showInView:[[UIApplication sharedApplication] keyWindow]];
+}
+
+-(void)actionSheet:(UIActionSheet *)actionSheet_ didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    if (actionSheet_.tag == 1 && buttonIndex == 0) {
+        NSLog(@"Signing out…");
+        [RMSession endSession];
+
+        // TODO: figure out how to do this with a transition. It's too abrupt now.
+        UIStoryboard* mainStoryboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+        LoginViewController* loginViewController = [mainStoryboard instantiateViewControllerWithIdentifier:@"Login"];
+        UIApplication.sharedApplication.keyWindow.rootViewController = loginViewController;
+    }
+    actionSheet = nil;
+}
+
+#pragma mark - Household picker
+-(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
+{
+    return 1;
+}
+
+-(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
+{
+    return [[RMHousehold households] count];
+}
+
+-(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+{
+    return [[[RMHousehold households] objectAtIndex:row] displayName];
+}
+
+// TODO it's not idea having the picking split between here...
+-(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
+{
+    RMHousehold *selected = [[RMHousehold households] objectAtIndex:row];
+    NSLog(@"Picked %@", selected);
+    RMHousehold.current = selected;
+}
+// ...and here... it'd probably be best to move the household picking into its 
+// own view so we don't have to set the household until they click done.
+- (IBAction)householdPickerDone:(id)sender {
+    [actionSheet dismissWithClickedButtonIndex:0 animated:YES];
+    // Use the new household in the section title.
+    [self.tableView reloadData];
 }
 
 @end

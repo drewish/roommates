@@ -40,7 +40,19 @@ static RMHousehold *current = nil;
 + (void)setCurrent:(RMHousehold*)household
 {
     @synchronized(self) {
+        for (RMHousehold *h in cachedObjects) {
+            h.current = [NSNumber numberWithBool:NO];
+        }
+        current.current = [NSNumber numberWithBool:YES];
         current = household;
+
+        // Save this to the local database.
+        NSError* error = nil;
+        [[RKObjectManager sharedManager].objectStore.managedObjectContextForCurrentThread save:&error];
+        if (error) {
+            NSLog(@"Save error: %@", error);
+        }
+
         // TODO Make a call to get this set server side.
     }
 }
@@ -58,14 +70,16 @@ static RMHousehold *current = nil;
 
 + (void)setHouseholds:(NSArray*)households
 {
-    cachedObjects = households;
-    for (RMHousehold *h in cachedObjects) {
-        if ([h.current isEqualToNumber:[NSNumber numberWithBool:TRUE]]) {
-            [self setCurrent: h];
-            return;
+    @synchronized(self) {
+        cachedObjects = households;
+        for (RMHousehold *h in cachedObjects) {
+            if ([h.current isEqualToNumber:[NSNumber numberWithBool:TRUE]]) {
+                current = h;
+                return;
+            }
         }
+        current = nil;
     }
-    [self setCurrent: nil];
 }
 
 + (void)getHouseholdsOnSuccess:(RKObjectLoaderDidLoadObjectsBlock) success

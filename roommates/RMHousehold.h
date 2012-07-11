@@ -11,6 +11,7 @@
 
 @interface RMHousehold : NSManagedObject <RMManagedObject>
 + (RMHousehold *)current;
++ (void)setCurrent:(RMHousehold*)household;
 + (NSArray *)households;
 + (void)getHouseholdsOnSuccess:(RKObjectLoaderDidLoadObjectsBlock) success
                      OnFailure:(RKObjectLoaderDidFailWithErrorBlock) failure;

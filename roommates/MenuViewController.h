@@ -9,7 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "ZUUIRevealController.h"
 
-@interface MenuViewController : UITableViewController
+@interface MenuViewController : UITableViewController <UIActionSheetDelegate,
+    UIPickerViewDataSource, UIPickerViewDelegate>
+@property(nonatomic) UIActionSheet *actionSheet;
 @property(nonatomic, weak) ZUUIRevealController *revealController;
 - (IBAction)showActivityFeed:(id)sender;
 - (IBAction)showExpenses:(id)sender;
