@@ -16,7 +16,6 @@
 @end
 
 @implementation LoginViewController
-@synthesize onLogin;
 @synthesize email;
 @synthesize password;
 
@@ -70,6 +69,7 @@
             [SVProgressHUD showSuccessWithStatus:[NSString stringWithFormat:@"Hi %@!", session.displayName]];
             [self loggedIn];
         } OnFailure:^(NSError *error) {
+            [SVProgressHUD dismiss];
 //            [SVProgressHUD showErrorWithStatus:@"Bad login?"];
             [[[UIAlertView alloc] initWithTitle:@"Error"
                                         message:[error localizedDescription]
@@ -78,6 +78,7 @@
                               otherButtonTitles:nil] show];
         }];
     } OnFailure:^(NSError *error) {
+        [SVProgressHUD dismiss];
         NSLog(@"Encountered an error: %@", error);
 //        [SVProgressHUD showErrorWithStatus:@"Bad login?"];
         [[[UIAlertView alloc] initWithTitle:@"Error"

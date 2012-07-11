@@ -8,10 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-typedef void(^OnLoginBlock)(id object);
-
 @interface LoginViewController : UIViewController
-@property (strong, nonatomic) OnLoginBlock onLogin;
 @property (weak, nonatomic) IBOutlet UITextField *email;
 @property (weak, nonatomic) IBOutlet UITextField *password;
 - (IBAction)login:(id)sender;
