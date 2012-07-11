@@ -53,6 +53,9 @@ static RMHousehold *current = nil;
             NSLog(@"Save error: %@", error);
         }
 
+        // TODO Should probably send off a NSNotification 
+        // so that everything knows we've got a household.
+        
         // TODO Make a call to get this set server side.
     }
 }
@@ -75,6 +78,8 @@ static RMHousehold *current = nil;
         for (RMHousehold *h in cachedObjects) {
             if ([h.current isEqualToNumber:[NSNumber numberWithBool:TRUE]]) {
                 current = h;
+                // TODO Should probably send off a NSNotification 
+                // so that everything knows we've got a household.
                 return;
             }
         }

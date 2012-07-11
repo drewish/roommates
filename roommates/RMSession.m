@@ -43,14 +43,14 @@ static RMSession *gInstance = nil;
 + (void)startSessionEmail:(NSString*) email Password:(NSString*) password
                 OnSuccess:(RKObjectLoaderDidLoadObjectBlock) success
                     OnFailure:(RKObjectLoaderDidFailWithErrorBlock) failure {
-    // Wipe the old session. TODO: should probably fire off a
-    // DELETE /api/session to kill it off server side.
-    @synchronized(self)
-    {
-        gInstance = nil;
-    }
+    RKObjectManager *mgr = [RKObjectManager sharedManager];
+    
+    // I'm not sure we need to call endSession and wait for the DELETE but we
+    // should at least clear out the cached data and the HTTP header.
+    [mgr.client setValue:nil forHTTPHeaderField:@"Authorization"];
+    [mgr.objectStore deletePersistentStore];
 
-    [[RKObjectManager sharedManager] loadObjectsAtResourcePath:@"/api/sessions" usingBlock:^(RKObjectLoader *loader) {
+    [mgr loadObjectsAtResourcePath:@"/api/sessions" usingBlock:^(RKObjectLoader *loader) {
         loader.method = RKRequestMethodPOST;
         loader.params = [NSDictionary dictionaryWithObjectsAndKeys:
                          email, @"email",
@@ -71,6 +71,9 @@ static RMSession *gInstance = nil;
             [[RKObjectManager sharedManager].client setValue:val forHTTPHeaderField:@"Authorization"];
 
             success(session);
+
+            // TODO Should probably change this to send off a NSNotification 
+            // so that everything knows we've got a new session.
         };
         loader.onDidFailWithError = failure;
     }];
@@ -78,15 +81,24 @@ static RMSession *gInstance = nil;
 
 + (void)endSession
 {
-    // TODO Should probably send off a notification so that everything can 
-    // clear out any cached data.
     @synchronized(self)
     {
         gInstance = nil;
+        // Remove the HTTP header...
         [[RKObjectManager sharedManager].client setValue:nil forHTTPHeaderField:@"Authorization"];
-
-        // Kill off anything we've saved.
+        // ...clear out stored data...
         [[RKObjectManager sharedManager].objectStore deletePersistentStore];
+        // ...DELETE the session and let them know when we've finished.
+        [[RKObjectManager sharedManager].client delete:@"/api/session" usingBlock:^(RKRequest *request) {
+            // TODO Should probably change this to send off a NSNotification 
+            // so that everything can clear out any cached data.
+            request.onDidLoadResponse = ^(RKResponse *response) {
+                // Send notice...
+            };
+            request.onDidFailLoadWithError = ^(NSError *error) {
+                // Send notice...
+            };
+        }];
     }
 }
 
