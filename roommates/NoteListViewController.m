@@ -7,6 +7,7 @@
 //
 
 #import "NoteListViewController.h"
+#import "NoteCell.h"
 #import "RMNote.h"
 
 @interface NoteListViewController ()
@@ -52,11 +53,13 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    static NSString *CellIdentifier = @"NoteCell";
+    NoteCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 
     RMNote *item = [self.items objectAtIndex:indexPath.row];
-    cell.textLabel.text = item.body;
+    cell.agoLabel.text = [self asTimeAgo:item.createdAt];
+    cell.bodyText.text = item.body;
+    cell.userLabel.text = [NSString stringWithFormat:@"-%@", item.creatorId];
 
     return cell;
 }

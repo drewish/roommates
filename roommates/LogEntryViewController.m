@@ -41,7 +41,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"LogEntry";
+    static NSString *CellIdentifier = @"LogEntryCell";
     LogEntryCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 
     // TODO this should move into LogEntryCell.m?

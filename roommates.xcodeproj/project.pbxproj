@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5F034123159E77D000A81275 /* LogEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F034122159E77D000A81275 /* LogEntryViewController.m */; };
 		5F15615615A8BFB40065BAA2 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F15615515A8BFB40065BAA2 /* LoginViewController.m */; };
+		5F15615D15A907C80065BAA2 /* NoteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F15615C15A907C80065BAA2 /* NoteCell.m */; };
 		5F286C2D159E93E400310016 /* LogEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F286C2C159E93E400310016 /* LogEntryCell.m */; };
 		5F4540E315A736CE00386BEC /* RMNote.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F4540E215A736CE00386BEC /* RMNote.m */; };
 		5F703C441598FECD00EA51DF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F703C431598FECD00EA51DF /* UIKit.framework */; };
@@ -93,6 +94,8 @@
 		5F034122159E77D000A81275 /* LogEntryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogEntryViewController.m; sourceTree = "<group>"; };
 		5F15615415A8BFB40065BAA2 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		5F15615515A8BFB40065BAA2 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		5F15615B15A907C80065BAA2 /* NoteCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteCell.h; sourceTree = "<group>"; };
+		5F15615C15A907C80065BAA2 /* NoteCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteCell.m; sourceTree = "<group>"; };
 		5F286C2B159E93E400310016 /* LogEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogEntryCell.h; sourceTree = "<group>"; };
 		5F286C2C159E93E400310016 /* LogEntryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogEntryCell.m; sourceTree = "<group>"; };
 		5F4540E115A736CE00386BEC /* RMNote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNote.h; sourceTree = "<group>"; };
@@ -314,6 +317,8 @@
 			children = (
 				5FFBCFBF15A68F1700CF161A /* NoteListViewController.h */,
 				5FFBCFC015A68F1700CF161A /* NoteListViewController.m */,
+				5F15615B15A907C80065BAA2 /* NoteCell.h */,
+				5F15615C15A907C80065BAA2 /* NoteCell.m */,
 			);
 			name = Notes;
 			sourceTree = "<group>";
@@ -458,6 +463,7 @@
 				5FFBCFCE15A6A41500CF161A /* SVProgressHUD.m in Sources */,
 				5F4540E315A736CE00386BEC /* RMNote.m in Sources */,
 				5F15615615A8BFB40065BAA2 /* LoginViewController.m in Sources */,
+				5F15615D15A907C80065BAA2 /* NoteCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

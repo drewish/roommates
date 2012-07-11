@@ -18,6 +18,14 @@
      
 + (RKObjectMapping*) addMappingsTo:(RKObjectMapping*) mapping
 {
+    
+//    NSDateFormatter* dateFormatter = [NSDateFormatter new];
+//    //                              2012-07-06T13:30:59-05:00
+//    [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZZZZ"];
+////    dateFormatter.timeZone = [NSTimeZone timeZoneWithAbbreviation:@"UTC"];
+////    dateFormatter.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
+//    mapping.dateFormatters = [NSArray arrayWithObject: dateFormatter];
+
     [mapping mapKeyPath:@"id" toAttribute:@"noteId"];
     [mapping mapKeyPath:@"body" toAttribute:@"body"];
     [mapping mapKeyPath:@"created_at" toAttribute:@"createdAt"];

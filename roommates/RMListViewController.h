@@ -19,4 +19,6 @@
 
 // TODO Needs a method for fetching the items
 - (void)fetchItems;
+- (NSString*)asTimeAgo:(NSDate*)date;
+
 @end
