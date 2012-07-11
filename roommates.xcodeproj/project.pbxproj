@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		5F034123159E77D000A81275 /* LogEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F034122159E77D000A81275 /* LogEntryViewController.m */; };
+		5F0FAA7A15AD4B33005408AF /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0FAA7515AD4B33005408AF /* libTestFlight.a */; };
+		5F0FAA7B15AD4B33005408AF /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5F0FAA7615AD4B33005408AF /* README.txt */; };
+		5F0FAA7C15AD4B33005408AF /* release_notes.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5F0FAA7715AD4B33005408AF /* release_notes.txt */; };
+		5F0FAA7F15AD4B8E005408AF /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0FAA7E15AD4B8E005408AF /* libz.dylib */; };
 		5F15615615A8BFB40065BAA2 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F15615515A8BFB40065BAA2 /* LoginViewController.m */; };
 		5F15615D15A907C80065BAA2 /* NoteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F15615C15A907C80065BAA2 /* NoteCell.m */; };
 		5F286C2D159E93E400310016 /* LogEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F286C2C159E93E400310016 /* LogEntryCell.m */; };
@@ -92,6 +96,11 @@
 /* Begin PBXFileReference section */
 		5F034121159E77D000A81275 /* LogEntryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogEntryViewController.h; sourceTree = "<group>"; };
 		5F034122159E77D000A81275 /* LogEntryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogEntryViewController.m; sourceTree = "<group>"; };
+		5F0FAA7515AD4B33005408AF /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
+		5F0FAA7615AD4B33005408AF /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		5F0FAA7715AD4B33005408AF /* release_notes.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.txt; sourceTree = "<group>"; };
+		5F0FAA7815AD4B33005408AF /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
+		5F0FAA7E15AD4B8E005408AF /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		5F15615415A8BFB40065BAA2 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		5F15615515A8BFB40065BAA2 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		5F15615B15A907C80065BAA2 /* NoteCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteCell.h; sourceTree = "<group>"; };
@@ -153,6 +162,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F0FAA7F15AD4B8E005408AF /* libz.dylib in Frameworks */,
 				5FD475C0159B552600F4907C /* libRestKit.a in Frameworks */,
 				5FD475B9159B539E00F4907C /* libxml2.dylib in Frameworks */,
 				5FD475B7159B539400F4907C /* QuartzCore.framework in Frameworks */,
@@ -164,12 +174,24 @@
 				5F703C441598FECD00EA51DF /* UIKit.framework in Frameworks */,
 				5F703C461598FECD00EA51DF /* Foundation.framework in Frameworks */,
 				5F703C481598FECD00EA51DF /* CoreGraphics.framework in Frameworks */,
+				5F0FAA7A15AD4B33005408AF /* libTestFlight.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5F0FAA7415AD4B33005408AF /* TestFlight */ = {
+			isa = PBXGroup;
+			children = (
+				5F0FAA7515AD4B33005408AF /* libTestFlight.a */,
+				5F0FAA7615AD4B33005408AF /* README.txt */,
+				5F0FAA7715AD4B33005408AF /* release_notes.txt */,
+				5F0FAA7815AD4B33005408AF /* TestFlight.h */,
+			);
+			path = TestFlight;
+			sourceTree = "<group>";
+		};
 		5F15614F15A8BE350065BAA2 /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -193,6 +215,7 @@
 		5F703C341598FECC00EA51DF = {
 			isa = PBXGroup;
 			children = (
+				5F0FAA7E15AD4B8E005408AF /* libz.dylib */,
 				5FD47597159B51C900F4907C /* RestKit.xcodeproj */,
 				5F703C491598FECD00EA51DF /* roommates */,
 				5F703C421598FECD00EA51DF /* Frameworks */,
@@ -238,6 +261,7 @@
 				5FFBCFBE15A68E8100CF161A /* Notes */,
 				5F703C4A1598FECD00EA51DF /* Supporting Files */,
 				5FFBCFC915A6A41500CF161A /* SVProgressHUD */,
+				5F0FAA7415AD4B33005408AF /* TestFlight */,
 				5FAD766915A13F01005BBCAC /* ZUUIRevealController */,
 			);
 			path = roommates;
@@ -437,6 +461,8 @@
 				5FFBCFD215A6A9D600CF161A /* default@2x.png in Resources */,
 				5FFBCFD515A6AB4300CF161A /* Icon.png in Resources */,
 				5FFBCFDA15A6ACB800CF161A /* Icon@2x.png in Resources */,
+				5F0FAA7B15AD4B33005408AF /* README.txt in Resources */,
+				5F0FAA7C15AD4B33005408AF /* release_notes.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -549,6 +575,10 @@
 				GCC_PREFIX_HEADER = "roommates/roommates-Prefix.pch";
 				HEADER_SEARCH_PATHS = "\"$(BUILT_PRODUCTS_DIR)/../../Headers\"";
 				INFOPLIST_FILE = "roommates/roommates-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/roommates/TestFlight\"",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -562,6 +592,10 @@
 				GCC_PREFIX_HEADER = "roommates/roommates-Prefix.pch";
 				HEADER_SEARCH_PATHS = "\"$(BUILT_PRODUCTS_DIR)/../../Headers\"";
 				INFOPLIST_FILE = "roommates/roommates-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/roommates/TestFlight\"",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;

@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "TestFlight.h"
 #import "LoginViewController.h"
 #import "RMSession.h"
 #import "RMUser.h"
@@ -21,6 +22,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    [TestFlight takeOff:@"2e02edf6518d53ca4dc674538c2eb799_MTA1NTQ3MjAxMi0wNi0yOSAyMzozNTozMi4wOTkxNDE"];
 
     RKLogConfigureByName("RestKit", RKLogLevelTrace);
 //    RKLogConfigureByName("RestKit/Network", RKLogLevelTrace);
