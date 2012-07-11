@@ -12,8 +12,11 @@
 #import "RMSession.h"
 #import "RMUser.h"
 #import "RMHousehold.h"
+#import "RMComment.h"
 #import "RMLogEntry.h"
 #import "RMNote.h"
+
+#define TESTING 1
 
 @implementation AppDelegate
 
@@ -23,11 +26,13 @@
 {
     // Override point for customization after application launch.
     [TestFlight takeOff:@"2e02edf6518d53ca4dc674538c2eb799_MTA1NTQ3MjAxMi0wNi0yOSAyMzozNTozMi4wOTkxNDE"];
-
-    RKLogConfigureByName("RestKit", RKLogLevelTrace);
+#ifdef TESTING
+    [TestFlight setDeviceIdentifier:[[UIDevice currentDevice] uniqueIdentifier]];
+//    RKLogConfigureByName("RestKit", RKLogLevelTrace);
 //    RKLogConfigureByName("RestKit/Network", RKLogLevelTrace);
     RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelTrace);
 //    RKLogConfigureByName("RestKit/CoreData", RKLogLevelTrace);
+#endif
 
     NSString *url = @"http://roommates-staging.herokuapp.com";
 
@@ -42,6 +47,7 @@
     // Setup our mappings.
     [RMUser registerMappingsWith:mgr.mappingProvider inManagedObjectStore:objectStore];
     [RMHousehold registerMappingsWith:mgr.mappingProvider inManagedObjectStore:objectStore];
+    [RMComment registerMappingsWith:mgr.mappingProvider];
     [RMLogEntry registerMappingsWith:mgr.mappingProvider];
     [RMNote registerMappingsWith:mgr.mappingProvider];
 

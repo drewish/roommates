@@ -7,18 +7,23 @@
 //
 
 #import "RMNote.h"
+#import "RMComment.h"
 
 @implementation RMNote
 
 + (void) registerMappingsWith:(RKObjectMappingProvider*) provider
 {
     RKObjectMapping* mapping = [self addMappingsTo:[RKObjectMapping mappingForClass:[self class]]];
+
+    // Hook the comments in too.
+    [mapping mapKeyPath:@"comments" toRelationship:@"comments" 
+            withMapping:[provider objectMappingForClass:[RMComment class]]];
+
     [provider setObjectMapping:mapping forResourcePathPattern:@"/api/households/:householdId/notes"];
 }
      
 + (RKObjectMapping*) addMappingsTo:(RKObjectMapping*) mapping
 {
-    
 //    NSDateFormatter* dateFormatter = [NSDateFormatter new];
 //    //                              2012-07-06T13:30:59-05:00
 //    [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZZZZ"];
@@ -32,7 +37,7 @@
     [mapping mapKeyPath:@"creator_id" toAttribute:@"creatorId"];
     [mapping mapKeyPath:@"photo" toAttribute:@"photo"];
     [mapping mapKeyPath:@"abilities" toAttribute:@"abilities"];
-    [mapping mapKeyPath:@"comments" toAttribute:@"comments"];
+
     return mapping;
 }
 
