@@ -8,11 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import <RestKit/RestKit.h>
+#import "PullToRefreshView.h"
 #import "RMSession.h"
 #import "RMUser.h"
 #import "RMHousehold.h"
 
-@interface RMListViewController : UITableViewController
+@interface RMListViewController : UITableViewController <PullToRefreshViewDelegate>
 
 @property (nonatomic, weak) Class dataClass;
 @property (nonatomic, retain) NSArray* items;

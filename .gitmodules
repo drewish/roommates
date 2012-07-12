@@ -7,3 +7,6 @@
 [submodule "ZUUIRevealController"]
 	path = ZUUIRevealController
 	url = git://github.com/drewish/ZUUIRevealController.git
+[submodule "PullToRefresh"]
+	path = PullToRefresh
+	url = git://github.com/sonnyparlin/PullToRefresh.git

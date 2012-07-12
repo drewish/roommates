@@ -15,8 +15,9 @@
 
 @end
 
-@implementation RMListViewController
-
+@implementation RMListViewController {
+    PullToRefreshView *pull;
+}
 @synthesize items, dataClass = _dataClass;
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -32,12 +33,10 @@
 {
     [super viewDidLoad];
 
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    pull = [[PullToRefreshView alloc] initWithScrollView:(UIScrollView *) self.tableView];
+    [pull setDelegate:self];
+    [self.tableView addSubview:pull];
 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
 	if ([self.navigationController.parentViewController respondsToSelector:@selector(revealGesture:)] && [self.navigationController.parentViewController respondsToSelector:@selector(revealToggle:)]) {
 		UIPanGestureRecognizer *navigationBarPanGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self.navigationController.parentViewController action:@selector(revealGesture:)];
 		[self.navigationController.navigationBar addGestureRecognizer:navigationBarPanGestureRecognizer];
@@ -65,13 +64,20 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+- (void)pullToRefreshViewShouldRefresh:(PullToRefreshView *)view;
+{
+    [self fetchItems];
+}
+
 - (void)fetchItems {
     RMHousehold *current = [RMHousehold current];
     if (current != nil) {
         [_dataClass fetchForHousehold:current.householdId OnSuccess:^(NSArray *items_) {
             self.items = items_;
             [self.tableView reloadData];
+            [pull finishedLoading];
         } OnFailure:^(NSError *error) {
+            [pull finishedLoading];
             NSLog(@"Couldn't fetch items: %@", error);
             [[[UIAlertView alloc] initWithTitle:@"Error"
                                         message:[error localizedDescription]
