@@ -24,6 +24,7 @@
 		5F703C501598FECD00EA51DF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F703C4F1598FECD00EA51DF /* main.m */; };
 		5F703C541598FECD00EA51DF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F703C531598FECD00EA51DF /* AppDelegate.m */; };
 		5F703C571598FECD00EA51DF /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F703C551598FECD00EA51DF /* MainStoryboard.storyboard */; };
+		5F9A5EDC15AE594E0053D6B3 /* NoteAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F9A5EDB15AE594E0053D6B3 /* NoteAddViewController.m */; };
 		5FAD766D15A13F01005BBCAC /* ZUUIRevealController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FAD766C15A13F01005BBCAC /* ZUUIRevealController.m */; };
 		5FAD767915A16321005BBCAC /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FAD767815A16321005BBCAC /* MenuViewController.m */; };
 		5FAD767E15A218F0005BBCAC /* RMData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5FAD767C15A218F0005BBCAC /* RMData.xcdatamodeld */; };
@@ -123,6 +124,8 @@
 		5F703C521598FECD00EA51DF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5F703C531598FECD00EA51DF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		5F703C561598FECD00EA51DF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		5F9A5EDA15AE594E0053D6B3 /* NoteAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteAddViewController.h; sourceTree = "<group>"; };
+		5F9A5EDB15AE594E0053D6B3 /* NoteAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteAddViewController.m; sourceTree = "<group>"; };
 		5F9E5ED015A29C08007D355C /* RMObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RMObject.h; sourceTree = "<group>"; };
 		5FAD766A15A13F01005BBCAC /* ZUUIRevealController-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ZUUIRevealController-Prefix.pch"; sourceTree = "<group>"; };
 		5FAD766B15A13F01005BBCAC /* ZUUIRevealController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZUUIRevealController.h; sourceTree = "<group>"; };
@@ -348,6 +351,8 @@
 				5FFBCFC015A68F1700CF161A /* NoteListViewController.m */,
 				5F15615B15A907C80065BAA2 /* NoteCell.h */,
 				5F15615C15A907C80065BAA2 /* NoteCell.m */,
+				5F9A5EDA15AE594E0053D6B3 /* NoteAddViewController.h */,
+				5F9A5EDB15AE594E0053D6B3 /* NoteAddViewController.m */,
 			);
 			name = Notes;
 			sourceTree = "<group>";
@@ -496,6 +501,7 @@
 				5F15615615A8BFB40065BAA2 /* LoginViewController.m in Sources */,
 				5F15615D15A907C80065BAA2 /* NoteCell.m in Sources */,
 				5F0FAA8215ADB75A005408AF /* RMComment.m in Sources */,
+				5F9A5EDC15AE594E0053D6B3 /* NoteAddViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
