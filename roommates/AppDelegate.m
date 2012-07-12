@@ -28,9 +28,10 @@
     [TestFlight takeOff:@"2e02edf6518d53ca4dc674538c2eb799_MTA1NTQ3MjAxMi0wNi0yOSAyMzozNTozMi4wOTkxNDE"];
 #ifdef TESTING
     [TestFlight setDeviceIdentifier:[[UIDevice currentDevice] uniqueIdentifier]];
+
 //    RKLogConfigureByName("RestKit", RKLogLevelTrace);
 //    RKLogConfigureByName("RestKit/Network", RKLogLevelTrace);
-    RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelTrace);
+//    RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelTrace);
 //    RKLogConfigureByName("RestKit/CoreData", RKLogLevelTrace);
 #endif
 

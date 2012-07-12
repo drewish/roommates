@@ -74,6 +74,8 @@ static RMSession *gInstance = nil;
 
             // TODO Should probably change this to send off a NSNotification 
             // so that everything knows we've got a new session.
+            [[NSNotificationCenter defaultCenter] 
+             postNotificationName:@"RMSessionStarted" object:self];
         };
         loader.onDidFailWithError = failure;
     }];
@@ -90,13 +92,15 @@ static RMSession *gInstance = nil;
         [[RKObjectManager sharedManager].objectStore deletePersistentStore];
         // ...DELETE the session and let them know when we've finished.
         [[RKObjectManager sharedManager].client delete:@"/api/session" usingBlock:^(RKRequest *request) {
-            // TODO Should probably change this to send off a NSNotification 
-            // so that everything can clear out any cached data.
             request.onDidLoadResponse = ^(RKResponse *response) {
                 // Send notice...
+                [[NSNotificationCenter defaultCenter] 
+                 postNotificationName:@"RMSessionEnded" object:self];
             };
             request.onDidFailLoadWithError = ^(NSError *error) {
                 // Send notice...
+                [[NSNotificationCenter defaultCenter] 
+                 postNotificationName:@"RMSessionEnded" object:self];
             };
         }];
     }

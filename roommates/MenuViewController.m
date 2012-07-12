@@ -247,8 +247,10 @@
 // own view so we don't have to set the household until they click done.
 - (IBAction)householdPickerDone:(id)sender {
     [actionSheet dismissWithClickedButtonIndex:0 animated:YES];
-    // Use the new household in the section title.
+    // Make sure the new household shows up in the section title.
     [self.tableView reloadData];
+    // Show them their data.
+    [revealController revealToggle:self];
 }
 
 @end

@@ -53,8 +53,8 @@ static RMHousehold *current = nil;
             NSLog(@"Save error: %@", error);
         }
 
-        // TODO Should probably send off a NSNotification 
-        // so that everything knows we've got a household.
+        [[NSNotificationCenter defaultCenter] 
+         postNotificationName:@"RMHouseholdSelected" object:current];
         
         // TODO Make a call to get this set server side.
     }
@@ -78,8 +78,10 @@ static RMHousehold *current = nil;
         for (RMHousehold *h in cachedObjects) {
             if ([h.current isEqualToNumber:[NSNumber numberWithBool:TRUE]]) {
                 current = h;
-                // TODO Should probably send off a NSNotification 
-                // so that everything knows we've got a household.
+
+                [[NSNotificationCenter defaultCenter] 
+                 postNotificationName:@"RMHouseholdSelected" object:current];
+
                 return;
             }
         }
@@ -102,10 +104,14 @@ static RMHousehold *current = nil;
             }
 
             [self setHouseholds: households];
+            [[NSNotificationCenter defaultCenter]
+             postNotificationName:@"RMListFetched" object:self];
             success(households);
         };
         loader.onDidFailWithError = ^(NSError *error) {
             [self setHouseholds:nil];
+            [[NSNotificationCenter defaultCenter]
+             postNotificationName:@"RMListFetchFailed" object:self];
             failure(error);
         };
     }];

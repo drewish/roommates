@@ -8,8 +8,23 @@
 
 #import <Foundation/Foundation.h>
 #import <RestKit/RestKit.h>
+#import <RestKit/CoreData.h>
 
+// For temporal data.
 @protocol RMObject <NSObject>
 + (void) registerMappingsWith:(RKObjectMappingProvider*) provider;
 + (RKObjectMapping*) addMappingsTo:(RKObjectMapping*) mapping;
+@end
+
+// For data stored in the database.
+@protocol RMManagedObject <NSObject>
++ (void) registerMappingsWith:(RKObjectMappingProvider*) provider inManagedObjectStore:(RKManagedObjectStore *)objectStore;
++ (RKManagedObjectMapping*) addMappingsTo:(RKManagedObjectMapping*) mapping;
+@end
+
+@protocol RMFetchableList <NSObject>
++ (void)fetchForHousehold:(NSNumber*) householdId
+                OnSuccess:(RKObjectLoaderDidLoadObjectsBlock) success
+                OnFailure:(RKObjectLoaderDidFailWithErrorBlock) failure;
++ (NSArray*) items;
 @end

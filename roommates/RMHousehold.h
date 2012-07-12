@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "RMManagedObject.h"
+#import "RMObject.h"
 
 @interface RMHousehold : NSManagedObject <RMManagedObject>
 + (RMHousehold *)current;

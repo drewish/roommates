@@ -48,6 +48,22 @@
     NSArray *households = [RMHousehold households];
     assert(households.count > 0);
 
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(watchIt:) name:@"RMListFetched" object:_dataClass];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refeshIt:) name:@"RMItemAdded" object:_dataClass];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refeshIt:) name:@"RMHouseholdSelected" object:nil];
+
+    [self fetchItems];
+}
+
+//- (void)watchIt:(NSNotification*)note
+//{
+//    NSLog(@"Noted: %@", note);
+//    self.items = [_dataClass items];
+//    [self.tableView reloadData];
+//}
+
+- (void)refeshIt:(NSNotification*)note
+{
     [self fetchItems];
 }
 
@@ -57,6 +73,7 @@
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
     items = nil;
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

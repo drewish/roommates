@@ -9,11 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "RMObject.h"
 
-@interface RMNote : NSObject <RMObject>
-+ (void)fetchForHousehold:(NSNumber*) householdId
-                OnSuccess:(RKObjectLoaderDidLoadObjectsBlock) success
-                OnFailure:(RKObjectLoaderDidFailWithErrorBlock) failure;
-
+@interface RMNote : NSObject <RMObject, RMFetchableList>
 @property (nonatomic, retain) NSNumber* noteId;        // ID of note
 @property (nonatomic, retain) NSString* body;          // note body
 @property (nonatomic, retain) NSDate* createdAt;    // creation time

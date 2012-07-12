@@ -8,6 +8,7 @@
 
 #import "RMLogEntry.h"
 
+static NSArray *cached = nil;
 @implementation RMLogEntry
 
 + (void) registerMappingsWith:(RKObjectMappingProvider*) provider
@@ -35,9 +36,24 @@
 {
     NSString *path = [NSString stringWithFormat:@"/api/households/%i/log_entries", householdId.intValue];
     [[RKObjectManager sharedManager] loadObjectsAtResourcePath:path usingBlock:^(RKObjectLoader *loader) {
-        loader.onDidLoadObjects = success;
-        loader.onDidFailWithError = failure;
+        loader.onDidLoadObjects = ^(NSArray *objects) {
+            cached = objects;
+            [[NSNotificationCenter defaultCenter]
+             postNotificationName:@"RMListFetched" object:self];
+            success(objects);
+        };
+        loader.onDidFailWithError = ^(NSError *error) {
+            cached = nil;
+            [[NSNotificationCenter defaultCenter]
+             postNotificationName:@"RMListFetchFailed" object:self];
+            failure(error);
+        };
     }];
+}
+
++ (NSArray*) items 
+{
+    return cached;
 }
 
 @synthesize entryId, 

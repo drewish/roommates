@@ -139,7 +139,6 @@
 		5FAD766C15A13F01005BBCAC /* ZUUIRevealController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZUUIRevealController.m; sourceTree = "<group>"; };
 		5FAD767715A16321005BBCAC /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
 		5FAD767815A16321005BBCAC /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
-		5FAD767A15A20ED0005BBCAC /* RMManagedObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RMManagedObject.h; sourceTree = "<group>"; };
 		5FAD767D15A218F0005BBCAC /* RMData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RMData.xcdatamodel; sourceTree = "<group>"; };
 		5FD47597159B51C900F4907C /* RestKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RestKit.xcodeproj; path = RestKit/RestKit.xcodeproj; sourceTree = "<group>"; };
 		5FD475B0159B536C00F4907C /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -346,7 +345,6 @@
 			children = (
 				5FAD767C15A218F0005BBCAC /* RMData.xcdatamodeld */,
 				5F9E5ED015A29C08007D355C /* RMObject.h */,
-				5FAD767A15A20ED0005BBCAC /* RMManagedObject.h */,
 				5FD475C2159B5B0500F4907C /* RMUser.h */,
 				5FD475C3159B5B0500F4907C /* RMUser.m */,
 				5FD475C5159B667400F4907C /* RMSession.h */,

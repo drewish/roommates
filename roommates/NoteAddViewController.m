@@ -8,6 +8,7 @@
 
 #import "NoteAddViewController.h"
 #import "RMHousehold.h"
+#import "RMNote.h"
 
 @implementation NoteAddViewController
 @synthesize doneButton;
@@ -54,6 +55,9 @@
                                   otherButtonTitles:nil] show];
             }
             else {
+                [[NSNotificationCenter defaultCenter]
+                 postNotificationName:@"RMItemAdded" object:[RMNote class]];
+
                 [self.navigationController popViewControllerAnimated:YES];
             }
         };
