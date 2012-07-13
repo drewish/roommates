@@ -7,7 +7,7 @@
 //
 
 #import "LoginViewController.h"
-#import "ZUUIRevealController.h"
+#import "RootViewController.h"
 #import "RMData.h"
 
 @interface LoginViewController ()
@@ -50,11 +50,8 @@
 
 - (void)loggedIn
 {
-    UIStoryboard* s = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-    UIViewController* front = [s instantiateInitialViewController];
-    UIViewController* rear = [s instantiateViewControllerWithIdentifier:@"Menu"];
-    ZUUIRevealController *reveal = [[ZUUIRevealController alloc] initWithFrontViewController:front rearViewController:rear];
-    UIApplication.sharedApplication.keyWindow.rootViewController = reveal;
+    RootViewController *vc = [[RootViewController alloc] init];
+    UIApplication.sharedApplication.keyWindow.rootViewController = vc;
 }
 
 - (IBAction)login:(id)sender {

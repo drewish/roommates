@@ -7,10 +7,8 @@
 //
 
 #import "MenuViewController.h"
-#import "LoginViewController.h"
-#import "LogEntryViewController.h"
-#import "NoteListViewController.h"
-#import "RMHousehold.h"
+#import "RootViewController.h"
+#import "RMData.h"
 
 @interface MenuViewController ()
 
@@ -65,7 +63,8 @@
 
 #pragma mark - Table view delegate
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-{   RMHousehold *current;
+{
+    RMHousehold *current;
     switch (section) {
         case 0:
             current = RMHousehold.current;
@@ -79,18 +78,20 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    RootViewController *vc = [self.parentViewController isKindOfClass:[RootViewController class]] ? (RootViewController *)self.parentViewController : nil;
+
     if (indexPath.section == 0) {
         switch (indexPath.row) {
             case 0:
-                return [self showActivityFeed:nil];
+                return [vc showActivityFeed:nil];
             case 1:
-                return [self showExpenses:nil];
+                return [vc showExpenses:nil];
             case 2:
-                return [self showShoppingList:nil];
+                return [vc showShoppingList:nil];
             case 3:
-                return [self showTodos:nil];
+                return [vc showTodos:nil];
             case 4:
-                return [self showNotes:nil];
+                return [vc showNotes:nil];
         }
     }
     else if (indexPath.section == 1) {
@@ -103,49 +104,7 @@
     }
 }
 
-// Little helper function to pick the right viewcontroller from the story board
-// and get it setup inside a navigation controller.
-- (void)switchToView:(Class)aClass withStoryBoardIdentifier:(NSString*)identifer
-{
-    if ([revealController.frontViewController isKindOfClass:[UINavigationController class]]) {
-        UINavigationController *nav = ((UINavigationController *)revealController.frontViewController);
-        // Now let's see if we're not attempting to swap the current 
-        // frontViewController for a new instance of ITSELF, which'd be highly redundant.
-        if (![nav.topViewController isKindOfClass:aClass]) {
-            UIStoryboard* mainStoryboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-            UIViewController* frontViewController = [mainStoryboard instantiateViewControllerWithIdentifier:identifer];
-			UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:frontViewController];
-			[revealController setFrontViewController:navigationController animated:NO];
-            return;
-        }
-    }
-    // Seem like they want to stay where they are.
-    [revealController revealToggle:self];
-}
-
 #pragma mark - Actions
-
-- (IBAction)showActivityFeed:(id)sender {
-    NSLog(@"Activity Feed");
-    [self switchToView:[LogEntryViewController class] withStoryBoardIdentifier:@"LogEntryList"];
-}
-
-- (IBAction)showExpenses:(id)sender {
-    NSLog(@"Expenses");
-}
-
-- (IBAction)showShoppingList:(id)sender {
-    NSLog(@"Shopping List");
-}
-
-- (IBAction)showTodos:(id)sender {
-    NSLog(@"To-Do's");
-}
-
-- (IBAction)showNotes:(id)sender {
-    NSLog(@"Notes");
-    [self switchToView:[NoteListViewController class] withStoryBoardIdentifier:@"NoteList"];
-}
 
 - (IBAction)switchHousehold:(id)sender {
     NSLog(@"switch households");
@@ -209,13 +168,8 @@
 -(void)actionSheet:(UIActionSheet *)actionSheet_ didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
     if (actionSheet_.tag == 1 && buttonIndex == 0) {
-        NSLog(@"Signing out…");
-        [RMSession endSession];
-
-        // TODO: figure out how to do this with a transition. It's too abrupt now.
-        UIStoryboard* mainStoryboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-        LoginViewController* loginViewController = [mainStoryboard instantiateViewControllerWithIdentifier:@"Login"];
-        UIApplication.sharedApplication.keyWindow.rootViewController = loginViewController;
+        RootViewController *vc = [self.parentViewController isKindOfClass:[RootViewController class]] ? (RootViewController *)self.parentViewController : nil;
+        [vc signOut:nil];
     }
     actionSheet = nil;
 }

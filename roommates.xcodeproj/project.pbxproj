@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		5F034123159E77D000A81275 /* LogEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F034122159E77D000A81275 /* LogEntryViewController.m */; };
+		5F0CA1EB15B0A83B00C7CFAC /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F0CA1EA15B0A83B00C7CFAC /* RootViewController.m */; };
+		5F0CA1EE15B0B1E000C7CFAC /* ExpensesSummaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F0CA1ED15B0B1DF00C7CFAC /* ExpensesSummaryViewController.m */; };
 		5F0FAA7A15AD4B33005408AF /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0FAA7515AD4B33005408AF /* libTestFlight.a */; };
 		5F0FAA7B15AD4B33005408AF /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5F0FAA7615AD4B33005408AF /* README.txt */; };
 		5F0FAA7C15AD4B33005408AF /* release_notes.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5F0FAA7715AD4B33005408AF /* release_notes.txt */; };
@@ -15,6 +17,8 @@
 		5F0FAA8215ADB75A005408AF /* RMComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F0FAA8115ADB75A005408AF /* RMComment.m */; };
 		5F15615615A8BFB40065BAA2 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F15615515A8BFB40065BAA2 /* LoginViewController.m */; };
 		5F15615D15A907C80065BAA2 /* NoteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F15615C15A907C80065BAA2 /* NoteCell.m */; };
+		5F1ECD4915AFCBBE00C314A6 /* UserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F1ECD4815AFCBBE00C314A6 /* UserViewController.m */; };
+		5F1ECD5215AFD16500C314A6 /* ReimbursalAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F1ECD5115AFD16500C314A6 /* ReimbursalAddViewController.m */; };
 		5F286C2D159E93E400310016 /* LogEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F286C2C159E93E400310016 /* LogEntryCell.m */; };
 		5F4540E315A736CE00386BEC /* RMNote.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F4540E215A736CE00386BEC /* RMNote.m */; };
 		5F703C441598FECD00EA51DF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F703C431598FECD00EA51DF /* UIKit.framework */; };
@@ -101,6 +105,10 @@
 /* Begin PBXFileReference section */
 		5F034121159E77D000A81275 /* LogEntryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogEntryViewController.h; sourceTree = "<group>"; };
 		5F034122159E77D000A81275 /* LogEntryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogEntryViewController.m; sourceTree = "<group>"; };
+		5F0CA1E915B0A83B00C7CFAC /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		5F0CA1EA15B0A83B00C7CFAC /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		5F0CA1EC15B0B1DF00C7CFAC /* ExpensesSummaryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpensesSummaryViewController.h; sourceTree = "<group>"; };
+		5F0CA1ED15B0B1DF00C7CFAC /* ExpensesSummaryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpensesSummaryViewController.m; sourceTree = "<group>"; };
 		5F0FAA7515AD4B33005408AF /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
 		5F0FAA7615AD4B33005408AF /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		5F0FAA7715AD4B33005408AF /* release_notes.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.txt; sourceTree = "<group>"; };
@@ -112,6 +120,11 @@
 		5F15615515A8BFB40065BAA2 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		5F15615B15A907C80065BAA2 /* NoteCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteCell.h; sourceTree = "<group>"; };
 		5F15615C15A907C80065BAA2 /* NoteCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteCell.m; sourceTree = "<group>"; };
+		5F1ECD4715AFCBBE00C314A6 /* UserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserViewController.h; sourceTree = "<group>"; };
+		5F1ECD4815AFCBBE00C314A6 /* UserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserViewController.m; sourceTree = "<group>"; };
+		5F1ECD5015AFD16500C314A6 /* ReimbursalAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReimbursalAddViewController.h; sourceTree = "<group>"; };
+		5F1ECD5115AFD16500C314A6 /* ReimbursalAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReimbursalAddViewController.m; sourceTree = "<group>"; };
+		5F1ECD5315AFD8AC00C314A6 /* RMData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RMData.h; sourceTree = "<group>"; };
 		5F286C2B159E93E400310016 /* LogEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogEntryCell.h; sourceTree = "<group>"; };
 		5F286C2C159E93E400310016 /* LogEntryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogEntryCell.m; sourceTree = "<group>"; };
 		5F4540E115A736CE00386BEC /* RMNote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNote.h; sourceTree = "<group>"; };
@@ -213,6 +226,38 @@
 			name = Login;
 			sourceTree = "<group>";
 		};
+		5F1ECD4315AFCAD100C314A6 /* Expenses */ = {
+			isa = PBXGroup;
+			children = (
+				5F0CA1EC15B0B1DF00C7CFAC /* ExpensesSummaryViewController.h */,
+				5F0CA1ED15B0B1DF00C7CFAC /* ExpensesSummaryViewController.m */,
+				5F1ECD5015AFD16500C314A6 /* ReimbursalAddViewController.h */,
+				5F1ECD5115AFD16500C314A6 /* ReimbursalAddViewController.m */,
+			);
+			name = Expenses;
+			sourceTree = "<group>";
+		};
+		5F1ECD4415AFCAEF00C314A6 /* Comments */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Comments;
+			sourceTree = "<group>";
+		};
+		5F1ECD4515AFCB2100C314A6 /* Shopping */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Shopping;
+			sourceTree = "<group>";
+		};
+		5F1ECD4615AFCB2500C314A6 /* Todo */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Todo;
+			sourceTree = "<group>";
+		};
 		5F286C2A159E93C500310016 /* ActivityFeed */ = {
 			isa = PBXGroup;
 			children = (
@@ -267,10 +312,18 @@
 				5F703C551598FECD00EA51DF /* MainStoryboard.storyboard */,
 				5FFBCFC615A69B4500CF161A /* RMListViewController.h */,
 				5FFBCFC715A69B4500CF161A /* RMListViewController.m */,
+				5F0CA1E915B0A83B00C7CFAC /* RootViewController.h */,
+				5F0CA1EA15B0A83B00C7CFAC /* RootViewController.m */,
+				5F1ECD4715AFCBBE00C314A6 /* UserViewController.h */,
+				5F1ECD4815AFCBBE00C314A6 /* UserViewController.m */,
 				5F15614F15A8BE350065BAA2 /* Login */,
 				5FAD767215A144F1005BBCAC /* Menu */,
 				5F286C2A159E93C500310016 /* ActivityFeed */,
+				5F1ECD4315AFCAD100C314A6 /* Expenses */,
+				5F1ECD4515AFCB2100C314A6 /* Shopping */,
+				5F1ECD4615AFCB2500C314A6 /* Todo */,
 				5FFBCFBE15A68E8100CF161A /* Notes */,
+				5F1ECD4415AFCAEF00C314A6 /* Comments */,
 				5F703C4A1598FECD00EA51DF /* Supporting Files */,
 				5F9A5EDD15AE84F40053D6B3 /* PullToRefresh */,
 				5FFBCFC915A6A41500CF161A /* SVProgressHUD */,
@@ -344,6 +397,7 @@
 			isa = PBXGroup;
 			children = (
 				5FAD767C15A218F0005BBCAC /* RMData.xcdatamodeld */,
+				5F1ECD5315AFD8AC00C314A6 /* RMData.h */,
 				5F9E5ED015A29C08007D355C /* RMObject.h */,
 				5FD475C2159B5B0500F4907C /* RMUser.h */,
 				5FD475C3159B5B0500F4907C /* RMUser.m */,
@@ -522,6 +576,10 @@
 				5F0FAA8215ADB75A005408AF /* RMComment.m in Sources */,
 				5F9A5EDC15AE594E0053D6B3 /* NoteAddViewController.m in Sources */,
 				5F9A5EE515AE84F50053D6B3 /* PullToRefreshView.m in Sources */,
+				5F1ECD4915AFCBBE00C314A6 /* UserViewController.m in Sources */,
+				5F1ECD5215AFD16500C314A6 /* ReimbursalAddViewController.m in Sources */,
+				5F0CA1EB15B0A83B00C7CFAC /* RootViewController.m in Sources */,
+				5F0CA1EE15B0B1E000C7CFAC /* ExpensesSummaryViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

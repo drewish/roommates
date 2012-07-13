@@ -11,12 +11,10 @@
 #import "PullToRefreshView.h"
 #import "RMData.h"
 
-@interface RMListViewController : UITableViewController <PullToRefreshViewDelegate>
+@interface ExpensesSummaryViewController : UITableViewController <PullToRefreshViewDelegate>
 
-@property (nonatomic, weak) Class dataClass;
-@property (nonatomic, retain) NSArray* items;
+//@property (nonatomic, retain) NSArray* items;
 
 - (void)fetchItems;
-- (NSString*)asTimeAgo:(NSDate*)date;
 
 @end
