@@ -9,12 +9,7 @@
 #import "AppDelegate.h"
 #import "TestFlight.h"
 #import "LoginViewController.h"
-#import "RMSession.h"
-#import "RMUser.h"
-#import "RMHousehold.h"
-#import "RMComment.h"
-#import "RMLogEntry.h"
-#import "RMNote.h"
+#import "RMData.h"
 
 #define TESTING 1
 

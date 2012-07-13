@@ -8,7 +8,7 @@
 
 #import "LogEntryViewController.h"
 #import "LogEntryCell.h"
-#import "RMLogEntry.h"
+#import "RMData.h"
 
 @interface LogEntryViewController ()
 

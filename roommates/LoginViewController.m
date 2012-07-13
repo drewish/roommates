@@ -8,8 +8,7 @@
 
 #import "LoginViewController.h"
 #import "ZUUIRevealController.h"
-#import "RMSession.h"
-#import "RMHousehold.h"
+#import "RMData.h"
 
 @interface LoginViewController ()
 

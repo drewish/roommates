@@ -9,9 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <RestKit/RestKit.h>
 #import "PullToRefreshView.h"
-#import "RMSession.h"
-#import "RMUser.h"
-#import "RMHousehold.h"
+#import "RMData.h"
 
 @interface RMListViewController : UITableViewController <PullToRefreshViewDelegate>
 

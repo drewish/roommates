@@ -7,8 +7,7 @@
 //
 
 #import "NoteAddViewController.h"
-#import "RMHousehold.h"
-#import "RMNote.h"
+#import "RMData.h"
 
 @implementation NoteAddViewController
 @synthesize doneButton;

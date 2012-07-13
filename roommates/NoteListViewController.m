@@ -8,7 +8,7 @@
 
 #import "NoteListViewController.h"
 #import "NoteCell.h"
-#import "RMNote.h"
+#import "RMData.h"
 
 @interface NoteListViewController ()
 
