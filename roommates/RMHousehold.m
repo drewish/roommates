@@ -17,6 +17,11 @@ static RMHousehold *current = nil;
 + (void) registerMappingsWith:(RKObjectMappingProvider*) provider inManagedObjectStore:(RKManagedObjectStore *)objectStore
 {
     RKManagedObjectMapping* mapping = [self addMappingsTo:[RKManagedObjectMapping mappingForClass:[self class] inManagedObjectStore:objectStore]];
+
+    RKObjectMappingDefinition *m  = [provider objectMappingForKeyPath:@"users"];
+    [mapping mapKeyPath:@"users" toRelationship:@"users"
+            withMapping:m];
+
     [provider setObjectMapping:mapping forResourcePathPattern:@"/api/households"];
 }
 
@@ -26,7 +31,7 @@ static RMHousehold *current = nil;
     [mapping mapKeyPath:@"id" toAttribute:@"householdId"];
     [mapping mapKeyPath:@"display_name" toAttribute:@"displayName"];
     [mapping mapKeyPath:@"current" toAttribute:@"current"];
-//    [mapping mapKeyPath:@"users" toRelationship:@"users" withMapping:[RKObjectMapping mappingForClass:[RMUser class]]];
+
     return mapping;
 }
 
@@ -37,6 +42,8 @@ static RMHousehold *current = nil;
     return current;
 }
 
+// This version is only called by the users of the class, we manage current
+// ourselves.
 + (void)setCurrent:(RMHousehold*)household
 {
     @synchronized(self) {
@@ -119,7 +126,8 @@ static RMHousehold *current = nil;
 
 @dynamic householdId,
     displayName,
-    current;
+    current,
+    users;
 
 - (NSString*)description {
 	return [NSString stringWithFormat:@"RMHousehold (id: %@, displayName: %@ current: %@)", 

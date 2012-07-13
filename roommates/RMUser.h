@@ -10,7 +10,7 @@
 #import "RMObject.h"
 
 @interface RMUser : NSManagedObject <RMManagedObject>
-+ (NSArray *)users;
++ (NSDictionary *)users;
 
 @property (nonatomic, retain) NSNumber *userId;      // ID of the user
 @property (nonatomic, retain) NSString *firstName;   // User’s first name

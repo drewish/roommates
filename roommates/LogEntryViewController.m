@@ -71,7 +71,8 @@
     cell.labelLabel.text = le.label;
     
     // TODO: should convert the user id into a user's display name.
-    cell.actionLabel.text = [NSString stringWithFormat:@"%@ User# %@", le.action, le.actorId];
+    RMUser *u = [RMUser.users objectForKey:le.actorId];
+    cell.actionLabel.text = [NSString stringWithFormat:@"%@ User# %@", le.action, u.displayName];
 
     // Move the action over next to the label
     CGSize labelSize = [le.label sizeWithFont:cell.labelLabel.font];

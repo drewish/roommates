@@ -15,6 +15,9 @@ static NSArray *cachedObjects = nil;
 + (void) registerMappingsWith:(RKObjectMappingProvider*) provider inManagedObjectStore:(RKManagedObjectStore *)objectStore
 {
     RKManagedObjectMapping* mapping = [self addMappingsTo:[RKManagedObjectMapping mappingForClass:[self class] inManagedObjectStore:objectStore]];
+    // Unlike with RKObjectMapping if you store the mapping with [provider addObjectMapping:]
+    // you can't access it with [provider objectMappingForClass:] so we'll stick
+    // it on the key path.
     [provider setObjectMapping:mapping forKeyPath:@"users"];
     [provider setObjectMapping:mapping forResourcePathPattern:@"/api/users/:userId"];
     [provider setObjectMapping:mapping forResourcePathPattern:@"/api/users"];
@@ -36,7 +39,11 @@ static NSArray *cachedObjects = nil;
     @synchronized(self) {
         // Load it from the database initially.
         if (cachedObjects == nil) {
-            cachedObjects = [self objectsWithFetchRequest:[self fetchRequest]];
+            NSMutableDictionary *users = [NSMutableDictionary dictionaryWithCapacity:50];
+            for (RMUser *u in [self objectsWithFetchRequest:[self fetchRequest]]) {
+                [users setObject:u forKey:u.userId];
+            }
+            cachedObjects = [NSDictionary dictionaryWithDictionary:users];
         }
     }
     return cachedObjects;
@@ -47,7 +54,6 @@ static NSArray *cachedObjects = nil;
     lastName,
     displayName,
     fullName;
-
 
 - (NSString*)description {
 	return [NSString stringWithFormat:@"RMUser (id: %@, first: %@, last: %@, display: %@)", self.userId, self.firstName, self.lastName, self.displayName];
