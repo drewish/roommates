@@ -69,10 +69,7 @@
     }
     cell.labelLabel.textColor = lableColor;
     cell.labelLabel.text = le.label;
-    
-    // TODO: should convert the user id into a user's display name.
-    RMUser *u = [RMUser.users objectForKey:le.actorId];
-    cell.actionLabel.text = [NSString stringWithFormat:@"%@ User# %@", le.action, u.displayName];
+    cell.actionLabel.text = [NSString stringWithFormat:@"%@ %@", le.action, [RMUser nameForId:le.actorId]];
 
     // Move the action over next to the label
     CGSize labelSize = [le.label sizeWithFont:cell.labelLabel.font];
@@ -81,7 +78,7 @@
     cell.actionLabel.frame = frame;
     
     // TODO the API should be returning a timestamp that we can format as time ago...
-    cell.agoLabel.text = [le.updatedAt stringValue];
+    cell.agoLabel.text = [self asTimeAgo:le.updatedAt];
 
     cell.summaryLabel.text = le.summary;
     // If this is a completed list item denote that using strike through text.

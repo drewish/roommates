@@ -45,8 +45,14 @@ static NSArray *cachedObjects = nil;
             }
             cachedObjects = [NSDictionary dictionaryWithDictionary:users];
         }
+        return cachedObjects;
     }
-    return cachedObjects;
+}
+
+// Central point for formatting user names.
++ (NSString*)nameForId:(NSNumber*) userId
+{
+    return [[self.users objectForKey: userId] displayName];
 }
 
 @dynamic userId,

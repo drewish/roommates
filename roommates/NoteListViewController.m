@@ -59,7 +59,7 @@
     RMNote *item = [self.items objectAtIndex:indexPath.row];
     cell.agoLabel.text = [self asTimeAgo:item.createdAt];
     cell.bodyText.text = item.body;
-    cell.userLabel.text = [NSString stringWithFormat:@"-%@", item.creatorId];
+    cell.userLabel.text = [NSString stringWithFormat:@"- %@", [RMUser nameForId:item.creatorId]];
 
     return cell;
 }

@@ -14,7 +14,7 @@
 @property (nonatomic, retain) NSString* summary;        // entry description (renamed because it conflicts with the Objective-C description message).
 @property (nonatomic, retain) NSString* action;         // entry action (e.g. “Posted by”)
 @property (nonatomic, retain) NSNumber* actorId;        // id of user who performed specified action
-@property (nonatomic, retain) NSNumber* updatedAt;      // timestamp
+@property (nonatomic, retain) NSDate* updatedAt;        // timestamp
 @property (nonatomic, retain) NSNumber* loggableId;     // ID of related object
 @property (nonatomic, retain) NSString* loggableType;   // type of related object
 
