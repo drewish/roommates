@@ -272,7 +272,6 @@
 		5F703C341598FECC00EA51DF = {
 			isa = PBXGroup;
 			children = (
-				5F0FAA7E15AD4B8E005408AF /* libz.dylib */,
 				5FD47597159B51C900F4907C /* RestKit.xcodeproj */,
 				5F703C491598FECD00EA51DF /* roommates */,
 				5F703C421598FECD00EA51DF /* Frameworks */,
@@ -294,6 +293,7 @@
 				5FD475BC159B53C200F4907C /* MobileCoreServices.framework */,
 				5FD475BA159B53A800F4907C /* SystemConfiguration.framework */,
 				5FD475B8159B539E00F4907C /* libxml2.dylib */,
+				5F0FAA7E15AD4B8E005408AF /* libz.dylib */,
 				5FD475B6159B539400F4907C /* QuartzCore.framework */,
 				5FD475B4159B537C00F4907C /* Security.framework */,
 				5FD475B0159B536C00F4907C /* CFNetwork.framework */,
@@ -308,8 +308,8 @@
 		5F703C491598FECD00EA51DF /* roommates */ = {
 			isa = PBXGroup;
 			children = (
-				5FD475C1159B5ADA00F4907C /* DataObjects */,
 				5F703C551598FECD00EA51DF /* MainStoryboard.storyboard */,
+				5FD475C1159B5ADA00F4907C /* DataObjects */,
 				5FFBCFC615A69B4500CF161A /* RMListViewController.h */,
 				5FFBCFC715A69B4500CF161A /* RMListViewController.m */,
 				5F0CA1E915B0A83B00C7CFAC /* RootViewController.h */,
