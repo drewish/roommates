@@ -6,7 +6,7 @@
 	url = git://github.com/samvermette/SVProgressHUD.git
 [submodule "ZUUIRevealController"]
 	path = ZUUIRevealController
-	url = git://github.com/drewish/ZUUIRevealController.git
+	url = git@github.com:drewish/ZUUIRevealController.git
 [submodule "PullToRefresh"]
 	path = PullToRefresh
 	url = git@github.com:drewish/PullToRefresh.git
