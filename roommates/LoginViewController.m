@@ -17,6 +17,7 @@
 @implementation LoginViewController
 @synthesize email;
 @synthesize password;
+@synthesize login;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -39,6 +40,7 @@
 {
     [self setEmail:nil];
     [self setPassword:nil];
+    [self setLogin:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -46,6 +48,25 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+-(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    login.enabled = (email.text.length && password.text.length);
+    return TRUE;
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    if ([textField isEqual:email]) {
+        [password becomeFirstResponder];
+    }
+    else if ([textField isEqual:password]) {
+        if (login.enabled) {
+            [login sendActionsForControlEvents: UIControlEventTouchUpInside];
+        }
+    }
+    return FALSE;
 }
 
 - (void)loggedIn

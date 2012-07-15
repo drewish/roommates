@@ -13,8 +13,6 @@
 
 @interface ExpensesSummaryViewController : UITableViewController <PullToRefreshViewDelegate>
 
-//@property (nonatomic, retain) NSArray* items;
-
 - (void)fetchItems;
 
 @end

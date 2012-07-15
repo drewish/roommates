@@ -20,7 +20,7 @@
 
 - (id)init
 {
-    currentViewIdentifier = @"NoteList";
+    currentViewIdentifier = @"ExpenseSummary";
     UIStoryboard* s = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
     UIViewController* rear = [s instantiateViewControllerWithIdentifier:@"Menu"];
     UIViewController* front = [s instantiateViewControllerWithIdentifier:currentViewIdentifier];
@@ -73,12 +73,12 @@
 
 - (IBAction)showShoppingList:(id)sender {
     NSLog(@"Shopping List");
-    [self switchToViewWithIdentifier:@"ShoppingList"];
+//    [self switchToViewWithIdentifier:@"ShoppingList"];
 }
 
 - (IBAction)showTodos:(id)sender {
     NSLog(@"To-Do's");
-    [self switchToViewWithIdentifier:@"ToDoList"];
+//    [self switchToViewWithIdentifier:@"ToDoList"];
 }
 
 - (IBAction)showNotes:(id)sender {
