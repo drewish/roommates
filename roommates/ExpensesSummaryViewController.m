@@ -49,12 +49,7 @@
 		self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Reveal", @"Reveal") style:UIBarButtonItemStylePlain target:self.navigationController.parentViewController action:@selector(revealToggle:)];
 	}
     
-    // Make sure we've got household info before trying to load items.
-    NSArray *households = [RMHousehold households];
-    assert(households.count > 0);
-
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refeshIt:) name:@"RMItemAdded" object:_dataClass];
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refeshIt:) name:@"RMHouseholdSelected" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refeshIt:) name:@"RMHouseholdSelected" object:nil];
 
     [self fetchItems];
 }
@@ -73,7 +68,7 @@
     balance = nil;
     owed = nil;
     owes = nil;
-//    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -107,8 +102,13 @@
 }
 
 - (void)fetchItems {
+    RMHousehold *current = [RMHousehold current];
+    if (current == nil) {
+        return;
+    }
+
     RKObjectManager *mgr = [RKObjectManager sharedManager];
-    NSString *path = [NSString stringWithFormat:@"/api/households/%@/transactions/summary", RMHousehold.current.householdId];
+    NSString *path = [NSString stringWithFormat:@"/api/households/%@/transactions/summary", current.householdId];
     [mgr.client get:path usingBlock:^(RKRequest *request) {
         request.onDidLoadResponse = ^(RKResponse *response) {
             NSError *parseError = nil;

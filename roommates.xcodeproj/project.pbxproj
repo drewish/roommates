@@ -15,7 +15,7 @@
 		5F0FAA7C15AD4B33005408AF /* release_notes.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5F0FAA7715AD4B33005408AF /* release_notes.txt */; };
 		5F0FAA7F15AD4B8E005408AF /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0FAA7E15AD4B8E005408AF /* libz.dylib */; };
 		5F0FAA8215ADB75A005408AF /* RMComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F0FAA8115ADB75A005408AF /* RMComment.m */; };
-		5F15615615A8BFB40065BAA2 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F15615515A8BFB40065BAA2 /* LoginViewController.m */; };
+		5F15615615A8BFB40065BAA2 /* SigninViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F15615515A8BFB40065BAA2 /* SigninViewController.m */; };
 		5F15615D15A907C80065BAA2 /* NoteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F15615C15A907C80065BAA2 /* NoteCell.m */; };
 		5F1ECD4915AFCBBE00C314A6 /* UserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F1ECD4815AFCBBE00C314A6 /* UserViewController.m */; };
 		5F1ECD5215AFD16500C314A6 /* ReimbursalAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F1ECD5115AFD16500C314A6 /* ReimbursalAddViewController.m */; };
@@ -116,8 +116,8 @@
 		5F0FAA7E15AD4B8E005408AF /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		5F0FAA8015ADB75A005408AF /* RMComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMComment.h; sourceTree = "<group>"; };
 		5F0FAA8115ADB75A005408AF /* RMComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMComment.m; sourceTree = "<group>"; };
-		5F15615415A8BFB40065BAA2 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
-		5F15615515A8BFB40065BAA2 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		5F15615415A8BFB40065BAA2 /* SigninViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SigninViewController.h; sourceTree = "<group>"; };
+		5F15615515A8BFB40065BAA2 /* SigninViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SigninViewController.m; sourceTree = "<group>"; };
 		5F15615B15A907C80065BAA2 /* NoteCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteCell.h; sourceTree = "<group>"; };
 		5F15615C15A907C80065BAA2 /* NoteCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteCell.m; sourceTree = "<group>"; };
 		5F1ECD4715AFCBBE00C314A6 /* UserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserViewController.h; sourceTree = "<group>"; };
@@ -217,13 +217,13 @@
 			path = TestFlight;
 			sourceTree = "<group>";
 		};
-		5F15614F15A8BE350065BAA2 /* Login */ = {
+		5F15614F15A8BE350065BAA2 /* Signin */ = {
 			isa = PBXGroup;
 			children = (
-				5F15615415A8BFB40065BAA2 /* LoginViewController.h */,
-				5F15615515A8BFB40065BAA2 /* LoginViewController.m */,
+				5F15615415A8BFB40065BAA2 /* SigninViewController.h */,
+				5F15615515A8BFB40065BAA2 /* SigninViewController.m */,
 			);
-			name = Login;
+			name = Signin;
 			sourceTree = "<group>";
 		};
 		5F1ECD4315AFCAD100C314A6 /* Expenses */ = {
@@ -312,11 +312,9 @@
 				5FD475C1159B5ADA00F4907C /* DataObjects */,
 				5FFBCFC615A69B4500CF161A /* RMListViewController.h */,
 				5FFBCFC715A69B4500CF161A /* RMListViewController.m */,
-				5F0CA1E915B0A83B00C7CFAC /* RootViewController.h */,
-				5F0CA1EA15B0A83B00C7CFAC /* RootViewController.m */,
 				5F1ECD4715AFCBBE00C314A6 /* UserViewController.h */,
 				5F1ECD4815AFCBBE00C314A6 /* UserViewController.m */,
-				5F15614F15A8BE350065BAA2 /* Login */,
+				5F15614F15A8BE350065BAA2 /* Signin */,
 				5FAD767215A144F1005BBCAC /* Menu */,
 				5F286C2A159E93C500310016 /* ActivityFeed */,
 				5F1ECD4315AFCAD100C314A6 /* Expenses */,
@@ -375,6 +373,8 @@
 		5FAD767215A144F1005BBCAC /* Menu */ = {
 			isa = PBXGroup;
 			children = (
+				5F0CA1E915B0A83B00C7CFAC /* RootViewController.h */,
+				5F0CA1EA15B0A83B00C7CFAC /* RootViewController.m */,
 				5FAD767715A16321005BBCAC /* MenuViewController.h */,
 				5FAD767815A16321005BBCAC /* MenuViewController.m */,
 			);
@@ -571,7 +571,7 @@
 				5FFBCFC815A69B4500CF161A /* RMListViewController.m in Sources */,
 				5FFBCFCE15A6A41500CF161A /* SVProgressHUD.m in Sources */,
 				5F4540E315A736CE00386BEC /* RMNote.m in Sources */,
-				5F15615615A8BFB40065BAA2 /* LoginViewController.m in Sources */,
+				5F15615615A8BFB40065BAA2 /* SigninViewController.m in Sources */,
 				5F15615D15A907C80065BAA2 /* NoteCell.m in Sources */,
 				5F0FAA8215ADB75A005408AF /* RMComment.m in Sources */,
 				5F9A5EDC15AE594E0053D6B3 /* NoteAddViewController.m in Sources */,

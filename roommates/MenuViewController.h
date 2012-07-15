@@ -7,12 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ZUUIRevealController.h"
+#import "RootViewController.h"
 
 @interface MenuViewController : UITableViewController <UIActionSheetDelegate,
     UIPickerViewDataSource, UIPickerViewDelegate>
 @property(nonatomic) UIActionSheet *actionSheet;
-@property(nonatomic, weak) ZUUIRevealController *revealController;
+@property(nonatomic, weak) RootViewController *rootController;
 - (IBAction)signOut:(id)sender;
 - (IBAction)switchHousehold:(id)sender;
 @end

@@ -48,9 +48,9 @@
     NSArray *households = [RMHousehold households];
     assert(households.count > 0);
 
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(watchIt:) name:@"RMListFetched" object:_dataClass];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refeshIt:) name:@"RMItemAdded" object:_dataClass];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refeshIt:) name:@"RMHouseholdSelected" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refeshIt:) name:@"RMItemAdded" object:_dataClass];
+    // [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(watchIt:) name:@"RMListFetched" object:_dataClass];
 
     [self fetchItems];
 }
@@ -89,21 +89,23 @@
 
 - (void)fetchItems {
     RMHousehold *current = [RMHousehold current];
-    if (current != nil) {
-        [_dataClass fetchForHousehold:current.householdId OnSuccess:^(NSArray *items_) {
-            self.items = items_;
-            [self.tableView reloadData];
-            [pull finishedLoading];
-        } OnFailure:^(NSError *error) {
-            [pull finishedLoading];
-            NSLog(@"Couldn't fetch items: %@", error);
-            [[[UIAlertView alloc] initWithTitle:@"Error"
-                                        message:[error localizedDescription]
-                                       delegate:nil
-                              cancelButtonTitle:@"OK"
-                              otherButtonTitles:nil] show];
-        }];
+    if (current == nil) {
+        return;
     }
+
+    [_dataClass fetchForHousehold:current.householdId OnSuccess:^(NSArray *items_) {
+        self.items = items_;
+        [self.tableView reloadData];
+        [pull finishedLoading];
+    } OnFailure:^(NSError *error) {
+        [pull finishedLoading];
+        NSLog(@"Couldn't fetch items: %@", error);
+        [[[UIAlertView alloc] initWithTitle:@"Error"
+                                    message:[error localizedDescription]
+                                   delegate:nil
+                          cancelButtonTitle:@"OK"
+                          otherButtonTitles:nil] show];
+    }];
 }
 
 // This was taken from https://github.com/kevinlawler/NSDate-TimeAgo

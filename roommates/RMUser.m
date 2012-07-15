@@ -10,8 +10,6 @@
 
 @implementation RMUser
 
-static NSArray *cachedObjects = nil;
-
 + (void) registerMappingsWith:(RKObjectMappingProvider*) provider inManagedObjectStore:(RKManagedObjectStore *)objectStore
 {
     RKManagedObjectMapping* mapping = [self addMappingsTo:[RKManagedObjectMapping mappingForClass:[self class] inManagedObjectStore:objectStore]];
@@ -37,15 +35,12 @@ static NSArray *cachedObjects = nil;
 + (NSArray *)users
 {
     @synchronized(self) {
-        // Load it from the database initially.
-        if (cachedObjects == nil) {
-            NSMutableDictionary *users = [NSMutableDictionary dictionaryWithCapacity:50];
-            for (RMUser *u in [self objectsWithFetchRequest:[self fetchRequest]]) {
-                [users setObject:u forKey:u.userId];
-            }
-            cachedObjects = [NSDictionary dictionaryWithDictionary:users];
+        // Load them from the database and key by our id for lookups.
+        NSMutableDictionary *users = [NSMutableDictionary dictionaryWithCapacity:50];
+        for (RMUser *u in [self objectsWithFetchRequest:[self fetchRequest]]) {
+            [users setObject:u forKey:u.userId];
         }
-        return cachedObjects;
+        return [NSDictionary dictionaryWithDictionary:users];
     }
 }
 

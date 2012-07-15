@@ -7,16 +7,16 @@
 //
 
 #import "RootViewController.h"
-#import "LoginViewController.h"
+#import "SigninViewController.h"
 #import "RMData.h"
 
 @interface RootViewController ()
 
 @end
 
-@implementation RootViewController {
-    NSString *currentViewIdentifier;
-}
+@implementation RootViewController
+
+@synthesize currentViewIdentifier;
 
 - (id)init
 {
@@ -31,21 +31,68 @@
     return self;
 }
 
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onLogin:) name:@"RMSessionStarted" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onLogout:) name:@"RMSessionEnded" object:nil];
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    // When we start up check if we need to login.
+    if (![[RMSession instance] userId]) {
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        NSString *email = [defaults stringForKey:@"email"];
+        NSString *password = [defaults stringForKey:@"password"];
+        if (email.length > 0 && password.length > 0) {
+            [RMSession startSessionEmail:email Password:password OnSuccess:^(id object) {
+                // Should be good...
+            } OnFailure:^(NSError *error) {
+                [self showSignIn:nil];
+            }];
+        }
+        else {
+            [self showSignIn:nil];
+        }
+    }
 }
 
 - (void)viewDidUnload
 {
     [super viewDidUnload];
     // Release any retained subviews of the main view.
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+- (void)onLogin:(NSNotification*)note
+{
+    // We got logged in, let's fetch the households before doing anything
+    // else.
+    [RMHousehold getHouseholdsOnSuccess:^(NSArray *objects) {
+        [SVProgressHUD showSuccessWithStatus:[NSString stringWithFormat:@"Hi %@!", [RMSession instance].displayName]];
+        [self dismissViewControllerAnimated:YES completion:^{}];
+    } OnFailure:^(NSError *error) {
+        [[[UIAlertView alloc] initWithTitle:@"Fetching Households"
+                                    message:[error localizedDescription]
+                                   delegate:nil
+                          cancelButtonTitle:@"OK"
+                          otherButtonTitles:nil] show];
+    }];
+}
+
+- (void)onLogout:(NSNotification*)note
+{
+    [SVProgressHUD dismiss];
+    [self showSignIn:nil];
 }
 
 - (void)switchToViewWithIdentifier:(NSString*)identifer
@@ -86,14 +133,18 @@
     [self switchToViewWithIdentifier:@"NoteList"];
 }
 
+- (IBAction)showSignIn:(id)sender {
+    UIStoryboard* mainStoryboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+    UIViewController *vc = [mainStoryboard instantiateViewControllerWithIdentifier:@"Login"];
+    vc.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    [self presentViewController:vc animated:YES completion:^{}];
+}
+
 - (IBAction)signOut:(id)sender {
     NSLog(@"Signing out…");
+    [SVProgressHUD showWithStatus:@"Signing out"];
     [RMSession endSession];
-
-    // TODO: figure out how to do this with a transition. It's too abrupt now.
-    UIStoryboard* mainStoryboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-    LoginViewController* loginViewController = [mainStoryboard instantiateViewControllerWithIdentifier:@"Login"];
-    UIApplication.sharedApplication.keyWindow.rootViewController = loginViewController;
+    [self revealToggle:self];
 }
 
 @end

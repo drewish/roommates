@@ -6,15 +6,15 @@
 //  Copyright (c) 2012 drewish.com. All rights reserved.
 //
 
-#import "LoginViewController.h"
+#import "SigninViewController.h"
 #import "RootViewController.h"
 #import "RMData.h"
 
-@interface LoginViewController ()
+@interface SigninViewController ()
 
 @end
 
-@implementation LoginViewController
+@implementation SigninViewController
 @synthesize email;
 @synthesize password;
 @synthesize login;
@@ -32,8 +32,13 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    email.text = @"delany@gmail.com";
-    password.text = @"123456";
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    email.text = [defaults stringForKey:@"email"];
+    password.text = [defaults stringForKey:@"password"];
+    login.enabled = (email.text.length && password.text.length);
+    // @"delany@gmail.com";
+    // @"123456";
+
 }
 
 - (void)viewDidUnload
@@ -52,6 +57,8 @@
 
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
+    // TODO: this isn't the best place to do this since the length won't have 
+    // the requested change so we'll be a little behind.
     login.enabled = (email.text.length && password.text.length);
     return TRUE;
 }
@@ -60,44 +67,31 @@
 {
     if ([textField isEqual:email]) {
         [password becomeFirstResponder];
+        return TRUE;
     }
     else if ([textField isEqual:password]) {
         if (login.enabled) {
+            [textField resignFirstResponder];
             [login sendActionsForControlEvents: UIControlEventTouchUpInside];
+            return TRUE;
         }
     }
     return FALSE;
 }
 
-- (void)loggedIn
-{
-    RootViewController *vc = [[RootViewController alloc] init];
-    UIApplication.sharedApplication.keyWindow.rootViewController = vc;
-}
-
 - (IBAction)login:(id)sender {
+    // Get rid of any keyboard so the HUD doesn't end up moving around as much.
+    [self.view endEditing:NO];
     [SVProgressHUD showWithStatus:@"Logging in" maskType: SVProgressHUDMaskTypeBlack];
 
     [RMSession startSessionEmail:email.text Password:password.text OnSuccess:^(RMSession *session) {
         NSLog(@"Loaded User ID #%@ -> Name: %@, token: %@", session.userId, session.fullName, session.apiToken);
-        // We got logged in, let's fetch the households before doing anything 
-        // else.
-        [RMHousehold getHouseholdsOnSuccess:^(NSArray *objects) {
-            [SVProgressHUD showSuccessWithStatus:[NSString stringWithFormat:@"Hi %@!", session.displayName]];
-            [self loggedIn];
-        } OnFailure:^(NSError *error) {
-            [SVProgressHUD dismiss];
-//            [SVProgressHUD showErrorWithStatus:@"Bad login?"];
-            [[[UIAlertView alloc] initWithTitle:@"Error"
-                                        message:[error localizedDescription]
-                                       delegate:nil
-                              cancelButtonTitle:@"OK"
-                              otherButtonTitles:nil] show];
-        }];
+        [SVProgressHUD dismiss];
+        // The signin will fire a notification that will close this view.
     } OnFailure:^(NSError *error) {
         [SVProgressHUD dismiss];
         NSLog(@"Encountered an error: %@", error);
-//        [SVProgressHUD showErrorWithStatus:@"Bad login?"];
+        // [SVProgressHUD showErrorWithStatus:@"Bad signin?"];
         [[[UIAlertView alloc] initWithTitle:@"Error"
                                     message:[error localizedDescription]
                                    delegate:nil

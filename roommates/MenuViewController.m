@@ -15,7 +15,7 @@
 @end
 
 @implementation MenuViewController
-@synthesize actionSheet, revealController;
+@synthesize actionSheet, rootController;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -32,6 +32,7 @@
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(householdDidChange:) name:@"RMHouseholdSelected" object:nil];
 }
 
 - (void)viewDidUnload
@@ -39,8 +40,9 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
     actionSheet = nil;
-    revealController = nil;
+    rootController = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -52,7 +54,22 @@
 {
     // Grab a handle to the reveal controller, as if you'd do with a navigtion 
     // controller via self.navigationController.
-	self.revealController = [self.parentViewController isKindOfClass:[ZUUIRevealController class]] ? (ZUUIRevealController *)self.parentViewController : nil;
+	self.rootController = [self.parentViewController isKindOfClass:[RootViewController class]] ? (RootViewController *)self.parentViewController : nil;
+}
+
+- (void)householdDidChange:(NSNotification*)note
+{
+    // Make sure the new household shows up in the section title.
+    [self.tableView reloadData];
+    [self resetSelected];
+}
+
+- (void)resetSelected
+{
+    NSArray *items = [NSArray arrayWithObjects:@"LogEntryList", @"ExpenseSummary", 
+                      @"ShoppingList", @"ToDoList", @"NoteList", nil];
+    NSIndexPath *selected = [NSIndexPath indexPathForRow:[items indexOfObject:rootController.currentViewIdentifier] inSection:0];
+    [self.tableView selectRowAtIndexPath:selected animated:NO scrollPosition:UITableViewScrollPositionNone];
 }
 
 #pragma mark - UITableView Data Source
@@ -78,20 +95,18 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    RootViewController *vc = [self.parentViewController isKindOfClass:[RootViewController class]] ? (RootViewController *)self.parentViewController : nil;
-
     if (indexPath.section == 0) {
         switch (indexPath.row) {
             case 0:
-                return [vc showActivityFeed:nil];
+                return [rootController showActivityFeed:nil];
             case 1:
-                return [vc showExpenses:nil];
+                return [rootController showExpenses:nil];
             case 2:
-                return [vc showShoppingList:nil];
+                return [rootController showShoppingList:nil];
             case 3:
-                return [vc showTodos:nil];
+                return [rootController showTodos:nil];
             case 4:
-                return [vc showNotes:nil];
+                return [rootController showNotes:nil];
         }
     }
     else if (indexPath.section == 1) {
@@ -162,14 +177,13 @@
                                      otherButtonTitles:nil];
     actionSheet.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
     actionSheet.tag = 1;
-    [actionSheet showInView:[[UIApplication sharedApplication] keyWindow]];
+    [actionSheet showInView:self.view];
 }
 
 -(void)actionSheet:(UIActionSheet *)actionSheet_ didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
     if (actionSheet_.tag == 1 && buttonIndex == 0) {
-        RootViewController *vc = [self.parentViewController isKindOfClass:[RootViewController class]] ? (RootViewController *)self.parentViewController : nil;
-        [vc signOut:nil];
+        [rootController signOut:nil];
     }
     actionSheet = nil;
 }
@@ -201,10 +215,8 @@
 // own view so we don't have to set the household until they click done.
 - (IBAction)householdPickerDone:(id)sender {
     [actionSheet dismissWithClickedButtonIndex:0 animated:YES];
-    // Make sure the new household shows up in the section title.
-    [self.tableView reloadData];
     // Show them their data.
-    [revealController revealToggle:self];
+    [rootController revealToggle:self];
 }
 
 @end

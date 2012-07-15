@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "TestFlight.h"
-#import "LoginViewController.h"
+#import "RootViewController.h"
 #import "RMData.h"
 
 #define TESTING 1
@@ -62,10 +62,8 @@
 	self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     [self.window makeKeyAndVisible];
 
-    UIStoryboard* mainStoryboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-    LoginViewController* loginViewController = [mainStoryboard instantiateViewControllerWithIdentifier:@"Login"];
-    self.window.rootViewController = loginViewController;
-    
+    self.window.rootViewController = [[RootViewController alloc] init];
+
     return YES;
 }
 
