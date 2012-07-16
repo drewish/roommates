@@ -1,5 +1,5 @@
 //
-//  NoteAddViewController.h
+//  CommentAddViewController.h
 //  roommates
 //
 //  Created by andrew morton on 7/11/12.
@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface NoteAddViewController : UIViewController <UITextViewDelegate>
+@interface CommentAddViewController : UIViewController <UITextViewDelegate>
 
+@property NSString *commentableType;
+@property NSNumber *commentableId;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *doneButton;
 @property (weak, nonatomic) IBOutlet UITextView *bodyText;
 

@@ -9,11 +9,15 @@
 #import "RMObject.h"
 
 @interface RMSession : NSObject <RMObject>
++ (RKRequestDidFailLoadWithErrorBlock) objectLoadErrorBlock;
++ (RKRequestDidFailLoadWithErrorBlock) objectValidationErrorBlock;
+
 + (RMSession *)instance;
 + (void)startSessionEmail:(NSString*) email Password:(NSString*) password
                 OnSuccess:(RKObjectLoaderDidLoadObjectBlock) success
                 OnFailure:(RKObjectLoaderDidFailWithErrorBlock) failure;
 + (void)endSession;
+
 @property (nonatomic, retain) NSNumber *userId;      // ID of the user
 @property (nonatomic, retain) NSString *firstName;   // User’s first name
 @property (nonatomic, retain) NSString *lastName;    // User’s last name

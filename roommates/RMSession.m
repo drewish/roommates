@@ -10,6 +10,34 @@
 
 @implementation RMSession
 
++ (RKRequestDidFailLoadWithErrorBlock) objectLoadErrorBlock
+{
+    return ^(NSError *error) {
+        NSMutableString *feedback = [NSMutableString stringWithCapacity:50];
+        for (NSString *field in [error userInfo]) {
+            [feedback appendFormat:@"%@ %@", field, [[[error userInfo] objectForKey: field] lastObject]];
+        }
+
+        [SVProgressHUD showErrorWithStatus:@"Can't connect"];
+        NSLog(@"%@", [error description]);
+    };
+}
+
++ (RKRequestDidFailLoadWithErrorBlock) objectValidationErrorBlock
+{
+    return ^(NSError *error) {
+        NSMutableString *feedback = [NSMutableString stringWithCapacity:50];
+        for (NSString *field in [error userInfo]) {
+            [feedback appendFormat:@"%@ %@", field, [[[error userInfo] objectForKey: field] lastObject]];
+        }
+        
+        [SVProgressHUD showErrorWithStatus:feedback];
+        NSLog(@"%@", [error description]);
+    };
+}
+
+
+
 // FIXME: this probably isn't the best way to handle this since they
 // need to call startSessionEmail:... before this is initialized but
 // I just need to get this working so I can have access to it. I'll

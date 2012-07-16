@@ -11,11 +11,11 @@
 @implementation NoteCell
 @synthesize agoLabel, bodyText, userLabel;
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+-(id)initWithCoder:(NSCoder *)aDecoder
 {
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    self = [super initWithCoder:aDecoder];
     if (self) {
-        // Initialization code
+
     }
     return self;
 }
@@ -26,4 +26,5 @@
 
     // Configure the view for the selected state
 }
+
 @end

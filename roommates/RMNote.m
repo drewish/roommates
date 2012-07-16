@@ -6,11 +6,18 @@
 //  Copyright (c) 2012 drewish.com. All rights reserved.
 //
 
+#import "RMSession.h"
+#import "RMHousehold.h"
 #import "RMNote.h"
 #import "RMComment.h"
 
 static NSArray *cached = nil;
 @implementation RMNote
+
++ (NSString*)commentableType
+{
+    return @"note";
+}
 
 + (void) registerMappingsWith:(RKObjectMappingProvider*) provider
 {
@@ -40,6 +47,36 @@ static NSArray *cached = nil;
     [mapping mapKeyPath:@"abilities" toAttribute:@"abilities"];
 
     return mapping;
+}
+
++ (void) postNote:(NSString*) body
+        onSuccess:(RKObjectLoaderDidLoadObjectBlock) success
+        onFailure:(RKObjectLoaderDidFailWithErrorBlock) failure
+{
+    RKObjectManager *mgr = [RKObjectManager sharedManager];
+    NSString *path = [NSString stringWithFormat:@"/api/households/%i/notes", [RMHousehold current].householdId.intValue];
+    [mgr.client post:path usingBlock:^(RKRequest *request) {
+        NSDictionary *note = [NSDictionary dictionaryWithObjectsAndKeys:
+                              body, @"body", 
+                              nil];
+        request.params = [NSDictionary dictionaryWithObject:note forKey:@"note"];
+        request.onDidLoadResponse = ^(RKResponse *response) {           
+            // Check for validation errors.
+            if (response.statusCode == 422) {
+                NSError *parseError = nil;
+                NSDictionary *errors = [[response parsedBody:&parseError] objectForKey:@"errors"];
+
+                failure([NSError errorWithDomain:@"roomat.es" code:100 userInfo:errors]);
+            }
+            else {
+                [[NSNotificationCenter defaultCenter]
+                 postNotificationName:@"RMItemAdded" object:[RMNote class]];
+
+                success(note);
+            }
+        };
+        request.onDidFailLoadWithError = failure;
+    }];
 }
 
 + (void)fetchForHousehold:(NSNumber*) householdId

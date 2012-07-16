@@ -8,8 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import "RMObject.h"
+#import "RMComment.h"
 
-@interface RMNote : NSObject <RMObject, RMFetchableList>
+@interface RMNote : NSObject <RMObject, RMCommentable, RMFetchableList>
++ (void) postNote:(NSString*) body
+        onSuccess:(RKObjectLoaderDidLoadObjectBlock) success
+        onFailure:(RKObjectLoaderDidFailWithErrorBlock) failure;
+
 @property (nonatomic, retain) NSNumber* noteId;        // ID of note
 @property (nonatomic, retain) NSString* body;          // note body
 @property (nonatomic, retain) NSDate* createdAt;    // creation time

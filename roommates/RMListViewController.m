@@ -47,10 +47,6 @@
 		self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Reveal", @"Reveal") style:UIBarButtonItemStylePlain target:self.navigationController.parentViewController action:@selector(revealToggle:)];
 	}
     
-    // Make sure we've got household info before trying to load items.
-    NSArray *households = [RMHousehold households];
-    assert(households.count > 0);
-
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refeshIt:) name:@"RMHouseholdSelected" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refeshIt:) name:@"RMItemAdded" object:_dataClass];
     // [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(watchIt:) name:@"RMListFetched" object:_dataClass];
