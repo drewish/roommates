@@ -89,20 +89,20 @@
         [SVProgressHUD dismiss];
         // The signin will fire a notification that will close this view.
     } OnFailure:^(NSError *error) {
-        [SVProgressHUD dismiss];
         NSLog(@"Encountered an error: %@", error);
-        // [SVProgressHUD showErrorWithStatus:@"Bad signin?"];
-        [[[UIAlertView alloc] initWithTitle:@"Error"
-                                    message:[error localizedDescription]
-                                   delegate:nil
-                          cancelButtonTitle:@"OK"
-                          otherButtonTitles:nil] show];
+        NSString *message = [[[error userInfo] valueForKeyPath:@"RKObjectMapperErrorObjectsKey.error"] lastObject];
+        [SVProgressHUD showErrorWithStatus:message];
+//        [[[UIAlertView alloc] initWithTitle:@"Error"
+//                                    message:[error localizedDescription]
+//                                   delegate:nil
+//                          cancelButtonTitle:@"OK"
+//                          otherButtonTitles:nil] show];
     }];
 }
 
 - (IBAction)signup:(id)sender {
     // TODO: Need to get the correct URL for this.
-    NSString* launchUrl = @"http://roommates-staging.herokuapp.com/users/sign_in";
+    NSString* launchUrl = @"http://roommat.es/";
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString: launchUrl]];
 }
 @end

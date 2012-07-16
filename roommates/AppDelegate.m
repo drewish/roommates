@@ -41,18 +41,21 @@
     mgr.objectStore = objectStore;
 
     // Setup our mappings.
+    RKObjectMapping *errorMapping = [RKObjectMapping mappingForClass:[NSMutableDictionary class]];
+    [errorMapping mapKeyPath:@"error" toAttribute:@"error"];
+    [mgr.mappingProvider setErrorMapping:errorMapping];
+
     [RMUser registerMappingsWith:mgr.mappingProvider inManagedObjectStore:objectStore];
     [RMHousehold registerMappingsWith:mgr.mappingProvider inManagedObjectStore:objectStore];
     [RMComment registerMappingsWith:mgr.mappingProvider];
     [RMLogEntry registerMappingsWith:mgr.mappingProvider];
     [RMNote registerMappingsWith:mgr.mappingProvider];
 
-    
+
     //TODO: these might be useful later when I'm uploading
     //    // Setup out class routes.
     //    [mgr.router routeClass:[RMUser class] toResourcePath:@"/api/users" forMethod:RKRequestMethodGET];
     //    [mgr.router routeClass:[RMHousehold class] toResourcePath:@"/api/households" forMethod:RKRequestMethodGET];
-
 
     // TODO Need to get the actual RGB value.
     [[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:0.706 green:0.196 blue:0.086 alpha:1.000]];

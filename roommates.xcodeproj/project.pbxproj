@@ -28,6 +28,10 @@
 		5F703C501598FECD00EA51DF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F703C4F1598FECD00EA51DF /* main.m */; };
 		5F703C541598FECD00EA51DF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F703C531598FECD00EA51DF /* AppDelegate.m */; };
 		5F703C571598FECD00EA51DF /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F703C551598FECD00EA51DF /* MainStoryboard.storyboard */; };
+		5F70D2D815B3B9E1009D6CB6 /* RMChecklistItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F70D2D715B3B9E1009D6CB6 /* RMChecklistItem.m */; };
+		5F70D2DA15B3B9FD009D6CB6 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F70D2D915B3B9FD009D6CB6 /* Icon@2x.png */; };
+		5F70D2DC15B3C05A009D6CB6 /* purty_wood.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F70D2DB15B3C05A009D6CB6 /* purty_wood.png */; };
+		5F70D2DF15B4747E009D6CB6 /* CommentAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F70D2DE15B4747E009D6CB6 /* CommentAddViewController.m */; };
 		5F9A5EDC15AE594E0053D6B3 /* NoteAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F9A5EDB15AE594E0053D6B3 /* NoteAddViewController.m */; };
 		5F9A5EE315AE84F50053D6B3 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F9A5EDE15AE84F50053D6B3 /* arrow.png */; };
 		5F9A5EE415AE84F50053D6B3 /* arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F9A5EDF15AE84F50053D6B3 /* arrow@2x.png */; };
@@ -54,7 +58,6 @@
 		5FFBCFD115A6A9D600CF161A /* default.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FFBCFCF15A6A9D600CF161A /* default.png */; };
 		5FFBCFD215A6A9D600CF161A /* default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FFBCFD015A6A9D600CF161A /* default@2x.png */; };
 		5FFBCFD515A6AB4300CF161A /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FFBCFD315A6AB4200CF161A /* Icon.png */; };
-		5FFBCFDA15A6ACB800CF161A /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FFBCFD915A6ACB800CF161A /* Icon@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -140,6 +143,12 @@
 		5F703C521598FECD00EA51DF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5F703C531598FECD00EA51DF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		5F703C561598FECD00EA51DF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		5F70D2D615B3B9E0009D6CB6 /* RMChecklistItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMChecklistItem.h; sourceTree = "<group>"; };
+		5F70D2D715B3B9E1009D6CB6 /* RMChecklistItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMChecklistItem.m; sourceTree = "<group>"; };
+		5F70D2D915B3B9FD009D6CB6 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		5F70D2DB15B3C05A009D6CB6 /* purty_wood.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = purty_wood.png; path = Resources/purty_wood.png; sourceTree = "<group>"; };
+		5F70D2DD15B4747E009D6CB6 /* CommentAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentAddViewController.h; sourceTree = "<group>"; };
+		5F70D2DE15B4747E009D6CB6 /* CommentAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentAddViewController.m; sourceTree = "<group>"; };
 		5F9A5EDA15AE594E0053D6B3 /* NoteAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteAddViewController.h; sourceTree = "<group>"; };
 		5F9A5EDB15AE594E0053D6B3 /* NoteAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteAddViewController.m; sourceTree = "<group>"; };
 		5F9A5EDE15AE84F50053D6B3 /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
@@ -179,7 +188,6 @@
 		5FFBCFCF15A6A9D600CF161A /* default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default.png; sourceTree = "<group>"; };
 		5FFBCFD015A6A9D600CF161A /* default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "default@2x.png"; sourceTree = "<group>"; };
 		5FFBCFD315A6AB4200CF161A /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
-		5FFBCFD915A6ACB800CF161A /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "../Icon@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -240,6 +248,8 @@
 		5F1ECD4415AFCAEF00C314A6 /* Comments */ = {
 			isa = PBXGroup;
 			children = (
+				5F70D2DD15B4747E009D6CB6 /* CommentAddViewController.h */,
+				5F70D2DE15B4747E009D6CB6 /* CommentAddViewController.m */,
 			);
 			name = Comments;
 			sourceTree = "<group>";
@@ -334,8 +344,9 @@
 		5F703C4A1598FECD00EA51DF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5F70D2DB15B3C05A009D6CB6 /* purty_wood.png */,
 				5FFBCFD315A6AB4200CF161A /* Icon.png */,
-				5FFBCFD915A6ACB800CF161A /* Icon@2x.png */,
+				5F70D2D915B3B9FD009D6CB6 /* Icon@2x.png */,
 				5FFBCFCF15A6A9D600CF161A /* default.png */,
 				5FFBCFD015A6A9D600CF161A /* default@2x.png */,
 				5F703C521598FECD00EA51DF /* AppDelegate.h */,
@@ -409,6 +420,8 @@
 				5F0FAA8115ADB75A005408AF /* RMComment.m */,
 				5FD56C0B159C2B6E00FCAF22 /* RMLogEntry.h */,
 				5FD56C0C159C2B6E00FCAF22 /* RMLogEntry.m */,
+				5F70D2D615B3B9E0009D6CB6 /* RMChecklistItem.h */,
+				5F70D2D715B3B9E1009D6CB6 /* RMChecklistItem.m */,
 				5F4540E115A736CE00386BEC /* RMNote.h */,
 				5F4540E215A736CE00386BEC /* RMNote.m */,
 			);
@@ -541,11 +554,12 @@
 				5FFBCFD115A6A9D600CF161A /* default.png in Resources */,
 				5FFBCFD215A6A9D600CF161A /* default@2x.png in Resources */,
 				5FFBCFD515A6AB4300CF161A /* Icon.png in Resources */,
-				5FFBCFDA15A6ACB800CF161A /* Icon@2x.png in Resources */,
 				5F0FAA7B15AD4B33005408AF /* README.txt in Resources */,
 				5F0FAA7C15AD4B33005408AF /* release_notes.txt in Resources */,
 				5F9A5EE315AE84F50053D6B3 /* arrow.png in Resources */,
 				5F9A5EE415AE84F50053D6B3 /* arrow@2x.png in Resources */,
+				5F70D2DA15B3B9FD009D6CB6 /* Icon@2x.png in Resources */,
+				5F70D2DC15B3C05A009D6CB6 /* purty_wood.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -580,6 +594,8 @@
 				5F1ECD5215AFD16500C314A6 /* ReimbursalAddViewController.m in Sources */,
 				5F0CA1EB15B0A83B00C7CFAC /* RootViewController.m in Sources */,
 				5F0CA1EE15B0B1E000C7CFAC /* ExpensesSummaryViewController.m in Sources */,
+				5F70D2D815B3B9E1009D6CB6 /* RMChecklistItem.m in Sources */,
+				5F70D2DF15B4747E009D6CB6 /* CommentAddViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

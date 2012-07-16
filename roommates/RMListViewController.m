@@ -33,6 +33,9 @@
 {
     [super viewDidLoad];
 
+    UIImage *image = [UIImage imageNamed:@"purty_wood.png"];
+    self.tableView.backgroundColor = [UIColor colorWithPatternImage:image];
+
     pull = [[PullToRefreshView alloc] initWithScrollView:(UIScrollView *) self.tableView];
     pull.delegate = self;
     [self.tableView addSubview:pull];
@@ -89,7 +92,7 @@
 
 - (void)fetchItems {
     RMHousehold *current = [RMHousehold current];
-    if (current == nil) {
+    if ([RMSession instance] == nil || current == nil) {
         return;
     }
 

@@ -38,6 +38,9 @@
 {
     [super viewDidLoad];
 
+    UIImage *image = [UIImage imageNamed:@"purty_wood.png"];
+    self.tableView.backgroundColor = [UIColor colorWithPatternImage:image];
+
     pull = [[PullToRefreshView alloc] initWithScrollView:(UIScrollView *) self.tableView];
     [pull setDelegate:self];
     [self.tableView addSubview:pull];
@@ -103,7 +106,7 @@
 
 - (void)fetchItems {
     RMHousehold *current = [RMHousehold current];
-    if (current == nil) {
+    if ([RMSession instance] == nil || current == nil) {
         return;
     }
 
@@ -230,10 +233,12 @@
 
             isSessionUser = [[RMSession instance].userId isEqualToNumber:userId];
             if (isSessionUser) {
+                // TODO: Not sure this branch will fire. Might need to pull our
+                // total from the balances.
                 message = (action == @"owes") ? @"You owe:" : @"You are owed:";
             }
             else {
-                message = [NSString stringWithFormat:(action == @"owes") ? @"%@ owes:" : @"%@ is owed:", [RMUser nameForId: userId]];
+                message = [NSString stringWithFormat:(action == @"owes") ? @"You owe %@:" : @"%@ owes you:", [RMUser nameForId: userId]];
             }
             break;
     }
@@ -246,6 +251,7 @@
     cell.textLabel.textColor = color;
     NSNumberFormatter * f = [NSNumberFormatter new];
     f.numberStyle = NSNumberFormatterCurrencyStyle;
+    f.negativeFormat = f.positiveFormat;
     cell.detailTextLabel.text = [f stringFromNumber:amount];
     cell.detailTextLabel.textColor = color;
 
