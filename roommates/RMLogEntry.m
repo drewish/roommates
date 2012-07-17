@@ -14,6 +14,7 @@ static NSArray *cached = nil;
 + (void) registerMappingsWith:(RKObjectMappingProvider*) provider
 {
     RKObjectMapping* mapping = [self addMappingsTo:[RKObjectMapping mappingForClass:[self class]]];
+    [provider addObjectMapping:mapping];
     [provider setObjectMapping:mapping forResourcePathPattern:@"/api/households/:householdId/log_entries"];
 }
 

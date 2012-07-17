@@ -69,4 +69,10 @@
 
 @synthesize commentId, body, createdAt, creatorId;
 
+// FIXME: hack to work around this not being in a property.
+- (NSNumber*)householdId
+{
+    return [RMHousehold current].householdId;
+}
+
 @end

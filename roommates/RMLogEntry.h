@@ -8,7 +8,8 @@
 
 #import "RMObject.h"
 
-@interface RMLogEntry : NSObject <RMObject, RMFetchableList>
+@interface RMLogEntry : NSObject <RMObject, RMHouseholdable, RMFetchableList>
+
 @property (nonatomic, retain) NSNumber* entryId;        // entry id
 @property (nonatomic, retain) NSString* label;          // entry kind (shopping, todo, note, expense, reimbursal, comment) description – entry description
 @property (nonatomic, retain) NSString* summary;        // entry description (renamed because it conflicts with the Objective-C description message).
@@ -17,7 +18,5 @@
 @property (nonatomic, retain) NSDate* updatedAt;        // timestamp
 @property (nonatomic, retain) NSNumber* loggableId;     // ID of related object
 @property (nonatomic, retain) NSString* loggableType;   // type of related object
-
-@property (nonatomic, retain) NSNumber* householdId;        // TESTING THIS to see if it'll get it working.
 
 @end

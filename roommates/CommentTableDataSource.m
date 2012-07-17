@@ -31,7 +31,7 @@
     RMComment *comment = [commentableItem.comments objectAtIndex:indexPath.row];
     
     cell.textLabel.text = comment.body;
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"— %@, %@", 
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"—%@, %@", 
                                  [RMUser nameForId:comment.creatorId], 
                                  [RMListViewController asTimeAgo:comment.createdAt]];
 

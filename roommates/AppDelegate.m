@@ -53,12 +53,18 @@
 
 
     //TODO: these might be useful later when I'm uploading
-    //    // Setup out class routes.
-    //    [mgr.router routeClass:[RMUser class] toResourcePath:@"/api/users" forMethod:RKRequestMethodGET];
-    //    [mgr.router routeClass:[RMHousehold class] toResourcePath:@"/api/households" forMethod:RKRequestMethodGET];
+    // Setup out class routes.
+    [mgr.router.routeSet addRoute:[RKRoute routeWithClass:[RMUser class]
+                                      resourcePathPattern:@"/api/users"
+                                                   method:RKRequestMethodAny]];
+    [mgr.router.routeSet addRoute:[RKRoute routeWithClass:[RMHousehold class]
+                                      resourcePathPattern:@"/api/households"
+                                                   method:RKRequestMethodAny]];
+    [mgr.router.routeSet addRoute:[RKRoute routeWithClass:[RMNote class]
+                                      resourcePathPattern:@"/api/households/:householdId/notes"
+                                                   method:RKRequestMethodAny]];
 
-    // TODO Need to get the actual RGB value.
-    [[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:0.706 green:0.196 blue:0.086 alpha:1.000]];
+    [[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:0.961 green:0.325 blue:0.200 alpha:1.000]];
     // Lets darken up the buttons for now.
     [[UIToolbar appearance] setTintColor:[UIColor blackColor]];
 

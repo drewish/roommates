@@ -107,7 +107,7 @@
 
     cell.agoLabel.text = [RMListViewController asTimeAgo:item.createdAt];
     cell.bodyText.text = item.body;
-    cell.userLabel.text = [NSString stringWithFormat:@"— %@", [RMUser nameForId:item.creatorId]];
+    cell.userLabel.text = [NSString stringWithFormat:@"—%@", [RMUser nameForId:item.creatorId]];
 
     cell.photo.hidden = item.photo == nil;
     if (item.photo == nil) {

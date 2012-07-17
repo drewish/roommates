@@ -28,3 +28,9 @@
                 OnFailure:(RKObjectLoaderDidFailWithErrorBlock) failure;
 + (NSArray*) items;
 @end
+
+// TODO: Ideally we'd be setting this when we fetch objects...
+@protocol RMHouseholdable <NSObject>
+@property (readonly) NSNumber* householdId;
+@end
+

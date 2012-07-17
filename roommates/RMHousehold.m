@@ -18,10 +18,11 @@ static RMHousehold *current = nil;
 {
     RKManagedObjectMapping* mapping = [self addMappingsTo:[RKManagedObjectMapping mappingForClass:[self class] inManagedObjectStore:objectStore]];
 
-    RKObjectMappingDefinition *m  = [provider objectMappingForKeyPath:@"users"];
+    RKObjectMappingDefinition *m  = [provider objectMappingForClass:[RMUser class]];
     [mapping mapKeyPath:@"users" toRelationship:@"users"
             withMapping:m];
 
+    [provider addObjectMapping:mapping];
     [provider setObjectMapping:mapping forResourcePathPattern:@"/api/households"];
 }
 

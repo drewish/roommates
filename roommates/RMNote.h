@@ -10,8 +10,9 @@
 #import "RMObject.h"
 #import "RMComment.h"
 
-@interface RMNote : NSObject <RMObject, RMCommentable, RMFetchableList>
+@interface RMNote : NSObject <RMObject, RMCommentable, RMHouseholdable, RMFetchableList>
 + (void) postNote:(NSString*) body
+            image:(UIImage*) image
         onSuccess:(RKObjectLoaderDidLoadObjectBlock) success
         onFailure:(RKObjectLoaderDidFailWithErrorBlock) failure;
 

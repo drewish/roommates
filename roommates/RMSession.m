@@ -54,6 +54,7 @@ static RMSession *gInstance = nil;
 {
     RKObjectMapping* mapping = [self addMappingsTo:[RKObjectMapping mappingForClass:[self class]]];
     [provider setObjectMapping:mapping forResourcePathPattern:@"/api/sessions"];
+    [provider addObjectMapping:mapping];
 }
 
 + (RKObjectMapping*) addMappingsTo:(RKObjectMapping*) mapping
@@ -84,8 +85,8 @@ static RMSession *gInstance = nil;
                          email, @"email",
                          password, @"password",
                          nil];
-        RKObjectMapping *objectMapping = [RKObjectMapping mappingForClass:[RMSession class]];
-        loader.objectMapping = [RMSession addMappingsTo:objectMapping];
+        RKObjectMapping *objectMapping = [RKObjectMapping mappingForClass:[self class]];
+        loader.objectMapping = [[self class] addMappingsTo:objectMapping];
         loader.onDidLoadObject = ^(RMSession *session) {
             // Store it into our singleton... It'd be better if we could just
             // have them overwrite our existing object.

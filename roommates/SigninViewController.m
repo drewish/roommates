@@ -31,6 +31,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
+    UIImage *image = [UIImage imageNamed:@"signIn.png"];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:image];
+
     // Do any additional setup after loading the view.
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     email.text = [defaults stringForKey:@"email"];
@@ -38,7 +42,6 @@
     login.enabled = (email.text.length && password.text.length);
     // @"delany@gmail.com";
     // @"123456";
-
 }
 
 - (void)viewDidUnload
@@ -92,17 +95,12 @@
         NSLog(@"Encountered an error: %@", error);
         NSString *message = [[[error userInfo] valueForKeyPath:@"RKObjectMapperErrorObjectsKey.error"] lastObject];
         [SVProgressHUD showErrorWithStatus:message];
-//        [[[UIAlertView alloc] initWithTitle:@"Error"
-//                                    message:[error localizedDescription]
-//                                   delegate:nil
-//                          cancelButtonTitle:@"OK"
-//                          otherButtonTitles:nil] show];
     }];
 }
 
 - (IBAction)signup:(id)sender {
     // TODO: Need to get the correct URL for this.
-    NSString* launchUrl = @"http://roommat.es/";
+    NSString* launchUrl = @"http://roommat.es/users/sign_up";
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString: launchUrl]];
 }
 @end

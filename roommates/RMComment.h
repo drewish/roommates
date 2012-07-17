@@ -16,7 +16,7 @@
 
 @end
 
-@interface RMComment : NSObject <RMObject>
+@interface RMComment : NSObject <RMObject, RMHouseholdable>
 
 + (void) post:(NSString*) body 
          toId:(NSNumber*) commentableId ofType:(NSString*) commentableType

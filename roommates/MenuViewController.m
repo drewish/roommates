@@ -175,7 +175,7 @@
                                      cancelButtonTitle:@"Cancel"
                                 destructiveButtonTitle:@"Sign out"
                                      otherButtonTitles:nil];
-    actionSheet.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
+    actionSheet.actionSheetStyle = UIActionSheetStyleBlackOpaque;
     actionSheet.tag = 1;
     [actionSheet showInView:self.view];
 }

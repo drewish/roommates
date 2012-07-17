@@ -43,6 +43,7 @@
 		5FAD766D15A13F01005BBCAC /* ZUUIRevealController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FAD766C15A13F01005BBCAC /* ZUUIRevealController.m */; };
 		5FAD767915A16321005BBCAC /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FAD767815A16321005BBCAC /* MenuViewController.m */; };
 		5FAD767E15A218F0005BBCAC /* RMData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5FAD767C15A218F0005BBCAC /* RMData.xcdatamodeld */; };
+		5FBCC83A15B5BC210031CBB1 /* reveal.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FBCC83915B5BC210031CBB1 /* reveal.png */; };
 		5FD475B2159B536C00F4907C /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FD475B0159B536C00F4907C /* CFNetwork.framework */; };
 		5FD475B3159B536C00F4907C /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FD475B1159B536C00F4907C /* CoreData.framework */; };
 		5FD475B5159B537C00F4907C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FD475B4159B537C00F4907C /* Security.framework */; };
@@ -55,6 +56,9 @@
 		5FD475C7159B667400F4907C /* RMSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FD475C6159B667400F4907C /* RMSession.m */; };
 		5FD56C0D159C2B6E00FCAF22 /* RMLogEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FD56C0C159C2B6E00FCAF22 /* RMLogEntry.m */; };
 		5FD809E9159BABCB00621038 /* RMHousehold.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FD809E8159BABCB00621038 /* RMHousehold.m */; };
+		5FF1C1EE15B5EA8100077016 /* reveal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FF1C1ED15B5EA8100077016 /* reveal@2x.png */; };
+		5FF1C1F115B60C0100077016 /* signIn.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FF1C1EF15B60C0100077016 /* signIn.png */; };
+		5FF1C1F215B60C0100077016 /* signIn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FF1C1F015B60C0100077016 /* signIn@2x.png */; };
 		5FFBCFC115A68F1700CF161A /* NoteListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FFBCFC015A68F1700CF161A /* NoteListViewController.m */; };
 		5FFBCFC815A69B4500CF161A /* RMListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FFBCFC715A69B4500CF161A /* RMListViewController.m */; };
 		5FFBCFCD15A6A41500CF161A /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5FFBCFCA15A6A41500CF161A /* SVProgressHUD.bundle */; };
@@ -199,6 +203,7 @@
 		5FAD767715A16321005BBCAC /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
 		5FAD767815A16321005BBCAC /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
 		5FAD767D15A218F0005BBCAC /* RMData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RMData.xcdatamodel; sourceTree = "<group>"; };
+		5FBCC83915B5BC210031CBB1 /* reveal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = reveal.png; path = Resources/reveal.png; sourceTree = "<group>"; };
 		5FD47597159B51C900F4907C /* RestKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RestKit.xcodeproj; path = RestKit/RestKit.xcodeproj; sourceTree = "<group>"; };
 		5FD475B0159B536C00F4907C /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		5FD475B1159B536C00F4907C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -215,6 +220,9 @@
 		5FD56C0C159C2B6E00FCAF22 /* RMLogEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMLogEntry.m; sourceTree = "<group>"; };
 		5FD809E7159BABCB00621038 /* RMHousehold.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMHousehold.h; sourceTree = "<group>"; };
 		5FD809E8159BABCB00621038 /* RMHousehold.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMHousehold.m; sourceTree = "<group>"; };
+		5FF1C1ED15B5EA8100077016 /* reveal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "reveal@2x.png"; path = "Resources/reveal@2x.png"; sourceTree = "<group>"; };
+		5FF1C1EF15B60C0100077016 /* signIn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = signIn.png; path = Resources/signIn.png; sourceTree = "<group>"; };
+		5FF1C1F015B60C0100077016 /* signIn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "signIn@2x.png"; path = "Resources/signIn@2x.png"; sourceTree = "<group>"; };
 		5FFBCFBF15A68F1700CF161A /* NoteListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteListViewController.h; sourceTree = "<group>"; };
 		5FFBCFC015A68F1700CF161A /* NoteListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteListViewController.m; sourceTree = "<group>"; };
 		5FFBCFC615A69B4500CF161A /* RMListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMListViewController.h; sourceTree = "<group>"; };
@@ -371,12 +379,12 @@
 		5F703C491598FECD00EA51DF /* roommates */ = {
 			isa = PBXGroup;
 			children = (
+				5F703C521598FECD00EA51DF /* AppDelegate.h */,
+				5F703C531598FECD00EA51DF /* AppDelegate.m */,
 				5F703C551598FECD00EA51DF /* MainStoryboard.storyboard */,
 				5FD475C1159B5ADA00F4907C /* DataObjects */,
 				5FFBCFC615A69B4500CF161A /* RMListViewController.h */,
 				5FFBCFC715A69B4500CF161A /* RMListViewController.m */,
-				5F1ECD4715AFCBBE00C314A6 /* UserViewController.h */,
-				5F1ECD4815AFCBBE00C314A6 /* UserViewController.m */,
 				5F15614F15A8BE350065BAA2 /* Signin */,
 				5FAD767215A144F1005BBCAC /* Menu */,
 				5F286C2A159E93C500310016 /* ActivityFeed */,
@@ -385,7 +393,9 @@
 				5F1ECD4615AFCB2500C314A6 /* Todo */,
 				5FFBCFBE15A68E8100CF161A /* Notes */,
 				5F1ECD4415AFCAEF00C314A6 /* Comments */,
+				5FBCC83715B5B8910031CBB1 /* Users */,
 				5F703C4A1598FECD00EA51DF /* Supporting Files */,
+				5FBCC83815B5BBBF0031CBB1 /* Resources */,
 				5F9A5EDD15AE84F40053D6B3 /* PullToRefresh */,
 				5FFBCFC915A6A41500CF161A /* SVProgressHUD */,
 				5F0FAA7415AD4B33005408AF /* TestFlight */,
@@ -397,14 +407,6 @@
 		5F703C4A1598FECD00EA51DF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				5F56E58815B4FBC10086E161 /* placeholder.png */,
-				5F70D2DB15B3C05A009D6CB6 /* purty_wood.png */,
-				5FFBCFD315A6AB4200CF161A /* Icon.png */,
-				5F70D2D915B3B9FD009D6CB6 /* Icon@2x.png */,
-				5FFBCFCF15A6A9D600CF161A /* default.png */,
-				5FFBCFD015A6A9D600CF161A /* default@2x.png */,
-				5F703C521598FECD00EA51DF /* AppDelegate.h */,
-				5F703C531598FECD00EA51DF /* AppDelegate.m */,
 				5F703C4B1598FECD00EA51DF /* roommates-Info.plist */,
 				5F703C4C1598FECD00EA51DF /* InfoPlist.strings */,
 				5F703C4F1598FECD00EA51DF /* main.m */,
@@ -444,6 +446,32 @@
 				5FAD767815A16321005BBCAC /* MenuViewController.m */,
 			);
 			name = Menu;
+			sourceTree = "<group>";
+		};
+		5FBCC83715B5B8910031CBB1 /* Users */ = {
+			isa = PBXGroup;
+			children = (
+				5F1ECD4715AFCBBE00C314A6 /* UserViewController.h */,
+				5F1ECD4815AFCBBE00C314A6 /* UserViewController.m */,
+			);
+			name = Users;
+			sourceTree = "<group>";
+		};
+		5FBCC83815B5BBBF0031CBB1 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				5FF1C1EF15B60C0100077016 /* signIn.png */,
+				5FF1C1F015B60C0100077016 /* signIn@2x.png */,
+				5FFBCFD315A6AB4200CF161A /* Icon.png */,
+				5F70D2D915B3B9FD009D6CB6 /* Icon@2x.png */,
+				5FFBCFCF15A6A9D600CF161A /* default.png */,
+				5FFBCFD015A6A9D600CF161A /* default@2x.png */,
+				5FBCC83915B5BC210031CBB1 /* reveal.png */,
+				5FF1C1ED15B5EA8100077016 /* reveal@2x.png */,
+				5F56E58815B4FBC10086E161 /* placeholder.png */,
+				5F70D2DB15B3C05A009D6CB6 /* purty_wood.png */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		5FD47598159B51C900F4907C /* Products */ = {
@@ -641,6 +669,10 @@
 				5F70D2DA15B3B9FD009D6CB6 /* Icon@2x.png in Resources */,
 				5F70D2DC15B3C05A009D6CB6 /* purty_wood.png in Resources */,
 				5F56E58915B4FBC10086E161 /* placeholder.png in Resources */,
+				5FBCC83A15B5BC210031CBB1 /* reveal.png in Resources */,
+				5FF1C1EE15B5EA8100077016 /* reveal@2x.png in Resources */,
+				5FF1C1F115B60C0100077016 /* signIn.png in Resources */,
+				5FF1C1F215B60C0100077016 /* signIn@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

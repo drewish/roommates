@@ -25,6 +25,7 @@ static NSArray *cached = nil;
     [mapping mapKeyPath:@"comments" toRelationship:@"comments" 
             withMapping:[provider objectMappingForClass:[RMComment class]]];
 
+    [provider addObjectMapping:mapping];
     [provider setObjectMapping:mapping forResourcePathPattern:@"/api/households/:householdId/checklist_items"];
 }
      

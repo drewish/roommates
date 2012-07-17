@@ -13,9 +13,7 @@
 + (void) registerMappingsWith:(RKObjectMappingProvider*) provider inManagedObjectStore:(RKManagedObjectStore *)objectStore
 {
     RKManagedObjectMapping* mapping = [self addMappingsTo:[RKManagedObjectMapping mappingForClass:[self class] inManagedObjectStore:objectStore]];
-    // Unlike with RKObjectMapping if you store the mapping with [provider addObjectMapping:]
-    // you can't access it with [provider objectMappingForClass:] so we'll stick
-    // it on the key path.
+    [provider addObjectMapping:mapping];
     [provider setObjectMapping:mapping forKeyPath:@"users"];
     [provider setObjectMapping:mapping forResourcePathPattern:@"/api/users/:userId"];
     [provider setObjectMapping:mapping forResourcePathPattern:@"/api/users"];

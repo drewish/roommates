@@ -37,7 +37,10 @@
 }
 
 - (IBAction)done:(id)sender {
-    [RMNote postNote:bodyText.text onSuccess:^(id obj){
+    // Attach an Image from the App Bundle
+    UIImage* image = [UIImage imageNamed:@"purty_wood.png"];
+    
+    [RMNote postNote:bodyText.text image:image onSuccess:^(id obj){
         NSLog(@"posted ...%@", obj);
         // TODO: Need to get all this UI code out of here and into callbacks.
         [SVProgressHUD showSuccessWithStatus:@""];
