@@ -21,6 +21,5 @@
 @property (nonatomic, retain) NSNumber* creatorId;    // note creator
 @property (nonatomic, retain) NSString* photo;         // photo url
 @property (nonatomic, retain) NSDictionary* abilities; // abilities hash for current user
-@property (nonatomic, retain) NSArray* comments;       // array of comments
 
 @end

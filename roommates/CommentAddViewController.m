@@ -2,7 +2,7 @@
 //  CommentAddViewController.m
 //  roommates
 //
-//  Created by andrew morton on 7/11/12.
+//  Created by andrew morton on 7/16/12.
 //  Copyright (c) 2012 drewish.com. All rights reserved.
 //
 
@@ -26,6 +26,8 @@
     [bodyText.layer setCornerRadius:10.0];
     [bodyText.layer setMasksToBounds:YES];
     [bodyText.layer setShadowRadius:5.0];
+
+    [bodyText becomeFirstResponder];
 }
 
 - (void)viewDidUnload {

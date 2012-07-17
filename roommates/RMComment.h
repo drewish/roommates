@@ -8,9 +8,12 @@
 
 #import "RMObject.h"
 
-@protocol RMCommentable <NSObject>
+@protocol RMCommentable
 // Type of commentable object (required, [checklist_item, note, expense or reimbursal])
 + (NSString*)commentableType;
+
+@property (nonatomic, retain) NSArray* comments;
+
 @end
 
 @interface RMComment : NSObject <RMObject>

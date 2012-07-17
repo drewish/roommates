@@ -10,3 +10,6 @@
 [submodule "PullToRefresh"]
 	path = PullToRefresh
 	url = git@github.com:drewish/PullToRefresh.git
+[submodule "SDWebImage"]
+	path = SDWebImage
+	url = https://github.com/rs/SDWebImage

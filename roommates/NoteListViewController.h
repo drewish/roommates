@@ -10,5 +10,6 @@
 #import "RMListViewController.h"
 
 @interface NoteListViewController : RMListViewController
+- (IBAction)addComment:(id)sender;
 
 @end

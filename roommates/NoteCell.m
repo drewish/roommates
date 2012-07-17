@@ -9,13 +9,14 @@
 #import "NoteCell.h"
 
 @implementation NoteCell
-@synthesize agoLabel, bodyText, userLabel;
+
+@synthesize agoLabel, wrapper, photo, bodyText, userLabel, comments, commentData;
 
 -(id)initWithCoder:(NSCoder *)aDecoder
 {
     self = [super initWithCoder:aDecoder];
     if (self) {
-
+        
     }
     return self;
 }

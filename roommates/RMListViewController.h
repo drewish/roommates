@@ -16,7 +16,8 @@
 @property (nonatomic, weak) Class dataClass;
 @property (nonatomic, retain) NSArray* items;
 
++ (NSString*)asTimeAgo:(NSDate*)date;
+
 - (void)fetchItems;
-- (NSString*)asTimeAgo:(NSDate*)date;
 
 @end

@@ -18,7 +18,47 @@
 @implementation RMListViewController {
     PullToRefreshView *pull;
 }
+
 @synthesize items, dataClass = _dataClass;
+
+// This was taken from https://github.com/kevinlawler/NSDate-TimeAgo
+// might be worth just including that code.
++ (NSString*)asTimeAgo:(NSDate*)date
+{
+    NSDate *now = [NSDate date];
+    double deltaSeconds = fabs([date timeIntervalSinceDate:now]);
+    double deltaMinutes = deltaSeconds / 60.0f;
+    
+    if (deltaSeconds < 5) {
+        return @"Just now";
+    } else if (deltaSeconds < 60) {
+        return [NSString stringWithFormat:@"%d seconds ago", (int)deltaSeconds];
+    } else if (deltaSeconds < 120) {
+        return @"A minute ago";
+    } else if (deltaMinutes < 60) {
+        return [NSString stringWithFormat:@"%d minutes ago", (int)deltaMinutes];
+    } else if (deltaMinutes < 120) {
+        return @"An hour ago";
+    } else if (deltaMinutes < (24 * 60)) {
+        return [NSString stringWithFormat:@"%d hours ago", (int)floor(deltaMinutes/60)];
+    } else if (deltaMinutes < (24 * 60 * 2)) {
+        return @"Yesterday";
+    } else if (deltaMinutes < (24 * 60 * 7)) {
+        return [NSString stringWithFormat:@"%d days ago", (int)floor(deltaMinutes/(60 * 24))];
+    } else if (deltaMinutes < (24 * 60 * 14)) {
+        return @"Last week";
+    } else if (deltaMinutes < (24 * 60 * 31)) {
+        return [NSString stringWithFormat:@"%d weeks ago", (int)floor(deltaMinutes/(60 * 24 * 7))];
+    } else if (deltaMinutes < (24 * 60 * 61)) {
+        return @"Last month";
+    } else if (deltaMinutes < (24 * 60 * 365.25)) {
+        return [NSString stringWithFormat:@"%d months ago", (int)floor(deltaMinutes/(60 * 24 * 30))];
+    } else if (deltaMinutes < (24 * 60 * 731)) {
+        return @"Last year";
+    }
+    
+    return [NSString stringWithFormat:@"%d years ago", (int)floor(deltaMinutes/(60 * 24 * 365))];
+}
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
@@ -47,23 +87,26 @@
 		self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Reveal", @"Reveal") style:UIBarButtonItemStylePlain target:self.navigationController.parentViewController action:@selector(revealToggle:)];
 	}
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refeshIt:) name:@"RMHouseholdSelected" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refeshIt:) name:@"RMItemAdded" object:_dataClass];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(householdDidChange:) name:@"RMHouseholdSelected" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(itemWasAdded:) name:@"RMItemAdded" object:_dataClass];
     // [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(watchIt:) name:@"RMListFetched" object:_dataClass];
 
     [self fetchItems];
 }
 
-//- (void)watchIt:(NSNotification*)note
-//{
-//    NSLog(@"Noted: %@", note);
-//    self.items = [_dataClass items];
-//    [self.tableView reloadData];
-//}
-
-- (void)refeshIt:(NSNotification*)note
+- (void)householdDidChange:(NSNotification*)note
 {
     [self fetchItems];
+}
+
+- (void)itemWasAdded:(NSNotification*)note
+{
+    // TODO: i set this up thinking it'd be a way to get the correct animation
+    // of coming back from the add note view. but i think it's wrong. it'll 
+    // probably also get fired for adding a comment but we need different 
+    // behavior for that. new comments should refresh the cell i guess.
+    [self fetchItems];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)viewDidUnload
@@ -95,6 +138,7 @@
     [_dataClass fetchForHousehold:current.householdId OnSuccess:^(NSArray *items_) {
         self.items = items_;
         [self.tableView reloadData];
+        [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:TRUE];
         [pull finishedLoading];
     } OnFailure:^(NSError *error) {
         [pull finishedLoading];
@@ -105,45 +149,6 @@
                           cancelButtonTitle:@"OK"
                           otherButtonTitles:nil] show];
     }];
-}
-
-// This was taken from https://github.com/kevinlawler/NSDate-TimeAgo
-// might be worth just including that code.
-- (NSString*)asTimeAgo:(NSDate*)date
-{
-    NSDate *now = [NSDate date];
-    double deltaSeconds = fabs([date timeIntervalSinceDate:now]);
-    double deltaMinutes = deltaSeconds / 60.0f;
-
-    if (deltaSeconds < 5) {
-        return @"Just now";
-    } else if (deltaSeconds < 60) {
-        return [NSString stringWithFormat:@"%d seconds ago", (int)deltaSeconds];
-    } else if (deltaSeconds < 120) {
-        return @"A minute ago";
-    } else if (deltaMinutes < 60) {
-        return [NSString stringWithFormat:@"%d minutes ago", (int)deltaMinutes];
-    } else if (deltaMinutes < 120) {
-        return @"An hour ago";
-    } else if (deltaMinutes < (24 * 60)) {
-        return [NSString stringWithFormat:@"%d hours ago", (int)floor(deltaMinutes/60)];
-    } else if (deltaMinutes < (24 * 60 * 2)) {
-        return @"Yesterday";
-    } else if (deltaMinutes < (24 * 60 * 7)) {
-        return [NSString stringWithFormat:@"%d days ago", (int)floor(deltaMinutes/(60 * 24))];
-    } else if (deltaMinutes < (24 * 60 * 14)) {
-        return @"Last week";
-    } else if (deltaMinutes < (24 * 60 * 31)) {
-        return [NSString stringWithFormat:@"%d weeks ago", (int)floor(deltaMinutes/(60 * 24 * 7))];
-    } else if (deltaMinutes < (24 * 60 * 61)) {
-        return @"Last month";
-    } else if (deltaMinutes < (24 * 60 * 365.25)) {
-        return [NSString stringWithFormat:@"%d months ago", (int)floor(deltaMinutes/(60 * 24 * 30))];
-    } else if (deltaMinutes < (24 * 60 * 731)) {
-        return @"Last year";
-    }
-
-    return [NSString stringWithFormat:@"%d years ago", (int)floor(deltaMinutes/(60 * 24 * 365))];
 }
 
 #pragma mark - Table view data source

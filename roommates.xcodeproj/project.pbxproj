@@ -21,6 +21,10 @@
 		5F1ECD5215AFD16500C314A6 /* ReimbursalAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F1ECD5115AFD16500C314A6 /* ReimbursalAddViewController.m */; };
 		5F286C2D159E93E400310016 /* LogEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F286C2C159E93E400310016 /* LogEntryCell.m */; };
 		5F4540E315A736CE00386BEC /* RMNote.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F4540E215A736CE00386BEC /* RMNote.m */; };
+		5F56E58515B4F9D20086E161 /* libSDWebImageARC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F56E58015B4F93D0086E161 /* libSDWebImageARC.a */; };
+		5F56E58715B4F9F40086E161 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F56E58615B4F9F40086E161 /* ImageIO.framework */; };
+		5F56E58915B4FBC10086E161 /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F56E58815B4FBC10086E161 /* placeholder.png */; };
+		5F56E58C15B5008D0086E161 /* CommentTableDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F56E58B15B5008D0086E161 /* CommentTableDataSource.m */; };
 		5F703C441598FECD00EA51DF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F703C431598FECD00EA51DF /* UIKit.framework */; };
 		5F703C461598FECD00EA51DF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F703C451598FECD00EA51DF /* Foundation.framework */; };
 		5F703C481598FECD00EA51DF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F703C471598FECD00EA51DF /* CoreGraphics.framework */; };
@@ -61,6 +65,34 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		5F56E57D15B4F93D0086E161 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5F56E57415B4F93C0086E161 /* SDWebImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 53922D6F148C55820056699D;
+			remoteInfo = SDWebImage;
+		};
+		5F56E57F15B4F93D0086E161 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5F56E57415B4F93C0086E161 /* SDWebImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 53761325155AD0D5005750A4;
+			remoteInfo = "SDWebImage ARC";
+		};
+		5F56E58115B4F93D0086E161 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5F56E57415B4F93C0086E161 /* SDWebImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 531041E0157EAFA400BBABC3;
+			remoteInfo = "SDWebImage ARC+MKAnnotation";
+		};
+		5F56E58315B4F9AA0086E161 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5F56E57415B4F93C0086E161 /* SDWebImage.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 53761307155AD0D5005750A4;
+			remoteInfo = "SDWebImage ARC";
+		};
 		5FD475A2159B51CA00F4907C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5FD47597159B51C900F4907C /* RestKit.xcodeproj */;
@@ -132,6 +164,11 @@
 		5F286C2C159E93E400310016 /* LogEntryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogEntryCell.m; sourceTree = "<group>"; };
 		5F4540E115A736CE00386BEC /* RMNote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNote.h; sourceTree = "<group>"; };
 		5F4540E215A736CE00386BEC /* RMNote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNote.m; sourceTree = "<group>"; };
+		5F56E57415B4F93C0086E161 /* SDWebImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SDWebImage.xcodeproj; path = SDWebImage/SDWebImage.xcodeproj; sourceTree = "<group>"; };
+		5F56E58615B4F9F40086E161 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		5F56E58815B4FBC10086E161 /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = placeholder.png; path = Resources/placeholder.png; sourceTree = "<group>"; };
+		5F56E58A15B5008D0086E161 /* CommentTableDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentTableDataSource.h; sourceTree = "<group>"; };
+		5F56E58B15B5008D0086E161 /* CommentTableDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentTableDataSource.m; sourceTree = "<group>"; };
 		5F703C3F1598FECD00EA51DF /* roommates.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = roommates.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F703C431598FECD00EA51DF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5F703C451598FECD00EA51DF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -195,6 +232,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F56E58715B4F9F40086E161 /* ImageIO.framework in Frameworks */,
+				5F56E58515B4F9D20086E161 /* libSDWebImageARC.a in Frameworks */,
 				5F0FAA7F15AD4B8E005408AF /* libz.dylib in Frameworks */,
 				5FD475C0159B552600F4907C /* libRestKit.a in Frameworks */,
 				5FD475B9159B539E00F4907C /* libxml2.dylib in Frameworks */,
@@ -250,6 +289,8 @@
 			children = (
 				5F70D2DD15B4747E009D6CB6 /* CommentAddViewController.h */,
 				5F70D2DE15B4747E009D6CB6 /* CommentAddViewController.m */,
+				5F56E58A15B5008D0086E161 /* CommentTableDataSource.h */,
+				5F56E58B15B5008D0086E161 /* CommentTableDataSource.m */,
 			);
 			name = Comments;
 			sourceTree = "<group>";
@@ -279,9 +320,20 @@
 			name = ActivityFeed;
 			sourceTree = "<group>";
 		};
+		5F56E57515B4F93C0086E161 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5F56E57E15B4F93D0086E161 /* libSDWebImage.a */,
+				5F56E58015B4F93D0086E161 /* libSDWebImageARC.a */,
+				5F56E58215B4F93D0086E161 /* libSDWebImageARC+MKAnnotation.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		5F703C341598FECC00EA51DF = {
 			isa = PBXGroup;
 			children = (
+				5F56E57415B4F93C0086E161 /* SDWebImage.xcodeproj */,
 				5FD47597159B51C900F4907C /* RestKit.xcodeproj */,
 				5F703C491598FECD00EA51DF /* roommates */,
 				5F703C421598FECD00EA51DF /* Frameworks */,
@@ -300,6 +352,7 @@
 		5F703C421598FECD00EA51DF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5F56E58615B4F9F40086E161 /* ImageIO.framework */,
 				5FD475BC159B53C200F4907C /* MobileCoreServices.framework */,
 				5FD475BA159B53A800F4907C /* SystemConfiguration.framework */,
 				5FD475B8159B539E00F4907C /* libxml2.dylib */,
@@ -344,6 +397,7 @@
 		5F703C4A1598FECD00EA51DF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5F56E58815B4FBC10086E161 /* placeholder.png */,
 				5F70D2DB15B3C05A009D6CB6 /* purty_wood.png */,
 				5FFBCFD315A6AB4200CF161A /* Icon.png */,
 				5F70D2D915B3B9FD009D6CB6 /* Icon@2x.png */,
@@ -466,6 +520,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				5F56E58415B4F9AA0086E161 /* PBXTargetDependency */,
 				5FD475BF159B54D800F4907C /* PBXTargetDependency */,
 			);
 			name = roommates;
@@ -497,6 +552,10 @@
 					ProductGroup = 5FD47598159B51C900F4907C /* Products */;
 					ProjectRef = 5FD47597159B51C900F4907C /* RestKit.xcodeproj */;
 				},
+				{
+					ProductGroup = 5F56E57515B4F93C0086E161 /* Products */;
+					ProjectRef = 5F56E57415B4F93C0086E161 /* SDWebImage.xcodeproj */;
+				},
 			);
 			projectRoot = "";
 			targets = (
@@ -506,6 +565,27 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		5F56E57E15B4F93D0086E161 /* libSDWebImage.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libSDWebImage.a;
+			remoteRef = 5F56E57D15B4F93D0086E161 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		5F56E58015B4F93D0086E161 /* libSDWebImageARC.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libSDWebImageARC.a;
+			remoteRef = 5F56E57F15B4F93D0086E161 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		5F56E58215B4F93D0086E161 /* libSDWebImageARC+MKAnnotation.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libSDWebImageARC+MKAnnotation.a";
+			remoteRef = 5F56E58115B4F93D0086E161 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		5FD475A3159B51CA00F4907C /* libRestKit.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -560,6 +640,7 @@
 				5F9A5EE415AE84F50053D6B3 /* arrow@2x.png in Resources */,
 				5F70D2DA15B3B9FD009D6CB6 /* Icon@2x.png in Resources */,
 				5F70D2DC15B3C05A009D6CB6 /* purty_wood.png in Resources */,
+				5F56E58915B4FBC10086E161 /* placeholder.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -596,12 +677,18 @@
 				5F0CA1EE15B0B1E000C7CFAC /* ExpensesSummaryViewController.m in Sources */,
 				5F70D2D815B3B9E1009D6CB6 /* RMChecklistItem.m in Sources */,
 				5F70D2DF15B4747E009D6CB6 /* CommentAddViewController.m in Sources */,
+				5F56E58C15B5008D0086E161 /* CommentTableDataSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		5F56E58415B4F9AA0086E161 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "SDWebImage ARC";
+			targetProxy = 5F56E58315B4F9AA0086E161 /* PBXContainerItemProxy */;
+		};
 		5FD475BF159B54D800F4907C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = RestKit;
@@ -679,7 +766,10 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "roommates/roommates-Prefix.pch";
-				HEADER_SEARCH_PATHS = "\"$(BUILT_PRODUCTS_DIR)/../../Headers\"";
+				HEADER_SEARCH_PATHS = (
+					"\"$(BUILT_PRODUCTS_DIR)/../../Headers\"",
+					"\"$(SOURCE_ROOT)/SDWebImage\"",
+				);
 				INFOPLIST_FILE = "roommates/roommates-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -687,6 +777,7 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "\"$(BUILT_PRODUCTS_DIR)/../../Headers\" \"$(SOURCE_ROOT)/SDWebImage\"";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -696,7 +787,10 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "roommates/roommates-Prefix.pch";
-				HEADER_SEARCH_PATHS = "\"$(BUILT_PRODUCTS_DIR)/../../Headers\"";
+				HEADER_SEARCH_PATHS = (
+					"\"$(BUILT_PRODUCTS_DIR)/../../Headers\"",
+					"\"$(SOURCE_ROOT)/SDWebImage\"",
+				);
 				INFOPLIST_FILE = "roommates/roommates-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -704,6 +798,7 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "\"$(BUILT_PRODUCTS_DIR)/../../Headers\" \"$(SOURCE_ROOT)/SDWebImage\"";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
