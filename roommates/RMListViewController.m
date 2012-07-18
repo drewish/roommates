@@ -19,7 +19,7 @@
     PullToRefreshView *pull;
 }
 
-@synthesize items, dataClass = _dataClass;
+@synthesize items;
 
 // This was taken from https://github.com/kevinlawler/NSDate-TimeAgo
 // might be worth just including that code.
@@ -69,6 +69,18 @@
     return self;
 }
 
+- (Class)dataClass
+{
+    @throw [NSException exceptionWithName:NSInternalInconsistencyException
+                                   reason:[NSString stringWithFormat:@"You must override %@ in a subclass", NSStringFromSelector(_cmd)]
+                                 userInfo:nil];
+}
+
+-(NSDictionary *)fetchParams
+{
+    return nil;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -88,8 +100,8 @@
 	}
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(householdDidChange:) name:@"RMHouseholdSelected" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(itemWasAdded:) name:@"RMItemAdded" object:_dataClass];
-    // [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(watchIt:) name:@"RMListFetched" object:_dataClass];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(itemWasAdded:) name:@"RMItemAdded" object:[self dataClass]];
+    // [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(watchIt:) name:@"RMListFetched" object:[self dataClass]];
 
     [self fetchItems];
 }
@@ -135,12 +147,14 @@
         return;
     }
 
-    [_dataClass fetchForHousehold:current.householdId OnSuccess:^(NSArray *items_) {
+    [[self dataClass] fetchForHousehold:current.householdId 
+                             withParams:self.fetchParams
+                              onSuccess:^(NSArray *items_) {
         self.items = items_;
         [self.tableView reloadData];
         [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:TRUE];
         [pull finishedLoading];
-    } OnFailure:^(NSError *error) {
+    } onFailure:^(NSError *error) {
         [pull finishedLoading];
         NSLog(@"Couldn't fetch items: %@", error);
         [[[UIAlertView alloc] initWithTitle:@"Error"
@@ -167,9 +181,10 @@
 {
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    
+
     // Configure the cell...
-    
+    cell.textLabel.text = [[self.items objectAtIndex:indexPath.row] description];
+
     return cell;
 }
 

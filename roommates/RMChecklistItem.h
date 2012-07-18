@@ -10,7 +10,7 @@
 #import "RMObject.h"
 #import "RMComment.h"
 
-@interface RMChecklistItem : NSObject <RMObject, RMCommentable, RMFetchableList>
+@interface RMChecklistItem : NSObject <RMObject, RMCommentable, RMDeletable, RMFetchableList>
 
 @property (nonatomic, retain) NSNumber* checklistItemId; // ID of note
 @property (nonatomic, retain) NSString* kind;            // KIND of checklist item (either ‘todo’ or ‘shopping’)

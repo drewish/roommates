@@ -12,4 +12,5 @@
 #import "RMUser.h"
 #import "RMComment.h"
 #import "RMLogEntry.h"
+#import "RMChecklistItem.h"
 #import "RMNote.h"

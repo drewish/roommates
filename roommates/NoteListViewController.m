@@ -26,9 +26,13 @@
     self = [super initWithCoder:aDecoder];
     if (self) {
         // Custom initialization
-        super.dataClass = [RMNote class];
     }
     return self;    
+}
+
+- (Class)dataClass
+{
+   return [RMNote class];
 }
 
 - (void)viewDidLoad
@@ -47,11 +51,6 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
 // Little action to tie both buttons to the same segue.

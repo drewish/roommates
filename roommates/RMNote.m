@@ -54,7 +54,8 @@ static NSArray *cached = nil;
     [mgr postObject:note usingBlock:^(RKObjectLoader *loader) {
         RKParams* params = [RKParams params];
         [params setValue:body forParam:@"note[body]"];
-        [params setData:UIImagePNGRepresentation(image) MIMEType:@"image/png" forParam:@"note[photo]"];
+        RKParamsAttachment *attachment = [params setData:UIImagePNGRepresentation(image) MIMEType:@"image/png" forParam:@"note[photo]"];
+        attachment.fileName = @"image.png";
         loader.params = params;
         
         loader.onDidFailWithError = ^(NSError *error) {
@@ -69,7 +70,7 @@ static NSArray *cached = nil;
             NSLog(@"%@", whatLoaded);
             success(whatLoaded);
             [[NSNotificationCenter defaultCenter]
-             postNotificationName:@"RMItemAdded" object:[RMNote class]];
+             postNotificationName:@"RMItemAdded" object:[self class]];
         };
         loader.onDidLoadResponse = ^(RKResponse *response) {           
             NSLog(@"%@", response);
@@ -79,14 +80,14 @@ static NSArray *cached = nil;
                 NSDictionary *errors = [[response parsedBody:&parseError] objectForKey:@"errors"];
                 failure([NSError errorWithDomain:@"roomat.es" code:100 userInfo:errors]);
             }
-
         };
     }];
 }
 
 + (void)fetchForHousehold:(NSNumber*) householdId
-                OnSuccess:(RKObjectLoaderDidLoadObjectsBlock) success
-                OnFailure:(RKObjectLoaderDidFailWithErrorBlock) failure
+               withParams:(NSDictionary*) params
+                onSuccess:(RKObjectLoaderDidLoadObjectsBlock) success
+                onFailure:(RKObjectLoaderDidFailWithErrorBlock) failure
 {
     NSString *path = [NSString stringWithFormat:@"/api/households/%i/notes", householdId.intValue];
     [[RKObjectManager sharedManager] loadObjectsAtResourcePath:path usingBlock:^(RKObjectLoader *loader) {
@@ -128,4 +129,35 @@ static NSArray *cached = nil;
 	return [NSString stringWithFormat:@"RMNote (id: %@, \"%@\" by User %@ at %@)", 
             self.noteId, self.body, self.creatorId, self.createdAt];
 }
+
+- (void) deleteItemOnSuccess:(RKObjectLoaderDidLoadObjectsBlock) success
+                   onFailure:(RKObjectLoaderDidFailWithErrorBlock) failure
+{
+    [[RKObjectManager sharedManager] deleteObject:self usingBlock:^(RKObjectLoader *loader) {
+        loader.onDidFailWithError = ^(NSError *error) {
+            NSLog(@"%@", error);
+            failure(error);
+        };
+        loader.onDidFailLoadWithError = ^(NSError *error) {
+            NSLog(@"%@", error);
+            failure(error);
+        };
+        loader.onDidLoadObject = ^(id deletedItem) {
+            NSLog(@"%@", deletedItem);
+            success(deletedItem);
+            [[NSNotificationCenter defaultCenter]
+             postNotificationName:@"RMItemRemoved" object:[self class]];
+        };
+        loader.onDidLoadResponse = ^(RKResponse *response) {
+            NSLog(@"%@", response);
+            // Check for validation errors.
+            if (response.statusCode == 422) {
+                NSError *parseError = nil;
+                NSDictionary *errors = [[response parsedBody:&parseError] objectForKey:@"errors"];
+                failure([NSError errorWithDomain:@"roomat.es" code:100 userInfo:errors]);
+            }
+        };
+    }];
+}
+
 @end

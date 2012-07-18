@@ -13,11 +13,15 @@
 
 @interface RMListViewController : UITableViewController <PullToRefreshViewDelegate>
 
-@property (nonatomic, weak) Class dataClass;
-@property (nonatomic, retain) NSArray* items;
-
+// Convert a date into a time ago string... should probably go some place else.
 + (NSString*)asTimeAgo:(NSDate*)date;
 
+// Array of items returned by fetching.
+@property (nonatomic, retain) NSArray* items;
+// Optional dictionary of parameters to pass to the fetch.
+@property (readonly) NSDictionary* fetchParams;
+
+- (Class)dataClass;
 - (void)fetchItems;
 
 @end

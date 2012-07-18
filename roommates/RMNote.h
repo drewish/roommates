@@ -10,7 +10,7 @@
 #import "RMObject.h"
 #import "RMComment.h"
 
-@interface RMNote : NSObject <RMObject, RMCommentable, RMHouseholdable, RMFetchableList>
+@interface RMNote : NSObject <RMObject, RMCommentable, RMDeletable, RMHouseholdable, RMFetchableList>
 + (void) postNote:(NSString*) body
             image:(UIImage*) image
         onSuccess:(RKObjectLoaderDidLoadObjectBlock) success
@@ -23,4 +23,6 @@
 @property (nonatomic, retain) NSString* photo;         // photo url
 @property (nonatomic, retain) NSDictionary* abilities; // abilities hash for current user
 
+- (void) deleteItemOnSuccess:(RKObjectLoaderDidLoadObjectsBlock) success
+                   onFailure:(RKObjectLoaderDidFailWithErrorBlock) failure;
 @end

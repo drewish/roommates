@@ -32,8 +32,9 @@ static NSArray *cached = nil;
 }
 
 + (void)fetchForHousehold:(NSNumber*) householdId
-                        OnSuccess:(RKObjectLoaderDidLoadObjectsBlock) success
-                     OnFailure:(RKObjectLoaderDidFailWithErrorBlock) failure
+               withParams:(NSDictionary*) params
+                onSuccess:(RKObjectLoaderDidLoadObjectsBlock) success
+                onFailure:(RKObjectLoaderDidFailWithErrorBlock) failure
 {
     NSString *path = [NSString stringWithFormat:@"/api/households/%i/log_entries", householdId.intValue];
     [[RKObjectManager sharedManager] loadObjectsAtResourcePath:path usingBlock:^(RKObjectLoader *loader) {

@@ -43,6 +43,7 @@
 		5FAD766D15A13F01005BBCAC /* ZUUIRevealController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FAD766C15A13F01005BBCAC /* ZUUIRevealController.m */; };
 		5FAD767915A16321005BBCAC /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FAD767815A16321005BBCAC /* MenuViewController.m */; };
 		5FAD767E15A218F0005BBCAC /* RMData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5FAD767C15A218F0005BBCAC /* RMData.xcdatamodeld */; };
+		5FB8986A15B6F28000E6AD41 /* ShoppingListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FB8986915B6F28000E6AD41 /* ShoppingListViewController.m */; };
 		5FBCC83A15B5BC210031CBB1 /* reveal.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FBCC83915B5BC210031CBB1 /* reveal.png */; };
 		5FD475B2159B536C00F4907C /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FD475B0159B536C00F4907C /* CFNetwork.framework */; };
 		5FD475B3159B536C00F4907C /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FD475B1159B536C00F4907C /* CoreData.framework */; };
@@ -59,6 +60,7 @@
 		5FF1C1EE15B5EA8100077016 /* reveal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FF1C1ED15B5EA8100077016 /* reveal@2x.png */; };
 		5FF1C1F115B60C0100077016 /* signIn.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FF1C1EF15B60C0100077016 /* signIn.png */; };
 		5FF1C1F215B60C0100077016 /* signIn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FF1C1F015B60C0100077016 /* signIn@2x.png */; };
+		5FF1C1FA15B6371400077016 /* TodoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FF1C1F915B6371400077016 /* TodoListViewController.m */; };
 		5FFBCFC115A68F1700CF161A /* NoteListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FFBCFC015A68F1700CF161A /* NoteListViewController.m */; };
 		5FFBCFC815A69B4500CF161A /* RMListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FFBCFC715A69B4500CF161A /* RMListViewController.m */; };
 		5FFBCFCD15A6A41500CF161A /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5FFBCFCA15A6A41500CF161A /* SVProgressHUD.bundle */; };
@@ -203,6 +205,8 @@
 		5FAD767715A16321005BBCAC /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
 		5FAD767815A16321005BBCAC /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
 		5FAD767D15A218F0005BBCAC /* RMData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RMData.xcdatamodel; sourceTree = "<group>"; };
+		5FB8986815B6F28000E6AD41 /* ShoppingListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShoppingListViewController.h; sourceTree = "<group>"; };
+		5FB8986915B6F28000E6AD41 /* ShoppingListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShoppingListViewController.m; sourceTree = "<group>"; };
 		5FBCC83915B5BC210031CBB1 /* reveal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = reveal.png; path = Resources/reveal.png; sourceTree = "<group>"; };
 		5FD47597159B51C900F4907C /* RestKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RestKit.xcodeproj; path = RestKit/RestKit.xcodeproj; sourceTree = "<group>"; };
 		5FD475B0159B536C00F4907C /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -223,6 +227,8 @@
 		5FF1C1ED15B5EA8100077016 /* reveal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "reveal@2x.png"; path = "Resources/reveal@2x.png"; sourceTree = "<group>"; };
 		5FF1C1EF15B60C0100077016 /* signIn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = signIn.png; path = Resources/signIn.png; sourceTree = "<group>"; };
 		5FF1C1F015B60C0100077016 /* signIn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "signIn@2x.png"; path = "Resources/signIn@2x.png"; sourceTree = "<group>"; };
+		5FF1C1F815B6371400077016 /* TodoListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodoListViewController.h; sourceTree = "<group>"; };
+		5FF1C1F915B6371400077016 /* TodoListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodoListViewController.m; sourceTree = "<group>"; };
 		5FFBCFBF15A68F1700CF161A /* NoteListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteListViewController.h; sourceTree = "<group>"; };
 		5FFBCFC015A68F1700CF161A /* NoteListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteListViewController.m; sourceTree = "<group>"; };
 		5FFBCFC615A69B4500CF161A /* RMListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMListViewController.h; sourceTree = "<group>"; };
@@ -306,6 +312,8 @@
 		5F1ECD4515AFCB2100C314A6 /* Shopping */ = {
 			isa = PBXGroup;
 			children = (
+				5FB8986815B6F28000E6AD41 /* ShoppingListViewController.h */,
+				5FB8986915B6F28000E6AD41 /* ShoppingListViewController.m */,
 			);
 			name = Shopping;
 			sourceTree = "<group>";
@@ -313,6 +321,8 @@
 		5F1ECD4615AFCB2500C314A6 /* Todo */ = {
 			isa = PBXGroup;
 			children = (
+				5FF1C1F815B6371400077016 /* TodoListViewController.h */,
+				5FF1C1F915B6371400077016 /* TodoListViewController.m */,
 			);
 			name = Todo;
 			sourceTree = "<group>";
@@ -710,6 +720,8 @@
 				5F70D2D815B3B9E1009D6CB6 /* RMChecklistItem.m in Sources */,
 				5F70D2DF15B4747E009D6CB6 /* CommentAddViewController.m in Sources */,
 				5F56E58C15B5008D0086E161 /* CommentTableDataSource.m in Sources */,
+				5FF1C1FA15B6371400077016 /* TodoListViewController.m in Sources */,
+				5FB8986A15B6F28000E6AD41 /* ShoppingListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

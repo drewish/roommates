@@ -21,11 +21,14 @@
     self = [super initWithCoder:aDecoder];
     if (self) {
         // Custom initialization
-        super.dataClass = [RMLogEntry class];
     }
     return self;
 }
 
+- (Class)dataClass
+{
+    return [RMLogEntry class];
+}
 
 - (void)viewDidLoad
 {
