@@ -14,7 +14,6 @@
 @protocol RMObject <NSObject>
 
 + (void) registerMappingsWith:(RKObjectMappingProvider*) provider;
-+ (RKObjectMapping*) addMappingsTo:(RKObjectMapping*) mapping;
 
 @end
 
@@ -22,7 +21,6 @@
 @protocol RMManagedObject <NSObject>
 
 + (void) registerMappingsWith:(RKObjectMappingProvider*) provider inManagedObjectStore:(RKManagedObjectStore *)objectStore;
-+ (RKManagedObjectMapping*) addMappingsTo:(RKManagedObjectMapping*) mapping;
 
 @end
 

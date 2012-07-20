@@ -94,6 +94,9 @@
     } OnFailure:^(NSError *error) {
         NSLog(@"Encountered an error: %@", error);
         NSString *message = [[[error userInfo] valueForKeyPath:@"RKObjectMapperErrorObjectsKey.error"] lastObject];
+        if (message.length < 1) {
+            message = @"The server is talking trash.";
+        }
         [SVProgressHUD showErrorWithStatus:message];
     }];
 }

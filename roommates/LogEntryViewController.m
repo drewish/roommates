@@ -81,7 +81,7 @@
     cell.actionLabel.frame = frame;
     
     // TODO the API should be returning a timestamp that we can format as time ago...
-    cell.agoLabel.text = [RMListViewController asTimeAgo:le.updatedAt];
+    cell.agoLabel.text = [le.updatedAt timeAgo];
 
     cell.summaryLabel.text = le.summary;
     // If this is a completed list item denote that using strike through text.

@@ -52,13 +52,7 @@ static RMSession *gInstance = nil;
 
 + (void) registerMappingsWith:(RKObjectMappingProvider*) provider
 {
-    RKObjectMapping* mapping = [self addMappingsTo:[RKObjectMapping mappingForClass:[self class]]];
-    [provider setObjectMapping:mapping forResourcePathPattern:@"/api/sessions"];
-    [provider addObjectMapping:mapping];
-}
-
-+ (RKObjectMapping*) addMappingsTo:(RKObjectMapping*) mapping
-{
+    RKObjectMapping* mapping = [RKObjectMapping mappingForClass:[self class]];
     [mapping mapKeyPath:@"id" toAttribute:@"userId"];
     [mapping mapKeyPath:@"first_name" toAttribute:@"firstName"];
     [mapping mapKeyPath:@"last_name" toAttribute:@"lastName"];
@@ -66,7 +60,9 @@ static RMSession *gInstance = nil;
     [mapping mapKeyPath:@"full_name" toAttribute:@"fullName"];
     [mapping mapKeyPath:@"avatar" toAttribute:@"avatar"];
     [mapping mapKeyPath:@"api_token" toAttribute:@"apiToken"];
-    return mapping;
+
+    [provider addObjectMapping:mapping];
+    [provider setObjectMapping:mapping forResourcePathPattern:@"/api/sessions"];
 }
 
 + (void)startSessionEmail:(NSString*) email Password:(NSString*) password
@@ -78,15 +74,14 @@ static RMSession *gInstance = nil;
     // should at least clear out the cached data and the HTTP header.
     [mgr.client setValue:nil forHTTPHeaderField:@"Authorization"];
     [mgr.objectStore deletePersistentStore];
-
     [mgr loadObjectsAtResourcePath:@"/api/sessions" usingBlock:^(RKObjectLoader *loader) {
         loader.method = RKRequestMethodPOST;
         loader.params = [NSDictionary dictionaryWithObjectsAndKeys:
                          email, @"email",
                          password, @"password",
                          nil];
-        RKObjectMapping *objectMapping = [RKObjectMapping mappingForClass:[self class]];
-        loader.objectMapping = [[self class] addMappingsTo:objectMapping];
+        RKObjectMapping *objectMapping = [mgr.mappingProvider objectMappingForClass:[self class]];
+        loader.objectMapping = objectMapping;
         loader.onDidLoadObject = ^(RMSession *session) {
             // Store it into our singleton... It'd be better if we could just
             // have them overwrite our existing object.
@@ -126,10 +121,13 @@ static RMSession *gInstance = nil;
     @synchronized(self)
     {
         gInstance = nil;
+        RKObjectManager *manager = [RKObjectManager sharedManager];
         // Remove the HTTP header...
-        [[RKObjectManager sharedManager].client setValue:nil forHTTPHeaderField:@"Authorization"];
+        [manager.client setValue:nil forHTTPHeaderField:@"Authorization"];
+        // ...clear the cache...
+        [manager.client.requestCache invalidateAll];
         // ...clear out stored data...
-        [[RKObjectManager sharedManager].objectStore deletePersistentStore];
+        [manager.objectStore deletePersistentStore];
         // ...delete save credentials...
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         [defaults removeObjectForKey:@"apiToken"];

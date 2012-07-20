@@ -13,3 +13,6 @@
 [submodule "SDWebImage"]
 	path = SDWebImage
 	url = https://github.com/rs/SDWebImage
+[submodule "NSDate-TimeAgo"]
+	path = NSDate-TimeAgo
+	url = https://github.com/kevinlawler/NSDate-TimeAgo

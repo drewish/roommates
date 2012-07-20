@@ -104,7 +104,7 @@
     NoteCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     RMNote *item = [self.items objectAtIndex:indexPath.row];
 
-    cell.agoLabel.text = [RMListViewController asTimeAgo:item.createdAt];
+    cell.agoLabel.text = [item.createdAt timeAgo];
     cell.bodyText.text = item.body;
     cell.userLabel.text = [NSString stringWithFormat:@"—%@", [RMUser nameForId:item.creatorId]];
 
@@ -132,26 +132,25 @@
         cell.wrapper.backgroundColor = [UIColor whiteColor];
     }
 
+    // TODO: not sure I should be setting this up on every cell every time
+    // it comes into view.
     // This stuff was lifted from: http://nachbaur.com/blog/fun-shadow-effects-using-custom-calayer-shadowpaths
     cell.wrapper.layer.shadowColor = [UIColor blackColor].CGColor;
-    cell.wrapper.layer.shadowOpacity = 0.7f;
-    cell.wrapper.layer.shadowOffset = CGSizeMake(0.0f, 5.0f);
-    cell.wrapper.layer.shadowRadius = 3.0f;
+    cell.wrapper.layer.shadowOpacity = 0.3f;
+    cell.wrapper.layer.shadowOffset = CGSizeMake(0.0f, 2.0f);
+    cell.wrapper.layer.shadowRadius = 2.0f;
     cell.wrapper.layer.masksToBounds = NO;
-    // Did some tweaking here... They were using a UIImage which seems like it
-    // computes it's bounds differently. I think it might have been because I
-    // zeroed out the UITextView's content insets.
     CGRect f = cell.wrapper.frame;
-    CGSize size = f.size; //CGSizeMake(258, f.size.height);
-    CGFloat curlFactor = 15.0f;
-    CGFloat shadowDepth = 5.0f;
+    CGSize size = f.size;
+    CGFloat curlFactor = 2.0f;
+    CGFloat shadowDepth = 4.0f;
     UIBezierPath *path = [UIBezierPath bezierPath];
     [path moveToPoint:CGPointMake(0.0f, 0.0f)];
     [path addLineToPoint:CGPointMake(size.width, 0.0f)];
-    [path addLineToPoint:CGPointMake(size.width, size.height + shadowDepth)];
-    [path addCurveToPoint:CGPointMake(0.0f, size.height + shadowDepth)
-            controlPoint1:CGPointMake(size.width - curlFactor, size.height + shadowDepth - curlFactor)
-            controlPoint2:CGPointMake(curlFactor, size.height + shadowDepth - curlFactor)];
+    [path addLineToPoint:CGPointMake(size.width, size.height)];
+    [path addCurveToPoint:CGPointMake(0.0f, size.height)
+            controlPoint1:CGPointMake(size.width, size.height + shadowDepth + curlFactor)
+            controlPoint2:CGPointMake(0, size.height + shadowDepth + curlFactor)];
     cell.wrapper.layer.shadowPath = path.CGPath;
 
     cell.comments.hidden = (item.comments.count < 1);

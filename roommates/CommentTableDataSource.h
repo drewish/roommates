@@ -11,6 +11,6 @@
 
 @interface CommentTableDataSource : NSObject <UITableViewDataSource>
 
-@property id<RMCommentable> commentableItem;
+@property RMNote* commentableItem;
 
 @end

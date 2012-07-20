@@ -21,18 +21,7 @@ static NSArray *cached = nil;
 
 + (void) registerMappingsWith:(RKObjectMappingProvider*) provider
 {
-    RKObjectMapping* mapping = [self addMappingsTo:[RKObjectMapping mappingForClass:[self class]]];
-
-    // Hook the comments in too.
-    [mapping mapKeyPath:@"comments" toRelationship:@"comments" 
-            withMapping:[provider objectMappingForClass:[RMComment class]]];
-
-    [provider addObjectMapping:mapping];
-    [provider setObjectMapping:mapping forResourcePathPattern:@"/api/households/:householdId/notes"];
-}
-     
-+ (RKObjectMapping*) addMappingsTo:(RKObjectMapping*) mapping
-{
+    RKObjectMapping* mapping = [RKObjectMapping mappingForClass:[self class]];
     [mapping mapKeyPath:@"id" toAttribute:@"noteId"];
     [mapping mapKeyPath:@"body" toAttribute:@"body"];
     [mapping mapKeyPath:@"created_at" toAttribute:@"createdAt"];
@@ -40,7 +29,12 @@ static NSArray *cached = nil;
     [mapping mapKeyPath:@"photo" toAttribute:@"photo"];
     [mapping mapKeyPath:@"abilities" toAttribute:@"abilities"];
 
-    return mapping;
+    // Hook the comments in too.
+    [mapping mapKeyPath:@"comments" toRelationship:@"comments"
+            withMapping:[provider objectMappingForClass:[RMComment class]]];
+
+    [provider addObjectMapping:mapping];
+    [provider setObjectMapping:mapping forResourcePathPattern:@"/api/households/:householdId/notes"];
 }
 
 + (void) postNote:(NSString*) body

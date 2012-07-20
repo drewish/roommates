@@ -8,6 +8,8 @@
 
 #import "RMListViewController.h"
 
-@interface TodoListViewController : RMListViewController
+@interface ChecklistItemListViewController : RMListViewController
+
+@property NSString *kind;
 
 @end

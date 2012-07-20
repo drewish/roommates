@@ -37,6 +37,9 @@
     mgr.client.requestQueue.showsNetworkActivityIndicatorWhenBusy = YES;
     [mgr.client setValue:@"application/roommates.v1" forHTTPHeaderField:@"Accept"];
 
+    // Handy for debugging stuff:
+    // mgr.client.cachePolicy = RKRequestCachePolicyNone;
+
     RKManagedObjectStore* objectStore = [RKManagedObjectStore objectStoreWithStoreFilename:@"RMData.sqlite"];
     mgr.objectStore = objectStore;
 
@@ -47,14 +50,19 @@
 
     [RMUser registerMappingsWith:mgr.mappingProvider inManagedObjectStore:objectStore];
     [RMHousehold registerMappingsWith:mgr.mappingProvider inManagedObjectStore:objectStore];
+    [RMSession registerMappingsWith:mgr.mappingProvider];
     [RMComment registerMappingsWith:mgr.mappingProvider];
     [RMLogEntry registerMappingsWith:mgr.mappingProvider];
     [RMNote registerMappingsWith:mgr.mappingProvider];
-
+    [RMChecklistItem registerMappingsWith:mgr.mappingProvider];
 
     //TODO: these might be useful later when I'm uploading
     // Setup out class routes.
     RKRouteSet *routes = mgr.router.routeSet;
+    [routes addRoute:[RKRoute routeWithClass:[RMSession class]
+                         resourcePathPattern:@"/api/sessions"
+                                      method:RKRequestMethodPOST]];
+
     [routes addRoute:[RKRoute routeWithClass:[RMUser class]
                          resourcePathPattern:@"/api/users/:userId"
                                       method:RKRequestMethodGET]];

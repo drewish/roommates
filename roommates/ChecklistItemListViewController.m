@@ -6,13 +6,16 @@
 //  Copyright (c) 2012 drewish.com. All rights reserved.
 //
 
-#import "TodoListViewController.h"
+#import "ChecklistItemListViewController.h"
+#import "ChecklistItemDetailViewController.h"
 
-@interface TodoListViewController ()
+@interface ChecklistItemListViewController ()
 
 @end
 
-@implementation TodoListViewController
+@implementation ChecklistItemListViewController
+
+@synthesize kind;
 
 -(id)initWithCoder:(NSCoder *)aDecoder
 {
@@ -30,7 +33,7 @@
 
 -(NSDictionary *)fetchParams
 {
-    return [NSDictionary dictionaryWithObject:@"todo" forKey:@"kind"];
+    return [NSDictionary dictionaryWithObject:self.kind forKey:@"kind"];
 }
 
 - (void)viewDidLoad
@@ -45,13 +48,25 @@
     // Release any retained subviews of the main view.
 }
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([@"Detail" isEqualToString:segue.identifier]) {
+        ChecklistItemDetailViewController *vc = segue.destinationViewController;
+        UITableViewCell *cell = (UITableViewCell*) sender;
+        NSIndexPath *path = [self.tableView indexPathForCell:cell];
+        vc.item = [self.items objectAtIndex:path.row];
+        vc.navigationItem.title = vc.item.kind;
+    }
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 
     // Configure the cell...
-    cell.textLabel.text = [[self.items objectAtIndex:indexPath.row] title];
+    RMChecklistItem *item = [self.items objectAtIndex:indexPath.row];
+    cell.textLabel.text = item.title;
 
     return cell;
 }

@@ -13,13 +13,7 @@ static NSArray *cached = nil;
 
 + (void) registerMappingsWith:(RKObjectMappingProvider*) provider
 {
-    RKObjectMapping* mapping = [self addMappingsTo:[RKObjectMapping mappingForClass:[self class]]];
-    [provider addObjectMapping:mapping];
-    [provider setObjectMapping:mapping forResourcePathPattern:@"/api/households/:householdId/log_entries"];
-}
-
-+ (RKObjectMapping*) addMappingsTo:(RKObjectMapping*) mapping
-{
+    RKObjectMapping* mapping = [RKObjectMapping mappingForClass:[self class]];
     [mapping mapKeyPath:@"id" toAttribute:@"entryId"];
     [mapping mapKeyPath:@"label" toAttribute:@"label"];
     [mapping mapKeyPath:@"description" toAttribute:@"summary"];
@@ -28,7 +22,8 @@ static NSArray *cached = nil;
     [mapping mapKeyPath:@"updated_at" toAttribute:@"updatedAt"];
     [mapping mapKeyPath:@"loggable_id" toAttribute:@"loggableId"];
     [mapping mapKeyPath:@"loggable_type" toAttribute:@"loggableType"];
-    return mapping;
+    [provider addObjectMapping:mapping];
+    [provider setObjectMapping:mapping forResourcePathPattern:@"/api/households/:householdId/log_entries"];
 }
 
 + (void)fetchForHousehold:(NSNumber*) householdId

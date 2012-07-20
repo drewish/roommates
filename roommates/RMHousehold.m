@@ -16,7 +16,11 @@ static RMHousehold *current = nil;
 
 + (void) registerMappingsWith:(RKObjectMappingProvider*) provider inManagedObjectStore:(RKManagedObjectStore *)objectStore
 {
-    RKManagedObjectMapping* mapping = [self addMappingsTo:[RKManagedObjectMapping mappingForClass:[self class] inManagedObjectStore:objectStore]];
+    RKManagedObjectMapping* mapping = [RKManagedObjectMapping mappingForClass:[self class] inManagedObjectStore:objectStore];
+    mapping.primaryKeyAttribute = @"householdId";
+    [mapping mapKeyPath:@"id" toAttribute:@"householdId"];
+    [mapping mapKeyPath:@"display_name" toAttribute:@"displayName"];
+    [mapping mapKeyPath:@"current" toAttribute:@"current"];
 
     RKObjectMappingDefinition *m  = [provider objectMappingForClass:[RMUser class]];
     [mapping mapKeyPath:@"users" toRelationship:@"users"
@@ -24,16 +28,6 @@ static RMHousehold *current = nil;
 
     [provider addObjectMapping:mapping];
     [provider setObjectMapping:mapping forResourcePathPattern:@"/api/households"];
-}
-
-+ (RKManagedObjectMapping*) addMappingsTo:(RKManagedObjectMapping*) mapping
-{
-    mapping.primaryKeyAttribute = @"householdId";
-    [mapping mapKeyPath:@"id" toAttribute:@"householdId"];
-    [mapping mapKeyPath:@"display_name" toAttribute:@"displayName"];
-    [mapping mapKeyPath:@"current" toAttribute:@"current"];
-
-    return mapping;
 }
 
 + (RMHousehold *)current

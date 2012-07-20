@@ -33,7 +33,7 @@
     cell.textLabel.text = comment.body;
     cell.detailTextLabel.text = [NSString stringWithFormat:@"—%@, %@", 
                                  [RMUser nameForId:comment.creatorId], 
-                                 [RMListViewController asTimeAgo:comment.createdAt]];
+                                 [comment.createdAt timeAgo]];
 
     return cell;
  }
