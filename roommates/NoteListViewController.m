@@ -41,7 +41,7 @@
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
- 
+
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
@@ -67,11 +67,12 @@
         // ...then get its index and load the item to find its id.
         NSIndexPath *path = [self.tableView indexPathForCell:cell];
         RMNote *item = [self.items objectAtIndex:path.row];
+        assert(item != nil);
 
         // Pass that along to the view controller so the comment can reference 
         // the right entity.
         CommentAddViewController *vc = segue.destinationViewController;
-        vc.commentableType = [RMNote commentableType];
+        vc.commentableType = [[item class] commentableType];
         vc.commentableId = item.noteId;
     }
 }

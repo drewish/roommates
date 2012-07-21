@@ -7,6 +7,7 @@
 //
 
 #import "RMChecklistItem.h"
+#import "RMHousehold.h"
 #import "RMComment.h"
 
 static NSArray *cached = nil;
@@ -68,6 +69,12 @@ static NSArray *cached = nil;
 
 
 @synthesize checklistItemId, kind, title, completed, abilities, comments;
+
+// FIXME: hack to work around this not being in a property.
+- (NSNumber*)householdId
+{
+    return [RMHousehold current].householdId;
+}
 
 - (NSString*)description {
 	return [NSString stringWithFormat:@"RMChecklistItem id: %@, %@ '%@' %@ comments)",

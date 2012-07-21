@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "RMData.h"
 
-@interface ChecklistItemDetailViewController : UITableViewController
+@interface ChecklistItemDetailViewController : UITableViewController <UIActionSheetDelegate>
 
 @property (retain) RMChecklistItem *item;
+- (IBAction)deleteItem:(id)sender;
 
 @end

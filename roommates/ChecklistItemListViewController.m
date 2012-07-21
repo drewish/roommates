@@ -40,6 +40,9 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+
+    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+//    self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)viewDidUnload
@@ -67,6 +70,7 @@
     // Configure the cell...
     RMChecklistItem *item = [self.items objectAtIndex:indexPath.row];
     cell.textLabel.text = item.title;
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%d comments", item.comments.count];
 
     return cell;
 }
