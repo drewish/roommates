@@ -26,6 +26,12 @@ static NSArray *cached = nil;
     [provider setObjectMapping:mapping forResourcePathPattern:@"/api/households/:householdId/log_entries"];
 }
 
++ (void) registerRoutesWith:(RKRouteSet*) routes {
+    [routes addRoute:[RKRoute routeWithClass:[self class]
+                         resourcePathPattern:@"/api/households/:householdId/log_entries"
+                                      method:RKRequestMethodAny]];
+}
+
 + (void)fetchForHousehold:(NSNumber*) householdId
                withParams:(NSDictionary*) params
                 onSuccess:(RKObjectLoaderDidLoadObjectsBlock) success

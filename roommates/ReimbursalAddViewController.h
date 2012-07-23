@@ -7,11 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RMData.h"
 
-@interface ReimbursalAddViewController : UITableViewController <UIPickerViewDelegate, UIPickerViewDataSource>
+@interface ReimbursalAddViewController : UITableViewController <UITextFieldDelegate>
+
 @property (weak, nonatomic) IBOutlet UITextField *amountText;
-@property (weak, nonatomic) IBOutlet UITextField *fromText;
-@property (weak, nonatomic) IBOutlet UITextField *toText;
-@property (weak, nonatomic) IBOutlet UIPickerView *picker;
+@property (weak, nonatomic) IBOutlet UITableViewCell *toUserCell;
+@property (weak, nonatomic) IBOutlet UITableViewCell *fromUserCell;
+@property (retain, nonatomic) RMUser *fromUser;
+@property (retain, nonatomic) RMUser *toUser;
+@property (retain, nonatomic) NSDecimalNumber *amount;
+
+- (IBAction)done:(id)sender;
 
 @end

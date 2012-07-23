@@ -87,7 +87,7 @@
     CGFloat height = 370;
 
     // Add some space for the photo.
-    if (item.photo.length > 0) {
+    if (item.photo) {
 //        height += 100;
     }
 
@@ -128,7 +128,7 @@
         cell.bodyText.backgroundColor = [UIColor colorWithWhite:0.95 alpha:0.4];
 
         // Here we use the new provided setImageWithURL: method to load the web image
-        [cell.photo setImageWithURL:[NSURL URLWithString:item.photo]
+        [cell.photo setImageWithURL:item.photo
                    placeholderImage:[UIImage imageNamed:@"placeholder.png"]];
         cell.wrapper.backgroundColor = [UIColor whiteColor];
     }

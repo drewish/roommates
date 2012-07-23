@@ -20,7 +20,7 @@
 
 - (id)init
 {
-    currentViewIdentifier = @"ToDoList";
+    currentViewIdentifier = @"ExpenseSummary";
     UIStoryboard* s = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
     UIViewController* rear = [s instantiateViewControllerWithIdentifier:@"Menu"];
     UIViewController* front = [s instantiateViewControllerWithIdentifier:currentViewIdentifier];

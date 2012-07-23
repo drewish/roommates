@@ -44,6 +44,7 @@
         NSLog(@"posted ...%@", obj);
         // TODO: Need to get all this UI code out of here and into callbacks.
         [SVProgressHUD showSuccessWithStatus:@""];
+        [self.navigationController popViewControllerAnimated:YES];
     } onFailure:[RMSession objectValidationErrorBlock]];
     [SVProgressHUD showWithStatus:@"Posting"];
 }

@@ -37,6 +37,15 @@ static NSArray *cached = nil;
     [provider setObjectMapping:mapping forResourcePathPattern:@"/api/households/:householdId/notes"];
 }
 
++ (void) registerRoutesWith:(RKRouteSet*) routes {
+    [routes addRoute:[RKRoute routeWithClass:[self class]
+                         resourcePathPattern:@"/api/households/:householdId/notes/:noteId"
+                                      method:RKRequestMethodDELETE]];
+    [routes addRoute:[RKRoute routeWithClass:[self class]
+                         resourcePathPattern:@"/api/households/:householdId/notes"
+                                      method:RKRequestMethodAny]];
+}
+
 + (void) postNote:(NSString*) body
             image:(UIImage*) image
         onSuccess:(RKObjectLoaderDidLoadObjectBlock) success
@@ -51,11 +60,7 @@ static NSArray *cached = nil;
         RKParamsAttachment *attachment = [params setData:UIImagePNGRepresentation(image) MIMEType:@"image/png" forParam:@"note[photo]"];
         attachment.fileName = @"image.png";
         loader.params = params;
-        
-        loader.onDidFailWithError = ^(NSError *error) {
-            NSLog(@"%@", error);
-            failure(error);
-        };
+
         loader.onDidFailLoadWithError = ^(NSError *error) {
             NSLog(@"%@", error);
             failure(error);
@@ -128,10 +133,6 @@ static NSArray *cached = nil;
                    onFailure:(RKObjectLoaderDidFailWithErrorBlock) failure
 {
     [[RKObjectManager sharedManager] deleteObject:self usingBlock:^(RKObjectLoader *loader) {
-        loader.onDidFailWithError = ^(NSError *error) {
-            NSLog(@"%@", error);
-            failure(error);
-        };
         loader.onDidFailLoadWithError = ^(NSError *error) {
             NSLog(@"%@", error);
             failure(error);
@@ -141,15 +142,6 @@ static NSArray *cached = nil;
             success(deletedItem);
             [[NSNotificationCenter defaultCenter]
              postNotificationName:@"RMItemRemoved" object:[self class]];
-        };
-        loader.onDidLoadResponse = ^(RKResponse *response) {
-            NSLog(@"%@", response);
-            // Check for validation errors.
-            if (response.statusCode == 422) {
-                NSError *parseError = nil;
-                NSDictionary *errors = [[response parsedBody:&parseError] objectForKey:@"errors"];
-                failure([NSError errorWithDomain:@"roomat.es" code:100 userInfo:errors]);
-            }
         };
     }];
 }

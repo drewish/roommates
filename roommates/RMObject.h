@@ -14,6 +14,7 @@
 @protocol RMObject <NSObject>
 
 + (void) registerMappingsWith:(RKObjectMappingProvider*) provider;
++ (void) registerRoutesWith:(RKRouteSet*) routes;
 
 @end
 
@@ -21,6 +22,7 @@
 @protocol RMManagedObject <NSObject>
 
 + (void) registerMappingsWith:(RKObjectMappingProvider*) provider inManagedObjectStore:(RKManagedObjectStore *)objectStore;
++ (void) registerRoutesWith:(RKRouteSet*) routes;
 
 @end
 
@@ -43,6 +45,8 @@
 
 
 @protocol RMDeletable <NSObject>
+
+@property (nonatomic, retain) NSDictionary* abilities; // abilities hash for current user
 
 - (void) deleteItemOnSuccess:(RKObjectLoaderDidLoadObjectsBlock) success
                    onFailure:(RKObjectLoaderDidFailWithErrorBlock) failure;

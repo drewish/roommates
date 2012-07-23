@@ -65,6 +65,12 @@ static RMSession *gInstance = nil;
     [provider setObjectMapping:mapping forResourcePathPattern:@"/api/sessions"];
 }
 
++ (void) registerRoutesWith:(RKRouteSet*) routes {
+    [routes addRoute:[RKRoute routeWithClass:[self class]
+                         resourcePathPattern:@"/api/sessions"
+                                      method:RKRequestMethodPOST]];
+}
+
 + (void)startSessionEmail:(NSString*) email Password:(NSString*) password
                 OnSuccess:(RKObjectLoaderDidLoadObjectBlock) success
                     OnFailure:(RKObjectLoaderDidFailWithErrorBlock) failure {
@@ -156,6 +162,10 @@ static RMSession *gInstance = nil;
     fullName,
     avatar, 
     apiToken;
+
+- (RMUser*) user {
+    return [[RMUser users] objectForKey:userId];
+}
 
 - (NSString*)description {
 	return [NSString stringWithFormat:@"RMSession (id: %@, apiToken: %@)", self.userId, self.apiToken];

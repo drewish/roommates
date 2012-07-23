@@ -39,6 +39,9 @@
 		5F70D2DA15B3B9FD009D6CB6 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F70D2D915B3B9FD009D6CB6 /* Icon@2x.png */; };
 		5F70D2DC15B3C05A009D6CB6 /* purty_wood.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F70D2DB15B3C05A009D6CB6 /* purty_wood.png */; };
 		5F70D2DF15B4747E009D6CB6 /* CommentAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F70D2DE15B4747E009D6CB6 /* CommentAddViewController.m */; };
+		5F9A252215BCBCA2004382C4 /* RMTransaction.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F9A252115BCBCA1004382C4 /* RMTransaction.m */; };
+		5F9A252515BCBCBA004382C4 /* RMExpense.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F9A252415BCBCBA004382C4 /* RMExpense.m */; };
+		5F9A252815BCBCC6004382C4 /* RMReimbursal.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F9A252715BCBCC5004382C4 /* RMReimbursal.m */; };
 		5F9A5EDC15AE594E0053D6B3 /* NoteAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F9A5EDB15AE594E0053D6B3 /* NoteAddViewController.m */; };
 		5F9A5EE315AE84F50053D6B3 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F9A5EDE15AE84F50053D6B3 /* arrow.png */; };
 		5F9A5EE415AE84F50053D6B3 /* arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F9A5EDF15AE84F50053D6B3 /* arrow@2x.png */; };
@@ -200,6 +203,12 @@
 		5F70D2DB15B3C05A009D6CB6 /* purty_wood.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = purty_wood.png; path = Resources/purty_wood.png; sourceTree = "<group>"; };
 		5F70D2DD15B4747E009D6CB6 /* CommentAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentAddViewController.h; sourceTree = "<group>"; };
 		5F70D2DE15B4747E009D6CB6 /* CommentAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentAddViewController.m; sourceTree = "<group>"; };
+		5F9A252015BCBCA1004382C4 /* RMTransaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMTransaction.h; sourceTree = "<group>"; };
+		5F9A252115BCBCA1004382C4 /* RMTransaction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMTransaction.m; sourceTree = "<group>"; };
+		5F9A252315BCBCBA004382C4 /* RMExpense.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMExpense.h; sourceTree = "<group>"; };
+		5F9A252415BCBCBA004382C4 /* RMExpense.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMExpense.m; sourceTree = "<group>"; };
+		5F9A252615BCBCC5004382C4 /* RMReimbursal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMReimbursal.h; sourceTree = "<group>"; };
+		5F9A252715BCBCC5004382C4 /* RMReimbursal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMReimbursal.m; sourceTree = "<group>"; };
 		5F9A5EDA15AE594E0053D6B3 /* NoteAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteAddViewController.h; sourceTree = "<group>"; };
 		5F9A5EDB15AE594E0053D6B3 /* NoteAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteAddViewController.m; sourceTree = "<group>"; };
 		5F9A5EDE15AE84F50053D6B3 /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
@@ -543,6 +552,12 @@
 				5F70D2D715B3B9E1009D6CB6 /* RMChecklistItem.m */,
 				5F4540E115A736CE00386BEC /* RMNote.h */,
 				5F4540E215A736CE00386BEC /* RMNote.m */,
+				5F9A252015BCBCA1004382C4 /* RMTransaction.h */,
+				5F9A252115BCBCA1004382C4 /* RMTransaction.m */,
+				5F9A252315BCBCBA004382C4 /* RMExpense.h */,
+				5F9A252415BCBCBA004382C4 /* RMExpense.m */,
+				5F9A252615BCBCC5004382C4 /* RMReimbursal.h */,
+				5F9A252715BCBCC5004382C4 /* RMReimbursal.m */,
 			);
 			name = DataObjects;
 			sourceTree = "<group>";
@@ -752,6 +767,9 @@
 				5FF1C1FA15B6371400077016 /* ChecklistItemListViewController.m in Sources */,
 				5F011FC515B7A64300951A67 /* ChecklistItemDetailViewController.m in Sources */,
 				5F011FD015B7A9F500951A67 /* NSDate+TimeAgo.m in Sources */,
+				5F9A252215BCBCA2004382C4 /* RMTransaction.m in Sources */,
+				5F9A252515BCBCBA004382C4 /* RMExpense.m in Sources */,
+				5F9A252815BCBCC6004382C4 /* RMReimbursal.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

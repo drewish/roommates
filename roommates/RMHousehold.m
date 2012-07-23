@@ -30,6 +30,12 @@ static RMHousehold *current = nil;
     [provider setObjectMapping:mapping forResourcePathPattern:@"/api/households"];
 }
 
++ (void) registerRoutesWith:(RKRouteSet*) routes {
+    [routes addRoute:[RKRoute routeWithClass:[self class]
+                         resourcePathPattern:@"/api/households"
+                                      method:RKRequestMethodGET]];
+}
+
 + (RMHousehold *)current
 {
     // households inits this so make sure it's been called.

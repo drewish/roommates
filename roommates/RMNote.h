@@ -18,11 +18,8 @@
 
 @property (nonatomic, retain) NSNumber* noteId;        // ID of note
 @property (nonatomic, retain) NSString* body;          // note body
-@property (nonatomic, retain) NSDate* createdAt;    // creation time
-@property (nonatomic, retain) NSNumber* creatorId;    // note creator
-@property (nonatomic, retain) NSString* photo;         // photo url
-@property (nonatomic, retain) NSDictionary* abilities; // abilities hash for current user
+@property (nonatomic, retain) NSDate* createdAt;       // creation time
+@property (nonatomic, retain) NSNumber* creatorId;     // note creator
+@property (nonatomic, retain) NSURL* photo;            // photo url
 
-- (void) deleteItemOnSuccess:(RKObjectLoaderDidLoadObjectsBlock) success
-                   onFailure:(RKObjectLoaderDidFailWithErrorBlock) failure;
 @end

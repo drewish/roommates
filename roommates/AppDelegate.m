@@ -53,44 +53,23 @@
     [RMSession registerMappingsWith:mgr.mappingProvider];
     [RMComment registerMappingsWith:mgr.mappingProvider];
     [RMLogEntry registerMappingsWith:mgr.mappingProvider];
+    [RMExpense registerMappingsWith:mgr.mappingProvider];
+    [RMReimbursal registerMappingsWith:mgr.mappingProvider];
+    // Put transaction after expense and reimbursal since it depends on them.
+    [RMTransaction registerMappingsWith:mgr.mappingProvider];
     [RMNote registerMappingsWith:mgr.mappingProvider];
     [RMChecklistItem registerMappingsWith:mgr.mappingProvider];
 
-    //TODO: these might be useful later when I'm uploading
-    // Setup out class routes.
     RKRouteSet *routes = mgr.router.routeSet;
-    [routes addRoute:[RKRoute routeWithClass:[RMSession class]
-                         resourcePathPattern:@"/api/sessions"
-                                      method:RKRequestMethodPOST]];
+    [RMSession registerRoutesWith:routes];
+    [RMUser registerRoutesWith:routes];
+    [RMHousehold registerRoutesWith:routes];
+    [RMComment registerRoutesWith:routes];
+    [RMExpense registerRoutesWith:routes];
+    [RMReimbursal registerRoutesWith:routes];
+    [RMChecklistItem registerRoutesWith:routes];
+    [RMNote registerRoutesWith:routes];
 
-    [routes addRoute:[RKRoute routeWithClass:[RMUser class]
-                         resourcePathPattern:@"/api/users/:userId"
-                                      method:RKRequestMethodGET]];
-
-    [routes addRoute:[RKRoute routeWithClass:[RMHousehold class]
-                         resourcePathPattern:@"/api/households"
-                                      method:RKRequestMethodGET]];
-
-    [routes addRoute:[RKRoute routeWithClass:[RMComment class]
-                         resourcePathPattern:@"/api/comments"
-                                      method:RKRequestMethodPOST]];
-
-    [routes addRoute:[RKRoute routeWithClass:[RMChecklistItem class]
-                         resourcePathPattern:@"/api/households/:householdId/checklist_items/:checklistItemId/toggle"
-                                      method:RKRequestMethodPUT]];
-    [routes addRoute:[RKRoute routeWithClass:[RMChecklistItem class]
-                         resourcePathPattern:@"/api/households/:householdId/checklist_items/:checklistItemId"
-                                      method:RKRequestMethodDELETE]];
-    [routes addRoute:[RKRoute routeWithClass:[RMChecklistItem class]
-                         resourcePathPattern:@"/api/households/:householdId/checklist_items"
-                                      method:RKRequestMethodAny]];
-
-    [routes addRoute:[RKRoute routeWithClass:[RMNote class]
-                         resourcePathPattern:@"/api/households/:householdId/notes/:noteId"
-                                      method:RKRequestMethodDELETE]];
-    [routes addRoute:[RKRoute routeWithClass:[RMNote class]
-                         resourcePathPattern:@"/api/households/:householdId/notes"
-                                      method:RKRequestMethodAny]];
 
     [[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:0.961 green:0.325 blue:0.200 alpha:1.000]];
     // Lets darken up the buttons for now.

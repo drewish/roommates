@@ -11,6 +11,8 @@
 #import "RMHousehold.h"
 #import "RMUser.h"
 #import "RMComment.h"
+#import "RMReimbursal.h"
+#import "RMExpense.h"
 #import "RMLogEntry.h"
 #import "RMChecklistItem.h"
 #import "RMNote.h"

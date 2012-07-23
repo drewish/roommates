@@ -58,7 +58,8 @@
         UITableViewCell *cell = (UITableViewCell*) sender;
         NSIndexPath *path = [self.tableView indexPathForCell:cell];
         vc.item = [self.items objectAtIndex:path.row];
-        vc.navigationItem.title = vc.item.kind;
+        // FIXME: This it a little nasty
+        vc.navigationItem.title = self.navigationItem.title;
     }
 }
 

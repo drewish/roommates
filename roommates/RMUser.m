@@ -26,6 +26,12 @@
     [provider setObjectMapping:mapping forResourcePathPattern:@"/api/users"];
 }
 
++ (void) registerRoutesWith:(RKRouteSet*) routes {
+    [routes addRoute:[RKRoute routeWithClass:[self class]
+                         resourcePathPattern:@"/api/users/:userId"
+                                      method:RKRequestMethodGET]];
+}
+
 + (NSArray *)users
 {
     @synchronized(self) {
@@ -52,5 +58,9 @@
 
 - (NSString*)description {
 	return [NSString stringWithFormat:@"RMUser (id: %@, first: %@, last: %@, display: %@)", self.userId, self.firstName, self.lastName, self.displayName];
+}
+
+- (BOOL)isEqualToUser:(RMUser*)other {
+    return [self.userId isEqualToNumber:other.userId];
 }
 @end

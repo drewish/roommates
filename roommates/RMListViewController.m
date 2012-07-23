@@ -61,9 +61,8 @@
 	}
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fetchOnNotification:) name:@"RMHouseholdSelected" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(itemWasAdded:) name:@"RMItemAdded" object:[self dataClass]];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fetchOnNotification:) name:@"RMItemAdded" object:[self dataClass]];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fetchOnNotification:) name:@"RMItemRemoved" object:[self dataClass]];
-    // [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(watchIt:) name:@"RMListFetched" object:[self dataClass]];
 
     [self fetchItems];
 }
@@ -71,16 +70,6 @@
 - (void)fetchOnNotification:(NSNotification*)note
 {
     [self fetchItems];
-}
-
-- (void)itemWasAdded:(NSNotification*)note
-{
-    // TODO: i set this up thinking it'd be a way to get the correct animation
-    // of coming back from the add note view. but i think it's wrong. it'll 
-    // probably also get fired for adding a comment but we need different 
-    // behavior for that. new comments should refresh the cell i guess.
-    [self fetchItems];
-    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)viewDidUnload

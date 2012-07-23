@@ -7,6 +7,7 @@
 //
 
 #import "RMObject.h"
+#import "RMUser.h"
 
 @interface RMSession : NSObject <RMObject>
 + (RKRequestDidFailLoadWithErrorBlock) objectLoadErrorBlock;
@@ -18,6 +19,7 @@
                 OnFailure:(RKObjectLoaderDidFailWithErrorBlock) failure;
 + (void)endSession;
 
+@property (readonly) RMUser *user;
 @property (nonatomic, retain) NSNumber *userId;      // ID of the user
 @property (nonatomic, retain) NSString *firstName;   // User’s first name
 @property (nonatomic, retain) NSString *lastName;    // User’s last name

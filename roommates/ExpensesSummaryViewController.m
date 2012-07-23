@@ -7,9 +7,7 @@
 //
 
 #import "ExpensesSummaryViewController.h"
-#import "RMObject.h"
-
-#import "RMLogEntry.h"
+#import "RMData.h"
 
 @interface ExpensesSummaryViewController ()
 
@@ -116,7 +114,6 @@
         request.onDidLoadResponse = ^(RKResponse *response) {
             NSError *parseError = nil;
             NSDictionary *body = [response parsedBody:&parseError];
-            NSLog(@"%@", body);
             balance = [self parseExpenseSection:@"balances" inDictionary:body];
             owed = [self parseExpenseSection:@"current.owed" inDictionary:body];
             owes = [self parseExpenseSection:@"current.owes" inDictionary:body];
@@ -129,6 +126,15 @@
             [SVProgressHUD showErrorWithStatus:@"Can't connect"];
             NSLog(@"%@", [error description]);
         };
+    }];
+}
+
+- (IBAction)testIt:(id)sender {
+    [RMTransaction fetchForHousehold:[RMHousehold current].householdId
+                          withParams:nil onSuccess:^(NSArray *objects) {
+        NSLog(@"%@", objects);
+    } onFailure:^(NSError *error) {
+        NSLog(@"%@", error);
     }];
 }
 
@@ -248,7 +254,7 @@
         cell.detailTextLabel.font = [UIFont boldSystemFontOfSize:17];
     }
     cell.textLabel.text = message;
-    cell.textLabel.textColor = color;
+//    cell.textLabel.textColor = color;
     NSNumberFormatter * f = [NSNumberFormatter new];
     f.numberStyle = NSNumberFormatterCurrencyStyle;
     f.negativeFormat = f.positiveFormat;

@@ -23,6 +23,12 @@
     [provider setObjectMapping:mapping forKeyPath:@"comments"];
 }
 
++ (void) registerRoutesWith:(RKRouteSet*) routes {
+    [routes addRoute:[RKRoute routeWithClass:[self class]
+                         resourcePathPattern:@"/api/comments"
+                                      method:RKRequestMethodPOST]];
+}
+
 + (void) post:(NSString*) body 
          toId:(NSNumber*) commentableId ofType:(NSString*) commentableType
     onSuccess:(RKObjectLoaderDidLoadObjectBlock) success

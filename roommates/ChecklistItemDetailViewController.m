@@ -29,6 +29,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
+    UIImage *image = [UIImage imageNamed:@"purty_wood.png"];
+    self.tableView.backgroundColor = [UIColor colorWithPatternImage:image];
+
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fetchOnNotification:) name:@"RMItemAdded" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fetchOnNotification:) name:@"RMItemRemoved" object:nil];
 }
@@ -44,7 +48,11 @@
 
 - (void)fetchOnNotification:(NSNotification*)note
 {
-    // TODO: need to figure out how to refresh a single item
+//    [RMChecklistItem getItem:item.checklistItemId OnSuccess:^(NSArray *objects) {
+//        NSLog(@"worked");
+//    } onFailure:^(NSError *error) {
+//        NSLog(@"failed");
+//    }];
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -68,6 +76,10 @@
                                                     otherButtonTitles:nil];
     actionSheet.actionSheetStyle = UIActionSheetStyleBlackOpaque;
     [actionSheet showInView:self.view];
+}
+
+- (IBAction)addComment:(id)sender {
+    [self performSegueWithIdentifier:@"addComment" sender:sender];
 }
 
 -(void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex

@@ -10,5 +10,8 @@
 #import "RMData.h"
 
 @interface UserViewController : UITableViewController
+
 @property(strong, nonatomic) void(^onSelect)(RMUser *user);
+@property(weak, nonatomic) RMUser* user;
+
 @end

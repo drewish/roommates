@@ -13,5 +13,6 @@
 
 @property (retain) RMChecklistItem *item;
 - (IBAction)deleteItem:(id)sender;
+- (IBAction)addComment:(id)sender;
 
 @end

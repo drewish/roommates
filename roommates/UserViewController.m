@@ -17,7 +17,7 @@
     NSArray *users;
 }
 
-@synthesize onSelect;
+@synthesize onSelect, user = user_;
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
@@ -31,7 +31,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
     users = [[[RMHousehold current] users] allObjects];
 }
 
@@ -40,11 +39,19 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+    users = nil;
+    onSelect = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+-(void)setUser:(RMUser *)user
+{
+    user_ = user;
+    [self.tableView reloadData];
 }
 
 #pragma mark - Table view data source
@@ -67,7 +74,10 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     // Configure the cell...
-    cell.textLabel.text = [[users objectAtIndex:indexPath.row] displayName];
+    RMUser *user = [users objectAtIndex:indexPath.row];
+    cell.textLabel.text = [user displayName];
+    cell.accessoryType = [user_ isEqualToUser:user] ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
+
     return cell;
 }
 
