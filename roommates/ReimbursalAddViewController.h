@@ -11,6 +11,7 @@
 
 @interface ReimbursalAddViewController : UITableViewController <UITextFieldDelegate>
 
+@property (weak, nonatomic) IBOutlet UILabel *amountLabel;
 @property (weak, nonatomic) IBOutlet UITextField *amountText;
 @property (weak, nonatomic) IBOutlet UITableViewCell *toUserCell;
 @property (weak, nonatomic) IBOutlet UITableViewCell *fromUserCell;

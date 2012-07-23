@@ -17,13 +17,14 @@
 @implementation ReimbursalAddViewController {
     RMUser *fromUser_;
     RMUser *toUser_;
+    NSDecimalNumber *amount_;
     NSNumberFormatter *formatter;
 }
 @synthesize amountText;
+@synthesize amountLabel;
 @synthesize toUserCell;
 @synthesize fromUserCell;
-@synthesize amount;
-@synthesize toUser = toUser_, fromUser = fromUser_;
+@synthesize amount = amount_, toUser = toUser_, fromUser = fromUser_;
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
@@ -31,10 +32,7 @@
     if (self) {
         // Custom initialization
         formatter = [NSNumberFormatter new];
-        formatter.numberStyle = NSNumberFormatterDecimalStyle;
-        formatter.minimum = [NSNumber numberWithInt:0];
-        formatter.generatesDecimalNumbers = YES;
-        formatter.maximumFractionDigits = 2;
+        formatter.numberStyle = NSNumberFormatterCurrencyStyle;
     }
     return self;
 }
@@ -42,9 +40,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
+    UIImage *image = [UIImage imageNamed:@"purty_wood.png"];
+    self.tableView.backgroundColor = [UIColor colorWithPatternImage:image];
+
     self.fromUser = [[RMSession instance] user];
     self.toUser = nil;
-    amountText.keyboardType = UIKeyboardTypeDecimalPad;
     [amountText becomeFirstResponder];
 }
 
@@ -53,12 +54,13 @@
     [self setAmountText:nil];
     [self setToUserCell:nil];
     [self setFromUserCell:nil];
+    [self setAmountLabel:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
     toUser_ = nil;
     fromUser_ = nil;
-    amount = nil;
+    amount_ = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -90,21 +92,35 @@
 
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
-    NSString *newText = [textField.text stringByReplacingCharactersInRange:range withString:string];
-    NSDecimalNumber *newNumber = (NSDecimalNumber*) [formatter numberFromString:newText];
-    NSLog(@"Changing to %@ %@", newText, newNumber);
-    if (newNumber != nil) {
-        amount = newNumber;
-        self.navigationItem.rightBarButtonItem.enabled = [self isValid];
+    NSString *asText = [textField.text stringByReplacingCharactersInRange:range withString:string];
+    if ([asText length] == 0) {
+        [self setAmount:[NSDecimalNumber zero]];
+        return YES;
+    }
+    // We just want digits so cast the string to an integer then compare it
+    // to itself. If they're same then we're good.
+    NSInteger asInteger = [asText integerValue];
+    NSNumber *asNumber = [NSNumber numberWithInteger:asInteger];
+    if ([[asNumber stringValue] isEqualToString:asText]) {
+        // Convert it to a decimal and shift it over by the fractional part.
+        NSDecimalNumber *newAmount = [NSDecimalNumber decimalNumberWithDecimal:[asNumber decimalValue]];
+        [self setAmount:[newAmount decimalNumberByMultiplyingByPowerOf10:-formatter.maximumFractionDigits]];
         return YES;
     }
     return NO;
 }
 
+-(void)setAmount:(NSDecimalNumber *)amount
+{
+    amount_ = amount;
+    amountLabel.text = [formatter stringFromNumber:amount];
+    self.navigationItem.rightBarButtonItem.enabled = [self isValid];
+}
+
 -(void)setToUser:(RMUser *)user
 {
     toUser_ = user;
-    toUserCell.detailTextLabel.text = user.displayName;
+    toUserCell.detailTextLabel.text = user == nil ? @"Pick one" : user.displayName;
     self.navigationItem.rightBarButtonItem.enabled = [self isValid];
 }
 
@@ -117,40 +133,38 @@
 
 -(BOOL)isValid
 {
-    return (amount.floatValue > 0.0 && toUser_ && fromUser_ && ![toUser_ isEqualToUser:fromUser_]);
+    return (amount_.floatValue > 0.0 && toUser_ && fromUser_ && ![toUser_ isEqualToUser:fromUser_]);
 }
 
 - (IBAction)done:(id)sender {
     RKObjectManager *mgr = [RKObjectManager sharedManager];
     RMReimbursal *item = [RMReimbursal new];
+    item.amount = amount_;
+    item.toUserId = toUser_.userId;
+    item.fromUserId = fromUser_.userId;
+    
+    [SVProgressHUD showWithStatus:@"Posting"];
+    [mgr postObject:item usingBlock:^(RKObjectLoader *loader) {
+        loader.onDidFailLoadWithError = [RMSession objectValidationErrorBlock];
+        loader.onDidLoadObject = ^(id whatLoaded) {
+            NSLog(@"%@", whatLoaded);
 
-//    [mgr postObject:item usingBlock:^(RKObjectLoader *loader) {
-//        RKParams* params = [RKParams params];
-//        [params setValue:body forParam:@"note[body]"];
-//        RKParamsAttachment *attachment = [params setData:UIImagePNGRepresentation(image) MIMEType:@"image/png" forParam:@"note[photo]"];
-//        attachment.fileName = @"image.png";
-//        loader.params = params;
-//
-//        loader.onDidFailLoadWithError = ^(NSError *error) {
-//            NSLog(@"%@", error);
-//            failure(error);
-//        };
-//        loader.onDidLoadObject = ^(id whatLoaded) {
-//            NSLog(@"%@", whatLoaded);
-//            success(whatLoaded);
-//            [[NSNotificationCenter defaultCenter]
-//             postNotificationName:@"RMItemAdded" object:[self class]];
-//        };
-//        loader.onDidLoadResponse = ^(RKResponse *response) {
-//            NSLog(@"%@", response);
-//            // Check for validation errors.
-//            if (response.statusCode == 422) {
-//                NSError *parseError = nil;
-//                NSDictionary *errors = [[response parsedBody:&parseError] objectForKey:@"errors"];
-//                failure([NSError errorWithDomain:@"roomat.es" code:100 userInfo:errors]);
-//            }
-//        };
-//    }];
+            [SVProgressHUD showSuccessWithStatus:@""];
+            [self.navigationController popViewControllerAnimated:YES];
+
+            [[NSNotificationCenter defaultCenter]
+             postNotificationName:@"RMItemAdded" object:[self class]];
+        };
+    }];
+}
+
+-(NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == 0 && indexPath.row == 0) {
+        [amountText becomeFirstResponder];
+        return nil;
+    }
+    return indexPath;
 }
 
 @end

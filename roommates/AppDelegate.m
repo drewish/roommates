@@ -33,7 +33,7 @@
     NSString *url = @"http://roommates-staging.herokuapp.com";
 
     RKObjectManager* mgr = [RKObjectManager managerWithBaseURLString:url];
-    mgr.serializationMIMEType = RKMIMETypeJSON;
+    mgr.serializationMIMEType = RKMIMETypeFormURLEncoded;
     mgr.client.requestQueue.showsNetworkActivityIndicatorWhenBusy = YES;
     [mgr.client setValue:@"application/roommates.v1" forHTTPHeaderField:@"Accept"];
 

@@ -32,6 +32,12 @@
             withMapping:[provider objectMappingForClass:[RMComment class]]];
 
     [provider addObjectMapping:mapping];
+
+    RKObjectMapping *serialization = [RKObjectMapping mappingForClass:[NSMutableDictionary class]];
+    [serialization mapKeyPath:@"amount" toAttribute:@"reimbursal[amount]"];
+    [serialization mapKeyPath:@"fromUserId" toAttribute:@"reimbursal[from_user_id]"];
+    [serialization mapKeyPath:@"toUserId" toAttribute:@"reimbursal[to_user_id]"];
+    [provider setSerializationMapping:serialization forClass:[self class]];
 }
 
 + (void) registerRoutesWith:(RKRouteSet*) routes {

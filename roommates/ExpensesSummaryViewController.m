@@ -50,12 +50,14 @@
 		self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"reveal.png"] style:UIBarButtonItemStylePlain target:self.navigationController.parentViewController action:@selector(revealToggle:)];
 	}
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refeshIt:) name:@"RMHouseholdSelected" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fetchOnNotification:) name:@"RMHouseholdSelected" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fetchOnNotification:) name:@"RMItemAdded" object:[RMTransaction class]];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fetchOnNotification:) name:@"RMItemRemoved" object:[RMTransaction class]];
 
     [self fetchItems];
 }
 
-- (void)refeshIt:(NSNotification*)note
+- (void)fetchOnNotification:(NSNotification*)note
 {
     [self fetchItems];
 }

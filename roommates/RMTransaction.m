@@ -9,6 +9,7 @@
 #import "RMTransaction.h"
 #import "RMExpense.h"
 #import "RMReimbursal.h"
+#import "RMHousehold.h"
 
 static NSArray *cached = nil;
 
@@ -62,6 +63,12 @@ static NSArray *cached = nil;
 }
 
 @synthesize transactionId, summary, amount, createdAt, creatorId, abilities, comments;
+
+// FIXME: hack to work around this not being in a property.
+- (NSNumber*)householdId
+{
+    return [RMHousehold current].householdId;
+}
 
 - (void) deleteItemOnSuccess:(RKObjectLoaderDidLoadObjectsBlock) success
                    onFailure:(RKObjectLoaderDidFailWithErrorBlock) failure
