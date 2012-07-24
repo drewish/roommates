@@ -6,6 +6,7 @@
 //  Copyright (c) 2012 drewish.com. All rights reserved.
 //
 
+#import "RMSession.h"
 #import "RMHousehold.h"
 #import "RMUser.h"
 
@@ -129,6 +130,28 @@ static RMHousehold *current = nil;
     displayName,
     current,
     users;
+
+// FIXME: this shouldn't be in here. this class shouldn't need to know about 
+// session ot know who the current user is.
+- (NSArray *)userSorted
+{
+    // Sort users by
+    NSNumber *yourId = RMSession.instance.userId;
+    NSSortDescriptor *isYouDescriptor =
+    [NSSortDescriptor sortDescriptorWithKey:@"userId" ascending:YES comparator:^NSComparisonResult(id obj1, id obj2) {
+        NSNumber *n1 = [NSNumber numberWithBool:[obj1 isEqualToNumber:yourId]];
+        NSNumber *n2 = [NSNumber numberWithBool:[obj2 isEqualToNumber:yourId]];
+
+        return [n2 compare: n1];
+    }];
+    NSSortDescriptor *nameDescriptor =
+    [[NSSortDescriptor alloc] initWithKey:@"displayName"
+                                 ascending:YES
+                                  selector:@selector(localizedCaseInsensitiveCompare:)];
+
+    NSArray *descriptors = [NSArray arrayWithObjects:isYouDescriptor, nameDescriptor, nil];
+    return [[[self users] allObjects] sortedArrayUsingDescriptors:descriptors];
+}
 
 - (NSString*)description {
 	return [NSString stringWithFormat:@"RMHousehold (id: %@, displayName: %@ current: %@)", 

@@ -85,11 +85,11 @@
 
     cell.summaryLabel.text = le.summary;
     // If this is a completed list item denote that using strike through text.
-    if ([le.action isEqualToString:@"Completed by"]) {
-        // TODO: iOS doesn't support strike through but we should be able to
-        // just draw a line across. for now we'll just stick dashes in there.
-        cell.summaryLabel.text = [NSString stringWithFormat:@"-%@-", [le.summary stringByReplacingOccurrencesOfString:@" " withString:@"-"]];
-    }
+//    if ([le.action isEqualToString:@"Completed by"]) {
+//        // TODO: iOS doesn't support strike through but we should be able to
+//        // just draw a line across. for now we'll just stick dashes in there.
+//        cell.summaryLabel.text = [NSString stringWithFormat:@"-%@-", [le.summary stringByReplacingOccurrencesOfString:@" " withString:@"-"]];
+//    }
 
     return cell;
 }

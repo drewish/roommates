@@ -1,22 +1,12 @@
 Roommat.es:
-Today:
-	- load list of users in a household @done
-	- look up a user by id @done
-	- table navigation to pick a user @done
-	- flip to login view instead of push up @done
-	- add comment form
-	- on error mappings @done
-	- checklist item data type @done
-	- figure out how to have restkit load correct class based of 'type' property
-
 Login view (8h):
 	- Detect existing API token, if not available display form @done
 	- Create session @done
 	- Pop open Safari for creation @done
 	- Get return buttons working in login text fields @done
+	- fix alpha "disabling" of login button. the alpha way i'm doing it is wonky. @done
 	- move email/password saving to keychain
-	- fix alpha "disabling" of login button. the alpha way i'm doing it is wonky.
-
+	- sort out the graphic/background
 Menu view (8h):
 	- Finish adding gesture recognizers @done
 	- Load appropriate ViewController @done
@@ -37,19 +27,19 @@ Photos (16h):
 	- Figuring out the quirks of uploading to the API since it's not documented.
 	- learn how restkit does multipart form uploads
 	- photo capture view
-
 Comments:
 	- Load/parse from JSON @done
 	- Create new comments @done
 	- Display table of posted comments @done
-Expenses (3d?):
-	I think this section need more definition and another round of mockups. The items I've marked with question marks aren't show in the mockups but seem like they might be expected.
-	- Summary view
-	- Edit/create view
-	- Deletion. Will probably be in the next round of comps
+Expense Summary:
 	- Bottom half of summery should list "You" again but needs to copy from balance section.
 	- Figure out sorting of expenses.
-Reimbursements (2d?):
+Expense Creation:
+	- Edit/create view.
+	- Specify how split should work.
+	- Post to server.
+	- Upload photo.
+Reimbursement Creation (2d?):
 	- Edit/create view @done
 	- Deletion?
 	- When selecting users we should gray out other selected user. Letting them pick it should unselect the other.
@@ -59,6 +49,7 @@ Notes:
 	- Add comment (with no editing or deletion) @done
 	- Deletion? Phase last.
 	- Check abilties for delete permission
+	- Upload photo.
 Checklist Items List:
 	- shopping data subclass @done
 	- shopping list view controller @done
@@ -66,6 +57,7 @@ Checklist Items List:
 	- todo list view controller @done
 	- Listing view @done
 	- Add item view
+	- Upload photo.
 	- Detail item view @done
 	- Toggle completed status
 	- Deletion

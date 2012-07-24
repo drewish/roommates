@@ -20,4 +20,5 @@
 @property (nonatomic, retain) NSString* displayName; // Household nickname, or address if no nickname specified
 @property (nonatomic, retain) NSNumber* current;     // Whether it is the current household for given user
 @property (nonatomic, retain) NSSet* users;
+@property (nonatomic, readonly) NSArray* userSorted;
 @end

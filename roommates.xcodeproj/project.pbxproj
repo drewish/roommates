@@ -62,6 +62,7 @@
 		5FD56C0D159C2B6E00FCAF22 /* RMLogEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FD56C0C159C2B6E00FCAF22 /* RMLogEntry.m */; };
 		5FD809E9159BABCB00621038 /* RMHousehold.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FD809E8159BABCB00621038 /* RMHousehold.m */; };
 		5FDA65EB15B9B66400DEAE3A /* libSDWebImageARC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F01200615B7AA5D00951A67 /* libSDWebImageARC.a */; };
+		5FDD54EA15BDEC1A00C4A78D /* ExpenseAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FDD54E915BDEC1A00C4A78D /* ExpenseAddViewController.m */; };
 		5FF1C1EE15B5EA8100077016 /* reveal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FF1C1ED15B5EA8100077016 /* reveal@2x.png */; };
 		5FF1C1F115B60C0100077016 /* signIn.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FF1C1EF15B60C0100077016 /* signIn.png */; };
 		5FF1C1F215B60C0100077016 /* signIn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FF1C1F015B60C0100077016 /* signIn@2x.png */; };
@@ -239,6 +240,8 @@
 		5FD56C0C159C2B6E00FCAF22 /* RMLogEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMLogEntry.m; sourceTree = "<group>"; };
 		5FD809E7159BABCB00621038 /* RMHousehold.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMHousehold.h; sourceTree = "<group>"; };
 		5FD809E8159BABCB00621038 /* RMHousehold.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMHousehold.m; sourceTree = "<group>"; };
+		5FDD54E815BDEC1A00C4A78D /* ExpenseAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpenseAddViewController.h; sourceTree = "<group>"; };
+		5FDD54E915BDEC1A00C4A78D /* ExpenseAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpenseAddViewController.m; sourceTree = "<group>"; };
 		5FF1C1ED15B5EA8100077016 /* reveal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "reveal@2x.png"; path = "Resources/reveal@2x.png"; sourceTree = "<group>"; };
 		5FF1C1EF15B60C0100077016 /* signIn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = signIn.png; path = Resources/signIn.png; sourceTree = "<group>"; };
 		5FF1C1F015B60C0100077016 /* signIn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "signIn@2x.png"; path = "Resources/signIn@2x.png"; sourceTree = "<group>"; };
@@ -363,6 +366,8 @@
 			children = (
 				5F0CA1EC15B0B1DF00C7CFAC /* ExpensesSummaryViewController.h */,
 				5F0CA1ED15B0B1DF00C7CFAC /* ExpensesSummaryViewController.m */,
+				5FDD54E815BDEC1A00C4A78D /* ExpenseAddViewController.h */,
+				5FDD54E915BDEC1A00C4A78D /* ExpenseAddViewController.m */,
 				5F1ECD5015AFD16500C314A6 /* ReimbursalAddViewController.h */,
 				5F1ECD5115AFD16500C314A6 /* ReimbursalAddViewController.m */,
 			);
@@ -770,6 +775,7 @@
 				5F9A252215BCBCA2004382C4 /* RMTransaction.m in Sources */,
 				5F9A252515BCBCBA004382C4 /* RMExpense.m in Sources */,
 				5F9A252815BCBCC6004382C4 /* RMReimbursal.m in Sources */,
+				5FDD54EA15BDEC1A00C4A78D /* ExpenseAddViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

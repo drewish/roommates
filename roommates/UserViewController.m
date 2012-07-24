@@ -31,7 +31,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    users = [[[RMHousehold current] users] allObjects];
+    users = [[RMHousehold current] userSorted];
 }
 
 - (void)viewDidUnload
@@ -75,7 +75,12 @@
     
     // Configure the cell...
     RMUser *user = [users objectAtIndex:indexPath.row];
-    cell.textLabel.text = [user displayName];
+    if ([RMSession.instance.userId isEqualToNumber:user.userId]) {
+        cell.textLabel.text = @"Me";
+    }
+    else {
+        cell.textLabel.text = [user displayName];
+    }
     cell.accessoryType = [user_ isEqualToUser:user] ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
 
     return cell;
@@ -102,18 +107,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
     if (onSelect) {
         onSelect([users objectAtIndex:indexPath.row]);
     }
-    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end
