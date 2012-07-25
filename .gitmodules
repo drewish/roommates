@@ -1,6 +1,6 @@
 [submodule "RestKit"]
 	path = RestKit
-	url = git://github.com/RestKit/RestKit.git
+	url = git@github.com:drewish/RestKit.git
 [submodule "SVProgressHUD"]
 	path = SVProgressHUD
 	url = git://github.com/samvermette/SVProgressHUD.git
