@@ -15,4 +15,9 @@
 // each user participation within expense (where keys are user ids)
 @property (nonatomic, retain) NSDictionary* participations;
 
+- (void) postWithImage:(UIImage*) image
+          participants:(NSArray*) userIds
+             onSuccess:(RKObjectLoaderDidLoadObjectBlock) success
+             onFailure:(RKObjectLoaderDidFailWithErrorBlock) failure;
+
 @end

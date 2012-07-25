@@ -601,6 +601,13 @@
                                 <segue destination="Lnb-sS-BZK" kind="push" identifier="addReimbursal" id="awf-dL-jPd"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="DTv-ac-3zf"/>
+                        <barButtonItem title="Test" id="SmU-ka-H2T">
+                            <connections>
+                                <action selector="testIt:" destination="40W-ns-Y2D" id="PQk-GS-vBS"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="FjM-Xz-NGZ"/>
                         <barButtonItem title="+Expense" id="2ch-1x-FSD">
                             <connections>
                                 <action selector="testIt:" destination="40W-ns-Y2D" id="vCJ-kr-evZ"/>
@@ -773,7 +780,7 @@
                                     <rect key="frame" x="10" y="1" width="300" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Expense Title" minimumFontSize="17" clearButtonMode="whileEditing" id="4sc-Kc-cJk">
+                                        <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Expense Title" minimumFontSize="17" id="4sc-Kc-cJk">
                                             <rect key="frame" x="10" y="6" width="280" height="31"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -863,7 +870,15 @@
                             <outlet property="delegate" destination="ZbX-n7-gL0" id="dei-PE-siS"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="New Expense" id="Qu3-ey-wr3"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="New Expense" id="Qu3-ey-wr3">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" style="done" systemItem="done" id="vgA-gI-BVe">
+                            <connections>
+                                <action selector="done:" destination="ZbX-n7-gL0" id="SWO-A4-Mfx"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
             </objects>
             <point key="canvasLocation" x="1503" y="376"/>
@@ -1232,6 +1247,9 @@
         </class>
         <class className="ExpenseAddViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ExpenseAddViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="done:"/>
+            </relationships>
         </class>
         <class className="ExpensesSummaryViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ExpensesSummaryViewController.h"/>

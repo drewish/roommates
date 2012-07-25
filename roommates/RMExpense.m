@@ -68,4 +68,50 @@
     return @"Expense";
 }
 
+- (void) postWithImage:(UIImage*) image
+          participants:(NSArray*) userIds
+             onSuccess:(RKObjectLoaderDidLoadObjectBlock) success
+             onFailure:(RKObjectLoaderDidFailWithErrorBlock) failure
+{
+    RKObjectManager *mgr = [RKObjectManager sharedManager];
+
+    [mgr postObject:self usingBlock:^(RKObjectLoader *loader) {
+        RKParams* params = [RKParams params];
+        [params setValue:self.name forParam:@"expense[name]"];
+        [params setValue:self.amount forParam:@"expense[amount]"];
+        for (NSNumber *uid in userIds) {
+            [params setValue:uid forParam:@"expense[participant_ids][]"];
+        }
+
+        if (image != nil) {
+            RKParamsAttachment *attachment = [params setData:UIImagePNGRepresentation(image) MIMEType:@"image/png" forParam:@"expense[photo]"];
+            attachment.fileName = @"image.png";
+        }
+        //        expense[split_type] – empty or “custom” (optional)
+        //        expense[amount_given] – hash where key is user id and value represents the amount user gave (already paid). Considered if split_type is “custom”.
+        //        expense[amount_due] – hash where key is user id and value represents the amount user should pay (its share). Considered if split_type is “custom”.
+        loader.params = params;
+
+        loader.onDidFailLoadWithError = ^(NSError *error) {
+            NSLog(@"%@", error);
+            failure(error);
+        };
+        loader.onDidLoadObject = ^(id whatLoaded) {
+            NSLog(@"%@", whatLoaded);
+            success(whatLoaded);
+            [[NSNotificationCenter defaultCenter]
+             postNotificationName:@"RMItemAdded" object:[self class]];
+        };
+        loader.onDidLoadResponse = ^(RKResponse *response) {
+            NSLog(@"%@", response);
+            // Check for validation errors.
+            if (response.statusCode == 422) {
+                NSError *parseError = nil;
+                NSDictionary *errors = [[response parsedBody:&parseError] objectForKey:@"errors"];
+                failure([NSError errorWithDomain:@"roomat.es" code:100 userInfo:errors]);
+            }
+        };
+    }];
+}
+
 @end

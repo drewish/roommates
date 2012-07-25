@@ -37,16 +37,16 @@
 }
 
 - (IBAction)done:(id)sender {
-    // Attach an Image from the App Bundle
+    // FIXME: let them pick the image instead of hardcoding this test image.
     UIImage* image = [UIImage imageNamed:@"purty_wood.png"];
-    
+
+    [SVProgressHUD showWithStatus:@"Posting"];
+
     [RMNote postNote:bodyText.text image:image onSuccess:^(id obj){
         NSLog(@"posted ...%@", obj);
-        // TODO: Need to get all this UI code out of here and into callbacks.
         [SVProgressHUD showSuccessWithStatus:@""];
         [self.navigationController popViewControllerAnimated:YES];
     } onFailure:[RMSession objectValidationErrorBlock]];
-    [SVProgressHUD showWithStatus:@"Posting"];
 }
 
 @end

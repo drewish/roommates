@@ -10,4 +10,9 @@
 
 @interface ExpenseAddViewController : UITableViewController <UITextFieldDelegate>
 
+@property (retain, nonatomic) NSString *name;
+@property (retain, nonatomic) NSDecimalNumber *amount;
+
+- (IBAction)done:(id)sender;
+
 @end

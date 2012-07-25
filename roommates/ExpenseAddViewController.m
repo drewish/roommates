@@ -16,8 +16,7 @@
 @implementation ExpenseAddViewController {
     RMExpense *expense;
     NSArray *users;
-    NSMutableIndexSet *participants;
-    NSDecimalNumber *amount;
+    NSMutableSet *participants;
     NSNumberFormatter *formatter;
     UIGestureRecognizer *tapper;
 }
@@ -29,7 +28,7 @@
         // Custom initialization
         users = [[RMHousehold current] userSorted];
         expense = [RMExpense new];
-        participants = [NSMutableIndexSet indexSet];
+        participants = [NSMutableSet set];
         formatter = [NSNumberFormatter new];
         formatter.numberStyle = NSNumberFormatterCurrencyStyle;
     }
@@ -45,7 +44,7 @@
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
- 
+
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 
@@ -63,24 +62,24 @@
     tapper = nil;
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-
 - (void)handleSingleTap:(UITapGestureRecognizer *) sender
 {
     [self.view endEditing:YES];
 }
 
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
 -(void)textFieldDidEndEditing:(UITextField *)textField
 {
     if (textField.tag == 1) {
-        expense.name = textField.text;
+        self.name = textField.text;
     }
     else if (textField.tag == 2) {
-        // We'll want to re-split the price.
-        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:NO];
+        // the amount gets updated on every change... not sure if that's best
+        // but that's what it's doing now.
     }
 }
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
@@ -90,11 +89,9 @@
         return YES;
     }
 
-    UILabel *amountLabel = (UILabel*) [textField.superview viewWithTag:3];
     NSString *asText = [textField.text stringByReplacingCharactersInRange:range withString:string];
     if ([asText length] == 0) {
-        expense.amount = [NSDecimalNumber zero];
-        amountLabel.text = [formatter stringFromNumber:expense.amount];
+        self.amount = [NSDecimalNumber zero];
         return YES;
     }
     // We just want digits so cast the string to an integer then compare it
@@ -104,8 +101,7 @@
     if ([[asNumber stringValue] isEqualToString:asText]) {
         // Convert it to a decimal and shift it over by the fractional part.
         NSDecimalNumber *newAmount = [NSDecimalNumber decimalNumberWithDecimal:[asNumber decimalValue]];
-        expense.amount = [newAmount decimalNumberByMultiplyingByPowerOf10:-formatter.maximumFractionDigits];
-        amountLabel.text = [formatter stringFromNumber:expense.amount];
+        self.amount = [newAmount decimalNumberByMultiplyingByPowerOf10:-formatter.maximumFractionDigits];
         return YES;
     }
     return NO;
@@ -117,6 +113,57 @@
         [[self.tableView viewWithTag:2] becomeFirstResponder];
     }
     return YES;
+}
+
+- (IBAction)done:(id)sender {
+    // FIXME: let them pick the image instead of hardcoding this test image.
+    UIImage* image = [UIImage imageNamed:@"purty_wood.png"];
+    image = nil;
+
+    [SVProgressHUD showWithStatus:@"Posting"];
+
+    [expense postWithImage:image participants:[participants allObjects] onSuccess:^(id object) {
+        NSLog(@"posted ...%@", object);
+        [SVProgressHUD showSuccessWithStatus:@""];
+        [self.navigationController popViewControllerAnimated:YES];
+    } onFailure:[RMSession objectValidationErrorBlock]];
+}
+
+-(NSDecimalNumber *)amount
+{
+    return expense.amount;
+}
+-(void)setAmount:(NSDecimalNumber *)val
+{
+    expense.amount = val;
+
+    UILabel *amountLabel = (UILabel*) [self.tableView viewWithTag:3];
+    amountLabel.text = [formatter stringFromNumber:expense.amount];
+
+    self.navigationItem.rightBarButtonItem.enabled = [self isValid];
+
+    // Re-split the price.
+    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:NO];
+}
+
+- (NSString *)name
+{
+    return expense.name;
+}
+- (void)setName:(NSString *)val
+{
+    expense.name = val;
+    self.navigationItem.rightBarButtonItem.enabled = [self isValid];
+}
+
+- (BOOL)isValid
+{
+    return (expense.amount.floatValue > 0.0 && expense.name.length > 0);
+}
+
+- (RMUser*)userInCell:(NSIndexPath*) indexPath
+{
+    return [users objectAtIndex:indexPath.row];
 }
 
 #pragma mark - Table view data source
@@ -172,8 +219,9 @@
 
     // Configure the cell...
     if ([cellIdentifier isEqualToString: @"Participant"]) {
-        cell.textLabel.text = [[users objectAtIndex:indexPath.row] displayName];
-        if ([participants containsIndex:indexPath.row]) {
+        RMUser *user = [self userInCell:indexPath];
+        cell.textLabel.text = [user displayName];
+        if ([participants containsObject:user.userId]) {
             NSDecimalNumber *denominator = [[NSDecimalNumber alloc] initWithInt:participants.count];
             NSDecimalNumber *share = [expense.amount decimalNumberByDividingBy:denominator];
             cell.accessoryType = UITableViewCellAccessoryCheckmark;
@@ -217,11 +265,12 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section == 1) {
-        if ([participants containsIndex:indexPath.row]) {
-            [participants removeIndex:indexPath.row];
+        NSNumber *userId = [[self userInCell:indexPath] userId];
+        if ([participants containsObject:userId]) {
+            [participants removeObject:userId];
         }
         else {
-            [participants addIndex:indexPath.row];
+            [participants addObject:userId];
         }
         // Changing the participants will change each person's share so reload
         // the whole section then animate their row.
