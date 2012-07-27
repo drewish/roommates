@@ -15,7 +15,8 @@
 
 @implementation ChecklistItemDetailViewController
 
-@synthesize item;
+@synthesize deleteButton;
+@synthesize item = item_;
 
 -(id)initWithCoder:(NSCoder *)aDecoder
 {
@@ -39,10 +40,11 @@
 
 - (void)viewDidUnload
 {
+    [self setDeleteButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
-    item = nil;
+    self.item = nil;
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
@@ -58,14 +60,25 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([@"addComment" isEqualToString:segue.identifier]) {
-        assert(item != nil);
+        assert(self.item != nil);
 
         // Pass that along to the view controller so the comment can reference 
         // the right entity.
         CommentAddViewController *vc = segue.destinationViewController;
-        vc.commentableType = [[item class] commentableType];
-        vc.commentableId = item.checklistItemId;
+        vc.commentableType = [[self.item class] commentableType];
+        vc.commentableId = self.item.checklistItemId;
     }
+}
+
+-(void)setItem:(RMChecklistItem *)item
+{
+    item_ = item;
+//    [self.tableView reloadData];
+    deleteButton.hidden = ![item isDeletable];
+}
+-(RMChecklistItem *)item
+{
+    return item_;
 }
 
 - (IBAction)deleteItem:(id)sender {
@@ -85,7 +98,7 @@
 -(void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
     if (buttonIndex == 0) {
-        [item deleteItemOnSuccess:^(NSArray *objects) {
+        [self.item deleteItemOnSuccess:^(NSArray *objects) {
             [self.navigationController popViewControllerAnimated:YES];
         } onFailure:RMSession.objectLoadErrorBlock];
     }
@@ -100,7 +113,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return (section == 0) ? 1 : item.comments.count;
+    return (section == 0) ? 1 : self.item.comments.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -109,11 +122,11 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 
     if (indexPath.section == 0) {
-        cell.textLabel.text = item.title;
-        cell.accessoryType = [item.completed boolValue] ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
+        cell.textLabel.text = self.item.title;
+        cell.accessoryType = [self.item.completed boolValue] ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
     }
     else {
-        RMComment *comment = [item.comments objectAtIndex:indexPath.row];
+        RMComment *comment = [self.item.comments objectAtIndex:indexPath.row];
         cell.textLabel.text = comment.body;
         cell.detailTextLabel.text = [NSString stringWithFormat:@"—%@, %@",
                                      [RMUser nameForId:comment.creatorId],

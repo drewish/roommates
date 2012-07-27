@@ -48,6 +48,9 @@ static NSArray *cached = nil;
     [routes addRoute:[RKRoute routeWithClass:[self class]
                          resourcePathPattern:@"/api/households/:householdId/checklist_items/:checklistItemId"
                                       method:RKRequestMethodGET]];
+    [routes addRoute:[RKRoute routeWithClass:[self class]
+                         resourcePathPattern:@"/api/households/:householdId/checklist_items"
+                                      method:RKRequestMethodPOST]];
 }
 
 + (void)fetchForHousehold:(NSNumber*) householdId
@@ -77,42 +80,6 @@ static NSArray *cached = nil;
 + (NSArray*) items
 {
     return cached;
-}
-
-+ (void) postItem:(NSString*) title
-             kind:(NSString*) kind
-        onSuccess:(RKObjectLoaderDidLoadObjectBlock) success
-        onFailure:(RKObjectLoaderDidFailWithErrorBlock) failure
-{
-    RKObjectManager *mgr = [RKObjectManager sharedManager];
-    id item = [self new];
-
-    [mgr postObject:item usingBlock:^(RKObjectLoader *loader) {
-        RKParams* params = [RKParams params];
-        [params setValue:title forParam:@"item[title]"];
-        [params setValue:kind forParam:@"item[kind]"];
-        loader.params = params;
-
-        loader.onDidFailLoadWithError = ^(NSError *error) {
-            NSLog(@"%@", error);
-            failure(error);
-        };
-        loader.onDidLoadObject = ^(id whatLoaded) {
-            NSLog(@"%@", whatLoaded);
-            success(whatLoaded);
-            [[NSNotificationCenter defaultCenter]
-             postNotificationName:@"RMItemAdded" object:[self class]];
-        };
-        loader.onDidLoadResponse = ^(RKResponse *response) {
-            NSLog(@"%@", response);
-            // Check for validation errors.
-            if (response.statusCode == 422) {
-                NSError *parseError = nil;
-                NSDictionary *errors = [[response parsedBody:&parseError] objectForKey:@"errors"];
-                failure([NSError errorWithDomain:@"roomat.es" code:100 userInfo:errors]);
-            }
-        };
-    }];
 }
 
 //+ (void) getItem:(NSNumber*) itemId
@@ -147,6 +114,44 @@ static NSArray *cached = nil;
 - (NSString*)description {
 	return [NSString stringWithFormat:@"RMChecklistItem id: %@, %@ '%@' %@ comments)",
             self.checklistItemId, self.kind, self.title, [NSNumber numberWithInt:[self.comments count]]];
+}
+
+- (void) postOnSuccess:(RKObjectLoaderDidLoadObjectBlock) success
+             onFailure:(RKObjectLoaderDidFailWithErrorBlock) failure
+{
+    RKObjectManager *mgr = [RKObjectManager sharedManager];
+    
+    [mgr postObject:self usingBlock:^(RKObjectLoader *loader) {
+        RKParams* params = [RKParams params];
+        [params setValue:self.title forParam:@"item[title]"];
+        [params setValue:self.kind forParam:@"item[kind]"];
+        loader.params = params;
+        
+        loader.onDidFailLoadWithError = ^(NSError *error) {
+            NSLog(@"%@", error);
+            failure(error);
+        };
+        loader.onDidLoadObject = ^(id whatLoaded) {
+            NSLog(@"%@", whatLoaded);
+            success(whatLoaded);
+            [[NSNotificationCenter defaultCenter]
+             postNotificationName:@"RMItemAdded" object:[self class]];
+        };
+        loader.onDidLoadResponse = ^(RKResponse *response) {
+            NSLog(@"%@", response);
+            // Check for validation errors.
+            if (response.statusCode == 422) {
+                NSError *parseError = nil;
+                NSDictionary *errors = [[response parsedBody:&parseError] objectForKey:@"errors"];
+                failure([NSError errorWithDomain:@"roomat.es" code:100 userInfo:errors]);
+            }
+        };
+    }];
+}
+
+- (BOOL) isDeletable {
+    NSNumber *permission = [[self abilities] objectForKey:@"destroy"];
+    return [permission boolValue];
 }
 
 - (void) deleteItemOnSuccess:(RKObjectLoaderDidLoadObjectsBlock) success

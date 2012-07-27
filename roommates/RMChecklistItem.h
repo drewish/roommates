@@ -12,10 +12,6 @@
 
 @interface RMChecklistItem : NSObject <RMObject, RMCommentable, RMDeletable, RMHouseholdable, RMFetchableList>
 
-+ (void) postItem:(NSString*) title
-             kind:(NSString*) kind
-        onSuccess:(RKObjectLoaderDidLoadObjectBlock) success
-        onFailure:(RKObjectLoaderDidFailWithErrorBlock) failure;
 //+ (void) getItem:(NSNumber*) itemId
 //       OnSuccess:(RKObjectLoaderDidLoadObjectsBlock) success
 //       onFailure:(RKObjectLoaderDidFailWithErrorBlock) failure;
@@ -24,5 +20,11 @@
 @property (nonatomic, retain) NSString* kind;            // KIND of checklist item (either ‘todo’ or ‘shopping’)
 @property (nonatomic, retain) NSString* title;           // checklist item title
 @property (nonatomic, retain) NSNumber* completed;       // creation time
+
+- (void) postOnSuccess:(RKObjectLoaderDidLoadObjectBlock) success
+             onFailure:(RKObjectLoaderDidFailWithErrorBlock) failure;
+- (void) deleteItemOnSuccess:(RKObjectLoaderDidLoadObjectsBlock) success
+                   onFailure:(RKObjectLoaderDidFailWithErrorBlock) failure;
+
 
 @end

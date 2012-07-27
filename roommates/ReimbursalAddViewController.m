@@ -137,25 +137,16 @@
 }
 
 - (IBAction)done:(id)sender {
-    RKObjectManager *mgr = [RKObjectManager sharedManager];
     RMReimbursal *item = [RMReimbursal new];
     item.amount = amount_;
     item.toUserId = toUser_.userId;
     item.fromUserId = fromUser_.userId;
     
     [SVProgressHUD showWithStatus:@"Posting"];
-    [mgr postObject:item usingBlock:^(RKObjectLoader *loader) {
-        loader.onDidFailLoadWithError = [RMSession objectValidationErrorBlock];
-        loader.onDidLoadObject = ^(id whatLoaded) {
-            NSLog(@"%@", whatLoaded);
-
-            [SVProgressHUD showSuccessWithStatus:@""];
-            [self.navigationController popViewControllerAnimated:YES];
-
-            [[NSNotificationCenter defaultCenter]
-             postNotificationName:@"RMItemAdded" object:[self class]];
-        };
-    }];
+    [item postOnSuccess:^(id object) {
+        [SVProgressHUD showSuccessWithStatus:@""];
+        [self.navigationController popViewControllerAnimated:YES];
+    } onFailure:[RMSession objectValidationErrorBlock]];
 }
 
 -(NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath

@@ -8,8 +8,10 @@
 
 #import "RMListViewController.h"
 
-@interface ChecklistItemListViewController : RMListViewController
+@interface ChecklistItemListViewController : RMListViewController <UITextFieldDelegate>
 
 @property NSString *kind;
+
+- (IBAction)add:(id)sender;
 
 @end

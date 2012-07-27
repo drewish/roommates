@@ -82,10 +82,7 @@ static RMSession *gInstance = nil;
     [mgr.objectStore deletePersistentStore];
     [mgr loadObjectsAtResourcePath:@"/api/sessions" usingBlock:^(RKObjectLoader *loader) {
         loader.method = RKRequestMethodPOST;
-        loader.params = [NSDictionary dictionaryWithObjectsAndKeys:
-                         email, @"email",
-                         password, @"password",
-                         nil];
+        loader.params = @{ @"email": email, @"password": password };
         RKObjectMapping *objectMapping = [mgr.mappingProvider objectMappingForClass:[self class]];
         loader.objectMapping = objectMapping;
         loader.onDidLoadObject = ^(RMSession *session) {

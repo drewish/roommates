@@ -70,6 +70,11 @@ static NSArray *cached = nil;
     return [RMHousehold current].householdId;
 }
 
+- (BOOL) isDeletable {
+    NSNumber *permission = [[self abilities] objectForKey:@"destroy"];
+    return [permission boolValue];
+}
+
 - (void) deleteItemOnSuccess:(RKObjectLoaderDidLoadObjectsBlock) success
                    onFailure:(RKObjectLoaderDidFailWithErrorBlock) failure
 {

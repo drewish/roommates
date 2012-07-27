@@ -19,7 +19,7 @@
     PullToRefreshView *pull;
 }
 
-@synthesize items;
+@synthesize items = _items;
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
@@ -78,7 +78,7 @@
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
     pull = nil;
-    items = nil;
+    self.items = nil;
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
@@ -101,7 +101,7 @@
     [[self dataClass] fetchForHousehold:current.householdId 
                              withParams:self.fetchParams
                               onSuccess:^(NSArray *items_) {
-        self.items = items_;
+        self.items = [NSMutableArray arrayWithArray:items_];
         [self.tableView reloadData];
         [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:TRUE];
         [pull finishedLoading];

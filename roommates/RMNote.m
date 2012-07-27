@@ -129,6 +129,11 @@ static NSArray *cached = nil;
             self.noteId, self.body, self.creatorId, self.createdAt];
 }
 
+- (BOOL) isDeletable {
+    NSNumber *permission = [[self abilities] objectForKey:@"destroy"];
+    return [permission boolValue];
+}
+
 - (void) deleteItemOnSuccess:(RKObjectLoaderDidLoadObjectsBlock) success
                    onFailure:(RKObjectLoaderDidFailWithErrorBlock) failure
 {

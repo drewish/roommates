@@ -14,7 +14,7 @@
 @interface RMListViewController : UITableViewController <PullToRefreshViewDelegate>
 
 // Array of items returned by fetching.
-@property (nonatomic, retain) NSArray* items;
+@property (nonatomic, retain) NSMutableArray* items;
 // Optional dictionary of parameters to pass to the fetch.
 @property (readonly) NSDictionary* fetchParams;
 

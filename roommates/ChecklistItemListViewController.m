@@ -13,7 +13,9 @@
 
 @end
 
-@implementation ChecklistItemListViewController
+@implementation ChecklistItemListViewController {
+    UIGestureRecognizer *tapper;
+}
 
 @synthesize kind;
 
@@ -43,12 +45,24 @@
 
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
 //    self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    tapper = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
+    tapper.cancelsTouchesInView = FALSE;
+    [self.view addGestureRecognizer:tapper];
 }
 
 - (void)viewDidUnload
 {
+    [self.view removeGestureRecognizer:tapper];
+    tapper = nil;
+
     [super viewDidUnload];
     // Release any retained subviews of the main view.
+}
+
+- (void)handleSingleTap:(UITapGestureRecognizer *) sender
+{
+    [self.view endEditing:YES];
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -65,17 +79,76 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    UITableViewCell *cell;
 
     // Configure the cell...
     RMChecklistItem *item = [self.items objectAtIndex:indexPath.row];
-    cell.textLabel.text = item.title;
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%d comments", item.comments.count];
+    if (item.title == nil) {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"Add"];
+    }
+    else {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"View"];
+        cell.textLabel.text = item.title;
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"%d comments", item.comments.count];
+    }
 
     return cell;
 }
 
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    // TODO: are we sure this will always be the first item?
+    RMChecklistItem *newItem = [self.items objectAtIndex:0];
+
+    if (textField.text.length < 1 || newItem == nil) {
+        return FALSE;
+    }
+
+    newItem.title = textField.text;
+
+    [textField resignFirstResponder];
+
+    [SVProgressHUD showWithStatus:@"Posting"];
+    [newItem postOnSuccess:^(id object) {
+        textField.text = @"";
+        self.navigationItem.rightBarButtonItem.enabled = YES;
+        [SVProgressHUD showSuccessWithStatus:@""];
+        [self fetchItems];
+    } onFailure:[RMSession objectValidationErrorBlock]];
+    return YES;
+}
+
+-(BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    RMChecklistItem *item = [self.items objectAtIndex:indexPath.row];
+    NSNumber *permission = [[item abilities] objectForKey:@"destroy"];
+    return [permission boolValue];
+}
+
+
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        RMChecklistItem *item = [self.items objectAtIndex:indexPath.row];
+        [item deleteItemOnSuccess:^(NSArray *objects) {
+            [self fetchItems];
+        } onFailure:^(NSError *error) {
+            //code
+        }];
+    }
+}
 #pragma
+
+- (IBAction)add:(id)sender {
+    RMChecklistItem *newOne = [RMChecklistItem new];
+    newOne.kind = kind;
+
+    self.navigationItem.rightBarButtonItem.enabled = NO;
+    [self.items insertObject:newOne atIndex:0];
+
+    NSIndexPath *path = [NSIndexPath indexPathForRow:0 inSection:0];
+    [self.tableView insertRowsAtIndexPaths:@[path] withRowAnimation:YES];
+    [[[self.tableView cellForRowAtIndexPath:path] viewWithTag:1] becomeFirstResponder];
+}
 
 @end

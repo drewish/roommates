@@ -67,8 +67,7 @@
 
 - (void)resetSelected
 {
-    NSArray *items = [NSArray arrayWithObjects:@"LogEntryList", @"ExpenseSummary", 
-                      @"ShoppingList", @"ToDoList", @"NoteList", nil];
+    NSArray *items = @[@"LogEntryList", @"ExpenseSummary", @"ShoppingList", @"ToDoList", @"NoteList"];
     NSIndexPath *selected = [NSIndexPath indexPathForRow:[items indexOfObject:rootController.currentViewIdentifier] inSection:0];
     [self.tableView selectRowAtIndexPath:selected animated:NO scrollPosition:UITableViewScrollPositionNone];
 }

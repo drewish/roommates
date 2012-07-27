@@ -85,7 +85,7 @@ static RMHousehold *current = nil;
     @synchronized(self) {
         cachedObjects = households;
         for (RMHousehold *h in cachedObjects) {
-            if ([h.current isEqualToNumber:[NSNumber numberWithBool:TRUE]]) {
+            if ([h.current isEqualToNumber:[NSNumber numberWithBool:YES]]) {
                 current = h;
 
                 [[NSNotificationCenter defaultCenter] 
@@ -149,7 +149,7 @@ static RMHousehold *current = nil;
                                  ascending:YES
                                   selector:@selector(localizedCaseInsensitiveCompare:)];
 
-    NSArray *descriptors = [NSArray arrayWithObjects:isYouDescriptor, nameDescriptor, nil];
+    NSArray *descriptors = @[isYouDescriptor, nameDescriptor];
     return [[[self users] allObjects] sortedArrayUsingDescriptors:descriptors];
 }
 

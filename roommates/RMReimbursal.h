@@ -13,4 +13,7 @@
 @property (nonatomic, retain) NSNumber *fromUserId; // user who gives the amount
 @property (nonatomic, retain) NSNumber *toUserId;   // user who receives the amount
 
+- (void) postOnSuccess:(RKObjectLoaderDidLoadObjectBlock) success
+             onFailure:(RKObjectLoaderDidFailWithErrorBlock) failure;
+
 @end

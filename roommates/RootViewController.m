@@ -20,7 +20,12 @@
 
 - (id)init
 {
-    currentViewIdentifier = @"ExpenseSummary";
+    
+//    currentViewIdentifier = @"LogEntryList";
+//    currentViewIdentifier = @"ExpenseSummary";
+//    currentViewIdentifier = @"ShoppingList";
+    currentViewIdentifier = @"ToDoList";
+//    currentViewIdentifier = @"NoteList";
     UIStoryboard* s = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
     UIViewController* rear = [s instantiateViewControllerWithIdentifier:@"Menu"];
     UIViewController* front = [s instantiateViewControllerWithIdentifier:currentViewIdentifier];

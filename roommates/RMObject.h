@@ -47,6 +47,7 @@
 @protocol RMDeletable <NSObject>
 
 @property (nonatomic, retain) NSDictionary* abilities; // abilities hash for current user
+@property (readonly) BOOL isDeletable; // checks for destroy permission in the abilities.
 
 - (void) deleteItemOnSuccess:(RKObjectLoaderDidLoadObjectsBlock) success
                    onFailure:(RKObjectLoaderDidFailWithErrorBlock) failure;

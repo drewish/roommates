@@ -56,10 +56,11 @@
 - (void)viewDidUnload
 {
     [self.view removeGestureRecognizer:tapper];
+    tapper = nil;
+
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
-    tapper = nil;
 }
 
 - (void)handleSingleTap:(UITapGestureRecognizer *) sender
@@ -274,7 +275,7 @@
         }
         // Changing the participants will change each person's share so reload
         // the whole section then animate their row.
-        [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:YES];
+        [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:YES];
         [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:NO];
     }
 }
