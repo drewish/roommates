@@ -46,6 +46,10 @@
 		5F9A5EE315AE84F50053D6B3 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F9A5EDE15AE84F50053D6B3 /* arrow.png */; };
 		5F9A5EE415AE84F50053D6B3 /* arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F9A5EDF15AE84F50053D6B3 /* arrow@2x.png */; };
 		5F9A5EE515AE84F50053D6B3 /* PullToRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F9A5EE115AE84F50053D6B3 /* PullToRefreshView.m */; };
+		5FAD3D9015C42D4C002E0F86 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FAD3D8C15C42D4C002E0F86 /* logo.png */; };
+		5FAD3D9115C42D4C002E0F86 /* logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FAD3D8D15C42D4C002E0F86 /* logo@2x.png */; };
+		5FAD3D9215C42D4C002E0F86 /* background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FAD3D8E15C42D4C002E0F86 /* background@2x.png */; };
+		5FAD3D9315C42D4C002E0F86 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FAD3D8F15C42D4C002E0F86 /* background.png */; };
 		5FAD766D15A13F01005BBCAC /* ZUUIRevealController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FAD766C15A13F01005BBCAC /* ZUUIRevealController.m */; };
 		5FAD767915A16321005BBCAC /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FAD767815A16321005BBCAC /* MenuViewController.m */; };
 		5FAD767E15A218F0005BBCAC /* RMData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5FAD767C15A218F0005BBCAC /* RMData.xcdatamodeld */; };
@@ -217,6 +221,10 @@
 		5F9A5EE015AE84F50053D6B3 /* PullToRefreshView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PullToRefreshView.h; sourceTree = "<group>"; };
 		5F9A5EE115AE84F50053D6B3 /* PullToRefreshView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PullToRefreshView.m; sourceTree = "<group>"; };
 		5F9E5ED015A29C08007D355C /* RMObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RMObject.h; sourceTree = "<group>"; };
+		5FAD3D8C15C42D4C002E0F86 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = Resources/logo.png; sourceTree = "<group>"; };
+		5FAD3D8D15C42D4C002E0F86 /* logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "logo@2x.png"; path = "Resources/logo@2x.png"; sourceTree = "<group>"; };
+		5FAD3D8E15C42D4C002E0F86 /* background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "background@2x.png"; path = "Resources/background@2x.png"; sourceTree = "<group>"; };
+		5FAD3D8F15C42D4C002E0F86 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background.png; path = Resources/background.png; sourceTree = "<group>"; };
 		5FAD766A15A13F01005BBCAC /* ZUUIRevealController-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ZUUIRevealController-Prefix.pch"; sourceTree = "<group>"; };
 		5FAD766B15A13F01005BBCAC /* ZUUIRevealController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZUUIRevealController.h; sourceTree = "<group>"; };
 		5FAD766C15A13F01005BBCAC /* ZUUIRevealController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZUUIRevealController.m; sourceTree = "<group>"; };
@@ -523,6 +531,10 @@
 		5FBCC83815B5BBBF0031CBB1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5FAD3D8C15C42D4C002E0F86 /* logo.png */,
+				5FAD3D8D15C42D4C002E0F86 /* logo@2x.png */,
+				5FAD3D8E15C42D4C002E0F86 /* background@2x.png */,
+				5FAD3D8F15C42D4C002E0F86 /* background.png */,
 				5FF1C1EF15B60C0100077016 /* signIn.png */,
 				5FF1C1F015B60C0100077016 /* signIn@2x.png */,
 				5FFBCFD315A6AB4200CF161A /* Icon.png */,
@@ -732,6 +744,10 @@
 				5FF1C1F115B60C0100077016 /* signIn.png in Resources */,
 				5FF1C1F215B60C0100077016 /* signIn@2x.png in Resources */,
 				5F011FCF15B7A9F500951A67 /* NSDateTimeAgo.strings in Resources */,
+				5FAD3D9015C42D4C002E0F86 /* logo.png in Resources */,
+				5FAD3D9115C42D4C002E0F86 /* logo@2x.png in Resources */,
+				5FAD3D9215C42D4C002E0F86 /* background@2x.png in Resources */,
+				5FAD3D9315C42D4C002E0F86 /* background.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

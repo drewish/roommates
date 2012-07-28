@@ -32,7 +32,7 @@
 {
     [super viewDidLoad];
 
-    UIImage *image = [UIImage imageNamed:@"signIn.png"];
+    UIImage *image = [UIImage imageNamed:@"background.png"];
     self.view.backgroundColor = [UIColor colorWithPatternImage:image];
 
     // Do any additional setup after loading the view.

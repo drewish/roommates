@@ -121,6 +121,7 @@ static RMSession *gInstance = nil;
 
 + (void)endSession
 {
+    // TODO: Needs to clear the network queue.
     @synchronized(self)
     {
         gInstance = nil;

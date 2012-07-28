@@ -152,9 +152,9 @@
 {
     switch (section) {
         case 0:
-            return balance.count;
-        case 1:
             return owed.count + owes.count;
+        case 1:
+            return balance.count;
         default:
             return 0;
     }
@@ -164,9 +164,9 @@
 {
     switch (section) {
         case 0:
-            return balance.count ? @"Expense Summary" : nil;
+            return owed.count + owes.count ? @"Expense Summary" : nil;
         case 1:
-            return owed.count + owes.count ? @"Household Summary" : nil;
+            return balance.count ? @"Household Summary" : nil;
     }
     return @"";
 }
@@ -192,6 +192,32 @@
     // Configure the cell...
     switch (indexPath.section) {
         case 0:
+            if (indexPath.row < owedUsers.count) {
+                userId = [owedUsers objectAtIndex:indexPath.row];
+                action = @"owed";
+                color = ourGreen;
+                amount = [owed objectForKey:userId];
+            }
+            else {
+                userId = [owesUsers objectAtIndex:indexPath.row];
+                action = @"owes";
+                color = ourRed;
+                // Since we're flipping the color don't format negative number.
+                amount = [owes objectForKey:userId];
+            }
+
+            isSessionUser = [[RMSession instance].userId isEqualToNumber:userId];
+            if (isSessionUser) {
+                // TODO: Not sure this branch will fire. Might need to pull our
+                // total from the balances.
+                message = (action == @"owes") ? @"You owe:" : @"You are owed:";
+            }
+            else {
+                message = [NSString stringWithFormat:(action == @"owes") ? @"You owe %@:" : @"%@ owes you:", [RMUser nameForId: userId]];
+            }
+            break;
+
+        case 1:
             userId = [balanceUsers objectAtIndex:indexPath.row];
             amount = [balance objectForKey:userId];
             isSessionUser = [[RMSession instance].userId isEqualToNumber:userId];
@@ -221,32 +247,6 @@
                     message = @"%@ is paid up";
                 }
                 message = [NSString stringWithFormat:message, [RMUser nameForId: userId]];
-            }
-            break;
-
-        case 1:
-            if (indexPath.row < owedUsers.count) {
-                userId = [owedUsers objectAtIndex:indexPath.row];
-                action = @"owed";
-                color = ourGreen;
-                amount = [owed objectForKey:userId];
-            }
-            else {
-                userId = [owesUsers objectAtIndex:indexPath.row];
-                action = @"owes";
-                color = ourRed;
-                // Since we're flipping the color don't format negative number.
-                amount = [owes objectForKey:userId];
-            }
-
-            isSessionUser = [[RMSession instance].userId isEqualToNumber:userId];
-            if (isSessionUser) {
-                // TODO: Not sure this branch will fire. Might need to pull our
-                // total from the balances.
-                message = (action == @"owes") ? @"You owe:" : @"You are owed:";
-            }
-            else {
-                message = [NSString stringWithFormat:(action == @"owes") ? @"You owe %@:" : @"%@ owes you:", [RMUser nameForId: userId]];
             }
             break;
     }

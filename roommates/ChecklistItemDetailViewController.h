@@ -13,6 +13,7 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *deleteButton;
 @property (retain) RMChecklistItem *item;
+
 - (IBAction)deleteItem:(id)sender;
 - (IBAction)addComment:(id)sender;
 

@@ -6,7 +6,7 @@ Login view (8h):
 	- Get return buttons working in login text fields @done
 	- fix alpha "disabling" of login button. the alpha way i'm doing it is wonky. @done
 	- move email/password saving to keychain
-	- sort out the graphic/background
+	- sort out the graphic/background @done
 Menu view (8h):
 	- Finish adding gesture recognizers @done
 	- Load appropriate ViewController @done
@@ -19,6 +19,7 @@ Activity Feed TableView (4-8h):
 	- Strike through completed text (iOS doesn't support strike through text)
 	- Format updated dates as time ago (API is currently sending out years) @done
 	- Fetch additional pages? The comps don't really show how many feed items to show or how they'd go about seeing more
+	- Possibly put sections into days if it's not too hard.
 Toolbar Buttons (2h):
 	Just need to hook them up but need to figure out a way only put them onto the top level listing views.
 Photos (16h):
@@ -32,6 +33,7 @@ Comments:
 	- Create new comments @done
 	- Display table of posted comments @done
 Expense Summary:
+	- Top and bottom sections are switched. Household should be at the bottom. @done
 	- Bottom half of summery should list "You" again but needs to copy from balance section.
 	- Figure out sorting of expenses.
 Expense Creation:
@@ -56,7 +58,7 @@ Checklist Items List:
 	- todo data subclass @done
 	- todo list view controller @done
 	- Listing view @done
-	- Add item view
+	- Add item view @done
 	- Upload photo.
 	- Detail item view @done
 	- Toggle completed status
