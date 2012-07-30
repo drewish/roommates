@@ -10,7 +10,7 @@
 
 @implementation NoteCell
 
-@synthesize agoLabel, wrapper, photo, bodyText, userLabel, comments, commentData;
+@synthesize wrapper, photo, bodyText, userLabel;
 
 -(id)initWithCoder:(NSCoder *)aDecoder
 {

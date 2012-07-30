@@ -49,6 +49,7 @@ Notes:
 	- Listing view @done
 	- Create item view @done
 	- Add comment (with no editing or deletion) @done
+	- Scale comments acording to their length @done
 	- Deletion? Phase last.
 	- Check abilties for delete permission
 	- Upload photo.
