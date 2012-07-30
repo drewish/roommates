@@ -113,24 +113,42 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return (section == 0) ? 1 : self.item.comments.count;
+    return (section == 0) ? 1 : self.item.comments.count + 1;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == 1 && indexPath.row > 0 && indexPath.row < self.item.comments.count) {
+        RMComment *comment = [self.item.comments objectAtIndex:indexPath.row];
+        CGSize commentSize = CGSizeMake(280, FLT_MAX);
+        commentSize = [comment.body sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:commentSize];
+        // A single line should be 18 so any more than that should be added
+        // to the height.
+        if (commentSize.height > 18) {
+            return 44 + commentSize.height - 18;
+        }
+    }
+    return 44;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *CellIdentifier = (indexPath.section == 0) ? @"ItemCell" : @"CommentCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-
+    UITableViewCell *cell;
     if (indexPath.section == 0) {
+        cell = [tableView dequeueReusableCellWithIdentifier: @"ItemCell"];
         cell.textLabel.text = self.item.title;
         cell.accessoryType = [self.item.completed boolValue] ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
     }
-    else {
+    else if (indexPath.row < [self.item.comments count]) {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"CommentCell"];
         RMComment *comment = [self.item.comments objectAtIndex:indexPath.row];
         cell.textLabel.text = comment.body;
         cell.detailTextLabel.text = [NSString stringWithFormat:@"—%@, %@",
                                      [RMUser nameForId:comment.creatorId],
                                      [comment.createdAt timeAgo]];
+    }
+    else {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"AddComment"];
     }
     return cell;
 }
