@@ -20,12 +20,12 @@
 
 - (id)init
 {
-    
-//    currentViewIdentifier = @"LogEntryList";
-//    currentViewIdentifier = @"ExpenseSummary";
-//    currentViewIdentifier = @"ShoppingList";
-    currentViewIdentifier = @"ToDoList";
-//    currentViewIdentifier = @"NoteList";
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    currentViewIdentifier = [defaults stringForKey:@"lastView"];
+    if (currentViewIdentifier == nil) {
+        currentViewIdentifier = @"LogEntryList";
+    }
+
     UIStoryboard* s = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
     UIViewController* rear = [s instantiateViewControllerWithIdentifier:@"Menu"];
     UIViewController* front = [s instantiateViewControllerWithIdentifier:currentViewIdentifier];
@@ -54,9 +54,11 @@
         NSString *email = [defaults stringForKey:@"email"];
         NSString *password = [defaults stringForKey:@"password"];
         if (email.length > 0 && password.length > 0) {
+            [SVProgressHUD showWithStatus:@"Connecting…" maskType:SVProgressHUDMaskTypeGradient];
             [RMSession startSessionEmail:email Password:password OnSuccess:^(id object) {
                 // Should be good...
             } OnFailure:^(NSError *error) {
+                [SVProgressHUD dismiss];
                 [self showSignIn:nil];
             }];
         }
@@ -106,7 +108,12 @@
         UIStoryboard* mainStoryboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
         UIViewController* frontViewController = [mainStoryboard instantiateViewControllerWithIdentifier:identifer];
         [self setFrontViewController:frontViewController animated:YES];
+
         currentViewIdentifier = identifer;
+
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setObject:currentViewIdentifier forKey:@"lastView"];
+
         return;        
     }
     // Seem like they want to stay where they are.

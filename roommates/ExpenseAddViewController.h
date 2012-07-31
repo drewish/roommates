@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ExpenseAddViewController : UITableViewController <UITextFieldDelegate>
+@interface ExpenseAddViewController : UITableViewController <UITextViewDelegate,
+UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (retain, nonatomic) NSString *name;
 @property (retain, nonatomic) NSDecimalNumber *amount;
+@property (retain, nonatomic) UIImage *photo;
 
 - (IBAction)done:(id)sender;
 

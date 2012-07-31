@@ -23,11 +23,11 @@ Activity Feed TableView (4-8h):
 Toolbar Buttons (2h):
 	Just need to hook them up but need to figure out a way only put them onto the top level listing views.
 Photos (16h):
-	- Image capture/selection
+	- Image capture @done
+	- Image selection
 	- Serialization and attachment to the data objects
 	- Figuring out the quirks of uploading to the API since it's not documented.
 	- learn how restkit does multipart form uploads
-	- photo capture view
 Comments:
 	- Load/parse from JSON @done
 	- Create new comments @done
@@ -37,7 +37,7 @@ Expense Summary:
 	- Bottom half of summery should list "You" again but needs to copy from balance section.
 	- Figure out sorting of expenses.
 Expense Creation:
-	- Edit/create view.
+	- Create view. @done
 	- Specify how split should work.
 	- Post to server.
 	- Upload photo.
@@ -49,6 +49,7 @@ Notes:
 	- Listing view @done
 	- Create item view @done
 	- Add comment (with no editing or deletion) @done
+	- Scale comments acording to their length @done
 	- Scale comments acording to their length @done
 	- Deletion? Phase last.
 	- Check abilties for delete permission

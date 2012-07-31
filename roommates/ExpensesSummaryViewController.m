@@ -156,9 +156,8 @@
             return owed.count + owes.count;
         case 1:
             return balance.count;
-        default:
-            return 0;
     }
+    return 0;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section

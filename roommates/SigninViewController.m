@@ -83,7 +83,7 @@
 - (IBAction)login:(id)sender {
     // Get rid of any keyboard so the HUD doesn't end up moving around as much.
     [self.view endEditing:NO];
-    [SVProgressHUD showWithStatus:@"Logging in" maskType:SVProgressHUDMaskTypeBlack];
+    [SVProgressHUD showWithStatus:@"Logging in…" maskType:SVProgressHUDMaskTypeGradient];
 
     [RMSession startSessionEmail:email.text Password:password.text OnSuccess:^(RMSession *session) {
         NSLog(@"Loaded User ID #%@ -> Name: %@, token: %@", session.userId, session.fullName, session.apiToken);

@@ -161,6 +161,11 @@ static RMSession *gInstance = nil;
     avatar, 
     apiToken;
 
+- (BOOL)isEqualToUser:(RMUser*) other
+{
+    return [self.userId isEqualToNumber:[other userId]];
+}
+
 - (RMUser*) user {
     return [[RMUser users] objectForKey:userId];
 }

@@ -64,6 +64,8 @@
     } onFailure:[RMSession objectValidationErrorBlock]];
 }
 
+#pragma mark Photo handling
+
 - (IBAction)attachPhoto:(id)sender {
     UIImagePickerController *cameraUI = [[UIImagePickerController alloc] init];
 
@@ -101,13 +103,9 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     UIImage *originalImage, *editedImage, *imageToSave;
 
     // Handle a still image capture
-    if (CFStringCompare((__bridge CFStringRef) mediaType, kUTTypeImage, 0)
-        == kCFCompareEqualTo) {
-
-        editedImage = (UIImage *) [info objectForKey:
-                                   UIImagePickerControllerEditedImage];
-        originalImage = (UIImage *) [info objectForKey:
-                                     UIImagePickerControllerOriginalImage];
+    if (CFStringCompare((__bridge CFStringRef) mediaType, kUTTypeImage, 0) == kCFCompareEqualTo) {
+        editedImage = (UIImage *) [info objectForKey:UIImagePickerControllerEditedImage];
+        originalImage = (UIImage *) [info objectForKey:UIImagePickerControllerOriginalImage];
 
         if (editedImage) {
             imageToSave = editedImage;
@@ -116,8 +114,6 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
         }
 
         photoImage.image = imageToSave;
-        // Save the new image (original or edited) to the Camera Roll
-//        UIImageWriteToSavedPhotosAlbum(imageToSave, nil, nil , nil);
     }
 
     [self.navigationController dismissModalViewControllerAnimated: YES];

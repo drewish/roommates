@@ -27,4 +27,6 @@
 @property (nonatomic, retain) NSString *fullName;    // User’s full name
 @property (nonatomic, retain) NSURL *avatar;         // User’s avatar url
 @property (nonatomic, retain) NSString *apiToken;    // Token that should be used for accessing the api
+
+- (BOOL)isEqualToUser:(RMUser*) other;
 @end

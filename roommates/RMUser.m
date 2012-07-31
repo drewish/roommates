@@ -60,7 +60,9 @@
 	return [NSString stringWithFormat:@"RMUser (id: %@, first: %@, last: %@, display: %@)", self.userId, self.firstName, self.lastName, self.displayName];
 }
 
-- (BOOL)isEqualToUser:(RMUser*)other {
-    return [self.userId isEqualToNumber:other.userId];
+// Be a little loose so we can compare to RMSession objects.
+- (BOOL)isEqualToUser:(id)other
+{
+    return [self.userId isEqualToNumber:[other userId]];
 }
 @end

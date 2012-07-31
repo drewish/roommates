@@ -6,6 +6,7 @@
 //  Copyright (c) 2012 drewish.com. All rights reserved.
 //
 
+#import <MobileCoreServices/MobileCoreServices.h>
 #import "ExpenseAddViewController.h"
 #import "RMData.h"
 
@@ -17,6 +18,7 @@
     RMExpense *expense;
     NSArray *users;
     NSMutableSet *participants;
+    UIImage *photo;
     NSNumberFormatter *formatter;
     UIGestureRecognizer *tapper;
 }
@@ -117,13 +119,9 @@
 }
 
 - (IBAction)done:(id)sender {
-    // FIXME: let them pick the image instead of hardcoding this test image.
-    UIImage* image = [UIImage imageNamed:@"purty_wood.png"];
-    image = nil;
-
     [SVProgressHUD showWithStatus:@"Posting"];
 
-    [expense postWithImage:image participants:[participants allObjects] onSuccess:^(id object) {
+    [expense postWithImage:photo participants:[participants allObjects] onSuccess:^(id object) {
         NSLog(@"posted ...%@", object);
         [SVProgressHUD showSuccessWithStatus:@""];
         [TestFlight passCheckpoint:@"Create expense"];
@@ -131,11 +129,11 @@
     } onFailure:[RMSession objectValidationErrorBlock]];
 }
 
--(NSDecimalNumber *)amount
+- (NSDecimalNumber *) amount
 {
     return expense.amount;
 }
--(void)setAmount:(NSDecimalNumber *)val
+- (void)setAmount:(NSDecimalNumber *) val
 {
     expense.amount = val;
 
@@ -152,10 +150,22 @@
 {
     return expense.name;
 }
-- (void)setName:(NSString *)val
+- (void)setName:(NSString *) val
 {
     expense.name = val;
     self.navigationItem.rightBarButtonItem.enabled = [self isValid];
+}
+
+- (UIImage *)photo
+{
+    return photo;
+}
+- (void)setPhoto:(UIImage *) photo_
+{
+    // Store it in our instance variable then load the cell where it'll display.
+    photo = photo_;
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:2 inSection:0];
+    [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:NO];
 }
 
 - (BOOL)isValid
@@ -189,11 +199,9 @@
     // Return the number of rows in the section.
     switch (section) {
         case 0:
-            return 2;
+            return 3;
         case 1:
-            return users.count;
-        case 2:
-            return 2;
+            return [users count];
     }
     return 0;
 }
@@ -206,15 +214,15 @@
         if (indexPath.row == 0) {
             cellIdentifier = @"Title";
         }
-        else {
+        else if (indexPath.row == 1) {
             cellIdentifier = @"Amount";
+        }
+        else {
+            cellIdentifier = @"AddPhoto";
         }
     }
     else if (indexPath.section == 1) {
         cellIdentifier = @"Participant";
-    }
-    else if (indexPath.section == 2) {
-        cellIdentifier = @"Split";
     }
 
     cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
@@ -222,7 +230,7 @@
     // Configure the cell...
     if ([cellIdentifier isEqualToString: @"Participant"]) {
         RMUser *user = [self userInCell:indexPath];
-        cell.textLabel.text = [user displayName];
+        cell.textLabel.text = [user isEqualToUser:[RMSession instance]] ? @"Me" : [user displayName];
         if ([participants containsObject:user.userId]) {
             NSDecimalNumber *denominator = [[NSDecimalNumber alloc] initWithInt:participants.count];
             NSDecimalNumber *share = [expense.amount decimalNumberByDividingBy:denominator];
@@ -236,8 +244,8 @@
             cell.detailTextLabel.text = @"";
         }
     }
-    else if ([cellIdentifier isEqualToString: @"Split"]) {
-        //
+    else if ([cellIdentifier isEqualToString: @"AddPhoto"]) {
+        cell.imageView.image = photo;
     }
 
     return cell;
@@ -252,16 +260,19 @@
         UITextField *textField;
         if (indexPath.row == 0) {
             textField = (UITextField*) [cell.contentView viewWithTag:1];
-        } else if (indexPath.row == 1) {
-            textField = (UITextField*) [cell.contentView viewWithTag:2];
+            [textField becomeFirstResponder];
         }
-        [textField becomeFirstResponder];
+        else if (indexPath.row == 1) {
+            textField = (UITextField*) [cell.contentView viewWithTag:2];
+            [textField becomeFirstResponder];
+        }
+        else if (indexPath.row == 2) {
+            [self attachPhoto:nil];
+        }
         return nil;
     }
-    if (indexPath.section == 1) {
-        return indexPath;
-    }
-    return nil;
+
+    return indexPath;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -279,6 +290,61 @@
         [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:YES];
         [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:NO];
     }
+}
+
+#pragma mark Photo handling
+
+- (IBAction)attachPhoto:(id)sender {
+    UIImagePickerController *cameraUI = [[UIImagePickerController alloc] init];
+
+    if (([UIImagePickerController isSourceTypeAvailable: UIImagePickerControllerSourceTypeCamera])) {
+        cameraUI.sourceType = UIImagePickerControllerSourceTypeCamera;
+    }
+    else {
+        cameraUI.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+    }
+
+    // Displays a control that allows the user to choose picture or
+    // movie capture, if both are available:
+    cameraUI.mediaTypes = @[(NSString*) kUTTypeImage];
+
+    [UIImagePickerController availableMediaTypesForSourceType: UIImagePickerControllerSourceTypeCamera];
+
+    // Hides the controls for moving & scaling pictures, or for
+    // trimming movies. To instead show the controls, use YES.
+    cameraUI.allowsEditing = NO;
+    cameraUI.delegate = self;
+
+    [self presentModalViewController: cameraUI animated: YES];
+}
+
+// For responding to the user tapping Cancel.
+- (void) imagePickerControllerDidCancel: (UIImagePickerController *) picker {
+    [self.navigationController dismissModalViewControllerAnimated: YES];
+}
+
+// For responding to the user accepting a newly-captured picture or movie
+- (void)imagePickerController:(UIImagePickerController *)picker
+didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    NSString *mediaType = [info objectForKey: UIImagePickerControllerMediaType];
+    UIImage *originalImage, *editedImage, *imageToSave;
+
+    // Handle a still image capture
+    if (CFStringCompare((__bridge CFStringRef) mediaType, kUTTypeImage, 0) == kCFCompareEqualTo) {
+        editedImage = (UIImage *) [info objectForKey:UIImagePickerControllerEditedImage];
+        originalImage = (UIImage *) [info objectForKey:UIImagePickerControllerOriginalImage];
+
+        if (editedImage) {
+            imageToSave = editedImage;
+        } else {
+            imageToSave = originalImage;
+        }
+
+        [self setPhoto:imageToSave];
+    }
+
+    [self.navigationController dismissModalViewControllerAnimated: YES];
 }
 
 @end

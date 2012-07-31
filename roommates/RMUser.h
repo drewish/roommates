@@ -19,6 +19,6 @@
 @property (nonatomic, retain) NSString *displayName; // User’s display name
 @property (nonatomic, retain) NSString *fullName;    // User’s full name
 
-- (BOOL)isEqualToUser:(RMUser*)other;
+- (BOOL) isEqualToUser:(id) other;
 
 @end
