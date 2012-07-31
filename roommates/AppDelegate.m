@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import "TestFlight.h"
 #import "RootViewController.h"
 #import "RMData.h"
 

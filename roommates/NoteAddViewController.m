@@ -59,6 +59,7 @@
     [RMNote postNote:bodyText.text image:photoImage.image onSuccess:^(id obj){
         NSLog(@"posted ...%@", obj);
         [SVProgressHUD showSuccessWithStatus:@""];
+        [TestFlight passCheckpoint:@"Create note"];
         [self.navigationController popViewControllerAnimated:YES];
     } onFailure:[RMSession objectValidationErrorBlock]];
 }

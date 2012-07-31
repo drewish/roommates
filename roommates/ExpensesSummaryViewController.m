@@ -122,6 +122,7 @@
 
             [self.tableView reloadData];
             [pull finishedLoading];
+            [TestFlight passCheckpoint:@"Viewed expense summary"];
         };
         request.onDidFailLoadWithError = ^(NSError *error) {
             [pull finishedLoading];

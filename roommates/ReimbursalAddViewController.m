@@ -145,6 +145,7 @@
     [SVProgressHUD showWithStatus:@"Posting"];
     [item postOnSuccess:^(id object) {
         [SVProgressHUD showSuccessWithStatus:@""];
+        [TestFlight passCheckpoint:@"Create reimbursal"];
         [self.navigationController popViewControllerAnimated:YES];
     } onFailure:[RMSession objectValidationErrorBlock]];
 }

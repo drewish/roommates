@@ -46,12 +46,10 @@
 
     [RMComment post:bodyText.text toId:commentableId ofType:commentableType onSuccess:^(id obj){
         NSLog(@"posted ...%@", obj);
-        // TODO: Need to get all this UI code out of here and into callbacks.
-        [SVProgressHUD dismiss];
-        
+        [SVProgressHUD showSuccessWithStatus:@""];
+        [TestFlight passCheckpoint:@"Create comment"];
         [self.navigationController popViewControllerAnimated:YES];
     } onFailure:[RMSession objectValidationErrorBlock]];
-
 }
 
 @end

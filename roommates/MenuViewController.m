@@ -184,6 +184,7 @@
 {
     if (actionSheet_.tag == 1 && buttonIndex == 0) {
         [rootController signOut:nil];
+        [TestFlight passCheckpoint:@"Signed out"];
     }
     actionSheet = nil;
 }

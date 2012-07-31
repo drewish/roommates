@@ -114,6 +114,7 @@
         self.navigationItem.rightBarButtonItem.enabled = YES;
         [SVProgressHUD showSuccessWithStatus:@""];
         [self fetchItems];
+        [TestFlight passCheckpoint:@"Create checklist_item"];
     } onFailure:[RMSession objectValidationErrorBlock]];
     return YES;
 }

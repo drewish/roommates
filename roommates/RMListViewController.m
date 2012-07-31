@@ -105,6 +105,7 @@
         [self.tableView reloadData];
         [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:TRUE];
         [pull finishedLoading];
+        [TestFlight passCheckpoint:[NSString stringWithFormat:@"Viewed %@ list", self.dataClass]];
     } onFailure:^(NSError *error) {
         [pull finishedLoading];
         NSLog(@"Couldn't fetch items: %@", error);

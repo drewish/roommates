@@ -40,8 +40,6 @@
     email.text = [defaults stringForKey:@"email"];
     password.text = [defaults stringForKey:@"password"];
     login.enabled = (email.text.length && password.text.length);
-    // @"delany@gmail.com";
-    // @"123456";
 }
 
 - (void)viewDidUnload
@@ -85,17 +83,18 @@
 - (IBAction)login:(id)sender {
     // Get rid of any keyboard so the HUD doesn't end up moving around as much.
     [self.view endEditing:NO];
-    [SVProgressHUD showWithStatus:@"Logging in" maskType: SVProgressHUDMaskTypeBlack];
+    [SVProgressHUD showWithStatus:@"Logging in" maskType:SVProgressHUDMaskTypeBlack];
 
     [RMSession startSessionEmail:email.text Password:password.text OnSuccess:^(RMSession *session) {
         NSLog(@"Loaded User ID #%@ -> Name: %@, token: %@", session.userId, session.fullName, session.apiToken);
-        [SVProgressHUD dismiss];
-        // The signin will fire a notification that will close this view.
+        [TestFlight passCheckpoint:@"Signed in"];
+        // The RootViewController will handle the signin notification and close
+        // this view and dismiss the HUD.
     } OnFailure:^(NSError *error) {
         NSLog(@"Encountered an error: %@", error);
         NSString *message = [[[error userInfo] valueForKeyPath:@"RKObjectMapperErrorObjectsKey.error"] lastObject];
         if (message.length < 1) {
-            message = @"The server is talking trash.";
+            message = @"Sorry, the server is speaking in tongues.";
         }
         [SVProgressHUD showErrorWithStatus:message];
     }];

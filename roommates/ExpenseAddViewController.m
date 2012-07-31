@@ -126,6 +126,7 @@
     [expense postWithImage:image participants:[participants allObjects] onSuccess:^(id object) {
         NSLog(@"posted ...%@", object);
         [SVProgressHUD showSuccessWithStatus:@""];
+        [TestFlight passCheckpoint:@"Create expense"];
         [self.navigationController popViewControllerAnimated:YES];
     } onFailure:[RMSession objectValidationErrorBlock]];
 }

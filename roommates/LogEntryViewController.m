@@ -80,7 +80,6 @@
     frame.origin.x = cell.labelLabel.frame.origin.x + labelSize.width + 10;
     cell.actionLabel.frame = frame;
     
-    // TODO the API should be returning a timestamp that we can format as time ago...
     cell.agoLabel.text = [le.updatedAt timeAgo];
 
     cell.summaryLabel.text = le.summary;
