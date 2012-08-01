@@ -25,7 +25,7 @@
     [mapping mapKeyPath:@"record.creator_id" toAttribute:@"creatorId"];
     [mapping mapKeyPath:@"record.abilities" toAttribute:@"abilities"];
     [mapping mapKeyPath:@"record.name" toAttribute:@"name"];
-    [mapping mapKeyPath:@"record.photo" toAttribute:@"photo"];
+    [mapping mapKeyPath:@"record.photo" toAttribute:@"photoURL"];
     [mapping mapKeyPath:@"record.participations" toAttribute:@"participations"];
 
     // Hook the comments in too.
@@ -56,7 +56,7 @@
                                       method:RKRequestMethodDELETE]];
 }
 
-@synthesize name, photo, participations;
+@synthesize name, photoURL, photo, participations;
 
 - (NSString*)description {
 	return [NSString stringWithFormat:@"RMExpense (id: %@ %@, %d comments)",
@@ -68,10 +68,9 @@
     return @"Expense";
 }
 
-- (void) postWithImage:(UIImage*) image
-          participants:(NSArray*) userIds
-             onSuccess:(RKObjectLoaderDidLoadObjectBlock) success
-             onFailure:(RKObjectLoaderDidFailWithErrorBlock) failure
+- (void) postWithParticipants:(NSArray*) userIds
+                    onSuccess:(RKObjectLoaderDidLoadObjectBlock) success
+                    onFailure:(RKObjectLoaderDidFailWithErrorBlock) failure
 {
     RKObjectManager *mgr = [RKObjectManager sharedManager];
 
@@ -82,9 +81,11 @@
         for (NSNumber *uid in userIds) {
             [params setValue:uid forParam:@"expense[participant_ids][]"];
         }
-
-        if (image != nil) {
-            RKParamsAttachment *attachment = [params setData:UIImagePNGRepresentation(image) MIMEType:@"image/png" forParam:@"expense[photo]"];
+        if (photo) {
+            RKParamsAttachment *attachment = [params
+                                              setData:UIImagePNGRepresentation(photo)
+                                              MIMEType:@"image/png"
+                                              forParam:@"note[photo]"];
             attachment.fileName = @"image.png";
         }
         //        expense[split_type] – empty or “custom” (optional)

@@ -1,4 +1,16 @@
 Roommat.es:
+Today:
+	expenses:
+		- sorting the expense summary in user order
+		- duplicate user's summary in both sections
+		- look at indenting as a way do distinguish the expenses
+		- you owe ? / by ?
+		- font sizing in the notes
+		- clean up note add screen 
+	other:
+		- toolbar with create buttons
+		- take photo button that pops camera then on complete asks what to create then populates it with image.
+
 Login view (8h):
 	- Detect existing API token, if not available display form @done
 	- Create session @done
@@ -25,7 +37,7 @@ Toolbar Buttons (2h):
 Photos (16h):
 	- Image capture @done
 	- Image selection
-	- Serialization and attachment to the data objects
+	- Serialization and attachment to the data objects @done
 	- Figuring out the quirks of uploading to the API since it's not documented.
 	- learn how restkit does multipart form uploads
 Comments:
@@ -61,9 +73,9 @@ Checklist Items List:
 	- todo list view controller @done
 	- Listing view @done
 	- Add item view @done
-	- Upload photo.
 	- Detail item view @done
-	- Toggle completed status
-	- Deletion
-	- Check abilties for delete permission
+	- Deletion @done
+	- Check abilties for delete permission @done
 	- Add comment (with no editing or deletion) @done
+	- Toggle completed status in list
+	- Toggle completed status in detail

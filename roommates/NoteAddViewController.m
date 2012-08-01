@@ -12,20 +12,28 @@
 #import "RMData.h"
 
 @implementation NoteAddViewController {
+    RMNote *note;
     UIGestureRecognizer *tapper;
 }
 
-@synthesize doneButton;
 @synthesize bodyText;
-@synthesize photoImage;
+
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        // Custom initialization
+    }
+    return self;
+}
 
 -(void)viewDidLoad {
-    [bodyText.layer setBorderColor: [[UIColor grayColor] CGColor]];
-    [bodyText.layer setBorderWidth: 1.0];
-    [bodyText.layer setCornerRadius:10.0];
-    [bodyText.layer setMasksToBounds:YES];
-    [bodyText.layer setShadowRadius:5.0];
+    [super viewDidLoad];
 
+    UIImage *image = [UIImage imageNamed:@"purty_wood.png"];
+    self.tableView.backgroundColor = [UIColor colorWithPatternImage:image];
+
+    bodyText.text = note.body;
     [bodyText becomeFirstResponder];
 
     tapper = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
@@ -38,8 +46,6 @@
     tapper = nil;
 
     [self setBodyText:nil];
-    [self setDoneButton:nil];
-    [self setPhotoImage:nil];
     [super viewDidUnload];
 }
 
@@ -50,13 +56,46 @@
 
 -(void)textViewDidChange:(UITextView *)textView
 {
-    doneButton.enabled = textView.hasText;
+    note.body = textView.text;
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+- (NSString *)body
+{
+    return note.body;
+}
+- (void)setBody:(NSString *) val
+{
+    note.body = val;
+    self.navigationItem.rightBarButtonItem.enabled = [self isValid];
+}
+
+- (UIImage *)photo
+{
+    return note.photo;
+}
+- (void)setPhoto:(UIImage *) photo
+{
+    note.photo = photo;
+
+    NSIndexPath *photoIndexPath = [NSIndexPath indexPathForRow:1 inSection:0];
+    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:photoIndexPath];
+    cell.imageView.image = photo;
+    [cell layoutSubviews];
+}
+
+- (BOOL)isValid
+{
+    return note.body.length > 0;
 }
 
 - (IBAction)done:(id)sender {
     [SVProgressHUD showWithStatus:@"Posting"];
-
-    [RMNote postNote:bodyText.text image:photoImage.image onSuccess:^(id obj){
+    [note postOnSuccess:^(id obj){
         NSLog(@"posted ...%@", obj);
         [SVProgressHUD showSuccessWithStatus:@""];
         [TestFlight passCheckpoint:@"Create note"];
@@ -113,10 +152,21 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
             imageToSave = originalImage;
         }
 
-        photoImage.image = imageToSave;
+        self.photo = imageToSave;
     }
 
     [self.navigationController dismissModalViewControllerAnimated: YES];
+}
+
+#pragma mark Table Stuff
+
+-(NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == 0 && indexPath.row == 1) {
+        [self attachPhoto:nil];
+        return nil;
+    }
+    return indexPath;
 }
 
 @end

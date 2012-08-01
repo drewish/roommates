@@ -8,13 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface NoteAddViewController : UIViewController <UITextViewDelegate,
+@interface NoteAddViewController : UITableViewController <UITextViewDelegate,
 UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
-
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *doneButton;
 @property (weak, nonatomic) IBOutlet UITextView *bodyText;
-@property (weak, nonatomic) IBOutlet UIImageView *photoImage;
+
+@property (retain, nonatomic) NSString *body;
+@property (retain, nonatomic) UIImage *photo;
 
 - (IBAction)done:(id)sender;
 - (IBAction)attachPhoto:(id)sender;

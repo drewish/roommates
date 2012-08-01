@@ -38,10 +38,10 @@
 		5F70D2DA15B3B9FD009D6CB6 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F70D2D915B3B9FD009D6CB6 /* Icon@2x.png */; };
 		5F70D2DC15B3C05A009D6CB6 /* purty_wood.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F70D2DB15B3C05A009D6CB6 /* purty_wood.png */; };
 		5F70D2DF15B4747E009D6CB6 /* CommentAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F70D2DE15B4747E009D6CB6 /* CommentAddViewController.m */; };
+		5F7BE28D15C9B16300616576 /* NoteAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F7BE28C15C9B16300616576 /* NoteAddViewController.m */; };
 		5F9A252215BCBCA2004382C4 /* RMTransaction.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F9A252115BCBCA1004382C4 /* RMTransaction.m */; };
 		5F9A252515BCBCBA004382C4 /* RMExpense.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F9A252415BCBCBA004382C4 /* RMExpense.m */; };
 		5F9A252815BCBCC6004382C4 /* RMReimbursal.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F9A252715BCBCC5004382C4 /* RMReimbursal.m */; };
-		5F9A5EDC15AE594E0053D6B3 /* NoteAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F9A5EDB15AE594E0053D6B3 /* NoteAddViewController.m */; };
 		5F9A5EE315AE84F50053D6B3 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F9A5EDE15AE84F50053D6B3 /* arrow.png */; };
 		5F9A5EE415AE84F50053D6B3 /* arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F9A5EDF15AE84F50053D6B3 /* arrow@2x.png */; };
 		5F9A5EE515AE84F50053D6B3 /* PullToRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F9A5EE115AE84F50053D6B3 /* PullToRefreshView.m */; };
@@ -203,14 +203,14 @@
 		5F70D2DB15B3C05A009D6CB6 /* purty_wood.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = purty_wood.png; path = Resources/purty_wood.png; sourceTree = "<group>"; };
 		5F70D2DD15B4747E009D6CB6 /* CommentAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentAddViewController.h; sourceTree = "<group>"; };
 		5F70D2DE15B4747E009D6CB6 /* CommentAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentAddViewController.m; sourceTree = "<group>"; };
+		5F7BE28B15C9B16300616576 /* NoteAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteAddViewController.h; sourceTree = "<group>"; };
+		5F7BE28C15C9B16300616576 /* NoteAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteAddViewController.m; sourceTree = "<group>"; };
 		5F9A252015BCBCA1004382C4 /* RMTransaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMTransaction.h; sourceTree = "<group>"; };
 		5F9A252115BCBCA1004382C4 /* RMTransaction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMTransaction.m; sourceTree = "<group>"; };
 		5F9A252315BCBCBA004382C4 /* RMExpense.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMExpense.h; sourceTree = "<group>"; };
 		5F9A252415BCBCBA004382C4 /* RMExpense.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMExpense.m; sourceTree = "<group>"; };
 		5F9A252615BCBCC5004382C4 /* RMReimbursal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMReimbursal.h; sourceTree = "<group>"; };
 		5F9A252715BCBCC5004382C4 /* RMReimbursal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMReimbursal.m; sourceTree = "<group>"; };
-		5F9A5EDA15AE594E0053D6B3 /* NoteAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteAddViewController.h; sourceTree = "<group>"; };
-		5F9A5EDB15AE594E0053D6B3 /* NoteAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteAddViewController.m; sourceTree = "<group>"; };
 		5F9A5EDE15AE84F50053D6B3 /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
 		5F9A5EDF15AE84F50053D6B3 /* arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow@2x.png"; sourceTree = "<group>"; };
 		5F9A5EE015AE84F50053D6B3 /* PullToRefreshView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PullToRefreshView.h; sourceTree = "<group>"; };
@@ -575,8 +575,8 @@
 				5FFBCFC015A68F1700CF161A /* NoteListViewController.m */,
 				5F15615B15A907C80065BAA2 /* NoteCell.h */,
 				5F15615C15A907C80065BAA2 /* NoteCell.m */,
-				5F9A5EDA15AE594E0053D6B3 /* NoteAddViewController.h */,
-				5F9A5EDB15AE594E0053D6B3 /* NoteAddViewController.m */,
+				5F7BE28B15C9B16300616576 /* NoteAddViewController.h */,
+				5F7BE28C15C9B16300616576 /* NoteAddViewController.m */,
 			);
 			name = Notes;
 			sourceTree = "<group>";
@@ -763,7 +763,6 @@
 				5F15615615A8BFB40065BAA2 /* SigninViewController.m in Sources */,
 				5F15615D15A907C80065BAA2 /* NoteCell.m in Sources */,
 				5F0FAA8215ADB75A005408AF /* RMComment.m in Sources */,
-				5F9A5EDC15AE594E0053D6B3 /* NoteAddViewController.m in Sources */,
 				5F9A5EE515AE84F50053D6B3 /* PullToRefreshView.m in Sources */,
 				5F1ECD4915AFCBBE00C314A6 /* UserViewController.m in Sources */,
 				5F1ECD5215AFD16500C314A6 /* ReimbursalAddViewController.m in Sources */,
@@ -778,6 +777,7 @@
 				5F9A252515BCBCBA004382C4 /* RMExpense.m in Sources */,
 				5F9A252815BCBCC6004382C4 /* RMReimbursal.m in Sources */,
 				5FDD54EA15BDEC1A00C4A78D /* ExpenseAddViewController.m in Sources */,
+				5F7BE28D15C9B16300616576 /* NoteAddViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

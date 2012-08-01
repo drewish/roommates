@@ -26,7 +26,7 @@ static NSArray *cached = nil;
     [mapping mapKeyPath:@"body" toAttribute:@"body"];
     [mapping mapKeyPath:@"created_at" toAttribute:@"createdAt"];
     [mapping mapKeyPath:@"creator_id" toAttribute:@"creatorId"];
-    [mapping mapKeyPath:@"photo" toAttribute:@"photo"];
+    [mapping mapKeyPath:@"photo" toAttribute:@"photoURL"];
     [mapping mapKeyPath:@"abilities" toAttribute:@"abilities"];
 
     // Hook the comments in too.
@@ -44,43 +44,6 @@ static NSArray *cached = nil;
     [routes addRoute:[RKRoute routeWithClass:[self class]
                          resourcePathPattern:@"/api/households/:householdId/notes"
                                       method:RKRequestMethodAny]];
-}
-
-+ (void) postNote:(NSString*) body
-            image:(UIImage*) image
-        onSuccess:(RKObjectLoaderDidLoadObjectBlock) success
-        onFailure:(RKObjectLoaderDidFailWithErrorBlock) failure
-{
-    RKObjectManager *mgr = [RKObjectManager sharedManager];
-    RMNote *note = [RMNote new];
-
-    [mgr postObject:note usingBlock:^(RKObjectLoader *loader) {
-        RKParams* params = [RKParams params];
-        [params setValue:body forParam:@"note[body]"];
-        RKParamsAttachment *attachment = [params setData:UIImagePNGRepresentation(image) MIMEType:@"image/png" forParam:@"note[photo]"];
-        attachment.fileName = @"image.png";
-        loader.params = params;
-
-        loader.onDidFailLoadWithError = ^(NSError *error) {
-            NSLog(@"%@", error);
-            failure(error);
-        };
-        loader.onDidLoadObject = ^(id whatLoaded) {
-            NSLog(@"%@", whatLoaded);
-            success(whatLoaded);
-            [[NSNotificationCenter defaultCenter]
-             postNotificationName:@"RMItemAdded" object:[self class]];
-        };
-        loader.onDidLoadResponse = ^(RKResponse *response) {           
-            NSLog(@"%@", response);
-            // Check for validation errors.
-            if (response.statusCode == 422) {
-                NSError *parseError = nil;
-                NSDictionary *errors = [[response parsedBody:&parseError] objectForKey:@"errors"];
-                failure([NSError errorWithDomain:@"roomat.es" code:100 userInfo:errors]);
-            }
-        };
-    }];
 }
 
 + (void)fetchForHousehold:(NSNumber*) householdId
@@ -111,11 +74,12 @@ static NSArray *cached = nil;
 }
 
 @synthesize noteId, 
-    body, 
-    createdAt, 
-    creatorId, 
-    photo, 
-    abilities, 
+    body,
+    createdAt,
+    creatorId,
+    photoURL,
+    photo,
+    abilities,
     comments;
 
 // FIXME: hack to work around this not being in a property.
@@ -147,6 +111,45 @@ static NSArray *cached = nil;
             success(deletedItem);
             [[NSNotificationCenter defaultCenter]
              postNotificationName:@"RMItemRemoved" object:[self class]];
+        };
+    }];
+}
+
+- (void) postOnSuccess:(RKObjectLoaderDidLoadObjectBlock) success
+             onFailure:(RKObjectLoaderDidFailWithErrorBlock) failure
+{
+    RKObjectManager *mgr = [RKObjectManager sharedManager];
+
+    [mgr postObject:self usingBlock:^(RKObjectLoader *loader) {
+        RKParams* params = [RKParams params];
+        [params setValue:body forParam:@"note[body]"];
+        if (photo) {
+            RKParamsAttachment *attachment = [params
+                                              setData:UIImagePNGRepresentation(photo)
+                                              MIMEType:@"image/png"
+                                              forParam:@"note[photo]"];
+            attachment.fileName = @"image.png";
+        }
+        loader.params = params;
+
+        loader.onDidFailLoadWithError = ^(NSError *error) {
+            NSLog(@"%@", error);
+            failure(error);
+        };
+        loader.onDidLoadObject = ^(id whatLoaded) {
+            NSLog(@"%@", whatLoaded);
+            success(whatLoaded);
+            [[NSNotificationCenter defaultCenter]
+             postNotificationName:@"RMItemAdded" object:[self class]];
+        };
+        loader.onDidLoadResponse = ^(RKResponse *response) {
+            NSLog(@"%@", response);
+            // Check for validation errors.
+            if (response.statusCode == 422) {
+                NSError *parseError = nil;
+                NSDictionary *errors = [[response parsedBody:&parseError] objectForKey:@"errors"];
+                failure([NSError errorWithDomain:@"roomat.es" code:100 userInfo:errors]);
+            }
         };
     }];
 }

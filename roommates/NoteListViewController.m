@@ -151,7 +151,7 @@
             cell.bodyText.backgroundColor = [UIColor colorWithWhite:0.95 alpha:0.4];
 
             // Here we use the new provided setImageWithURL: method to load the web image
-            [cell.photo setImageWithURL:item.photo
+            [cell.photo setImageWithURL:item.photoURL
                        placeholderImage:[UIImage imageNamed:@"placeholder.png"]];
             cell.wrapper.backgroundColor = [UIColor whiteColor];
         }

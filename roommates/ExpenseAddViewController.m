@@ -18,7 +18,6 @@
     RMExpense *expense;
     NSArray *users;
     NSMutableSet *participants;
-    UIImage *photo;
     NSNumberFormatter *formatter;
     UIGestureRecognizer *tapper;
 }
@@ -121,7 +120,7 @@
 - (IBAction)done:(id)sender {
     [SVProgressHUD showWithStatus:@"Posting"];
 
-    [expense postWithImage:photo participants:[participants allObjects] onSuccess:^(id object) {
+    [expense postWithParticipants:[participants allObjects] onSuccess:^(id object) {
         NSLog(@"posted ...%@", object);
         [SVProgressHUD showSuccessWithStatus:@""];
         [TestFlight passCheckpoint:@"Create expense"];
@@ -158,14 +157,16 @@
 
 - (UIImage *)photo
 {
-    return photo;
+    return expense.photo;
 }
-- (void)setPhoto:(UIImage *) photo_
+- (void)setPhoto:(UIImage *) photo
 {
-    // Store it in our instance variable then load the cell where it'll display.
-    photo = photo_;
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:2 inSection:0];
-    [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:NO];
+    expense.photo = photo;
+
+    NSIndexPath *photoIndexPath = [NSIndexPath indexPathForRow:2 inSection:0];
+    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:photoIndexPath];
+    cell.imageView.image = photo;
+    [cell layoutSubviews];
 }
 
 - (BOOL)isValid
@@ -245,7 +246,7 @@
         }
     }
     else if ([cellIdentifier isEqualToString: @"AddPhoto"]) {
-        cell.imageView.image = photo;
+        cell.imageView.image = expense.photo;
     }
 
     return cell;
@@ -286,8 +287,7 @@
             [participants addObject:userId];
         }
         // Changing the participants will change each person's share so reload
-        // the whole section then animate their row.
-        [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:YES];
+        // the whole section.
         [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:NO];
     }
 }
