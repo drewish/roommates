@@ -9,6 +9,7 @@
 #import "SigninViewController.h"
 #import "RootViewController.h"
 #import "RMData.h"
+#import "PDKeychainBindingsController.h"
 
 @interface SigninViewController ()
 
@@ -36,9 +37,9 @@
     self.view.backgroundColor = [UIColor colorWithPatternImage:image];
 
     // Do any additional setup after loading the view.
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    email.text = [defaults stringForKey:@"email"];
-    password.text = [defaults stringForKey:@"password"];
+    PDKeychainBindings *keychain = [PDKeychainBindings sharedKeychainBindings];
+    email.text = [keychain stringForKey:@"email"];
+    password.text = [keychain stringForKey:@"password"];
     login.enabled = (email.text.length && password.text.length);
 }
 
@@ -86,6 +87,12 @@
     [SVProgressHUD showWithStatus:@"Logging in…" maskType:SVProgressHUDMaskTypeGradient];
 
     [RMSession startSessionEmail:email.text Password:password.text OnSuccess:^(RMSession *session) {
+        // Store a copy for loading.
+        PDKeychainBindings *keychain = [PDKeychainBindings sharedKeychainBindings];
+        [keychain setObject:session.apiToken forKey:@"apiToken"];
+        [keychain setObject:email.text forKey:@"email"];
+        [keychain setObject:password.text forKey:@"password"];
+
         NSLog(@"Loaded User ID #%@ -> Name: %@, token: %@", session.userId, session.fullName, session.apiToken);
         [TestFlight passCheckpoint:@"Signed in"];
         // The RootViewController will handle the signin notification and close

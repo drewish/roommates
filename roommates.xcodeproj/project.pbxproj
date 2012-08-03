@@ -24,6 +24,8 @@
 		5F1ECD4915AFCBBE00C314A6 /* UserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F1ECD4815AFCBBE00C314A6 /* UserViewController.m */; };
 		5F1ECD5215AFD16500C314A6 /* ReimbursalAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F1ECD5115AFD16500C314A6 /* ReimbursalAddViewController.m */; };
 		5F286C2D159E93E400310016 /* LogEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F286C2C159E93E400310016 /* LogEntryCell.m */; };
+		5F3325CC15CC35C000020D20 /* PDKeychainBindings.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F3325C915CC35C000020D20 /* PDKeychainBindings.m */; };
+		5F3325CD15CC35C000020D20 /* PDKeychainBindingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F3325CB15CC35C000020D20 /* PDKeychainBindingsController.m */; };
 		5F4540E315A736CE00386BEC /* RMNote.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F4540E215A736CE00386BEC /* RMNote.m */; };
 		5F56E58715B4F9F40086E161 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F56E58615B4F9F40086E161 /* ImageIO.framework */; };
 		5F56E58915B4FBC10086E161 /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F56E58815B4FBC10086E161 /* placeholder.png */; };
@@ -181,6 +183,10 @@
 		5F1ECD5315AFD8AC00C314A6 /* RMData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RMData.h; sourceTree = "<group>"; };
 		5F286C2B159E93E400310016 /* LogEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogEntryCell.h; sourceTree = "<group>"; };
 		5F286C2C159E93E400310016 /* LogEntryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogEntryCell.m; sourceTree = "<group>"; };
+		5F3325C815CC35C000020D20 /* PDKeychainBindings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDKeychainBindings.h; sourceTree = "<group>"; };
+		5F3325C915CC35C000020D20 /* PDKeychainBindings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDKeychainBindings.m; sourceTree = "<group>"; };
+		5F3325CA15CC35C000020D20 /* PDKeychainBindingsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDKeychainBindingsController.h; sourceTree = "<group>"; };
+		5F3325CB15CC35C000020D20 /* PDKeychainBindingsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDKeychainBindingsController.m; sourceTree = "<group>"; };
 		5F4540E115A736CE00386BEC /* RMNote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNote.h; sourceTree = "<group>"; };
 		5F4540E215A736CE00386BEC /* RMNote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNote.m; sourceTree = "<group>"; };
 		5F56E57415B4F93C0086E161 /* SDWebImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SDWebImage.xcodeproj; path = ../SDWebImage/SDWebImage.xcodeproj; sourceTree = "<group>"; };
@@ -309,6 +315,7 @@
 			isa = PBXGroup;
 			children = (
 				5F011FC715B7A9F500951A67 /* NSDate-TimeAgo */,
+				5F3325C715CC35C000020D20 /* PDKeychainBindingsController */,
 				5F9A5EDD15AE84F40053D6B3 /* PullToRefresh */,
 				5FD47597159B51C900F4907C /* RestKit.xcodeproj */,
 				5F56E57415B4F93C0086E161 /* SDWebImage.xcodeproj */,
@@ -405,6 +412,18 @@
 			);
 			name = ActivityFeed;
 			sourceTree = "<group>";
+		};
+		5F3325C715CC35C000020D20 /* PDKeychainBindingsController */ = {
+			isa = PBXGroup;
+			children = (
+				5F3325C815CC35C000020D20 /* PDKeychainBindings.h */,
+				5F3325C915CC35C000020D20 /* PDKeychainBindings.m */,
+				5F3325CA15CC35C000020D20 /* PDKeychainBindingsController.h */,
+				5F3325CB15CC35C000020D20 /* PDKeychainBindingsController.m */,
+			);
+			name = PDKeychainBindingsController;
+			path = PDKeychainBindingsController/PDKeychainBindingsController;
+			sourceTree = SOURCE_ROOT;
 		};
 		5F703C341598FECC00EA51DF = {
 			isa = PBXGroup;
@@ -778,6 +797,8 @@
 				5F9A252815BCBCC6004382C4 /* RMReimbursal.m in Sources */,
 				5FDD54EA15BDEC1A00C4A78D /* ExpenseAddViewController.m in Sources */,
 				5F7BE28D15C9B16300616576 /* NoteAddViewController.m in Sources */,
+				5F3325CC15CC35C000020D20 /* PDKeychainBindings.m in Sources */,
+				5F3325CD15CC35C000020D20 /* PDKeychainBindingsController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

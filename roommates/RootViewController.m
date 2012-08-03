@@ -9,6 +9,7 @@
 #import "RootViewController.h"
 #import "SigninViewController.h"
 #import "RMData.h"
+#import "PDKeychainBindingsController.h"
 
 @interface RootViewController ()
 
@@ -50,14 +51,18 @@
 {
     // When we start up check if we need to login.
     if (![[RMSession instance] userId]) {
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        NSString *email = [defaults stringForKey:@"email"];
-        NSString *password = [defaults stringForKey:@"password"];
+        PDKeychainBindings *keychain = [PDKeychainBindings sharedKeychainBindings];
+        NSString *email = [keychain stringForKey:@"email"];
+        NSString *password = [keychain stringForKey:@"password"];
         if (email.length > 0 && password.length > 0) {
             [SVProgressHUD showWithStatus:@"Connecting…" maskType:SVProgressHUDMaskTypeGradient];
             [RMSession startSessionEmail:email Password:password OnSuccess:^(id object) {
                 // Should be good...
             } OnFailure:^(NSError *error) {
+                // Our saved stuff was bad.
+                [keychain removeObjectForKey:@"apiToken"];
+                [keychain removeObjectForKey:@"password"];
+
                 [SVProgressHUD dismiss];
                 [self showSignIn:nil];
             }];
@@ -155,7 +160,14 @@
 - (IBAction)signOut:(id)sender {
     NSLog(@"Signing out…");
     [SVProgressHUD showWithStatus:@"Signing out"];
+
+    // Delete saved credentials.
+    PDKeychainBindings *keychain = [PDKeychainBindings sharedKeychainBindings];
+    [keychain removeObjectForKey:@"apiToken"];
+    [keychain removeObjectForKey:@"password"];
+
     [RMSession endSession];
+
     [self revealToggle:self];
 }
 

@@ -96,11 +96,6 @@ static RMSession *gInstance = nil;
             // Put our auth token into the parameter list for future requests.
             NSString *apiToken = [NSString stringWithFormat:@"Token token=\"%@\"", session.apiToken];
             [[RKObjectManager sharedManager].client setValue:apiToken forHTTPHeaderField:@"Authorization"];
-            // Store a copy for loading.
-            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-            [defaults setObject:apiToken forKey:@"apiToken"];
-            [defaults setObject:email forKey:@"email"];
-            [defaults setObject:password forKey:@"password"];
 
             success(session);
 
@@ -109,13 +104,7 @@ static RMSession *gInstance = nil;
             [[NSNotificationCenter defaultCenter] 
              postNotificationName:@"RMSessionStarted" object:self];
         };
-        loader.onDidFailWithError = ^(NSError *error) {
-            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-            [defaults removeObjectForKey:@"apiToken"];
-            [defaults removeObjectForKey:@"password"];
-
-            failure(error);
-        };
+        loader.onDidFailWithError = failure; //^(NSError *error) { failure(error); };
     }];
 }
 
@@ -132,10 +121,6 @@ static RMSession *gInstance = nil;
         [manager.client.requestCache invalidateAll];
         // ...clear out stored data...
         [manager.objectStore deletePersistentStore];
-        // ...delete save credentials...
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        [defaults removeObjectForKey:@"apiToken"];
-        [defaults removeObjectForKey:@"password"];
         // ...DELETE the session and let them know when we've finished.
         [[RKObjectManager sharedManager].client delete:@"/api/session" usingBlock:^(RKRequest *request) {
             request.onDidLoadResponse = ^(RKResponse *response) {

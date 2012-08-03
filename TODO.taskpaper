@@ -1,15 +1,9 @@
 Roommat.es:
 Today:
-	expenses:
-		- sorting the expense summary in user order
-		- duplicate user's summary in both sections
-		- look at indenting as a way do distinguish the expenses
-		- you owe ? / by ?
-		- font sizing in the notes
-		- clean up note add screen 
-	other:
-		- toolbar with create buttons
-		- take photo button that pops camera then on complete asks what to create then populates it with image.
+	- clean up note add screen @done
+	- toolbar with create buttons
+	- take photo button that pops camera then on complete asks what to create then populates it with image.
+	- move email/password saving to keychain @done
 
 Login view (8h):
 	- Detect existing API token, if not available display form @done
@@ -17,8 +11,9 @@ Login view (8h):
 	- Pop open Safari for creation @done
 	- Get return buttons working in login text fields @done
 	- fix alpha "disabling" of login button. the alpha way i'm doing it is wonky. @done
-	- move email/password saving to keychain
+	- move email/password saving to keychain @done
 	- sort out the graphic/background @done
+	- sign in button appears/disappears a keystroke behind.
 Menu view (8h):
 	- Finish adding gesture recognizers @done
 	- Load appropriate ViewController @done
@@ -46,11 +41,11 @@ Comments:
 	- Display table of posted comments @done
 Expense Summary:
 	- Top and bottom sections are switched. Household should be at the bottom. @done
-	- Bottom half of summery should list "You" again but needs to copy from balance section.
-	- Figure out sorting of expenses.
+	- Bottom half of summery should list "You" again but needs to copy from balance section. @done
+	- Figure out sorting of expenses. @done
 Expense Creation:
 	- Create view. @done
-	- Specify how split should work.
+	- Specify how split should work. @defered
 	- Post to server.
 	- Upload photo.
 Reimbursement Creation (2d?):
@@ -63,6 +58,7 @@ Notes:
 	- Add comment (with no editing or deletion) @done
 	- Scale comments acording to their length @done
 	- Scale comments acording to their length @done
+	- Font sizing in the list
 	- Deletion? Phase last.
 	- Check abilties for delete permission
 	- Upload photo.

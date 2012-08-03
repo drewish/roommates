@@ -16,3 +16,6 @@
 [submodule "NSDate-TimeAgo"]
 	path = NSDate-TimeAgo
 	url = https://github.com/kevinlawler/NSDate-TimeAgo
+[submodule "PDKeychainBindingsController"]
+	path = PDKeychainBindingsController
+	url = git://github.com/carlbrown/PDKeychainBindingsController.git
