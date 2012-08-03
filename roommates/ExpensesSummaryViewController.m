@@ -7,27 +7,10 @@
 //
 
 #import "ExpensesSummaryViewController.h"
+#import "ExpensesSummaryItem.h"
 #import "RMData.h"
 
-@interface ExpensesSummaryItem : NSObject
-@property(retain) RMUser *user;
-@property(retain) NSDecimalNumber *amount;
-+(id) itemWithUserId:(NSNumber*) userId forAmount:(NSDecimalNumber*) amount;
-@end
-
-@implementation ExpensesSummaryItem
-@synthesize user, amount;
-+(id) itemWithUserId:(NSNumber*) userId forAmount:(NSDecimalNumber*) amount
-{
-    ExpensesSummaryItem *item = [self new];
-    item.user = [[RMUser users] objectForKey: userId];
-    item.amount = amount;
-    return item;
-}
-@end
-
 @implementation ExpensesSummaryViewController {
-    PullToRefreshView *pull;
     NSDecimalNumber *myBalance;
     NSMutableArray *top;
     NSMutableArray *bottom;
@@ -45,34 +28,14 @@
     return self;
 }
 
+- (Class)dataClass
+{
+    return [RMTransaction class];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    UIImage *image = [UIImage imageNamed:@"purty_wood.png"];
-    self.tableView.backgroundColor = [UIColor colorWithPatternImage:image];
-
-    pull = [[PullToRefreshView alloc] initWithScrollView:(UIScrollView *) self.tableView];
-    [pull setDelegate:self];
-    [self.tableView addSubview:pull];
-
-	if ([self.navigationController.parentViewController respondsToSelector:@selector(revealGesture:)] && [self.navigationController.parentViewController respondsToSelector:@selector(revealToggle:)]) {
-		UIPanGestureRecognizer *navigationBarPanGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self.navigationController.parentViewController action:@selector(revealGesture:)];
-		[self.navigationController.navigationBar addGestureRecognizer:navigationBarPanGestureRecognizer];
-
-		self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"reveal.png"] style:UIBarButtonItemStylePlain target:self.navigationController.parentViewController action:@selector(revealToggle:)];
-	}
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fetchOnNotification:) name:@"RMHouseholdSelected" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fetchOnNotification:) name:@"RMItemAdded" object:[RMTransaction class]];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fetchOnNotification:) name:@"RMItemRemoved" object:[RMTransaction class]];
-
-    [self fetchItems];
-}
-
-- (void)fetchOnNotification:(NSNotification*)note
-{
-    [self fetchItems];
 }
 
 - (void)viewDidUnload
@@ -80,21 +43,14 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
-    pull = nil;
     myBalance = nil;
     top = nil;
     bottom = nil;
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-
-- (void)pullToRefreshViewShouldRefresh:(PullToRefreshView *)view;
-{
-    [self fetchItems];
 }
 
 - (void)fetchItems {
@@ -109,8 +65,6 @@
         request.onDidLoadResponse = ^(RKResponse *response) {
             NSError *parseError = nil;
             NSDictionary *body = [response parsedBody:&parseError];
-
-            NSDecimalNumber *negativeOne = [NSDecimalNumber decimalNumberWithMantissa:1 exponent:0 isNegative:YES];
             NSMutableDictionary *balances = [NSMutableDictionary dictionaryWithDictionary:
                                              [body valueForKeyPath:@"balances"]];
             NSNumber *myId = [RMSession instance].userId;
@@ -136,28 +90,19 @@
                     [bottom addObject:[ExpensesSummaryItem itemWithUserId:userId forAmount:amount]];
                 }
             }
-
+            
             [self.tableView reloadData];
-            [pull finishedLoading];
+            [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:TRUE];
+            [self.pull finishedLoading];
             [TestFlight passCheckpoint:@"Viewed expense summary"];
         };
         request.onDidFailLoadWithError = ^(NSError *error) {
-            [pull finishedLoading];
+            [self.pull finishedLoading];
             [SVProgressHUD showErrorWithStatus:@"Can't connect"];
             NSLog(@"%@", [error description]);
         };
     }];
 }
-
-- (IBAction)testIt:(id)sender {
-    [RMTransaction fetchForHousehold:[RMHousehold current].householdId
-                          withParams:nil onSuccess:^(NSArray *objects) {
-        NSLog(@"%@", objects);
-    } onFailure:^(NSError *error) {
-        NSLog(@"%@", error);
-    }];
-}
-
 
 #pragma mark - Table view data source
 

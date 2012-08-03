@@ -8,18 +8,12 @@
 
 #import "RMListViewController.h"
 #import "RMObject.h"
-
 #import "RMLogEntry.h"
 
-@interface RMListViewController ()
-
-@end
-
 @implementation RMListViewController {
-    PullToRefreshView *pull;
 }
 
-@synthesize items = _items;
+@synthesize items = _items, pull;
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
@@ -109,11 +103,7 @@
     } onFailure:^(NSError *error) {
         [pull finishedLoading];
         NSLog(@"Couldn't fetch items: %@", error);
-        [[[UIAlertView alloc] initWithTitle:@"Error"
-                                    message:[error localizedDescription]
-                                   delegate:nil
-                          cancelButtonTitle:@"OK"
-                          otherButtonTitles:nil] show];
+        [SVProgressHUD showErrorWithStatus:@"Can't connect"];
     }];
 }
 

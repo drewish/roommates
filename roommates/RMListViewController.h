@@ -13,6 +13,8 @@
 
 @interface RMListViewController : UITableViewController <PullToRefreshViewDelegate>
 
+// Handles our pull to refresh, sub classes need access.
+@property (readonly) PullToRefreshView *pull;
 // Array of items returned by fetching.
 @property (nonatomic, retain) NSMutableArray* items;
 // Optional dictionary of parameters to pass to the fetch.

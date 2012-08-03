@@ -8,11 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import <RestKit/RestKit.h>
-#import "PullToRefreshView.h"
+#import "RMListViewController.h"
 
-@interface ExpensesSummaryViewController : UITableViewController <PullToRefreshViewDelegate>
+@interface ExpensesSummaryViewController : RMListViewController
 
 - (void)fetchItems;
-- (IBAction)testIt:(id)sender;
 
 @end

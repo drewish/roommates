@@ -26,6 +26,7 @@
 		5F286C2D159E93E400310016 /* LogEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F286C2C159E93E400310016 /* LogEntryCell.m */; };
 		5F3325CC15CC35C000020D20 /* PDKeychainBindings.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F3325C915CC35C000020D20 /* PDKeychainBindings.m */; };
 		5F3325CD15CC35C000020D20 /* PDKeychainBindingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F3325CB15CC35C000020D20 /* PDKeychainBindingsController.m */; };
+		5F3325D015CC689A00020D20 /* ExpensesSummaryItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F3325CF15CC689A00020D20 /* ExpensesSummaryItem.m */; };
 		5F4540E315A736CE00386BEC /* RMNote.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F4540E215A736CE00386BEC /* RMNote.m */; };
 		5F56E58715B4F9F40086E161 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F56E58615B4F9F40086E161 /* ImageIO.framework */; };
 		5F56E58915B4FBC10086E161 /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F56E58815B4FBC10086E161 /* placeholder.png */; };
@@ -187,6 +188,8 @@
 		5F3325C915CC35C000020D20 /* PDKeychainBindings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDKeychainBindings.m; sourceTree = "<group>"; };
 		5F3325CA15CC35C000020D20 /* PDKeychainBindingsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDKeychainBindingsController.h; sourceTree = "<group>"; };
 		5F3325CB15CC35C000020D20 /* PDKeychainBindingsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDKeychainBindingsController.m; sourceTree = "<group>"; };
+		5F3325CE15CC689A00020D20 /* ExpensesSummaryItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpensesSummaryItem.h; sourceTree = "<group>"; };
+		5F3325CF15CC689A00020D20 /* ExpensesSummaryItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpensesSummaryItem.m; sourceTree = "<group>"; };
 		5F4540E115A736CE00386BEC /* RMNote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNote.h; sourceTree = "<group>"; };
 		5F4540E215A736CE00386BEC /* RMNote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNote.m; sourceTree = "<group>"; };
 		5F56E57415B4F93C0086E161 /* SDWebImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SDWebImage.xcodeproj; path = ../SDWebImage/SDWebImage.xcodeproj; sourceTree = "<group>"; };
@@ -374,6 +377,8 @@
 			children = (
 				5F0CA1EC15B0B1DF00C7CFAC /* ExpensesSummaryViewController.h */,
 				5F0CA1ED15B0B1DF00C7CFAC /* ExpensesSummaryViewController.m */,
+				5F3325CE15CC689A00020D20 /* ExpensesSummaryItem.h */,
+				5F3325CF15CC689A00020D20 /* ExpensesSummaryItem.m */,
 				5FDD54E815BDEC1A00C4A78D /* ExpenseAddViewController.h */,
 				5FDD54E915BDEC1A00C4A78D /* ExpenseAddViewController.m */,
 				5F1ECD5015AFD16500C314A6 /* ReimbursalAddViewController.h */,
@@ -799,6 +804,7 @@
 				5F7BE28D15C9B16300616576 /* NoteAddViewController.m in Sources */,
 				5F3325CC15CC35C000020D20 /* PDKeychainBindings.m in Sources */,
 				5F3325CD15CC35C000020D20 /* PDKeychainBindingsController.m in Sources */,
+				5F3325D015CC689A00020D20 /* ExpensesSummaryItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
