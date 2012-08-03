@@ -1,9 +1,7 @@
 Roommat.es:
 Today:
-	- clean up note add screen @done
 	- toolbar with create buttons
 	- take photo button that pops camera then on complete asks what to create then populates it with image.
-	- move email/password saving to keychain @done
 
 Login view (8h):
 	- Detect existing API token, if not available display form @done
@@ -13,7 +11,7 @@ Login view (8h):
 	- fix alpha "disabling" of login button. the alpha way i'm doing it is wonky. @done
 	- move email/password saving to keychain @done
 	- sort out the graphic/background @done
-	- sign in button appears/disappears a keystroke behind.
+	- sign in button appears/disappears a keystroke behind. @done
 Menu view (8h):
 	- Finish adding gesture recognizers @done
 	- Load appropriate ViewController @done
@@ -23,7 +21,6 @@ Menu view (8h):
 	- Add a gesture recognizer on the foreground view so touching it when the menu is shown toggles to show full content.
 Activity Feed TableView (4-8h):
 	- Touch navigates to appropriate detail view
-	- Strike through completed text (iOS doesn't support strike through text)
 	- Format updated dates as time ago (API is currently sending out years) @done
 	- Fetch additional pages? The comps don't really show how many feed items to show or how they'd go about seeing more
 	- Possibly put sections into days if it's not too hard.
@@ -46,7 +43,7 @@ Expense Summary:
 Expense Creation:
 	- Create view. @done
 	- Specify how split should work. @defered
-	- Post to server.
+	- Post to server. @done
 	- Upload photo.
 Reimbursement Creation (2d?):
 	- Edit/create view @done
@@ -74,4 +71,4 @@ Checklist Items List:
 	- Check abilties for delete permission @done
 	- Add comment (with no editing or deletion) @done
 	- Toggle completed status in list
-	- Toggle completed status in detail
+	- Toggle completed status in detail @done

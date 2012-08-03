@@ -27,6 +27,8 @@
 		5F3325CC15CC35C000020D20 /* PDKeychainBindings.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F3325C915CC35C000020D20 /* PDKeychainBindings.m */; };
 		5F3325CD15CC35C000020D20 /* PDKeychainBindingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F3325CB15CC35C000020D20 /* PDKeychainBindingsController.m */; };
 		5F3325D015CC689A00020D20 /* ExpensesSummaryItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F3325CF15CC689A00020D20 /* ExpensesSummaryItem.m */; };
+		5F3325D315CC6AD900020D20 /* checkmark_off.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F3325D115CC6AD900020D20 /* checkmark_off.png */; };
+		5F3325D415CC6AD900020D20 /* checkmark_on.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F3325D215CC6AD900020D20 /* checkmark_on.png */; };
 		5F4540E315A736CE00386BEC /* RMNote.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F4540E215A736CE00386BEC /* RMNote.m */; };
 		5F56E58715B4F9F40086E161 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F56E58615B4F9F40086E161 /* ImageIO.framework */; };
 		5F56E58915B4FBC10086E161 /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F56E58815B4FBC10086E161 /* placeholder.png */; };
@@ -190,6 +192,8 @@
 		5F3325CB15CC35C000020D20 /* PDKeychainBindingsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDKeychainBindingsController.m; sourceTree = "<group>"; };
 		5F3325CE15CC689A00020D20 /* ExpensesSummaryItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpensesSummaryItem.h; sourceTree = "<group>"; };
 		5F3325CF15CC689A00020D20 /* ExpensesSummaryItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpensesSummaryItem.m; sourceTree = "<group>"; };
+		5F3325D115CC6AD900020D20 /* checkmark_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = checkmark_off.png; path = Resources/checkmark_off.png; sourceTree = "<group>"; };
+		5F3325D215CC6AD900020D20 /* checkmark_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = checkmark_on.png; path = Resources/checkmark_on.png; sourceTree = "<group>"; };
 		5F4540E115A736CE00386BEC /* RMNote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNote.h; sourceTree = "<group>"; };
 		5F4540E215A736CE00386BEC /* RMNote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNote.m; sourceTree = "<group>"; };
 		5F56E57415B4F93C0086E161 /* SDWebImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SDWebImage.xcodeproj; path = ../SDWebImage/SDWebImage.xcodeproj; sourceTree = "<group>"; };
@@ -546,6 +550,8 @@
 		5FBCC83815B5BBBF0031CBB1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5F3325D115CC6AD900020D20 /* checkmark_off.png */,
+				5F3325D215CC6AD900020D20 /* checkmark_on.png */,
 				5FAD3D8C15C42D4C002E0F86 /* logo.png */,
 				5FAD3D8D15C42D4C002E0F86 /* logo@2x.png */,
 				5FAD3D8E15C42D4C002E0F86 /* background@2x.png */,
@@ -759,6 +765,8 @@
 				5FAD3D9115C42D4C002E0F86 /* logo@2x.png in Resources */,
 				5FAD3D9215C42D4C002E0F86 /* background@2x.png in Resources */,
 				5FAD3D9315C42D4C002E0F86 /* background.png in Resources */,
+				5F3325D315CC6AD900020D20 /* checkmark_off.png in Resources */,
+				5F3325D415CC6AD900020D20 /* checkmark_on.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

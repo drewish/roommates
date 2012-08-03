@@ -19,12 +19,13 @@
 @property (nonatomic, retain) NSNumber* checklistItemId; // ID of note
 @property (nonatomic, retain) NSString* kind;            // KIND of checklist item (either ‘todo’ or ‘shopping’)
 @property (nonatomic, retain) NSString* title;           // checklist item title
-@property (nonatomic, retain) NSNumber* completed;       // creation time
+@property (nonatomic, retain) NSNumber* completed;       // whether checklist item is completed or not
 
 - (void) postOnSuccess:(RKObjectLoaderDidLoadObjectBlock) success
              onFailure:(RKObjectLoaderDidFailWithErrorBlock) failure;
 - (void) deleteItemOnSuccess:(RKObjectLoaderDidLoadObjectsBlock) success
                    onFailure:(RKObjectLoaderDidFailWithErrorBlock) failure;
-
+- (void) toggleOnSuccess:(RKObjectLoaderDidLoadObjectBlock) success
+               onFailure:(RKObjectLoaderDidFailWithErrorBlock) failure;
 
 @end

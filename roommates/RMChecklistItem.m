@@ -22,7 +22,7 @@ static NSArray *cached = nil;
 {
     RKObjectMapping* mapping = [RKObjectMapping mappingForClass:[self class]];
     [mapping mapKeyPath:@"id" toAttribute:@"checklistItemId"];
-    [mapping mapAttributesFromSet:[NSArray arrayWithObjects:@"kind", @"title",
+    [mapping mapAttributesFromSet:[NSSet setWithObjects:@"kind", @"title",
                                    @"completed", @"abilities", nil]];
 
     // Hook the comments in too.
@@ -30,12 +30,21 @@ static NSArray *cached = nil;
             withMapping:[provider objectMappingForClass:[RMComment class]]];
 
     [provider addObjectMapping:mapping];
+    // I agree this is stupid verbose but he's got a lot of routes.
     [provider setObjectMapping:mapping forResourcePathPattern:@"/api/households/:householdId/checklist_items"];
+    [provider setObjectMapping:mapping forResourcePathPattern:@"/api/households/:householdId/checklist_items/:checklistItemId/toggle"];
+    [provider setObjectMapping:mapping forResourcePathPattern:@"/api/households/:householdId/checklist_items/:checklistItemId/toggle"];
     // This should work if my pull request gets accepted: https://github.com/RestKit/RestKit/pull/871
     //[provider setObjectMapping:mapping forResourcePathPattern:@"/api/households/:householdId/checklist_items?kind=:kind"];
     // Use this fallback in the mean time.
     [provider setObjectMapping:mapping forResourcePathPattern:@"/api/households/:householdId/checklist_items?kind=todo"];
     [provider setObjectMapping:mapping forResourcePathPattern:@"/api/households/:householdId/checklist_items?kind=shopping"];
+
+    RKObjectMapping *serialization = [RKObjectMapping mappingForClass:[NSMutableDictionary class]];
+    [serialization mapKeyPath:@"title" toAttribute:@"item[title]"];
+    [serialization mapKeyPath:@"kind" toAttribute:@"item[kind]"];
+    [serialization mapKeyPath:@"completed" toAttribute:@"item[completed]"];
+    [provider setSerializationMapping:serialization forClass:[self class]];
 }
 
 + (void) registerRoutesWith:(RKRouteSet*) routes {
@@ -122,15 +131,7 @@ static NSArray *cached = nil;
     RKObjectManager *mgr = [RKObjectManager sharedManager];
     
     [mgr postObject:self usingBlock:^(RKObjectLoader *loader) {
-        RKParams* params = [RKParams params];
-        [params setValue:self.title forParam:@"item[title]"];
-        [params setValue:self.kind forParam:@"item[kind]"];
-        loader.params = params;
-        
-        loader.onDidFailLoadWithError = ^(NSError *error) {
-            NSLog(@"%@", error);
-            failure(error);
-        };
+        loader.onDidFailLoadWithError = failure;
         loader.onDidLoadObject = ^(id whatLoaded) {
             NSLog(@"%@", whatLoaded);
             success(whatLoaded);
@@ -158,15 +159,26 @@ static NSArray *cached = nil;
                    onFailure:(RKObjectLoaderDidFailWithErrorBlock) failure
 {
     [[RKObjectManager sharedManager] deleteObject:self usingBlock:^(RKObjectLoader *loader) {
-        loader.onDidFailLoadWithError = ^(NSError *error) {
-            NSLog(@"%@", error);
-            failure(error);
-        };
+        loader.onDidFailLoadWithError = failure;
         loader.onDidLoadObject = ^(id deletedItem) {
             NSLog(@"%@", deletedItem);
             success(deletedItem);
             [[NSNotificationCenter defaultCenter]
              postNotificationName:@"RMItemRemoved" object:[self class]];
+        };
+    }];
+}
+
+- (void) toggleOnSuccess:(RKObjectLoaderDidLoadObjectBlock) success
+               onFailure:(RKObjectLoaderDidFailWithErrorBlock) failure
+{
+    [[RKObjectManager sharedManager] putObject:self usingBlock:^(RKObjectLoader *loader) {
+        loader.onDidFailLoadWithError = failure;
+        loader.onDidLoadObject = ^(id changedItem) {
+            NSLog(@"%@", changedItem);
+            success(changedItem);
+            [[NSNotificationCenter defaultCenter]
+             postNotificationName:@"RMItemChanged" object:[self class]];
         };
     }];
 }
