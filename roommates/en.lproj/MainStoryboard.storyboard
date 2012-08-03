@@ -273,7 +273,7 @@
                         <sections>
                             <tableViewSection headerTitle="Household" id="8UE-O0-TOx">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="eWT-mr-UKt" style="IBUITableViewCellStyleDefault" id="gsX-Fg-XzH">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="gray" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="eWT-mr-UKt" style="IBUITableViewCellStyleDefault" id="gsX-Fg-XzH">
                                         <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -291,7 +291,7 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="NKX-4n-JJ9" style="IBUITableViewCellStyleDefault" id="sgS-3a-y4l">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="gray" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="NKX-4n-JJ9" style="IBUITableViewCellStyleDefault" id="sgS-3a-y4l">
                                         <rect key="frame" x="0.0" y="66" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -309,7 +309,7 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="nwP-Vx-rex" style="IBUITableViewCellStyleDefault" id="gyD-tR-QqD">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="gray" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="nwP-Vx-rex" style="IBUITableViewCellStyleDefault" id="gyD-tR-QqD">
                                         <rect key="frame" x="0.0" y="110" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -327,7 +327,7 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="FiD-XW-cME" style="IBUITableViewCellStyleDefault" id="e94-2C-q1l">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="gray" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="FiD-XW-cME" style="IBUITableViewCellStyleDefault" id="e94-2C-q1l">
                                         <rect key="frame" x="0.0" y="154" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -345,7 +345,7 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="ejp-ge-obx" style="IBUITableViewCellStyleDefault" id="Iy1-rz-q2n">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="gray" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="ejp-ge-obx" style="IBUITableViewCellStyleDefault" id="Iy1-rz-q2n">
                                         <rect key="frame" x="0.0" y="198" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -367,7 +367,7 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Settings" id="faD-uk-kOc">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="16r-fG-NzX" style="IBUITableViewCellStyleDefault" id="LvH-hB-Or0">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="gray" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="16r-fG-NzX" style="IBUITableViewCellStyleDefault" id="LvH-hB-Or0">
                                         <rect key="frame" x="0.0" y="264" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -385,7 +385,7 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="34j-4j-Dse" style="IBUITableViewCellStyleDefault" id="jXi-zj-Ivl">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="gray" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="34j-4j-Dse" style="IBUITableViewCellStyleDefault" id="jXi-zj-Ivl">
                                         <rect key="frame" x="0.0" y="308" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -599,10 +599,10 @@
                                     <rect key="frame" x="10" y="0.0" width="300" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="You are owed:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="DrY-JN-ZE2">
-                                            <rect key="frame" x="10" y="11" width="110" height="21"/>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="You are owed" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="DrY-JN-ZE2">
+                                            <rect key="frame" x="10" y="11" width="111" height="21"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </label>
@@ -610,7 +610,7 @@
                                             <rect key="frame" x="246" y="11" width="44" height="21"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.21960784310000001" green="0.3294117647" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" red="0.2196078431372549" green="0.32941176470588235" blue="0.52941176470588236" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </label>
                                     </subviews>
@@ -1299,20 +1299,7 @@
                             <outlet property="delegate" destination="eT4-69-lhV" id="ZzW-kL-7eS"/>
                         </connections>
                     </tableView>
-                    <toolbarItems>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="sSQ-y1-Tfl"/>
-                        <barButtonItem systemItem="compose" id="FZH-rv-rtL">
-                            <connections>
-                                <action selector="addComment:" destination="eT4-69-lhV" id="M7J-p3-j0K"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="PfY-Ml-rhv"/>
-                        <barButtonItem systemItem="trash" id="W4a-3j-zc3">
-                            <connections>
-                                <action selector="deleteItem:" destination="eT4-69-lhV" id="ZaI-Of-ZYI"/>
-                            </connections>
-                        </barButtonItem>
-                    </toolbarItems>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="To-Do's" id="Rdv-8S-lzD"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -1326,110 +1313,6 @@
     <resources>
         <image name="logo.png" width="240" height="90"/>
     </resources>
-    <classes>
-        <class className="ChecklistItemDetailViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ChecklistItemDetailViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="addComment:"/>
-                <relationship kind="action" name="deleteItem:"/>
-                <relationship kind="outlet" name="deleteButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="ChecklistItemListViewController" superclassName="RMListViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ChecklistItemListViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="add:"/>
-            </relationships>
-        </class>
-        <class className="CommentAddViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CommentAddViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="done:"/>
-                <relationship kind="outlet" name="bodyText" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="doneButton" candidateClass="UIBarButtonItem"/>
-            </relationships>
-        </class>
-        <class className="ExpenseAddViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ExpenseAddViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="done:"/>
-            </relationships>
-        </class>
-        <class className="ExpensesSummaryViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ExpensesSummaryViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="testIt:"/>
-            </relationships>
-        </class>
-        <class className="LogEntryCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LogEntryCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="actionLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="agoLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="labelLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="summaryLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="LogEntryViewController" superclassName="RMListViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LogEntryViewController.h"/>
-        </class>
-        <class className="MenuViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MenuViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="signOut:"/>
-                <relationship kind="action" name="switchHousehold:"/>
-            </relationships>
-        </class>
-        <class className="NoteAddViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NoteAddViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="attachPhoto:"/>
-                <relationship kind="action" name="done:"/>
-                <relationship kind="outlet" name="bodyText" candidateClass="UITextView"/>
-            </relationships>
-        </class>
-        <class className="NoteCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NoteCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="bodyText" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="photo" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="userLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="wrapper" candidateClass="UIView"/>
-            </relationships>
-        </class>
-        <class className="NoteListViewController" superclassName="RMListViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NoteListViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="addComment:"/>
-            </relationships>
-        </class>
-        <class className="RMListViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RMListViewController.h"/>
-        </class>
-        <class className="ReimbursalAddViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ReimbursalAddViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="done:"/>
-                <relationship kind="outlet" name="amountLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="amountText" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="fromUserCell" candidateClass="UITableViewCell"/>
-                <relationship kind="outlet" name="toUserCell" candidateClass="UITableViewCell"/>
-            </relationships>
-        </class>
-        <class className="SigninViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SigninViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="login:"/>
-                <relationship kind="action" name="signup:"/>
-                <relationship kind="outlet" name="email" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="login" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="password" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="UserViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UserViewController.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

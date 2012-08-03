@@ -59,9 +59,10 @@
 
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
-    // TODO: this isn't the best place to do this since the length won't have 
-    // the requested change so we'll be a little behind.
-    login.enabled = (email.text.length && password.text.length);
+    NSString *asText = [textField.text stringByReplacingCharactersInRange:range withString:string];
+    UITextField *otherText = [textField isEqual:email] ? password : email;
+    login.enabled = asText.length > 0 && otherText.text.length > 0;
+
     return TRUE;
 }
 

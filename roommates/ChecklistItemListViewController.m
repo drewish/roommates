@@ -89,7 +89,7 @@
     else {
         cell = [tableView dequeueReusableCellWithIdentifier:@"View"];
         cell.textLabel.text = item.title;
-        cell.detailTextLabel.text = [NSString stringWithFormat:@"%d comments", item.comments.count];
+        cell.detailTextLabel.text = item.comments.count ? [[NSNumber numberWithInt:item.comments.count] stringValue] : @"";
     }
 
     return cell;
