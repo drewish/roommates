@@ -22,7 +22,6 @@ Menu view (8h):
 Activity Feed TableView (4-8h):
 	- Touch navigates to appropriate detail view
 	- Format updated dates as time ago (API is currently sending out years) @done
-	- Fetch additional pages? The comps don't really show how many feed items to show or how they'd go about seeing more
 	- Possibly put sections into days if it's not too hard.
 Toolbar Buttons (2h):
 	Just need to hook them up but need to figure out a way only put them onto the top level listing views.
@@ -56,8 +55,6 @@ Notes:
 	- Scale comments acording to their length @done
 	- Scale comments acording to their length @done
 	- Font sizing in the list
-	- Deletion? Phase last.
-	- Check abilties for delete permission
 	- Upload photo.
 Checklist Items List:
 	- shopping data subclass @done

@@ -63,6 +63,6 @@
 // Be a little loose so we can compare to RMSession objects.
 - (BOOL)isEqualToUser:(id)other
 {
-    return [self.userId isEqualToNumber:[other userId]];
+    return [other respondsToSelector:@selector(userId)] && [self.userId isEqualToNumber:[other userId]];
 }
 @end

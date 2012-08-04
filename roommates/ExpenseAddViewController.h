@@ -16,5 +16,6 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 @property (retain, nonatomic) UIImage *photo;
 
 - (IBAction)done:(id)sender;
+- (IBAction)cancel:(id)sender;
 
 @end

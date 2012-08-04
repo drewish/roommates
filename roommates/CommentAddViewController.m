@@ -20,6 +20,9 @@
 
 
 - (void)viewDidLoad {
+    UIImage *image = [UIImage imageNamed:@"purty_wood.png"];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:image];
+
     [bodyText.layer setBackgroundColor: [[UIColor whiteColor] CGColor]];
     [bodyText.layer setBorderColor: [[UIColor grayColor] CGColor]];
     [bodyText.layer setBorderWidth: 1.0];

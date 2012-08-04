@@ -124,8 +124,12 @@
         NSLog(@"posted ...%@", object);
         [SVProgressHUD showSuccessWithStatus:@""];
         [TestFlight passCheckpoint:@"Create expense"];
-        [self.navigationController popViewControllerAnimated:YES];
+        [self dismissModalViewControllerAnimated:YES];
     } onFailure:[RMSession objectValidationErrorBlock]];
+}
+
+- (IBAction)cancel:(id)sender {
+    [self dismissModalViewControllerAnimated:YES];
 }
 
 - (NSDecimalNumber *) amount

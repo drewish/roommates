@@ -23,6 +23,7 @@
     self = [super initWithCoder:aDecoder];
     if (self) {
         // Custom initialization
+        note = [RMNote new];
     }
     return self;
 }
@@ -35,6 +36,8 @@
 
     bodyText.text = note.body;
     [bodyText becomeFirstResponder];
+
+    self.navigationItem.rightBarButtonItem.enabled = [self isValid];
 
     tapper = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
     tapper.cancelsTouchesInView = FALSE;
@@ -56,7 +59,7 @@
 
 -(void)textViewDidChange:(UITextView *)textView
 {
-    note.body = textView.text;
+    [self setBody:textView.text];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -99,8 +102,12 @@
         NSLog(@"posted ...%@", obj);
         [SVProgressHUD showSuccessWithStatus:@""];
         [TestFlight passCheckpoint:@"Create note"];
-        [self.navigationController popViewControllerAnimated:YES];
+        [self dismissModalViewControllerAnimated:YES];
     } onFailure:[RMSession objectValidationErrorBlock]];
+}
+
+- (IBAction)cancel:(id)sender {
+    [self dismissModalViewControllerAnimated:YES];
 }
 
 #pragma mark Photo handling

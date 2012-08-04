@@ -67,7 +67,17 @@
                             <outlet property="delegate" destination="buW-vF-Tn7" id="NQM-am-bnQ"/>
                         </connections>
                     </tableView>
-                    <toolbarItems/>
+                    <toolbarItems>
+                        <barButtonItem title="+$" id="NYg-CQ-khf"/>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="jIP-KS-2ZG"/>
+                        <barButtonItem systemItem="compose" id="8Gj-B8-MMA">
+                            <connections>
+                                <segue destination="bbG-QB-Wm7" kind="modal" id="ZkB-4o-F9T"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="zac-Zo-V0E"/>
+                        <barButtonItem systemItem="camera" id="G8W-bP-3Gp"/>
+                    </toolbarItems>
                     <navigationItem key="navigationItem" title="Activity Feed" id="XFg-8z-8e8"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
@@ -184,7 +194,7 @@
                     <navigationItem key="navigationItem" title="Notes" id="DMb-Zs-iyU">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="8CM-kz-eG0">
                             <connections>
-                                <segue destination="auE-Wo-VcQ" kind="push" id="mER-1X-J8v"/>
+                                <segue destination="bbG-QB-Wm7" kind="modal" id="mER-1X-J8v"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -198,7 +208,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P1O-bC-Oeq" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="auE-Wo-VcQ" customClass="NoteAddViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="rlE-H8-Y5e">
-                        <rect key="frame" x="0.0" y="64" width="320" height="372"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
@@ -213,7 +223,7 @@
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="mJu-mD-XTW">
                                                     <rect key="frame" x="0.0" y="0.0" width="300" height="130"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -252,14 +262,23 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Add Note" id="DAo-MM-vAM">
-                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="pmj-9d-nHe"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Wrd-D6-Har">
+                            <connections>
+                                <action selector="cancel:" destination="auE-Wo-VcQ" id="jfa-g5-zOs"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" style="done" systemItem="done" id="pmj-9d-nHe">
+                            <connections>
+                                <action selector="done:" destination="auE-Wo-VcQ" id="4sf-q2-FPb"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="bodyText" destination="mJu-mD-XTW" id="vPT-Pl-VJ9"/>
                     </connections>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="1326" y="1711"/>
+            <point key="canvasLocation" x="2001" y="1791"/>
         </scene>
         <!--Menu View Controller-->
         <scene sceneID="9fd-hc-8PW">
@@ -421,8 +440,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PAr-Uj-vwj" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="NoteList" toolbarHidden="NO" id="oqG-sD-4FB" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics" barStyle="blackOpaque"/>
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" barStyle="blackOpaque" id="Po8-HH-5Gb">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -522,8 +539,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6bH-uc-eSP" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="LogEntryList" toolbarHidden="NO" id="bya-N5-kwX" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics" barStyle="blackOpaque"/>
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" barStyle="blackOpaque" id="aPg-sJ-uWc">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -546,8 +561,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HoT-19-eBG" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="ExpenseSummary" toolbarHidden="NO" id="WGY-8X-shn" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics" barStyle="blackOpaque"/>
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" barStyle="blackOpaque" id="dAe-za-TJD">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -628,13 +641,13 @@
                         <barButtonItem title="+Expense" id="2ch-1x-FSD">
                             <connections>
                                 <action selector="testIt:" destination="40W-ns-Y2D" id="vCJ-kr-evZ"/>
-                                <segue destination="ZbX-n7-gL0" kind="push" identifier="addExpense" id="ql6-0k-cwz"/>
+                                <segue destination="BXY-b7-mEK" kind="modal" identifier="addExpense" id="ql6-0k-cwz"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="DTv-ac-3zf"/>
                         <barButtonItem title="+Reimburse" id="6gk-xr-2pp">
                             <connections>
-                                <segue destination="Lnb-sS-BZK" kind="push" identifier="addReimbursal" id="awf-dL-jPd"/>
+                                <segue destination="3Pp-BM-5yZ" kind="modal" identifier="addReimbursal" id="awf-dL-jPd"/>
                             </connections>
                         </barButtonItem>
                     </toolbarItems>
@@ -754,13 +767,20 @@
                             <outlet property="delegate" destination="Lnb-sS-BZK" id="kEg-Hn-UHw"/>
                         </connections>
                     </tableView>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="Add Reimbursal" id="FkQ-cd-qHE">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="nO8-69-P10">
+                            <connections>
+                                <action selector="cancel:" destination="Lnb-sS-BZK" id="QFo-h2-jds"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" enabled="NO" style="done" systemItem="done" id="1PY-y9-GGz">
                             <connections>
                                 <action selector="done:" destination="Lnb-sS-BZK" id="iPZ-eN-3JD"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="amountLabel" destination="rbM-au-oRx" id="sL9-ez-dPX"/>
                         <outlet property="amountText" destination="zSJ-DO-2p2" id="6lG-hD-eeh"/>
@@ -769,7 +789,7 @@
                     </connections>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="1475" y="-295"/>
+            <point key="canvasLocation" x="2001" y="-295"/>
         </scene>
         <!--Expense Add View Controller - Add Expense-->
         <scene sceneID="44q-2P-Qev">
@@ -899,6 +919,11 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Add Expense" id="Qu3-ey-wr3">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="TX0-d0-65X">
+                            <connections>
+                                <action selector="cancel:" destination="ZbX-n7-gL0" id="iIO-0O-zPc"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" enabled="NO" style="done" systemItem="done" id="vgA-gI-BVe">
                             <connections>
                                 <action selector="done:" destination="ZbX-n7-gL0" id="SWO-A4-Mfx"/>
@@ -908,7 +933,7 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="1475" y="304"/>
+            <point key="canvasLocation" x="2001" y="304"/>
         </scene>
         <!--User View Controller - Choose-->
         <scene sceneID="MXx-pK-ODo">
@@ -948,7 +973,7 @@
                     <navigationItem key="navigationItem" title="Choose" id="RLN-VN-uDd"/>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="2147" y="15"/>
+            <point key="canvasLocation" x="2583" y="-295"/>
         </scene>
         <!--Checklist Item List View Controller - Shopping List-->
         <scene sceneID="gL2-Ea-73K">
@@ -1037,8 +1062,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rh3-iQ-beK" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="ShoppingList" toolbarHidden="NO" id="EHC-o6-dTP" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics" barStyle="blackOpaque"/>
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" barStyle="blackOpaque" id="7mw-vh-ljA">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1144,8 +1167,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ssy-ij-dIA" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="ToDoList" toolbarHidden="NO" id="hrz-0N-zkb" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics" barStyle="blackOpaque"/>
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" barStyle="blackOpaque" id="iTu-EV-vUN">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1198,7 +1219,7 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="2142" y="1191"/>
+            <point key="canvasLocation" x="2668" y="1191"/>
         </scene>
         <!--Checklist Item Detail View Controller - To-Do's-->
         <scene sceneID="Sh8-eJ-feP">
@@ -1317,120 +1338,77 @@
             </objects>
             <point key="canvasLocation" x="1475" y="924"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="3ur-N8-uzs">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DzF-rE-ixX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController id="bbG-QB-Wm7" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="Hoo-1e-kpl"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Vv7-TE-IMS">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="auE-Wo-VcQ" kind="relationship" relationship="rootViewController" id="fwP-CS-ZbS"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="1475" y="1791"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="fZb-3P-Mwt">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="61Y-0W-dez" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController id="3Pp-BM-5yZ" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="o2M-vm-0x1"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="iwZ-ue-gYu">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Lnb-sS-BZK" kind="relationship" relationship="rootViewController" id="V44-9x-Tse"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="1475" y="-295"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="xgq-t2-d5v">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5cb-B3-qar" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController id="BXY-b7-mEK" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="TPn-q2-Nnc"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="yCy-A5-cOu">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ZbX-n7-gL0" kind="relationship" relationship="rootViewController" id="zyU-y2-eXX"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="1475" y="304"/>
+        </scene>
     </scenes>
     <resources>
         <image name="checkmark_off.png" width="13" height="13"/>
         <image name="logo.png" width="240" height="90"/>
     </resources>
-    <classes>
-        <class className="ChecklistItemDetailViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ChecklistItemDetailViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="addComment:"/>
-                <relationship kind="action" name="deleteItem:"/>
-                <relationship kind="outlet" name="deleteButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="ChecklistItemListViewController" superclassName="RMListViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ChecklistItemListViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="add:"/>
-            </relationships>
-        </class>
-        <class className="CommentAddViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CommentAddViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="done:"/>
-                <relationship kind="outlet" name="bodyText" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="doneButton" candidateClass="UIBarButtonItem"/>
-            </relationships>
-        </class>
-        <class className="ExpenseAddViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ExpenseAddViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="done:"/>
-            </relationships>
-        </class>
-        <class className="ExpensesSummaryViewController" superclassName="RMListViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ExpensesSummaryViewController.h"/>
-        </class>
-        <class className="LogEntryCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LogEntryCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="actionLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="agoLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="labelLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="summaryLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="LogEntryViewController" superclassName="RMListViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LogEntryViewController.h"/>
-        </class>
-        <class className="MenuViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MenuViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="signOut:"/>
-                <relationship kind="action" name="switchHousehold:"/>
-            </relationships>
-        </class>
-        <class className="NoteAddViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NoteAddViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="attachPhoto:"/>
-                <relationship kind="action" name="done:"/>
-                <relationship kind="outlet" name="bodyText" candidateClass="UITextView"/>
-            </relationships>
-        </class>
-        <class className="NoteCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NoteCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="bodyText" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="photo" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="userLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="wrapper" candidateClass="UIView"/>
-            </relationships>
-        </class>
-        <class className="NoteListViewController" superclassName="RMListViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NoteListViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="addComment:"/>
-            </relationships>
-        </class>
-        <class className="RMListViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RMListViewController.h"/>
-        </class>
-        <class className="ReimbursalAddViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ReimbursalAddViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="done:"/>
-                <relationship kind="outlet" name="amountLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="amountText" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="fromUserCell" candidateClass="UITableViewCell"/>
-                <relationship kind="outlet" name="toUserCell" candidateClass="UITableViewCell"/>
-            </relationships>
-        </class>
-        <class className="SigninViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SigninViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="login:"/>
-                <relationship kind="action" name="signup:"/>
-                <relationship kind="outlet" name="email" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="login" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="password" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="UserViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UserViewController.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="ZdO-4V-hym"/>
+        <segue reference="q5u-pd-Krq"/>
         <segue reference="LhB-39-e4F"/>
-        <segue reference="reK-W4-pej"/>
+        <segue reference="ZkB-4o-F9T"/>
+        <segue reference="ZdO-4V-hym"/>
     </inferredMetricsTieBreakers>
 </document>

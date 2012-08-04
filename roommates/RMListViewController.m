@@ -7,6 +7,7 @@
 //
 
 #import "RMListViewController.h"
+#import "RootViewController.h"
 #import "RMObject.h"
 #import "RMLogEntry.h"
 
@@ -54,11 +55,16 @@
 		self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"reveal.png"] style:UIBarButtonItemStylePlain target:self.navigationController.parentViewController action:@selector(revealToggle:)];
 	}
     
+    [self attachObservers];
+
+    [self fetchItems];
+}
+
+- (void)attachObservers
+{
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fetchOnNotification:) name:@"RMHouseholdSelected" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fetchOnNotification:) name:@"RMItemAdded" object:[self dataClass]];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fetchOnNotification:) name:@"RMItemRemoved" object:[self dataClass]];
-
-    [self fetchItems];
 }
 
 - (void)fetchOnNotification:(NSNotification*)note
@@ -128,6 +134,16 @@
     cell.textLabel.text = [[self.items objectAtIndex:indexPath.row] description];
 
     return cell;
+}
+
+- (IBAction)addExpense:(id)sender {
+//    RootViewController *vc = (RootViewController*) UIApplication.sharedApplication.keyWindow.rootViewController;
+}
+
+- (IBAction)addNote:(id)sender {
+}
+
+- (IBAction)takePhoto:(id)sender {
 }
 
 @end

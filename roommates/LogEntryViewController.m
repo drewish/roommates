@@ -53,9 +53,20 @@
     // e.g. self.myOutlet = nil;
 }
 
+- (void)attachObservers
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fetchOnNotification:) name:@"RMHouseholdSelected" object:nil];
+    // We want to refresh when anything is created.
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fetchOnNotification:) name:@"RMItemAdded" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fetchOnNotification:) name:@"RMItemRemoved" object:nil];
+}
+
+#pragma mark - Table view delegate
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"LogEntryCell";
+
     LogEntryCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 
     // TODO this should move into LogEntryCell.m?

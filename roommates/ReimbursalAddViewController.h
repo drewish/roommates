@@ -19,6 +19,7 @@
 @property (retain, nonatomic) RMUser *toUser;
 @property (retain, nonatomic) NSDecimalNumber *amount;
 
+- (IBAction)cancel:(id)sender;
 - (IBAction)done:(id)sender;
 
 @end
