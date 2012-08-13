@@ -64,10 +64,11 @@
 {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fetchOnNotification:) name:@"RMHouseholdSelected" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fetchOnNotification:) name:@"RMItemAdded" object:[self dataClass]];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fetchOnNotification:) name:@"RMItemChanged" object:[self dataClass]];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fetchOnNotification:) name:@"RMItemRemoved" object:[self dataClass]];
 }
 
-- (void)fetchOnNotification:(NSNotification*)note
+- (void)fetchOnNotification:(NSNotification*)notification
 {
     [self fetchItems];
 }
@@ -103,7 +104,9 @@
                               onSuccess:^(NSArray *items_) {
         self.items = [NSMutableArray arrayWithArray:items_];
         [self.tableView reloadData];
-        [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:TRUE];
+        if (self.items.count) {
+            [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:TRUE];
+        }
         [pull finishedLoading];
         [TestFlight passCheckpoint:[NSString stringWithFormat:@"Viewed %@ list", self.dataClass]];
     } onFailure:^(NSError *error) {

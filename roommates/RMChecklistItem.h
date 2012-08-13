@@ -12,9 +12,9 @@
 
 @interface RMChecklistItem : NSObject <RMObject, RMCommentable, RMDeletable, RMHouseholdable, RMFetchableList>
 
-//+ (void) getItem:(NSNumber*) itemId
-//       OnSuccess:(RKObjectLoaderDidLoadObjectsBlock) success
-//       onFailure:(RKObjectLoaderDidFailWithErrorBlock) failure;
++ (void) getItem:(NSNumber*) itemId
+       OnSuccess:(RKObjectLoaderDidLoadObjectBlock) success
+       onFailure:(RKObjectLoaderDidFailWithErrorBlock) failure;
 
 @property (nonatomic, retain) NSNumber* checklistItemId; // ID of note
 @property (nonatomic, retain) NSString* kind;            // KIND of checklist item (either ‘todo’ or ‘shopping’)

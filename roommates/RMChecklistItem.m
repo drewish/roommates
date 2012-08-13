@@ -22,8 +22,7 @@ static NSArray *cached = nil;
 {
     RKObjectMapping* mapping = [RKObjectMapping mappingForClass:[self class]];
     [mapping mapKeyPath:@"id" toAttribute:@"checklistItemId"];
-    [mapping mapAttributesFromSet:[NSSet setWithObjects:@"kind", @"title",
-                                   @"completed", @"abilities", nil]];
+    [mapping mapAttributesFromArray:@[@"kind", @"title", @"completed", @"abilities"]];
 
     // Hook the comments in too.
     [mapping mapKeyPath:@"comments" toRelationship:@"comments" 
@@ -32,7 +31,7 @@ static NSArray *cached = nil;
     [provider addObjectMapping:mapping];
     // I agree this is stupid verbose but he's got a lot of routes.
     [provider setObjectMapping:mapping forResourcePathPattern:@"/api/households/:householdId/checklist_items"];
-    [provider setObjectMapping:mapping forResourcePathPattern:@"/api/households/:householdId/checklist_items/:checklistItemId/toggle"];
+    [provider setObjectMapping:mapping forResourcePathPattern:@"/api/households/:householdId/checklist_items/:checklistItemId"];
     [provider setObjectMapping:mapping forResourcePathPattern:@"/api/households/:householdId/checklist_items/:checklistItemId/toggle"];
     // This should work if my pull request gets accepted: https://github.com/RestKit/RestKit/pull/871
     //[provider setObjectMapping:mapping forResourcePathPattern:@"/api/households/:householdId/checklist_items?kind=:kind"];
@@ -91,26 +90,25 @@ static NSArray *cached = nil;
     return cached;
 }
 
-//+ (void) getItem:(NSNumber*) itemId
-//       OnSuccess:(RKObjectLoaderDidLoadObjectsBlock) success
-//       onFailure:(RKObjectLoaderDidFailWithErrorBlock) failure;
-//{
-//    RKObjectManager *mgr = [RKObjectManager sharedManager];
-//    RMChecklistItem *item = [self new];
-//    item.checklistItemId = itemId;
-//    [mgr getObject:item usingBlock:^(RKObjectLoader *loader) {
-//        loader.onDidFailLoadWithError = ^(NSError *error) {
-//            NSLog(@"%@", error);
-//            failure(error);
-//        };
-//        loader.onDidLoadObject = ^(id whatLoaded) {
-//            NSLog(@"%@", whatLoaded);
-//            success(whatLoaded);
-//            [[NSNotificationCenter defaultCenter]
-//             postNotificationName:@"RMItemFetched" object:[self class]];
-//        };
-//    }];
-//}
++ (void) getItem:(NSNumber*) itemId
+       OnSuccess:(RKObjectLoaderDidLoadObjectBlock) success
+       onFailure:(RKObjectLoaderDidFailWithErrorBlock) failure;
+{
+    RMChecklistItem *item = [self new];
+    item.checklistItemId = itemId;
+    [[RKObjectManager sharedManager] getObject:item usingBlock:^(RKObjectLoader *loader) {
+        loader.onDidFailLoadWithError = ^(NSError *error) {
+            NSLog(@"%@", error);
+            failure(error);
+        };
+        loader.onDidLoadObject = ^(id whatLoaded) {
+            NSLog(@"%@", whatLoaded);
+            success(whatLoaded);
+            [[NSNotificationCenter defaultCenter]
+             postNotificationName:@"RMItemFetched" object:[self class]];
+        };
+    }];
+}
 
 @synthesize checklistItemId, kind, title, completed, abilities, comments;
 
@@ -128,9 +126,7 @@ static NSArray *cached = nil;
 - (void) postOnSuccess:(RKObjectLoaderDidLoadObjectBlock) success
              onFailure:(RKObjectLoaderDidFailWithErrorBlock) failure
 {
-    RKObjectManager *mgr = [RKObjectManager sharedManager];
-    
-    [mgr postObject:self usingBlock:^(RKObjectLoader *loader) {
+    [[RKObjectManager sharedManager] postObject:self usingBlock:^(RKObjectLoader *loader) {
         loader.onDidFailLoadWithError = failure;
         loader.onDidLoadObject = ^(id whatLoaded) {
             NSLog(@"%@", whatLoaded);

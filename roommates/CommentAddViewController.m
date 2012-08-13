@@ -11,43 +11,76 @@
 #import "RMData.h"
 
 
-@implementation CommentAddViewController
+@implementation CommentAddViewController {
+    RMComment *comment;
+}
 
-@synthesize commentableType;
-@synthesize commentableId;
 @synthesize doneButton;
 @synthesize bodyText;
 
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        // Custom initialization
+        comment = [RMComment new];
+    }
+    return self;
+}
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+
     UIImage *image = [UIImage imageNamed:@"purty_wood.png"];
     self.view.backgroundColor = [UIColor colorWithPatternImage:image];
 
-    [bodyText.layer setBackgroundColor: [[UIColor whiteColor] CGColor]];
-    [bodyText.layer setBorderColor: [[UIColor grayColor] CGColor]];
-    [bodyText.layer setBorderWidth: 1.0];
-    [bodyText.layer setCornerRadius:10.0];
-    [bodyText.layer setMasksToBounds:YES];
-    [bodyText.layer setShadowRadius:5.0];
+    CALayer *layer = bodyText.layer;
+    layer.backgroundColor = [[UIColor whiteColor] CGColor];
+    layer.borderColor = [[UIColor grayColor] CGColor];
+    layer.borderWidth = 1.0;
+    layer.cornerRadius = 10.0;
+    layer.masksToBounds = YES;
+    layer.shadowRadius = 5.0;
 
     [bodyText becomeFirstResponder];
 }
 
-- (void)viewDidUnload {
+- (void)viewDidUnload
+{
     [self setBodyText:nil];
     [self setDoneButton:nil];
     [super viewDidUnload];
 }
 
+-(void)setCommentableId:(NSNumber *)commentableId
+{
+    comment.commentableId = commentableId;
+}
+-(NSNumber *)commentableId
+{
+    return comment.commentableId;
+}
+
+-(void)setCommentableType:(NSString *)commentableType
+{
+    comment.commentableType = commentableType;
+}
+-(NSString *)commentableType
+{
+    return comment.commentableType;
+}
+
 -(void)textViewDidChange:(UITextView *)textView
 {
+    comment.body = textView.text;
     doneButton.enabled = textView.hasText;
 }
 
 - (IBAction)done:(id)sender {
     [SVProgressHUD showWithStatus:@"Posting"];
 
-    [RMComment post:bodyText.text toId:commentableId ofType:commentableType onSuccess:^(id obj){
+    [comment postOnSuccess:^(id obj){
         NSLog(@"posted ...%@", obj);
         [SVProgressHUD showSuccessWithStatus:@""];
         [TestFlight passCheckpoint:@"Create comment"];

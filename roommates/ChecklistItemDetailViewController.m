@@ -34,9 +34,9 @@
     UIImage *image = [UIImage imageNamed:@"purty_wood.png"];
     self.tableView.backgroundColor = [UIColor colorWithPatternImage:image];
 
+    // We want to catch additions of comments and changes to ourself.
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fetchOnNotification:) name:@"RMItemAdded" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fetchOnNotification:) name:@"RMItemChanged" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fetchOnNotification:) name:@"RMItemRemoved" object:nil];
 }
 
 - (void)viewDidUnload
@@ -51,12 +51,9 @@
 
 - (void)fetchOnNotification:(NSNotification*)note
 {
-//    [RMChecklistItem getItem:item.checklistItemId OnSuccess:^(NSArray *objects) {
-//        NSLog(@"worked");
-//    } onFailure:^(NSError *error) {
-//        NSLog(@"failed");
-//    }];
-    [self.tableView reloadData];
+    [RMChecklistItem getItem:self.item.checklistItemId OnSuccess:^(RMChecklistItem *item) {
+        [self setItem:item];
+    } onFailure:^(NSError *error) {}];
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -75,12 +72,16 @@
 -(void)setItem:(RMChecklistItem *)item
 {
     item_ = item;
-//    [self.tableView reloadData];
+    [self.tableView reloadData];
     deleteButton.hidden = ![item isDeletable];
 }
 -(RMChecklistItem *)item
 {
     return item_;
+}
+
+- (IBAction)addComment:(id)sender {
+    [self performSegueWithIdentifier:@"addComment" sender:sender];
 }
 
 - (IBAction)deleteItem:(id)sender {
@@ -91,10 +92,6 @@
                                                     otherButtonTitles:nil];
     actionSheet.actionSheetStyle = UIActionSheetStyleBlackOpaque;
     [actionSheet showInView:self.view];
-}
-
-- (IBAction)addComment:(id)sender {
-    [self performSegueWithIdentifier:@"addComment" sender:sender];
 }
 
 -(void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
@@ -120,6 +117,9 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    // Section 0 is the checklist item, section 1 is the comments and add
+    // comment link. The comments can have variable heights so we need to size
+    // them up.
     if (indexPath.section == 1 && indexPath.row > 0 && indexPath.row < self.item.comments.count) {
         RMComment *comment = [self.item.comments objectAtIndex:indexPath.row];
         CGSize commentSize = CGSizeMake(280, FLT_MAX);

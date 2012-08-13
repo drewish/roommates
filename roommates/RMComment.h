@@ -18,14 +18,14 @@
 
 @interface RMComment : NSObject <RMObject, RMHouseholdable>
 
-+ (void) post:(NSString*) body 
-         toId:(NSNumber*) commentableId ofType:(NSString*) commentableType
-    onSuccess:(RKObjectLoaderDidLoadObjectBlock) success
-    onFailure:(RKObjectLoaderDidFailWithErrorBlock) failure;
-
 @property (nonatomic, retain) NSNumber* commentId;
 @property (nonatomic, retain) NSString* body;
 @property (nonatomic, retain) NSDate* createdAt;
 @property (nonatomic, retain) NSNumber* creatorId;
+@property (nonatomic, retain) NSString* commentableType;    // Used for posting, generally will be nil.
+@property (nonatomic, retain) NSNumber* commentableId;      // Used for posting, generally will be nil.
+
+- (void) postOnSuccess:(RKObjectLoaderDidLoadObjectBlock) success
+             onFailure:(RKObjectLoaderDidFailWithErrorBlock) failure;
 
 @end

@@ -30,6 +30,8 @@
 		5F3325D315CC6AD900020D20 /* checkmark_off.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F3325D115CC6AD900020D20 /* checkmark_off.png */; };
 		5F3325D415CC6AD900020D20 /* checkmark_on.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F3325D215CC6AD900020D20 /* checkmark_on.png */; };
 		5F4540E315A736CE00386BEC /* RMNote.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F4540E215A736CE00386BEC /* RMNote.m */; };
+		5F51C86015D0211300EAC1EB /* checkmark_off@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F51C85E15D0211300EAC1EB /* checkmark_off@2x.png */; };
+		5F51C86115D0211300EAC1EB /* checkmark_on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F51C85F15D0211300EAC1EB /* checkmark_on@2x.png */; };
 		5F56E58715B4F9F40086E161 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F56E58615B4F9F40086E161 /* ImageIO.framework */; };
 		5F56E58915B4FBC10086E161 /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F56E58815B4FBC10086E161 /* placeholder.png */; };
 		5F703C441598FECD00EA51DF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F703C431598FECD00EA51DF /* UIKit.framework */; };
@@ -42,7 +44,6 @@
 		5F70D2D815B3B9E1009D6CB6 /* RMChecklistItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F70D2D715B3B9E1009D6CB6 /* RMChecklistItem.m */; };
 		5F70D2DA15B3B9FD009D6CB6 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F70D2D915B3B9FD009D6CB6 /* Icon@2x.png */; };
 		5F70D2DC15B3C05A009D6CB6 /* purty_wood.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F70D2DB15B3C05A009D6CB6 /* purty_wood.png */; };
-		5F70D2DF15B4747E009D6CB6 /* CommentAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F70D2DE15B4747E009D6CB6 /* CommentAddViewController.m */; };
 		5F7BE28D15C9B16300616576 /* NoteAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F7BE28C15C9B16300616576 /* NoteAddViewController.m */; };
 		5F9A252215BCBCA2004382C4 /* RMTransaction.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F9A252115BCBCA1004382C4 /* RMTransaction.m */; };
 		5F9A252515BCBCBA004382C4 /* RMExpense.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F9A252415BCBCBA004382C4 /* RMExpense.m */; };
@@ -71,6 +72,7 @@
 		5FD809E9159BABCB00621038 /* RMHousehold.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FD809E8159BABCB00621038 /* RMHousehold.m */; };
 		5FDA65EB15B9B66400DEAE3A /* libSDWebImageARC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F01200615B7AA5D00951A67 /* libSDWebImageARC.a */; };
 		5FDD54EA15BDEC1A00C4A78D /* ExpenseAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FDD54E915BDEC1A00C4A78D /* ExpenseAddViewController.m */; };
+		5FE460E715D9515A00DBE424 /* CommentAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FE460E615D9515A00DBE424 /* CommentAddViewController.m */; };
 		5FF1C1EE15B5EA8100077016 /* reveal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FF1C1ED15B5EA8100077016 /* reveal@2x.png */; };
 		5FF1C1FA15B6371400077016 /* ChecklistItemListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FF1C1F915B6371400077016 /* ChecklistItemListViewController.m */; };
 		5FFBCFC115A68F1700CF161A /* NoteListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FFBCFC015A68F1700CF161A /* NoteListViewController.m */; };
@@ -196,6 +198,8 @@
 		5F3325D215CC6AD900020D20 /* checkmark_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = checkmark_on.png; path = Resources/checkmark_on.png; sourceTree = "<group>"; };
 		5F4540E115A736CE00386BEC /* RMNote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNote.h; sourceTree = "<group>"; };
 		5F4540E215A736CE00386BEC /* RMNote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNote.m; sourceTree = "<group>"; };
+		5F51C85E15D0211300EAC1EB /* checkmark_off@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "checkmark_off@2x.png"; path = "Resources/checkmark_off@2x.png"; sourceTree = "<group>"; };
+		5F51C85F15D0211300EAC1EB /* checkmark_on@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "checkmark_on@2x.png"; path = "Resources/checkmark_on@2x.png"; sourceTree = "<group>"; };
 		5F56E57415B4F93C0086E161 /* SDWebImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SDWebImage.xcodeproj; path = ../SDWebImage/SDWebImage.xcodeproj; sourceTree = "<group>"; };
 		5F56E58615B4F9F40086E161 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		5F56E58815B4FBC10086E161 /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = placeholder.png; path = Resources/placeholder.png; sourceTree = "<group>"; };
@@ -214,8 +218,6 @@
 		5F70D2D715B3B9E1009D6CB6 /* RMChecklistItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMChecklistItem.m; sourceTree = "<group>"; };
 		5F70D2D915B3B9FD009D6CB6 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		5F70D2DB15B3C05A009D6CB6 /* purty_wood.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = purty_wood.png; path = Resources/purty_wood.png; sourceTree = "<group>"; };
-		5F70D2DD15B4747E009D6CB6 /* CommentAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentAddViewController.h; sourceTree = "<group>"; };
-		5F70D2DE15B4747E009D6CB6 /* CommentAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentAddViewController.m; sourceTree = "<group>"; };
 		5F7BE28B15C9B16300616576 /* NoteAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteAddViewController.h; sourceTree = "<group>"; };
 		5F7BE28C15C9B16300616576 /* NoteAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteAddViewController.m; sourceTree = "<group>"; };
 		5F9A252015BCBCA1004382C4 /* RMTransaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMTransaction.h; sourceTree = "<group>"; };
@@ -258,6 +260,8 @@
 		5FD809E8159BABCB00621038 /* RMHousehold.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMHousehold.m; sourceTree = "<group>"; };
 		5FDD54E815BDEC1A00C4A78D /* ExpenseAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpenseAddViewController.h; sourceTree = "<group>"; };
 		5FDD54E915BDEC1A00C4A78D /* ExpenseAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpenseAddViewController.m; sourceTree = "<group>"; };
+		5FE460E515D9515900DBE424 /* CommentAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentAddViewController.h; sourceTree = "<group>"; };
+		5FE460E615D9515A00DBE424 /* CommentAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentAddViewController.m; sourceTree = "<group>"; };
 		5FF1C1ED15B5EA8100077016 /* reveal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "reveal@2x.png"; path = "Resources/reveal@2x.png"; sourceTree = "<group>"; };
 		5FF1C1F815B6371400077016 /* ChecklistItemListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChecklistItemListViewController.h; sourceTree = "<group>"; };
 		5FF1C1F915B6371400077016 /* ChecklistItemListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChecklistItemListViewController.m; sourceTree = "<group>"; };
@@ -394,8 +398,8 @@
 		5F1ECD4415AFCAEF00C314A6 /* Comments */ = {
 			isa = PBXGroup;
 			children = (
-				5F70D2DD15B4747E009D6CB6 /* CommentAddViewController.h */,
-				5F70D2DE15B4747E009D6CB6 /* CommentAddViewController.m */,
+				5FE460E515D9515900DBE424 /* CommentAddViewController.h */,
+				5FE460E615D9515A00DBE424 /* CommentAddViewController.m */,
 			);
 			name = Comments;
 			sourceTree = "<group>";
@@ -550,6 +554,8 @@
 		5FBCC83815B5BBBF0031CBB1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5F51C85E15D0211300EAC1EB /* checkmark_off@2x.png */,
+				5F51C85F15D0211300EAC1EB /* checkmark_on@2x.png */,
 				5F3325D115CC6AD900020D20 /* checkmark_off.png */,
 				5F3325D215CC6AD900020D20 /* checkmark_on.png */,
 				5FAD3D8C15C42D4C002E0F86 /* logo.png */,
@@ -767,6 +773,8 @@
 				5FAD3D9315C42D4C002E0F86 /* background.png in Resources */,
 				5F3325D315CC6AD900020D20 /* checkmark_off.png in Resources */,
 				5F3325D415CC6AD900020D20 /* checkmark_on.png in Resources */,
+				5F51C86015D0211300EAC1EB /* checkmark_off@2x.png in Resources */,
+				5F51C86115D0211300EAC1EB /* checkmark_on@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -801,7 +809,6 @@
 				5F0CA1EB15B0A83B00C7CFAC /* RootViewController.m in Sources */,
 				5F0CA1EE15B0B1E000C7CFAC /* ExpensesSummaryViewController.m in Sources */,
 				5F70D2D815B3B9E1009D6CB6 /* RMChecklistItem.m in Sources */,
-				5F70D2DF15B4747E009D6CB6 /* CommentAddViewController.m in Sources */,
 				5FF1C1FA15B6371400077016 /* ChecklistItemListViewController.m in Sources */,
 				5F011FC515B7A64300951A67 /* ChecklistItemDetailViewController.m in Sources */,
 				5F011FD015B7A9F500951A67 /* NSDate+TimeAgo.m in Sources */,
@@ -813,6 +820,7 @@
 				5F3325CC15CC35C000020D20 /* PDKeychainBindings.m in Sources */,
 				5F3325CD15CC35C000020D20 /* PDKeychainBindingsController.m in Sources */,
 				5F3325D015CC689A00020D20 /* ExpensesSummaryItem.m in Sources */,
+				5FE460E715D9515A00DBE424 /* CommentAddViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

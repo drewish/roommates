@@ -20,7 +20,13 @@
     [mapping mapKeyPath:@"creator_id" toAttribute:@"creatorId"];
 
     [provider addObjectMapping:mapping];
-    [provider setObjectMapping:mapping forKeyPath:@"comments"];
+    [provider setObjectMapping:mapping forResourcePathPattern:@"/api/comments"];
+
+    RKObjectMapping *serialization = [RKObjectMapping mappingForClass:[NSMutableDictionary class]];
+    [serialization mapKeyPath:@"body" toAttribute:@"comment[body]"];
+    [serialization mapKeyPath:@"commentableType" toAttribute:@"comment[commentable_type]"];
+    [serialization mapKeyPath:@"commentableId" toAttribute:@"comment[commentable_id]"];
+    [provider setSerializationMapping:serialization forClass:[self class]];
 }
 
 + (void) registerRoutesWith:(RKRouteSet*) routes {
@@ -29,24 +35,19 @@
                                       method:RKRequestMethodPOST]];
 }
 
-+ (void) post:(NSString*) body 
-         toId:(NSNumber*) commentableId ofType:(NSString*) commentableType
-    onSuccess:(RKObjectLoaderDidLoadObjectBlock) success
-    onFailure:(RKObjectLoaderDidFailWithErrorBlock) failure
+@synthesize commentId;
+@synthesize body;
+@synthesize createdAt;
+@synthesize creatorId;
+@synthesize commentableType;
+@synthesize commentableId;
+
+- (void) postOnSuccess:(RKObjectLoaderDidLoadObjectBlock) success
+             onFailure:(RKObjectLoaderDidFailWithErrorBlock) failure
 {
-    RKObjectManager *mgr = [RKObjectManager sharedManager];
-    [mgr.client post:@"/api/comments" usingBlock:^(RKRequest *request) {
-        // comment[body] – body of comment (required)
-        // comment[commentable_type] – type of commentable object (required, [checklist_item, note, expense or reimbursal])
-        // comment[commentable_id] – the ID of commentable object (required)
-        
-        NSDictionary *comment = [NSDictionary dictionaryWithObjectsAndKeys:
-                                 body, @"body", 
-                                 commentableType, @"commentable_type", 
-                                 commentableId, @"commentable_id", 
-                                 nil];
-        request.params = [NSDictionary dictionaryWithObject:comment forKey:@"comment"];
-        request.onDidLoadResponse = ^(RKResponse *response) {
+    [[RKObjectManager sharedManager] postObject:self usingBlock:^(RKObjectLoader *loader) {
+        loader.onDidFailLoadWithError = failure;
+        loader.onDidLoadResponse = ^(RKResponse *response) {
             // Check for validation errors.
             if (response.statusCode == 422) {
                 NSError *parseError = nil;
@@ -54,18 +55,15 @@
                 
                 failure([NSError errorWithDomain:@"roomat.es" code:100 userInfo:errors]);
             }
-            else {
-                [[NSNotificationCenter defaultCenter]
-                 postNotificationName:@"RMItemAdded" object:[RMComment class]];
-                
-                success(comment);
-            }
         };
-        request.onDidFailLoadWithError = failure;
+        loader.onDidLoadObject = ^(id whatLoaded) {
+            NSLog(@"%@", whatLoaded);
+            success(whatLoaded);
+            [[NSNotificationCenter defaultCenter]
+             postNotificationName:@"RMItemAdded" object:[self class]];
+        };
     }];
 }
-
-@synthesize commentId, body, createdAt, creatorId;
 
 // FIXME: hack to work around this not being in a property.
 - (NSNumber*)householdId

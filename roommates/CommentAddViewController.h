@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CommentAddViewController : UIViewController <UITextViewDelegate>
+@interface CommentAddViewController : UITableViewController <UITextViewDelegate>
 
 @property NSString *commentableType;
 @property NSNumber *commentableId;
