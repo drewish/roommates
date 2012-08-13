@@ -83,10 +83,10 @@
         }
         if (photo) {
             RKParamsAttachment *attachment = [params
-                                              setData:UIImagePNGRepresentation(photo)
-                                              MIMEType:@"image/png"
-                                              forParam:@"note[photo]"];
-            attachment.fileName = @"image.png";
+                                              setData:UIImageJPEGRepresentation(photo, 0.7)
+                                              MIMEType:@"image/jpeg"
+                                              forParam:@"expense[photo_file]"];
+            attachment.fileName = @"image.jpg";
         }
         //        expense[split_type] – empty or “custom” (optional)
         //        expense[amount_given] – hash where key is user id and value represents the amount user gave (already paid). Considered if split_type is “custom”.

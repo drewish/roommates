@@ -132,8 +132,8 @@
         cell.bodyText.text = item.body;
         cell.userLabel.text = [NSString stringWithFormat:@"—%@", [RMUser nameForId:item.creatorId]];
 
-        cell.photo.hidden = item.photo == nil;
-        if (item.photo == nil) {
+        cell.photo.hidden = item.photoURL == nil;
+        if (item.photoURL == nil) {
             cell.wrapper.backgroundColor = [UIColor colorWithRed:1.000 green:0.973 blue:0.757 alpha:1.000];
 
             // Let the text take up the whole screen.

@@ -125,10 +125,10 @@ static NSArray *cached = nil;
         [params setValue:body forParam:@"note[body]"];
         if (photo) {
             RKParamsAttachment *attachment = [params
-                                              setData:UIImagePNGRepresentation(photo)
-                                              MIMEType:@"image/png"
-                                              forParam:@"note[photo]"];
-            attachment.fileName = @"image.png";
+                                              setData:UIImageJPEGRepresentation(photo, 0.7)
+                                              MIMEType:@"image/jpeg"
+                                              forParam:@"note[photo_file]"];
+            attachment.fileName = @"image.jpg";
         }
         loader.params = params;
 
