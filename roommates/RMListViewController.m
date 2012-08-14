@@ -6,13 +6,14 @@
 //  Copyright (c) 2012 drewish.com. All rights reserved.
 //
 
+#import <MobileCoreServices/MobileCoreServices.h>
+#import "UIActionSheet+MKBlockAdditions.h"
 #import "RMListViewController.h"
+#import "RMData.h"
+#import "RMPhotoable.h"
 #import "RootViewController.h"
-#import "RMObject.h"
-#import "RMLogEntry.h"
 
-@implementation RMListViewController {
-}
+@implementation RMListViewController
 
 @synthesize items = _items, pull;
 
@@ -139,14 +140,47 @@
     return cell;
 }
 
-- (IBAction)addExpense:(id)sender {
-//    RootViewController *vc = (RootViewController*) UIApplication.sharedApplication.keyWindow.rootViewController;
+- (IBAction)addTransaction:(id)sender {
+    [UIActionSheet actionSheetWithTitle:@"What would you like to create?"
+                                message:@"Hello World"
+                                buttons:@[@"Expense", @"Reimbursement"]
+                             showInView:sender
+                              onDismiss:^(int buttonIndex)
+    {
+        UIStoryboard* mainStoryboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+        UIViewController* vc = [mainStoryboard instantiateViewControllerWithIdentifier:buttonIndex == 0 ? @"ExpenseAdd" : @"ReimbursalAdd"];
+        [self presentViewController:vc animated:TRUE completion:^{}];
+    } onCancel:^() {
+        //
+    }];
 }
 
 - (IBAction)addNote:(id)sender {
+    UIStoryboard* mainStoryboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+    UIViewController* vc = [mainStoryboard instantiateViewControllerWithIdentifier:@"NoteAdd"];
+    [self presentViewController:vc animated:TRUE completion:^{}];
 }
 
 - (IBAction)takePhoto:(id)sender {
+    [UIActionSheet photoPickerWithTitle:@"" showInView:sender presentVC:self onPhotoPicked:^(UIImage *chosenImage) {
+        [UIActionSheet actionSheetWithTitle:@"What to do" message:@""
+                                    buttons:@[@"New Note", @"New Expense"]
+                                 showInView:sender
+                                  onDismiss:^(int buttonIndex)
+        {
+            UIStoryboard* mainStoryboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+            UINavigationController* vc = [mainStoryboard instantiateViewControllerWithIdentifier:buttonIndex == 0 ? @"NoteAdd" : @"ExpenseAdd"];
+            [self presentViewController:vc animated:TRUE completion:^{
+                if ([vc.visibleViewController conformsToProtocol:@protocol(RMPhotoable)]) {
+                    [(id<RMPhotoable>) vc.visibleViewController setPhoto:chosenImage];
+                }
+            }];
+        } onCancel:^{
+            //
+        }];
+    } onCancel:^{
+        //
+    }];
 }
 
 @end

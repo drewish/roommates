@@ -76,7 +76,7 @@
     // Configure the cell...
     RMUser *user = [users objectAtIndex:indexPath.row];
     cell.textLabel.text = [user isEqualToUser:[RMSession instance]] ? @"Me" : [user displayName];
-    cell.accessoryType = [user isEqualToUser:user_] ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
+    cell.accessoryType = [user isEqualToUser:self.user] ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
 
     return cell;
 }

@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RMPhotoable.h"
 
 @interface NoteAddViewController : UITableViewController <UITextViewDelegate,
-UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+UIImagePickerControllerDelegate, UINavigationControllerDelegate, RMPhotoable>
 
 @property (weak, nonatomic) IBOutlet UITextView *bodyText;
 

@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RMPhotoable.h"
 
 @interface ExpenseAddViewController : UITableViewController <UITextViewDelegate,
-UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+UIImagePickerControllerDelegate, UINavigationControllerDelegate, RMPhotoable>
 
 @property (retain, nonatomic) NSString *name;
 @property (retain, nonatomic) NSDecimalNumber *amount;

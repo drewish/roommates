@@ -11,7 +11,7 @@
 
 @interface MenuViewController : UITableViewController <UIActionSheetDelegate,
     UIPickerViewDataSource, UIPickerViewDelegate>
-@property(nonatomic) UIActionSheet *actionSheet;
+@property(nonatomic, strong) UIActionSheet *actionSheet;
 @property(nonatomic, weak) RootViewController *rootController;
 - (IBAction)signOut:(id)sender;
 - (IBAction)switchHousehold:(id)sender;

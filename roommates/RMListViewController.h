@@ -20,7 +20,7 @@
 // Optional dictionary of parameters to pass to the fetch.
 @property (readonly) NSDictionary* fetchParams;
 
-- (IBAction)addExpense:(id)sender;
+- (IBAction)addTransaction:(id)sender;
 - (IBAction)addNote:(id)sender;
 - (IBAction)takePhoto:(id)sender;
 

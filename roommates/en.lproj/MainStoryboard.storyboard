@@ -40,7 +40,7 @@
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="posted by NAME" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vUn-rC-f1s">
                                             <rect key="frame" x="99" y="5" width="134" height="18"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </label>
@@ -68,21 +68,29 @@
                         </connections>
                     </tableView>
                     <toolbarItems>
-                        <barButtonItem title="+$" id="NYg-CQ-khf"/>
+                        <barButtonItem title="+$" id="NYg-CQ-khf">
+                            <connections>
+                                <action selector="addTransaction:" destination="buW-vF-Tn7" id="fdT-ZO-jY9"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="jIP-KS-2ZG"/>
                         <barButtonItem systemItem="compose" id="8Gj-B8-MMA">
                             <connections>
-                                <segue destination="bbG-QB-Wm7" kind="modal" id="ZkB-4o-F9T"/>
+                                <action selector="addNote:" destination="buW-vF-Tn7" id="06Z-y0-BCH"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="zac-Zo-V0E"/>
-                        <barButtonItem systemItem="camera" id="G8W-bP-3Gp"/>
+                        <barButtonItem systemItem="camera" id="G8W-bP-3Gp">
+                            <connections>
+                                <action selector="takePhoto:" destination="buW-vF-Tn7" id="eAA-th-feR"/>
+                            </connections>
+                        </barButtonItem>
                     </toolbarItems>
                     <navigationItem key="navigationItem" title="Activity Feed" id="XFg-8z-8e8"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="788" y="-647"/>
+            <point key="canvasLocation" x="803" y="-647"/>
         </scene>
         <!--Note List View Controller - Notes-->
         <scene sceneID="MVd-s2-TDo">
@@ -192,6 +200,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Notes" id="DMb-Zs-iyU">
+                        <barButtonItem key="backBarButtonItem" title="Cancel" id="IY5-Fc-yev"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="8CM-kz-eG0">
                             <connections>
                                 <segue destination="bbG-QB-Wm7" kind="modal" id="mER-1X-J8v"/>
@@ -1229,7 +1238,6 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Add Comment" id="DCI-WE-MY9">
-                        <barButtonItem key="backBarButtonItem" title="Cancel" id="qET-WP-hf2"/>
                         <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="done" id="K6H-yR-7av">
                             <connections>
                                 <action selector="done:" destination="IDn-Ga-Ol8" id="5qC-8G-VHx"/>
@@ -1352,7 +1360,9 @@
                         </connections>
                     </tableView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="To-Do's" id="Rdv-8S-lzD"/>
+                    <navigationItem key="navigationItem" title="To-Do's" id="Rdv-8S-lzD">
+                        <barButtonItem key="backBarButtonItem" title="Cancel" id="Nbh-sB-xQN"/>
+                    </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="deleteButton" destination="yXu-oA-QFv" id="g57-GJ-ehZ"/>
@@ -1365,7 +1375,7 @@
         <scene sceneID="3ur-N8-uzs">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DzF-rE-ixX" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <navigationController id="bbG-QB-Wm7" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="NoteAdd" id="bbG-QB-Wm7" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="Hoo-1e-kpl"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Vv7-TE-IMS">
@@ -1384,7 +1394,7 @@
         <scene sceneID="fZb-3P-Mwt">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="61Y-0W-dez" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <navigationController id="3Pp-BM-5yZ" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="ReimbursalAdd" id="3Pp-BM-5yZ" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="o2M-vm-0x1"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="iwZ-ue-gYu">
@@ -1403,7 +1413,7 @@
         <scene sceneID="xgq-t2-d5v">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5cb-B3-qar" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <navigationController id="BXY-b7-mEK" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="ExpenseAdd" id="BXY-b7-mEK" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="TPn-q2-Nnc"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="yCy-A5-cOu">
@@ -1502,8 +1512,8 @@
         <class className="RMListViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RMListViewController.h"/>
             <relationships>
-                <relationship kind="action" name="addExpense:"/>
                 <relationship kind="action" name="addNote:"/>
+                <relationship kind="action" name="addTransaction:"/>
                 <relationship kind="action" name="takePhoto:"/>
             </relationships>
         </class>
@@ -1539,8 +1549,7 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="ZdO-4V-hym"/>
-        <segue reference="iP0-IT-JJ6"/>
+        <segue reference="KJS-UG-GG0"/>
         <segue reference="LhB-39-e4F"/>
-        <segue reference="mER-1X-J8v"/>
     </inferredMetricsTieBreakers>
 </document>

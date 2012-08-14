@@ -19,3 +19,6 @@
 [submodule "PDKeychainBindingsController"]
 	path = PDKeychainBindingsController
 	url = git://github.com/carlbrown/PDKeychainBindingsController.git
+[submodule "UIKitCategoryAdditions"]
+	path = UIKitCategoryAdditions
+	url = git://github.com/drewish/UIKitCategoryAdditions.git

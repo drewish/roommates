@@ -73,6 +73,9 @@
 		5FDA65EB15B9B66400DEAE3A /* libSDWebImageARC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F01200615B7AA5D00951A67 /* libSDWebImageARC.a */; };
 		5FDD54EA15BDEC1A00C4A78D /* ExpenseAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FDD54E915BDEC1A00C4A78D /* ExpenseAddViewController.m */; };
 		5FE460E715D9515A00DBE424 /* CommentAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FE460E615D9515A00DBE424 /* CommentAddViewController.m */; };
+		5FE460F015D98E2D00DBE424 /* NSObject+MKBlockAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FE460EB15D98E2D00DBE424 /* NSObject+MKBlockAdditions.m */; };
+		5FE460F115D98E2D00DBE424 /* UIActionSheet+MKBlockAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FE460ED15D98E2D00DBE424 /* UIActionSheet+MKBlockAdditions.m */; };
+		5FE460F215D98E2D00DBE424 /* UIAlertView+MKBlockAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FE460EF15D98E2D00DBE424 /* UIAlertView+MKBlockAdditions.m */; };
 		5FF1C1EE15B5EA8100077016 /* reveal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FF1C1ED15B5EA8100077016 /* reveal@2x.png */; };
 		5FF1C1FA15B6371400077016 /* ChecklistItemListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FF1C1F915B6371400077016 /* ChecklistItemListViewController.m */; };
 		5FFBCFC115A68F1700CF161A /* NoteListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FFBCFC015A68F1700CF161A /* NoteListViewController.m */; };
@@ -262,9 +265,17 @@
 		5FDD54E915BDEC1A00C4A78D /* ExpenseAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpenseAddViewController.m; sourceTree = "<group>"; };
 		5FE460E515D9515900DBE424 /* CommentAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentAddViewController.h; sourceTree = "<group>"; };
 		5FE460E615D9515A00DBE424 /* CommentAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentAddViewController.m; sourceTree = "<group>"; };
+		5FE460E915D98E2D00DBE424 /* MKBlockAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKBlockAdditions.h; sourceTree = "<group>"; };
+		5FE460EA15D98E2D00DBE424 /* NSObject+MKBlockAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MKBlockAdditions.h"; sourceTree = "<group>"; };
+		5FE460EB15D98E2D00DBE424 /* NSObject+MKBlockAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MKBlockAdditions.m"; sourceTree = "<group>"; };
+		5FE460EC15D98E2D00DBE424 /* UIActionSheet+MKBlockAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIActionSheet+MKBlockAdditions.h"; sourceTree = "<group>"; };
+		5FE460ED15D98E2D00DBE424 /* UIActionSheet+MKBlockAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIActionSheet+MKBlockAdditions.m"; sourceTree = "<group>"; };
+		5FE460EE15D98E2D00DBE424 /* UIAlertView+MKBlockAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+MKBlockAdditions.h"; sourceTree = "<group>"; };
+		5FE460EF15D98E2D00DBE424 /* UIAlertView+MKBlockAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+MKBlockAdditions.m"; sourceTree = "<group>"; };
 		5FF1C1ED15B5EA8100077016 /* reveal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "reveal@2x.png"; path = "Resources/reveal@2x.png"; sourceTree = "<group>"; };
 		5FF1C1F815B6371400077016 /* ChecklistItemListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChecklistItemListViewController.h; sourceTree = "<group>"; };
 		5FF1C1F915B6371400077016 /* ChecklistItemListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChecklistItemListViewController.m; sourceTree = "<group>"; };
+		5FF8804D15DA178A00DF87B9 /* RMPhotoable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RMPhotoable.h; sourceTree = "<group>"; };
 		5FFBCFBF15A68F1700CF161A /* NoteListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteListViewController.h; sourceTree = "<group>"; };
 		5FFBCFC015A68F1700CF161A /* NoteListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteListViewController.m; sourceTree = "<group>"; };
 		5FFBCFC615A69B4500CF161A /* RMListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMListViewController.h; sourceTree = "<group>"; };
@@ -325,6 +336,7 @@
 		5F011FD215B7AA0D00951A67 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				5FE460E815D98E2D00DBE424 /* MKAdditions */,
 				5F011FC715B7A9F500951A67 /* NSDate-TimeAgo */,
 				5F3325C715CC35C000020D20 /* PDKeychainBindingsController */,
 				5F9A5EDD15AE84F40053D6B3 /* PullToRefresh */,
@@ -380,7 +392,7 @@
 			name = Signin;
 			sourceTree = "<group>";
 		};
-		5F1ECD4315AFCAD100C314A6 /* Expenses */ = {
+		5F1ECD4315AFCAD100C314A6 /* Transactions */ = {
 			isa = PBXGroup;
 			children = (
 				5F0CA1EC15B0B1DF00C7CFAC /* ExpensesSummaryViewController.h */,
@@ -392,7 +404,7 @@
 				5F1ECD5015AFD16500C314A6 /* ReimbursalAddViewController.h */,
 				5F1ECD5115AFD16500C314A6 /* ReimbursalAddViewController.m */,
 			);
-			name = Expenses;
+			name = Transactions;
 			sourceTree = "<group>";
 		};
 		5F1ECD4415AFCAEF00C314A6 /* Comments */ = {
@@ -480,14 +492,11 @@
 			children = (
 				5F703C521598FECD00EA51DF /* AppDelegate.h */,
 				5F703C531598FECD00EA51DF /* AppDelegate.m */,
-				5F703C551598FECD00EA51DF /* MainStoryboard.storyboard */,
 				5FD475C1159B5ADA00F4907C /* DataObjects */,
-				5FFBCFC615A69B4500CF161A /* RMListViewController.h */,
-				5FFBCFC715A69B4500CF161A /* RMListViewController.m */,
 				5F15614F15A8BE350065BAA2 /* Signin */,
 				5FAD767215A144F1005BBCAC /* Menu */,
 				5F286C2A159E93C500310016 /* ActivityFeed */,
-				5F1ECD4315AFCAD100C314A6 /* Expenses */,
+				5F1ECD4315AFCAD100C314A6 /* Transactions */,
 				5F1ECD4615AFCB2500C314A6 /* ChecklistItems */,
 				5FFBCFBE15A68E8100CF161A /* Notes */,
 				5F1ECD4415AFCAEF00C314A6 /* Comments */,
@@ -501,10 +510,14 @@
 		5F703C4A1598FECD00EA51DF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5F703C551598FECD00EA51DF /* MainStoryboard.storyboard */,
+				5FFBCFC615A69B4500CF161A /* RMListViewController.h */,
+				5FFBCFC715A69B4500CF161A /* RMListViewController.m */,
 				5F703C4B1598FECD00EA51DF /* roommates-Info.plist */,
 				5F703C4C1598FECD00EA51DF /* InfoPlist.strings */,
 				5F703C4F1598FECD00EA51DF /* main.m */,
 				5F703C511598FECD00EA51DF /* roommates-Prefix.pch */,
+				5FF8804D15DA178A00DF87B9 /* RMPhotoable.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -603,6 +616,21 @@
 			);
 			name = DataObjects;
 			sourceTree = "<group>";
+		};
+		5FE460E815D98E2D00DBE424 /* MKAdditions */ = {
+			isa = PBXGroup;
+			children = (
+				5FE460E915D98E2D00DBE424 /* MKBlockAdditions.h */,
+				5FE460EA15D98E2D00DBE424 /* NSObject+MKBlockAdditions.h */,
+				5FE460EB15D98E2D00DBE424 /* NSObject+MKBlockAdditions.m */,
+				5FE460EC15D98E2D00DBE424 /* UIActionSheet+MKBlockAdditions.h */,
+				5FE460ED15D98E2D00DBE424 /* UIActionSheet+MKBlockAdditions.m */,
+				5FE460EE15D98E2D00DBE424 /* UIAlertView+MKBlockAdditions.h */,
+				5FE460EF15D98E2D00DBE424 /* UIAlertView+MKBlockAdditions.m */,
+			);
+			name = MKAdditions;
+			path = UIKitCategoryAdditions/MKAdditions;
+			sourceTree = SOURCE_ROOT;
 		};
 		5FFBCFBE15A68E8100CF161A /* Notes */ = {
 			isa = PBXGroup;
@@ -821,6 +849,9 @@
 				5F3325CD15CC35C000020D20 /* PDKeychainBindingsController.m in Sources */,
 				5F3325D015CC689A00020D20 /* ExpensesSummaryItem.m in Sources */,
 				5FE460E715D9515A00DBE424 /* CommentAddViewController.m in Sources */,
+				5FE460F015D98E2D00DBE424 /* NSObject+MKBlockAdditions.m in Sources */,
+				5FE460F115D98E2D00DBE424 /* UIActionSheet+MKBlockAdditions.m in Sources */,
+				5FE460F215D98E2D00DBE424 /* UIAlertView+MKBlockAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
