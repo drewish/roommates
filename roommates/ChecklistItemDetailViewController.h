@@ -12,7 +12,7 @@
 @interface ChecklistItemDetailViewController : UITableViewController <UIActionSheetDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *deleteButton;
-@property (retain) RMChecklistItem *item;
+@property (strong) RMChecklistItem *item;
 
 - (IBAction)deleteItem:(id)sender;
 - (IBAction)addComment:(id)sender;

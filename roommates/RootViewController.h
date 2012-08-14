@@ -10,7 +10,7 @@
 
 @interface RootViewController : ZUUIRevealController
 
-@property NSString *currentViewIdentifier;
+@property (retain) NSString *currentViewIdentifier;
 - (IBAction)showActivityFeed:(id)sender;
 - (IBAction)showExpenses:(id)sender;
 - (IBAction)showShoppingList:(id)sender;
