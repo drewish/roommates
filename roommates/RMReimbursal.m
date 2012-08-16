@@ -67,6 +67,8 @@
     RKObjectManager *mgr = [RKObjectManager sharedManager];
     
     [mgr postObject:self usingBlock:^(RKObjectLoader *loader) {
+        loader.backgroundPolicy = RKRequestBackgroundPolicyContinue;
+
         loader.onDidFailLoadWithError = ^(NSError *error) {
             NSLog(@"%@", error);
             failure(error);

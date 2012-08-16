@@ -10,7 +10,11 @@
 #import "RMObject.h"
 
 @interface RMUser : NSManagedObject <RMManagedObject>
+
 + (NSDictionary*) users;
++ (void) fetchItem:(NSNumber*) itemId
+         OnSuccess:(RKObjectLoaderDidLoadObjectBlock) success
+         onFailure:(RKObjectLoaderDidFailWithErrorBlock) failure;
 + nameForId:(NSNumber*) userId;
 
 @property (nonatomic, retain) NSNumber *userId;      // ID of the user

@@ -90,9 +90,9 @@ static NSArray *cached = nil;
     return cached;
 }
 
-+ (void) getItem:(NSNumber*) itemId
-       OnSuccess:(RKObjectLoaderDidLoadObjectBlock) success
-       onFailure:(RKObjectLoaderDidFailWithErrorBlock) failure;
++ (void) fetchItem:(NSNumber*) itemId
+         OnSuccess:(RKObjectLoaderDidLoadObjectBlock) success
+         onFailure:(RKObjectLoaderDidFailWithErrorBlock) failure;
 {
     RMChecklistItem *item = [self new];
     item.checklistItemId = itemId;
@@ -127,6 +127,8 @@ static NSArray *cached = nil;
              onFailure:(RKObjectLoaderDidFailWithErrorBlock) failure
 {
     [[RKObjectManager sharedManager] postObject:self usingBlock:^(RKObjectLoader *loader) {
+        loader.backgroundPolicy = RKRequestBackgroundPolicyContinue;
+
         loader.onDidFailLoadWithError = failure;
         loader.onDidLoadObject = ^(id whatLoaded) {
             NSLog(@"%@", whatLoaded);
@@ -155,6 +157,8 @@ static NSArray *cached = nil;
                    onFailure:(RKObjectLoaderDidFailWithErrorBlock) failure
 {
     [[RKObjectManager sharedManager] deleteObject:self usingBlock:^(RKObjectLoader *loader) {
+        loader.backgroundPolicy = RKRequestBackgroundPolicyContinue;
+
         loader.onDidFailLoadWithError = failure;
         loader.onDidLoadObject = ^(id deletedItem) {
             NSLog(@"%@", deletedItem);
@@ -169,6 +173,8 @@ static NSArray *cached = nil;
                onFailure:(RKObjectLoaderDidFailWithErrorBlock) failure
 {
     [[RKObjectManager sharedManager] putObject:self usingBlock:^(RKObjectLoader *loader) {
+        loader.backgroundPolicy = RKRequestBackgroundPolicyContinue;
+
         loader.onDidFailLoadWithError = failure;
         loader.onDidLoadObject = ^(id changedItem) {
             NSLog(@"%@", changedItem);

@@ -67,25 +67,7 @@
                             <outlet property="delegate" destination="buW-vF-Tn7" id="NQM-am-bnQ"/>
                         </connections>
                     </tableView>
-                    <toolbarItems>
-                        <barButtonItem title="+$" id="NYg-CQ-khf">
-                            <connections>
-                                <action selector="addTransaction:" destination="buW-vF-Tn7" id="fdT-ZO-jY9"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="jIP-KS-2ZG"/>
-                        <barButtonItem systemItem="compose" id="8Gj-B8-MMA">
-                            <connections>
-                                <action selector="addNote:" destination="buW-vF-Tn7" id="06Z-y0-BCH"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="zac-Zo-V0E"/>
-                        <barButtonItem systemItem="camera" id="G8W-bP-3Gp">
-                            <connections>
-                                <action selector="takePhoto:" destination="buW-vF-Tn7" id="eAA-th-feR"/>
-                            </connections>
-                        </barButtonItem>
-                    </toolbarItems>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="Activity Feed" id="XFg-8z-8e8"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
@@ -646,22 +628,8 @@
                             <outlet property="delegate" destination="40W-ns-Y2D" id="L38-VG-8Ol"/>
                         </connections>
                     </tableView>
-                    <toolbarItems>
-                        <barButtonItem title="+Expense" id="2ch-1x-FSD">
-                            <connections>
-                                <action selector="testIt:" destination="40W-ns-Y2D" id="vCJ-kr-evZ"/>
-                                <segue destination="BXY-b7-mEK" kind="modal" identifier="addExpense" id="ql6-0k-cwz"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="DTv-ac-3zf"/>
-                        <barButtonItem title="+Reimburse" id="6gk-xr-2pp">
-                            <connections>
-                                <segue destination="3Pp-BM-5yZ" kind="modal" identifier="addReimbursal" id="awf-dL-jPd"/>
-                            </connections>
-                        </barButtonItem>
-                    </toolbarItems>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="Expenses" id="3RU-XY-qxe"/>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
             </objects>
             <point key="canvasLocation" x="803" y="1"/>
@@ -1061,7 +1029,6 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="string" keyPath="kind" value="shopping"/>
                     </userDefinedRuntimeAttributes>
@@ -1549,7 +1516,7 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="ZdO-4V-hym"/>
+        <segue reference="H1Y-ei-TyQ"/>
         <segue reference="KJS-UG-GG0"/>
-        <segue reference="LhB-39-e4F"/>
     </inferredMetricsTieBreakers>
 </document>

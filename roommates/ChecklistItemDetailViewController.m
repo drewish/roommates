@@ -51,7 +51,7 @@
 
 - (void)fetchOnNotification:(NSNotification*)note
 {
-    [RMChecklistItem getItem:self.item.checklistItemId OnSuccess:^(RMChecklistItem *item) {
+    [RMChecklistItem fetchItem:self.item.checklistItemId OnSuccess:^(RMChecklistItem *item) {
         [self setItem:item];
     } onFailure:^(NSError *error) {}];
 }

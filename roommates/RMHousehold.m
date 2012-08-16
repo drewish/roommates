@@ -105,7 +105,7 @@ static RMHousehold *current = nil;
         loader.onDidLoadObjects = ^(NSArray *households) {
             NSLog(@"Households: %@", households);
 
-            // Save:
+            // Save the household info to the database.
             NSError* error = nil;
             [[RKObjectManager sharedManager].objectStore.managedObjectContextForCurrentThread save:&error];
             if (error) {

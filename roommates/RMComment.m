@@ -46,6 +46,8 @@
              onFailure:(RKObjectLoaderDidFailWithErrorBlock) failure
 {
     [[RKObjectManager sharedManager] postObject:self usingBlock:^(RKObjectLoader *loader) {
+        loader.backgroundPolicy = RKRequestBackgroundPolicyContinue;
+
         loader.onDidFailLoadWithError = failure;
         loader.onDidLoadResponse = ^(RKResponse *response) {
             // Check for validation errors.

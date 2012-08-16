@@ -93,6 +93,8 @@
         //        expense[amount_due] – hash where key is user id and value represents the amount user should pay (its share). Considered if split_type is “custom”.
         loader.params = params;
 
+        loader.backgroundPolicy = RKRequestBackgroundPolicyContinue;
+
         loader.onDidFailLoadWithError = ^(NSError *error) {
             NSLog(@"%@", error);
             failure(error);

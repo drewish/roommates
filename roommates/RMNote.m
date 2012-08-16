@@ -102,6 +102,8 @@ static NSArray *cached = nil;
                    onFailure:(RKObjectLoaderDidFailWithErrorBlock) failure
 {
     [[RKObjectManager sharedManager] deleteObject:self usingBlock:^(RKObjectLoader *loader) {
+        loader.backgroundPolicy = RKRequestBackgroundPolicyContinue;
+
         loader.onDidFailLoadWithError = ^(NSError *error) {
             NSLog(@"%@", error);
             failure(error);
@@ -131,6 +133,8 @@ static NSArray *cached = nil;
             attachment.fileName = @"image.jpg";
         }
         loader.params = params;
+
+        loader.backgroundPolicy = RKRequestBackgroundPolicyContinue;
 
         loader.onDidFailLoadWithError = ^(NSError *error) {
             NSLog(@"%@", error);

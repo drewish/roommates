@@ -44,10 +44,44 @@
     }
 }
 
++ (void) fetchItem:(NSNumber*) itemId
+         OnSuccess:(RKObjectLoaderDidLoadObjectBlock) success
+         onFailure:(RKObjectLoaderDidFailWithErrorBlock) failure
+{
+    NSString *path = [NSString stringWithFormat:@"/api/users/%i", itemId.intValue];
+    [[RKObjectManager sharedManager] loadObjectsAtResourcePath:path usingBlock:^(RKObjectLoader *loader) {
+        loader.onDidLoadObject = ^(id whatLoaded) {
+            NSLog(@"%@", whatLoaded);
+
+            // Save the user to the database.
+            NSError* error = nil;
+            [[RKObjectManager sharedManager].objectStore.managedObjectContextForCurrentThread save:&error];
+            if (error) {
+                NSLog(@"Save error: %@", error);
+            }
+
+            success(whatLoaded);
+            [[NSNotificationCenter defaultCenter]
+             postNotificationName:@"RMItemFetched" object:[self class]];
+        };
+    }];
+}
+
 // Central point for formatting user names.
 + (NSString*)nameForId:(NSNumber*) userId
 {
-    return [[self.users objectForKey: userId] displayName];
+    RMUser *user = [RMUser.users objectForKey:userId];
+    if (user == nil) {
+        // If we don't have the user fire off fetch request to
+        // get it locally. It'll probably show up after we build
+        // this the first time but after that it should be cached.
+        [RMUser fetchItem:userId OnSuccess:^(id object) {
+            //
+        } onFailure:^(NSError *error) {
+            //
+        }];
+    }
+    return [user displayName];
 }
 
 @dynamic userId,

@@ -55,6 +55,14 @@
 
 		self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"reveal.png"] style:UIBarButtonItemStylePlain target:self.navigationController.parentViewController action:@selector(revealToggle:)];
 	}
+
+    self.toolbarItems = @[
+        [[UIBarButtonItem alloc] initWithTitle:@"+$" style:UIBarButtonItemStyleBordered target:self action:@selector(addTransaction:)],
+        [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
+        [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCompose target:self action:@selector(addNote:)],
+        [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
+        [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCamera target:self action:@selector(takePhoto:)],
+    ];
     
     [self attachObservers];
 
@@ -163,7 +171,7 @@
 
 - (IBAction)takePhoto:(id)sender {
     [UIActionSheet photoPickerWithTitle:@"" showInView:sender presentVC:self onPhotoPicked:^(UIImage *chosenImage) {
-        [UIActionSheet actionSheetWithTitle:@"What to do" message:@""
+        [UIActionSheet actionSheetWithTitle:@"What should we attach the photo to?" message:@""
                                     buttons:@[@"New Note", @"New Expense"]
                                  showInView:sender
                                   onDismiss:^(int buttonIndex)
