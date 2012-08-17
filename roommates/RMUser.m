@@ -80,6 +80,7 @@
         } onFailure:^(NSError *error) {
             //
         }];
+        return @"Unknown…";
     }
     return [user displayName];
 }
