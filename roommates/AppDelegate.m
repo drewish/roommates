@@ -19,7 +19,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    NSString *url = @"http://roommates-staging.herokuapp.com";
+    NSString *url = @"http://roommat.es";
     RKObjectManager* mgr = [RKObjectManager managerWithBaseURLString:url];
     mgr.serializationMIMEType = RKMIMETypeFormURLEncoded;
     mgr.client.requestQueue.showsNetworkActivityIndicatorWhenBusy = YES;
