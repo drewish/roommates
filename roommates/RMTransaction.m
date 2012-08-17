@@ -24,8 +24,8 @@ static NSArray *cached = nil;
     RKObjectMapping *reimbursalMapping = [provider objectMappingForClass:[RMReimbursal class]];
 
     RKDynamicObjectMapping* dynamicMapping = [RKDynamicObjectMapping dynamicMapping];
-    [dynamicMapping setObjectMapping:expenseMapping whenValueOfKeyPath:@"type" isEqualTo:@"Expense"];
-    [dynamicMapping setObjectMapping:reimbursalMapping whenValueOfKeyPath:@"type" isEqualTo:@"Reimbursal"];
+    [dynamicMapping setObjectMapping:expenseMapping whenValueOfKeyPath:@"kind" isEqualTo:@"Expense"];
+    [dynamicMapping setObjectMapping:reimbursalMapping whenValueOfKeyPath:@"kind" isEqualTo:@"Reimbursal"];
     [provider setObjectMapping:dynamicMapping forResourcePathPattern:@"/api/households/:householdId/transactions"];
 }
 

@@ -18,21 +18,22 @@
 + (void) registerMappingsWith:(RKObjectMappingProvider*) provider
 {
     RKObjectMapping* mapping = [RKObjectMapping mappingForClass:[self class]];
-    [mapping mapKeyPath:@"record.id" toAttribute:@"transactionId"];
-    [mapping mapKeyPath:@"record.description" toAttribute:@"summary"];
-    [mapping mapKeyPath:@"record.amount" toAttribute:@"amount"];
-    [mapping mapKeyPath:@"record.created_at" toAttribute:@"createdAt"];
-    [mapping mapKeyPath:@"record.creator_id" toAttribute:@"creatorId"];
-    [mapping mapKeyPath:@"record.abilities" toAttribute:@"abilities"];
-    [mapping mapKeyPath:@"record.name" toAttribute:@"name"];
-    [mapping mapKeyPath:@"record.photo" toAttribute:@"photoURL"];
-    [mapping mapKeyPath:@"record.participations" toAttribute:@"participations"];
+    [mapping mapKeyPath:@"id" toAttribute:@"transactionId"];
+    [mapping mapKeyPath:@"description" toAttribute:@"summary"];
+    [mapping mapKeyPath:@"amount" toAttribute:@"amount"];
+    [mapping mapKeyPath:@"created_at" toAttribute:@"createdAt"];
+    [mapping mapKeyPath:@"creator_id" toAttribute:@"creatorId"];
+    [mapping mapKeyPath:@"abilities" toAttribute:@"abilities"];
+    [mapping mapKeyPath:@"name" toAttribute:@"name"];
+    [mapping mapKeyPath:@"photo" toAttribute:@"photoURL"];
+    [mapping mapKeyPath:@"participations" toAttribute:@"participations"];
 
     // Hook the comments in too.
-    [mapping mapKeyPath:@"record.comments" toRelationship:@"comments"
+    [mapping mapKeyPath:@"comments" toRelationship:@"comments"
             withMapping:[provider objectMappingForClass:[RMComment class]]];
 
     [provider addObjectMapping:mapping];
+    [provider setObjectMapping:mapping forResourcePathPattern:@"/api/households/:householdId/expenses"];
 
     RKObjectMapping *serialization = [RKObjectMapping mappingForClass:[NSMutableDictionary class]];
     [serialization mapKeyPath:@"amount" toAttribute:@"expense[amount]"];
@@ -95,6 +96,15 @@
 
         loader.backgroundPolicy = RKRequestBackgroundPolicyContinue;
 
+        loader.onDidLoadResponse = ^(RKResponse *response) {
+            NSLog(@"%@", response);
+            // Check for validation errors.
+            if (response.statusCode == 422) {
+                NSError *parseError = nil;
+                NSDictionary *errors = [[response parsedBody:&parseError] objectForKey:@"errors"];
+                failure([NSError errorWithDomain:@"roomat.es" code:100 userInfo:errors]);
+            }
+        };
         loader.onDidFailLoadWithError = ^(NSError *error) {
             NSLog(@"%@", error);
             failure(error);
@@ -104,15 +114,6 @@
             success(whatLoaded);
             [[NSNotificationCenter defaultCenter]
              postNotificationName:@"RMItemAdded" object:[self class]];
-        };
-        loader.onDidLoadResponse = ^(RKResponse *response) {
-            NSLog(@"%@", response);
-            // Check for validation errors.
-            if (response.statusCode == 422) {
-                NSError *parseError = nil;
-                NSDictionary *errors = [[response parsedBody:&parseError] objectForKey:@"errors"];
-                failure([NSError errorWithDomain:@"roomat.es" code:100 userInfo:errors]);
-            }
         };
     }];
 }
