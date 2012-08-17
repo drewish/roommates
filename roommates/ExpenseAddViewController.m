@@ -92,6 +92,10 @@
     }
 
     NSString *asText = [textField.text stringByReplacingCharactersInRange:range withString:string];
+    // Keep leading zeros out since they mess things up.
+    if ([@"0" isEqualToString:asText]) {
+        return NO;
+    }
     if ([asText length] == 0) {
         self.amount = [NSDecimalNumber zero];
         return YES;

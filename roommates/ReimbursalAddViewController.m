@@ -93,6 +93,10 @@
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
     NSString *asText = [textField.text stringByReplacingCharactersInRange:range withString:string];
+    // Keep leading zeros out since they mess things up.
+    if ([@"0" isEqualToString:asText]) {
+        return NO;
+    }
     if ([asText length] == 0) {
         [self setAmount:[NSDecimalNumber zero]];
         return YES;
