@@ -33,6 +33,10 @@
     // Uncomment the following line to preserve selection between presentations.
     self.clearsSelectionOnViewWillAppear = NO;
 
+    // Disable this so that the front viewcontroller can scroll to the top on
+    // the tap.
+    self.tableView.scrollsToTop = NO;
+
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(householdDidChange:) name:@"RMHouseholdSelected" object:nil];
 }
 
