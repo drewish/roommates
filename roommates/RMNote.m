@@ -73,6 +73,26 @@ static NSArray *cached = nil;
     return cached;
 }
 
++ (void) fetchItem:(NSNumber*) itemId
+         OnSuccess:(RKObjectLoaderDidLoadObjectBlock) success
+         onFailure:(RKObjectLoaderDidFailWithErrorBlock) failure;
+{
+    RMNote *item = [self new];
+    item.noteId = itemId;
+    [[RKObjectManager sharedManager] getObject:item usingBlock:^(RKObjectLoader *loader) {
+        loader.onDidFailLoadWithError = ^(NSError *error) {
+            NSLog(@"%@", error);
+            failure(error);
+        };
+        loader.onDidLoadObject = ^(id whatLoaded) {
+            NSLog(@"%@", whatLoaded);
+            success(whatLoaded);
+            [[NSNotificationCenter defaultCenter]
+             postNotificationName:@"RMItemFetched" object:[self class]];
+        };
+    }];
+}
+
 @synthesize noteId, 
     body,
     createdAt,
