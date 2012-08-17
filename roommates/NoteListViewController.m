@@ -52,6 +52,14 @@
     // e.g. self.myOutlet = nil;
 }
 
+- (void)attachObservers
+{
+    [super attachObservers];
+    // We want to refresh when comments are added.
+    // TODO: it'd be nice if we just refreshed the specific item.
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fetchOnNotification:) name:@"RMItemAdded" object:[RMComment class]];
+}
+
 // Little action to tie both buttons to the same segue.
 - (IBAction)addComment:(id)sender {
     [self performSegueWithIdentifier:@"addComment" sender:sender];
