@@ -68,25 +68,30 @@
             NSMutableDictionary *balances = [NSMutableDictionary dictionaryWithDictionary:
                                              [body valueForKeyPath:@"balances"]];
             NSNumber *myId = [RMSession instance].userId;
-            myBalance = [NSDecimalNumber decimalNumberWithString: [balances objectForKey:[myId stringValue]]];
+            id value = [balances objectForKey:[myId stringValue]];
+            myBalance = [NSDecimalNumber decimalNumberWithString: [value isKindOfClass:[NSString class]] ? value : [value stringValue]];
 
             // Put us at the top of both.
             top = [NSMutableArray arrayWithObject:[ExpensesSummaryItem itemWithUserId:myId forAmount:myBalance]];
             bottom = [NSMutableArray arrayWithObject:[ExpensesSummaryItem itemWithUserId:myId forAmount:myBalance]];
 
-            NSString *keyPath = (myBalance > 0) ? @"current.owed" : @"current.owes";
+            NSString *keyPath = ([myBalance floatValue] > 0) ? @"current.owed" : @"current.owes";
             NSDictionary *totals = [body valueForKeyPath:keyPath];
-            for (NSString *key in totals) {
-                NSNumber *userId = @([key integerValue]);
-                NSDecimalNumber *amount = [NSDecimalNumber decimalNumberWithString:[totals objectForKey:key]];
-                [top addObject:[ExpensesSummaryItem itemWithUserId:userId forAmount:amount]];
+            if (![totals isKindOfClass:[NSNull class]]) {
+                for (NSString *key in totals) {
+                    NSNumber *userId = @([key integerValue]);
+                    value = [totals objectForKey:key];
+                    NSDecimalNumber *amount = [NSDecimalNumber decimalNumberWithString:[value isKindOfClass:[NSString class]] ? value : [value stringValue]];
+                    [top addObject:[ExpensesSummaryItem itemWithUserId:userId forAmount:amount]];
+                }
             }
 
             for (NSString *key in balances) {
                 NSNumber *userId = @([key integerValue]);
                 // Skip the current user since we put ourselves at the top already.
                 if (![userId isEqualToNumber:myId]) {
-                    NSDecimalNumber *amount = [NSDecimalNumber decimalNumberWithString:[balances objectForKey:key]];
+                    value = [balances objectForKey:key];
+                    NSDecimalNumber *amount = [NSDecimalNumber decimalNumberWithString:[value isKindOfClass:[NSString class]] ? value : [value stringValue]];
                     [bottom addObject:[ExpensesSummaryItem itemWithUserId:userId forAmount:amount]];
                 }
             }
@@ -127,12 +132,12 @@
     if (![myBalance isEqualToNumber:[NSDecimalNumber notANumber]]) {
         if (section == 0) {
             if ([myBalance floatValue] > 0) {
-                return @"You are owed";
+                return @"You Are Owed";
             }
             else if ([myBalance floatValue] < 0) {
-                return @"You owe";
+                return @"You Owe";
             }
-            return @"You are paid up";
+            return @"You Are Paid Up!";
         }
         if (section == 1) {
             return @"Household Summary";
@@ -221,7 +226,6 @@
             }
             break;
     }
-
     cell.detailTextLabel.text = [f stringFromNumber:amount];
     cell.detailTextLabel.textColor = color;
 
