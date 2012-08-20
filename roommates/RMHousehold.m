@@ -17,15 +17,14 @@ static RMHousehold *current = nil;
 
 + (void) registerMappingsWith:(RKObjectMappingProvider*) provider inManagedObjectStore:(RKManagedObjectStore *)objectStore
 {
-    RKManagedObjectMapping* mapping = [RKManagedObjectMapping mappingForClass:[self class] inManagedObjectStore:objectStore];
+    RKEntityMapping* mapping = [RKEntityMapping mappingForEntityForName:@"RMHousehold" inManagedObjectStore:objectStore];
     mapping.primaryKeyAttribute = @"householdId";
     [mapping mapKeyPath:@"id" toAttribute:@"householdId"];
     [mapping mapKeyPath:@"display_name" toAttribute:@"displayName"];
     [mapping mapKeyPath:@"current" toAttribute:@"current"];
 
-    RKObjectMappingDefinition *m  = [provider objectMappingForClass:[RMUser class]];
     [mapping mapKeyPath:@"users" toRelationship:@"users"
-            withMapping:m];
+            withMapping:[provider objectMappingForClass:[RMUser class]]];
 
     [provider addObjectMapping:mapping];
     [provider setObjectMapping:mapping forResourcePathPattern:@"/api/households"];
@@ -57,7 +56,7 @@ static RMHousehold *current = nil;
 
         // Save this to the local database.
         NSError* error = nil;
-        [[RKObjectManager sharedManager].objectStore.managedObjectContextForCurrentThread save:&error];
+        [[RKObjectManager sharedManager].managedObjectStore.mainQueueManagedObjectContext save:&error];
         if (error) {
             NSLog(@"Save error: %@", error);
         }
@@ -74,7 +73,10 @@ static RMHousehold *current = nil;
     @synchronized(self) {
         // Load it from the database initially.
         if (cachedObjects == nil) {
-            [self setHouseholds: [self objectsWithFetchRequest:[self fetchRequest]]];
+            NSError *error;
+            NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"RMHousehold"];
+            NSArray *fetched = [[RKManagedObjectStore defaultStore].mainQueueManagedObjectContext executeFetchRequest:fetchRequest error:&error];
+            [self setHouseholds: fetched];
         }
     }
     return cachedObjects;
@@ -107,7 +109,7 @@ static RMHousehold *current = nil;
 
             // Save the household info to the database.
             NSError* error = nil;
-            [[RKObjectManager sharedManager].objectStore.managedObjectContextForCurrentThread save:&error];
+            [[RKObjectManager sharedManager].managedObjectStore.mainQueueManagedObjectContext save:&error];
             if (error) {
                 NSLog(@"Save error: %@", error);
             }

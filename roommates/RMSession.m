@@ -79,7 +79,7 @@ static RMSession *gInstance = nil;
     // I'm not sure we need to call endSession and wait for the DELETE but we
     // should at least clear out the cached data and the HTTP header.
     [mgr.client setValue:nil forHTTPHeaderField:@"Authorization"];
-    [mgr.objectStore deletePersistentStore];
+    [mgr.managedObjectStore resetPersistentStores:nil];
     [mgr loadObjectsAtResourcePath:@"/api/sessions" usingBlock:^(RKObjectLoader *loader) {
         loader.method = RKRequestMethodPOST;
         loader.params = @{ @"email": email, @"password": password };
@@ -120,7 +120,7 @@ static RMSession *gInstance = nil;
         // ...clear the cache...
         [manager.client.requestCache invalidateAll];
         // ...clear out stored data...
-        [manager.objectStore deletePersistentStore];
+        [manager.managedObjectStore resetPersistentStores:nil];
         // ...DELETE the session and let them know when we've finished.
         [[RKObjectManager sharedManager].client delete:@"/api/session" usingBlock:^(RKRequest *request) {
             request.onDidLoadResponse = ^(RKResponse *response) {

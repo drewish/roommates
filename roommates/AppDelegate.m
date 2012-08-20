@@ -37,16 +37,28 @@
 #endif
     [TestFlight takeOff:@"2e02edf6518d53ca4dc674538c2eb799_MTA1NTQ3MjAxMi0wNi0yOSAyMzozNTozMi4wOTkxNDE"];
 
-    RKManagedObjectStore* objectStore = [RKManagedObjectStore objectStoreWithStoreFilename:@"RMData.sqlite"];
-    mgr.objectStore = objectStore;
+    // Create the managed object store and add a SQLite persistent store
+    NSManagedObjectModel *managedObjectModel = [NSManagedObjectModel mergedModelFromBundles:nil];
+    RKManagedObjectStore *managedObjectStore = [[RKManagedObjectStore alloc] initWithManagedObjectModel:managedObjectModel];
+    NSString *storePath = [RKApplicationDataDirectory() stringByAppendingPathComponent:@"RMData.sqlite"];
+    NSError *error;
+    NSPersistentStore *persistentStore = [managedObjectStore addSQLitePersistentStoreAtPath:storePath fromSeedDatabaseAtPath:nil error:&error];
+    NSAssert(persistentStore, @"Failed to create SQLite store at path %@ due to error: %@", storePath, error);
+    mgr.managedObjectStore = managedObjectStore;
+
+    // Once we are done with configuration, ask the store to create the primary and main queue contexts
+    [managedObjectStore createManagedObjectContexts];
+
+    [RKManagedObjectStore setDefaultStore:managedObjectStore];
+    [RKObjectManager setSharedManager:mgr];
 
     // Setup our mappings.
     RKObjectMapping *errorMapping = [RKObjectMapping mappingForClass:[NSMutableDictionary class]];
     [errorMapping mapKeyPath:@"error" toAttribute:@"error"];
     [mgr.mappingProvider setErrorMapping:errorMapping];
 
-    [RMUser registerMappingsWith:mgr.mappingProvider inManagedObjectStore:objectStore];
-    [RMHousehold registerMappingsWith:mgr.mappingProvider inManagedObjectStore:objectStore];
+    [RMUser registerMappingsWith:mgr.mappingProvider inManagedObjectStore:managedObjectStore];
+    [RMHousehold registerMappingsWith:mgr.mappingProvider inManagedObjectStore:managedObjectStore];
     [RMSession registerMappingsWith:mgr.mappingProvider];
     [RMComment registerMappingsWith:mgr.mappingProvider];
     [RMLogEntry registerMappingsWith:mgr.mappingProvider];

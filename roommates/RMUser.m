@@ -12,7 +12,7 @@
 
 + (void) registerMappingsWith:(RKObjectMappingProvider*) provider inManagedObjectStore:(RKManagedObjectStore *)objectStore
 {
-    RKManagedObjectMapping* mapping = [RKManagedObjectMapping mappingForClass:[self class] inManagedObjectStore:objectStore];
+    RKEntityMapping* mapping = [RKEntityMapping mappingForEntityForName:@"RMUser" inManagedObjectStore:objectStore];
     mapping.primaryKeyAttribute = @"userId";
     [mapping mapKeyPath:@"id" toAttribute:@"userId"];
     [mapping mapKeyPath:@"first_name" toAttribute:@"firstName"];
@@ -35,9 +35,12 @@
 + (NSArray *)users
 {
     @synchronized(self) {
+        NSError *error;
+        NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"RMUser"];
+
         // Load them from the database and key by our id for lookups.
         NSMutableDictionary *users = [NSMutableDictionary dictionaryWithCapacity:50];
-        for (RMUser *u in [self objectsWithFetchRequest:[self fetchRequest]]) {
+        for (RMUser *u in [[RKManagedObjectStore defaultStore].mainQueueManagedObjectContext executeFetchRequest:fetchRequest error:&error]) {
             [users setObject:u forKey:u.userId];
         }
         return [NSDictionary dictionaryWithDictionary:users];
@@ -55,7 +58,7 @@
 
             // Save the user to the database.
             NSError* error = nil;
-            [[RKObjectManager sharedManager].objectStore.managedObjectContextForCurrentThread save:&error];
+            [[RKObjectManager sharedManager].managedObjectStore.mainQueueManagedObjectContext save:&error];
             if (error) {
                 NSLog(@"Save error: %@", error);
             }

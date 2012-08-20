@@ -23,7 +23,7 @@ static NSArray *cached = nil;
     RKObjectMapping *expenseMapping = [provider objectMappingForClass:[RMExpense class]];
     RKObjectMapping *reimbursalMapping = [provider objectMappingForClass:[RMReimbursal class]];
 
-    RKDynamicObjectMapping* dynamicMapping = [RKDynamicObjectMapping dynamicMapping];
+    RKDynamicMapping* dynamicMapping = [RKDynamicMapping dynamicMapping];
     [dynamicMapping setObjectMapping:expenseMapping whenValueOfKeyPath:@"kind" isEqualTo:@"Expense"];
     [dynamicMapping setObjectMapping:reimbursalMapping whenValueOfKeyPath:@"kind" isEqualTo:@"Reimbursal"];
     [provider setObjectMapping:dynamicMapping forResourcePathPattern:@"/api/households/:householdId/transactions"];
