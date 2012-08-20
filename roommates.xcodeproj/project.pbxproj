@@ -24,6 +24,9 @@
 		5F1ECD4915AFCBBE00C314A6 /* UserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F1ECD4815AFCBBE00C314A6 /* UserViewController.m */; };
 		5F1ECD5215AFD16500C314A6 /* ReimbursalAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F1ECD5115AFD16500C314A6 /* ReimbursalAddViewController.m */; };
 		5F286C2D159E93E400310016 /* LogEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F286C2C159E93E400310016 /* LogEntryCell.m */; };
+		5F3278B715E03F5000F71F43 /* ChecklistItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F3278B615E03F5000F71F43 /* ChecklistItemCell.m */; };
+		5F3278BA15E0405F00F71F43 /* comment.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F3278B815E0405F00F71F43 /* comment.png */; };
+		5F3278BB15E0405F00F71F43 /* comment@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F3278B915E0405F00F71F43 /* comment@2x.png */; };
 		5F3325CC15CC35C000020D20 /* PDKeychainBindings.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F3325C915CC35C000020D20 /* PDKeychainBindings.m */; };
 		5F3325CD15CC35C000020D20 /* PDKeychainBindingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F3325CB15CC35C000020D20 /* PDKeychainBindingsController.m */; };
 		5F3325D015CC689A00020D20 /* ExpensesSummaryItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F3325CF15CC689A00020D20 /* ExpensesSummaryItem.m */; };
@@ -191,6 +194,10 @@
 		5F1ECD5315AFD8AC00C314A6 /* RMData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RMData.h; sourceTree = "<group>"; };
 		5F286C2B159E93E400310016 /* LogEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogEntryCell.h; sourceTree = "<group>"; };
 		5F286C2C159E93E400310016 /* LogEntryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogEntryCell.m; sourceTree = "<group>"; };
+		5F3278B515E03F5000F71F43 /* ChecklistItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChecklistItemCell.h; sourceTree = "<group>"; };
+		5F3278B615E03F5000F71F43 /* ChecklistItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChecklistItemCell.m; sourceTree = "<group>"; };
+		5F3278B815E0405F00F71F43 /* comment.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = comment.png; path = Resources/comment.png; sourceTree = "<group>"; };
+		5F3278B915E0405F00F71F43 /* comment@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "comment@2x.png"; path = "Resources/comment@2x.png"; sourceTree = "<group>"; };
 		5F3325C815CC35C000020D20 /* PDKeychainBindings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDKeychainBindings.h; sourceTree = "<group>"; };
 		5F3325C915CC35C000020D20 /* PDKeychainBindings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDKeychainBindings.m; sourceTree = "<group>"; };
 		5F3325CA15CC35C000020D20 /* PDKeychainBindingsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDKeychainBindingsController.h; sourceTree = "<group>"; };
@@ -423,6 +430,8 @@
 				5FF1C1F915B6371400077016 /* ChecklistItemListViewController.m */,
 				5F011FC315B7A64300951A67 /* ChecklistItemDetailViewController.h */,
 				5F011FC415B7A64300951A67 /* ChecklistItemDetailViewController.m */,
+				5F3278B515E03F5000F71F43 /* ChecklistItemCell.h */,
+				5F3278B615E03F5000F71F43 /* ChecklistItemCell.m */,
 			);
 			name = ChecklistItems;
 			sourceTree = "<group>";
@@ -567,6 +576,8 @@
 		5FBCC83815B5BBBF0031CBB1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5F3278B815E0405F00F71F43 /* comment.png */,
+				5F3278B915E0405F00F71F43 /* comment@2x.png */,
 				5F51C85E15D0211300EAC1EB /* checkmark_off@2x.png */,
 				5F51C85F15D0211300EAC1EB /* checkmark_on@2x.png */,
 				5F3325D115CC6AD900020D20 /* checkmark_off.png */,
@@ -803,6 +814,8 @@
 				5F3325D415CC6AD900020D20 /* checkmark_on.png in Resources */,
 				5F51C86015D0211300EAC1EB /* checkmark_off@2x.png in Resources */,
 				5F51C86115D0211300EAC1EB /* checkmark_on@2x.png in Resources */,
+				5F3278BA15E0405F00F71F43 /* comment.png in Resources */,
+				5F3278BB15E0405F00F71F43 /* comment@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -852,6 +865,7 @@
 				5FE460F015D98E2D00DBE424 /* NSObject+MKBlockAdditions.m in Sources */,
 				5FE460F115D98E2D00DBE424 /* UIActionSheet+MKBlockAdditions.m in Sources */,
 				5FE460F215D98E2D00DBE424 /* UIAlertView+MKBlockAdditions.m in Sources */,
+				5F3278B715E03F5000F71F43 /* ChecklistItemCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

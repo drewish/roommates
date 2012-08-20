@@ -160,12 +160,12 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row == 0 && indexPath.section == 0) {
+        [SVProgressHUD showWithStatus:@"Toggling"];
         [self.item toggleOnSuccess:^(id object) {
             //
         } onFailure:^(NSError *error) {
             [SVProgressHUD showErrorWithStatus:@""];
         }];
-        [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:NO];
     }
 }
 

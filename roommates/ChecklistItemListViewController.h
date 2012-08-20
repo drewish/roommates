@@ -13,5 +13,6 @@
 @property NSString *kind;
 
 - (IBAction)add:(id)sender;
+- (IBAction)toggle:(id)sender;
 
 @end

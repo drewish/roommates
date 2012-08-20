@@ -8,6 +8,7 @@
 
 #import "ChecklistItemListViewController.h"
 #import "ChecklistItemDetailViewController.h"
+#import "ChecklistItemCell.h"
 
 @interface ChecklistItemListViewController ()
 
@@ -79,7 +80,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell;
+    ChecklistItemCell *cell;
 
     // Configure the cell...
     RMChecklistItem *item = [self.items objectAtIndex:indexPath.row];
@@ -89,7 +90,8 @@
     else {
         cell = [tableView dequeueReusableCellWithIdentifier:@"View"];
         cell.textLabel.text = item.title;
-        cell.detailTextLabel.text = item.comments.count ? [[NSNumber numberWithInt:item.comments.count] stringValue] : @"";
+        cell.commentLabel.text = [[NSNumber numberWithInt:item.comments.count] stringValue];
+        cell.checkmarkButton.imageView.image = [UIImage imageNamed:([item.completed boolValue] ? @"checkmark_on.png" : @"checkmark_off.png")];
     }
 
     return cell;
@@ -150,6 +152,25 @@
     NSIndexPath *path = [NSIndexPath indexPathForRow:0 inSection:0];
     [self.tableView insertRowsAtIndexPaths:@[path] withRowAnimation:YES];
     [[[self.tableView cellForRowAtIndexPath:path] viewWithTag:1] becomeFirstResponder];
+}
+
+- (IBAction)toggle:(id)sender {
+    UITableViewCell *cell;
+    if ([sender isKindOfClass:[UIButton class]]) {
+        // Figure out what cell the button they clicked was in by going up the
+        // view hierarchy...
+        cell = (UITableViewCell*) [[sender superview] superview];
+    }
+    // ...then get its index and load the item to find its id.
+    NSIndexPath *path = [self.tableView indexPathForCell:cell];
+    RMChecklistItem *item = [self.items objectAtIndex:path.section];
+    assert(item != nil);
+    [SVProgressHUD showWithStatus:@"Toggling"];
+    [item toggleOnSuccess:^(id object) {
+        //
+    } onFailure:^(NSError *error) {
+        [SVProgressHUD showErrorWithStatus:@""];
+    }];
 }
 
 @end

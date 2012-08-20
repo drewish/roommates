@@ -968,35 +968,53 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="View" textLabel="cKB-hr-lEa" detailTextLabel="4FL-Bg-dvA" imageView="9Ee-dI-xby" style="IBUITableViewCellStyleValue1" id="aIc-ps-N5I">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="View" id="aIc-ps-N5I" customClass="ChecklistItemCell">
                                 <rect key="frame" x="0.0" y="46" width="320" height="45"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="10" y="1" width="280" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cKB-hr-lEa">
-                                            <rect key="frame" x="33" y="11" width="35" height="21"/>
+                                        <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="eJF-pL-Qyi">
+                                            <rect key="frame" x="0.0" y="1" width="40" height="40"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" size="button"/>
+                                            <state key="normal" image="checkmark_off.png">
+                                                <color key="titleColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <state key="highlighted">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="toggle:" destination="1rw-1Q-JOC" eventType="touchUpInside" id="aeu-oD-Lsb"/>
+                                            </connections>
+                                        </button>
+                                        <imageView userInteractionEnabled="NO" contentMode="center" image="comment@2x.png" id="znV-XQ-2Qy">
+                                            <rect key="frame" x="241" y="7" width="35" height="35"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="sM8-GX-vFk">
+                                            <rect key="frame" x="241" y="11" width="35" height="21"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.21960784310000001" green="0.3294117647" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qWr-pl-8Ub">
+                                            <rect key="frame" x="34" y="11" width="206" height="21"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4FL-Bg-dvA">
-                                            <rect key="frame" x="226" y="11" width="44" height="21"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.2196078431372549" green="0.32941176470588235" blue="0.52941176470588236" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        </label>
-                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="checkmark_off.png" id="9Ee-dI-xby">
-                                            <rect key="frame" x="10" y="15" width="13" height="13"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </imageView>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <connections>
+                                    <outlet property="checkmarkButton" destination="eJF-pL-Qyi" id="Tdo-vO-FUr"/>
+                                    <outlet property="commentLabel" destination="sM8-GX-vFk" id="7BU-Ne-MvV"/>
+                                    <outlet property="textLabel" destination="qWr-pl-8Ub" id="hr4-b1-0SD"/>
                                     <segue destination="eT4-69-lhV" kind="push" identifier="Detail" id="H1Y-ei-TyQ"/>
                                 </connections>
                             </tableViewCell>
@@ -1404,6 +1422,7 @@
     </scenes>
     <resources>
         <image name="checkmark_off.png" width="13" height="13"/>
+        <image name="comment@2x.png" width="40" height="40"/>
         <image name="logo.png" width="240" height="90"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
