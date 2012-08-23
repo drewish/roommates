@@ -14,11 +14,11 @@
 +(id) itemWithUserId:(NSNumber*) userId forAmount:(NSDecimalNumber*) amount
 {
     ExpensesSummaryItem *item = [self new];
-    item.user = [[RMUser users] objectForKey: userId];
+    item.userId = userId;
     item.amount = amount;
     return item;
 }
 
-@synthesize user, amount;
+@synthesize userId, amount;
 
 @end

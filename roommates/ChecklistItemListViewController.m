@@ -90,7 +90,7 @@
     else {
         cell = [tableView dequeueReusableCellWithIdentifier:@"View"];
         cell.textLabel.text = item.title;
-        cell.commentLabel.text = [[NSNumber numberWithInt:item.comments.count] stringValue];
+        cell.commentLabel.text = [NSString stringWithFormat:@"%i", item.comments.count];
         cell.checkmarkButton.imageView.image = [UIImage imageNamed:([item.completed boolValue] ? @"checkmark_on.png" : @"checkmark_off.png")];
     }
 

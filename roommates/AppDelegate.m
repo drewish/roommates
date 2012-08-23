@@ -49,6 +49,9 @@
     // Once we are done with configuration, ask the store to create the primary and main queue contexts
     [managedObjectStore createManagedObjectContexts];
 
+    // Create a managed object cache. To use the In Memory Cache, you must configure it after context creation
+    managedObjectStore.managedObjectCache = [[RKInMemoryManagedObjectCache alloc] initWithManagedObjectContext:managedObjectStore.primaryManagedObjectContext];
+
     [RKManagedObjectStore setDefaultStore:managedObjectStore];
     [RKObjectManager setSharedManager:mgr];
 

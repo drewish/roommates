@@ -14,7 +14,7 @@
 
 +(id) itemWithUserId:(NSNumber*) userId forAmount:(NSDecimalNumber*) amount;
 
-@property(retain) RMUser *user;
+@property(retain) NSNumber *userId;
 @property(retain) NSDecimalNumber *amount;
 
 @end

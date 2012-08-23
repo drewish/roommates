@@ -190,7 +190,7 @@
                     action = @"owes";
                     color = ourRed;
                 }
-                cell.textLabel.text = [NSString stringWithFormat:(action == @"owes") ? @"to %@:" : @"by %@", item.user.displayName];
+                cell.textLabel.text = [NSString stringWithFormat:(action == @"owes") ? @"to %@:" : @"by %@", [RMUser nameForId:item.userId]];
             }
             break;
 
@@ -222,7 +222,7 @@
                 else {
                     message = @"%@ is paid up";
                 }
-                cell.textLabel.text = [NSString stringWithFormat:message, item.user.displayName];
+                cell.textLabel.text = [NSString stringWithFormat:message, [RMUser nameForId:item.userId]];
             }
             break;
     }

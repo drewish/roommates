@@ -73,7 +73,13 @@
 // Central point for formatting user names.
 + (NSString*)nameForId:(NSNumber*) userId
 {
-    RMUser *user = [RMUser.users objectForKey:userId];
+    NSError *error;
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"RMUser"];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K = %@", @"userId", userId];
+    [fetchRequest setPredicate:predicate];
+
+    NSArray *results = [[RKManagedObjectStore defaultStore].mainQueueManagedObjectContext executeFetchRequest:fetchRequest error:&error];
+    RMUser *user = [results lastObject];
     if (user == nil) {
         // If we don't have the user fire off fetch request to
         // get it locally. It'll probably show up after we build
