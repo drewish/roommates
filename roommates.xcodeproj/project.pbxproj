@@ -62,6 +62,10 @@
 		5FAD767915A16321005BBCAC /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FAD767815A16321005BBCAC /* MenuViewController.m */; };
 		5FAD767E15A218F0005BBCAC /* RMData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5FAD767C15A218F0005BBCAC /* RMData.xcdatamodeld */; };
 		5FBCC83A15B5BC210031CBB1 /* reveal.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FBCC83915B5BC210031CBB1 /* reveal.png */; };
+		5FCC6EA015E5B776000AD1EA /* button-depressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FCC6E9C15E5B776000AD1EA /* button-depressed.png */; };
+		5FCC6EA115E5B776000AD1EA /* button-depressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FCC6E9D15E5B776000AD1EA /* button-depressed@2x.png */; };
+		5FCC6EA215E5B776000AD1EA /* button-normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FCC6E9E15E5B776000AD1EA /* button-normal.png */; };
+		5FCC6EA315E5B776000AD1EA /* button-normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FCC6E9F15E5B776000AD1EA /* button-normal@2x.png */; };
 		5FD475B2159B536C00F4907C /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FD475B0159B536C00F4907C /* CFNetwork.framework */; };
 		5FD475B3159B536C00F4907C /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FD475B1159B536C00F4907C /* CoreData.framework */; };
 		5FD475B5159B537C00F4907C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FD475B4159B537C00F4907C /* Security.framework */; };
@@ -252,6 +256,10 @@
 		5FAD767815A16321005BBCAC /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
 		5FAD767D15A218F0005BBCAC /* RMData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RMData.xcdatamodel; sourceTree = "<group>"; };
 		5FBCC83915B5BC210031CBB1 /* reveal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = reveal.png; path = Resources/reveal.png; sourceTree = "<group>"; };
+		5FCC6E9C15E5B776000AD1EA /* button-depressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "button-depressed.png"; path = "Resources/button-depressed.png"; sourceTree = "<group>"; };
+		5FCC6E9D15E5B776000AD1EA /* button-depressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "button-depressed@2x.png"; path = "Resources/button-depressed@2x.png"; sourceTree = "<group>"; };
+		5FCC6E9E15E5B776000AD1EA /* button-normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "button-normal.png"; path = "Resources/button-normal.png"; sourceTree = "<group>"; };
+		5FCC6E9F15E5B776000AD1EA /* button-normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "button-normal@2x.png"; path = "Resources/button-normal@2x.png"; sourceTree = "<group>"; };
 		5FD47597159B51C900F4907C /* RestKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RestKit.xcodeproj; path = ../RestKit/RestKit.xcodeproj; sourceTree = "<group>"; };
 		5FD475B0159B536C00F4907C /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		5FD475B1159B536C00F4907C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -576,6 +584,10 @@
 		5FBCC83815B5BBBF0031CBB1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5FCC6E9C15E5B776000AD1EA /* button-depressed.png */,
+				5FCC6E9D15E5B776000AD1EA /* button-depressed@2x.png */,
+				5FCC6E9E15E5B776000AD1EA /* button-normal.png */,
+				5FCC6E9F15E5B776000AD1EA /* button-normal@2x.png */,
 				5F3278B815E0405F00F71F43 /* comment.png */,
 				5F3278B915E0405F00F71F43 /* comment@2x.png */,
 				5F51C85E15D0211300EAC1EB /* checkmark_off@2x.png */,
@@ -816,6 +828,10 @@
 				5F51C86115D0211300EAC1EB /* checkmark_on@2x.png in Resources */,
 				5F3278BA15E0405F00F71F43 /* comment.png in Resources */,
 				5F3278BB15E0405F00F71F43 /* comment@2x.png in Resources */,
+				5FCC6EA015E5B776000AD1EA /* button-depressed.png in Resources */,
+				5FCC6EA115E5B776000AD1EA /* button-depressed@2x.png in Resources */,
+				5FCC6EA215E5B776000AD1EA /* button-normal.png in Resources */,
+				5FCC6EA315E5B776000AD1EA /* button-normal@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
