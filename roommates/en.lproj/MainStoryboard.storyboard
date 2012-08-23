@@ -474,7 +474,7 @@
                                     <outlet property="delegate" destination="ouc-yX-Rrw" id="7gT-nH-Krm"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="EUf-vC-WTE">
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" id="EUf-vC-WTE">
                                 <rect key="frame" x="20" y="193" width="280" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -519,6 +519,7 @@
                         <outlet property="email" destination="RSg-Y5-35H" id="Qha-dT-kjj"/>
                         <outlet property="login" destination="EUf-vC-WTE" id="1ka-AH-hTd"/>
                         <outlet property="password" destination="5go-dj-eoz" id="1Rl-Mg-H1e"/>
+                        <outlet property="signup" destination="ZY3-qt-Pdf" id="UC3-9L-Ijy"/>
                     </connections>
                 </viewController>
             </objects>

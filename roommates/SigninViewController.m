@@ -19,6 +19,7 @@
 @synthesize email;
 @synthesize password;
 @synthesize login;
+@synthesize signup;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -36,6 +37,13 @@
     UIImage *image = [UIImage imageNamed:@"background.png"];
     self.view.backgroundColor = [UIColor colorWithPatternImage:image];
 
+    UIImage* normalImage = [[UIImage imageNamed:@"button-normal.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(14, 14, 14, 14)];
+    UIImage* activeImage = [[UIImage imageNamed:@"button-depressed.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(14, 14, 14, 14)];
+    [self.login setBackgroundImage:normalImage forState:UIControlStateNormal];
+    [self.login setBackgroundImage:activeImage forState:UIControlStateHighlighted];
+    [self.signup setBackgroundImage:normalImage forState:UIControlStateNormal];
+    [self.signup setBackgroundImage:activeImage forState:UIControlStateHighlighted];
+
     // Do any additional setup after loading the view.
     PDKeychainBindings *keychain = [PDKeychainBindings sharedKeychainBindings];
     email.text = [keychain stringForKey:@"email"];
@@ -48,6 +56,7 @@
     [self setEmail:nil];
     [self setPassword:nil];
     [self setLogin:nil];
+    [self setSignup:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
