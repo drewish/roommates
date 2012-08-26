@@ -57,7 +57,7 @@
 	}
 
     self.toolbarItems = @[
-        [[UIBarButtonItem alloc] initWithTitle:@"+$" style:UIBarButtonItemStyleBordered target:self action:@selector(addTransaction:)],
+        [[UIBarButtonItem alloc] initWithTitle:@"+$" style:UIBarButtonItemStylePlain target:self action:@selector(addTransaction:)],
         [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
         [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCompose target:self action:@selector(addNote:)],
         [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
