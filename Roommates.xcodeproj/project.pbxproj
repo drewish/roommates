@@ -470,7 +470,7 @@
 		5F703C341598FECC00EA51DF = {
 			isa = PBXGroup;
 			children = (
-				5F703C491598FECD00EA51DF /* roommates */,
+				5F703C491598FECD00EA51DF /* Roommates */,
 				5F011FD215B7AA0D00951A67 /* Vendor */,
 				5F703C421598FECD00EA51DF /* Frameworks */,
 				5F703C401598FECD00EA51DF /* Products */,
@@ -504,7 +504,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		5F703C491598FECD00EA51DF /* roommates */ = {
+		5F703C491598FECD00EA51DF /* Roommates */ = {
 			isa = PBXGroup;
 			children = (
 				5F703C521598FECD00EA51DF /* AppDelegate.h */,
@@ -521,6 +521,7 @@
 				5F703C4A1598FECD00EA51DF /* Supporting Files */,
 				5FBCC83815B5BBBF0031CBB1 /* Resources */,
 			);
+			name = Roommates;
 			path = roommates;
 			sourceTree = "<group>";
 		};
@@ -710,7 +711,7 @@
 				LastUpgradeCheck = 0430;
 				ORGANIZATIONNAME = drewish.com;
 			};
-			buildConfigurationList = 5F703C391598FECC00EA51DF /* Build configuration list for PBXProject "roommates" */;
+			buildConfigurationList = 5F703C391598FECC00EA51DF /* Build configuration list for PBXProject "Roommates" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -935,7 +936,8 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Roommat.es Inc";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -950,6 +952,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7185FA70-BBB5-4AB3-B681-EA37BC58A919";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -960,7 +964,8 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Roommat.es Inc";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = "";
@@ -969,6 +974,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7185FA70-BBB5-4AB3-B681-EA37BC58A919";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1019,7 +1026,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5F703C391598FECC00EA51DF /* Build configuration list for PBXProject "roommates" */ = {
+		5F703C391598FECC00EA51DF /* Build configuration list for PBXProject "Roommates" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5F703C5B1598FECD00EA51DF /* Debug */,
