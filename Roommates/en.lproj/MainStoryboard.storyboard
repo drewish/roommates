@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2549" systemVersion="12A269" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="ouc-yX-Rrw">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2549" systemVersion="12B19" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="ouc-yX-Rrw">
     <dependencies>
         <deployment defaultVersion="1296" identifier="iOS"/>
         <development version="4300" identifier="xcode"/>
@@ -1011,12 +1011,12 @@
                                                 <action selector="toggle:" destination="1rw-1Q-JOC" eventType="touchUpInside" id="aeu-oD-Lsb"/>
                                             </connections>
                                         </button>
-                                        <imageView userInteractionEnabled="NO" contentMode="center" image="comment@2x.png" id="znV-XQ-2Qy">
-                                            <rect key="frame" x="241" y="7" width="35" height="35"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="center" image="comment.png" id="znV-XQ-2Qy">
+                                            <rect key="frame" x="253" y="12" width="20" height="20"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="sM8-GX-vFk">
-                                            <rect key="frame" x="241" y="11" width="35" height="21"/>
+                                            <rect key="frame" x="225" y="11" width="35" height="21"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.21960784310000001" green="0.3294117647" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
@@ -1097,7 +1097,7 @@
                                 <rect key="frame" x="0.0" y="46" width="320" height="45"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="10" y="0.0" width="300" height="43"/>
+                                    <rect key="frame" x="10" y="1" width="300" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter a new to-do…" minimumFontSize="17" clearButtonMode="whileEditing" id="Kuc-O3-Qqg">
@@ -1113,14 +1113,14 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="View" id="jX4-Gx-dU3" customClass="ChecklistItemCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="View" id="hhB-fo-ZOr" customClass="ChecklistItemCell">
                                 <rect key="frame" x="0.0" y="91" width="320" height="45"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="10" y="0.0" width="280" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="amh-kC-CPX">
+                                        <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Xzr-0J-gXK">
                                             <rect key="frame" x="0.0" y="1" width="40" height="40"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="boldSystem" size="button"/>
@@ -1132,21 +1132,21 @@
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                             <connections>
-                                                <action selector="toggle:" destination="1rw-1Q-JOC" eventType="touchUpInside" id="l8y-NG-w9y"/>
+                                                <action selector="toggle:" destination="1rw-1Q-JOC" eventType="touchUpInside" id="f2r-qa-4KF"/>
                                             </connections>
                                         </button>
-                                        <imageView userInteractionEnabled="NO" contentMode="center" image="comment@2x.png" id="9Ip-4B-vrw">
-                                            <rect key="frame" x="241" y="7" width="35" height="35"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="center" image="comment.png" id="t7o-kN-hUv">
+                                            <rect key="frame" x="253" y="12" width="20" height="20"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7gA-QJ-Dv3">
-                                            <rect key="frame" x="241" y="11" width="35" height="21"/>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cyK-WV-fNO">
+                                            <rect key="frame" x="225" y="11" width="35" height="21"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.21960784310000001" green="0.3294117647" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="uGq-1q-kwD">
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xiR-53-sC4">
                                             <rect key="frame" x="34" y="11" width="206" height="21"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
@@ -1157,10 +1157,10 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <connections>
-                                    <outlet property="checkmarkButton" destination="amh-kC-CPX" id="MeL-fS-hvi"/>
-                                    <outlet property="commentLabel" destination="7gA-QJ-Dv3" id="m8G-c3-cT2"/>
-                                    <outlet property="textLabel" destination="uGq-1q-kwD" id="Gdh-7r-vwt"/>
-                                    <segue destination="eT4-69-lhV" kind="push" identifier="Detail" id="afW-Ii-v7O"/>
+                                    <outlet property="checkmarkButton" destination="Xzr-0J-gXK" id="tk0-Nw-uAL"/>
+                                    <outlet property="commentLabel" destination="cyK-WV-fNO" id="HuM-Vz-z3e"/>
+                                    <outlet property="textLabel" destination="xiR-53-sC4" id="kWd-Jr-7hq"/>
+                                    <segue destination="eT4-69-lhV" kind="push" identifier="Detail" id="juz-ki-3rj"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -1441,7 +1441,7 @@
     </scenes>
     <resources>
         <image name="checkmark_off.png" width="13" height="13"/>
-        <image name="comment@2x.png" width="40" height="40"/>
+        <image name="comment.png" width="14" height="15"/>
         <image name="logo.png" width="240" height="90"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
@@ -1450,8 +1450,8 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="afW-Ii-v7O"/>
-        <segue reference="ZdO-4V-hym"/>
+        <segue reference="juz-ki-3rj"/>
         <segue reference="KJS-UG-GG0"/>
+        <segue reference="ZdO-4V-hym"/>
     </inferredMetricsTieBreakers>
 </document>
