@@ -167,7 +167,7 @@
     assert(item != nil);
     [SVProgressHUD showWithStatus:@"Toggling"];
     [item toggleOnSuccess:^(id object) {
-        //
+        [SVProgressHUD dismiss];
     } onFailure:^(NSError *error) {
         [SVProgressHUD showErrorWithStatus:@""];
     }];

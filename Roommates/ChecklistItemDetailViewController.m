@@ -162,7 +162,7 @@
     if (indexPath.row == 0 && indexPath.section == 0) {
         [SVProgressHUD showWithStatus:@"Toggling"];
         [self.item toggleOnSuccess:^(id object) {
-            //
+            [SVProgressHUD dismiss];
         } onFailure:^(NSError *error) {
             [SVProgressHUD showErrorWithStatus:@""];
         }];
