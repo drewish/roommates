@@ -1008,7 +1008,7 @@
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                             <connections>
-                                                <action selector="toggle:" destination="1rw-1Q-JOC" eventType="touchUpInside" id="aeu-oD-Lsb"/>
+                                                <action selector="toggle:" destination="1rw-1Q-JOC" eventType="touchUpInside" id="LXF-NR-1LN"/>
                                             </connections>
                                         </button>
                                         <imageView userInteractionEnabled="NO" contentMode="center" image="comment.png" id="znV-XQ-2Qy">
@@ -1033,9 +1033,9 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <connections>
-                                    <outlet property="checkmarkButton" destination="eJF-pL-Qyi" id="Tdo-vO-FUr"/>
-                                    <outlet property="commentLabel" destination="sM8-GX-vFk" id="7BU-Ne-MvV"/>
-                                    <outlet property="textLabel" destination="qWr-pl-8Ub" id="hr4-b1-0SD"/>
+                                    <outlet property="checkmarkButton" destination="eJF-pL-Qyi" id="1cO-eS-gnz"/>
+                                    <outlet property="commentLabel" destination="sM8-GX-vFk" id="Do0-3X-j8u"/>
+                                    <outlet property="textLabel" destination="qWr-pl-8Ub" id="XMp-zE-by1"/>
                                     <segue destination="eT4-69-lhV" kind="push" identifier="Detail" id="H1Y-ei-TyQ"/>
                                 </connections>
                             </tableViewCell>
@@ -1050,7 +1050,7 @@
                     <navigationItem key="navigationItem" title="Shopping List" id="FYf-jq-Yz0">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="6d0-b3-nZy">
                             <connections>
-                                <action selector="add:" destination="1rw-1Q-JOC" id="WAV-GD-YyT"/>
+                                <action selector="add:" destination="1rw-1Q-JOC" id="8qV-NU-J3k"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -1133,6 +1133,7 @@
                                             </state>
                                             <connections>
                                                 <action selector="toggle:" destination="1rw-1Q-JOC" eventType="touchUpInside" id="f2r-qa-4KF"/>
+                                                <action selector="toggle:" destination="RYf-fo-g9O" eventType="touchUpInside" id="mje-XQ-F3o"/>
                                             </connections>
                                         </button>
                                         <imageView userInteractionEnabled="NO" contentMode="center" image="comment.png" id="t7o-kN-hUv">
@@ -1157,9 +1158,9 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <connections>
-                                    <outlet property="checkmarkButton" destination="Xzr-0J-gXK" id="tk0-Nw-uAL"/>
-                                    <outlet property="commentLabel" destination="cyK-WV-fNO" id="HuM-Vz-z3e"/>
-                                    <outlet property="textLabel" destination="xiR-53-sC4" id="kWd-Jr-7hq"/>
+                                    <outlet property="checkmarkButton" destination="Xzr-0J-gXK" id="Lo0-Ip-mOd"/>
+                                    <outlet property="commentLabel" destination="cyK-WV-fNO" id="HDw-Wd-yrd"/>
+                                    <outlet property="textLabel" destination="xiR-53-sC4" id="30M-tC-7kv"/>
                                     <segue destination="eT4-69-lhV" kind="push" identifier="Detail" id="juz-ki-3rj"/>
                                 </connections>
                             </tableViewCell>
@@ -1173,7 +1174,7 @@
                     <navigationItem key="navigationItem" title="To-Do's" id="B2P-1r-cWF">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="RZW-4E-W33">
                             <connections>
-                                <action selector="add:" destination="RYf-fo-g9O" id="w9e-ql-VPm"/>
+                                <action selector="add:" destination="RYf-fo-g9O" id="eiv-Q9-igt"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -1302,14 +1303,14 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pRb-JX-UP2">
-                                            <rect key="frame" x="33" y="0.0" width="257" height="43"/>
+                                            <rect key="frame" x="34" y="0.0" width="256" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </label>
                                         <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="checkmark_off.png" id="1PA-GM-Gg5">
-                                            <rect key="frame" x="10" y="15" width="13" height="13"/>
+                                            <rect key="frame" x="10" y="12" width="14" height="18"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </imageView>
                                     </subviews>
@@ -1440,7 +1441,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="checkmark_off.png" width="13" height="13"/>
+        <image name="checkmark_off.png" width="14" height="18"/>
         <image name="comment.png" width="14" height="15"/>
         <image name="logo.png" width="240" height="90"/>
     </resources>
