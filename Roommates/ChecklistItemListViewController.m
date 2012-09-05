@@ -61,6 +61,12 @@
     // Release any retained subviews of the main view.
 }
 
+- (void)fetchItems {
+    [super fetchItems];
+    // Reloading will remove our add row so we need to re-enable the add button.
+    self.navigationItem.rightBarButtonItem.enabled = YES;
+}
+
 - (void)handleSingleTap:(UITapGestureRecognizer *) sender
 {
     [self.view endEditing:YES];
@@ -128,7 +134,6 @@
     return [permission boolValue];
 }
 
-
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
@@ -140,6 +145,7 @@
         }];
     }
 }
+
 #pragma
 
 - (IBAction)add:(id)sender {
@@ -161,9 +167,10 @@
         // view hierarchy...
         cell = (UITableViewCell*) [[sender superview] superview];
     }
+    assert(cell != nil);
     // ...then get its index and load the item to find its id.
     NSIndexPath *path = [self.tableView indexPathForCell:cell];
-    RMChecklistItem *item = [self.items objectAtIndex:path.section];
+    RMChecklistItem *item = [self.items objectAtIndex:path.row];
     assert(item != nil);
     [SVProgressHUD showWithStatus:@"Toggling"];
     [item toggleOnSuccess:^(id object) {
