@@ -21,7 +21,6 @@
     NSNumberFormatter *formatter;
 }
 @synthesize amountText;
-@synthesize amountLabel;
 @synthesize toUserCell;
 @synthesize fromUserCell;
 @synthesize amount = amount_, toUser = toUser_, fromUser = fromUser_;
@@ -32,7 +31,9 @@
     if (self) {
         // Custom initialization
         formatter = [NSNumberFormatter new];
-        formatter.numberStyle = NSNumberFormatterCurrencyStyle;
+        [formatter setNumberStyle: NSNumberFormatterCurrencyStyle];
+        [formatter setLenient:YES];
+        [formatter setGeneratesDecimalNumbers:YES];
     }
     return self;
 }
@@ -54,7 +55,6 @@
     [self setAmountText:nil];
     [self setToUserCell:nil];
     [self setFromUserCell:nil];
-    [self setAmountLabel:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -92,32 +92,42 @@
 
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
-    NSString *asText = [textField.text stringByReplacingCharactersInRange:range withString:string];
-    // Keep leading zeros out since they mess things up.
-    if ([@"0" isEqualToString:asText]) {
+    NSString *replaced = [textField.text stringByReplacingCharactersInRange:range withString:string];
+    NSDecimalNumber *amount = (NSDecimalNumber*) [formatter numberFromString:replaced];
+    if (amount == nil) {
+        // Something screwed up the parsing. Probably an alpha character.
         return NO;
     }
-    if ([asText length] == 0) {
-        [self setAmount:[NSDecimalNumber zero]];
-        return YES;
+    // If the field is empty (the inital case) the number should be shifted to
+    // start in the right most decimal place.
+    short powerOf10 = 0;
+    if ([textField.text isEqualToString:@""]) {
+        powerOf10 = -formatter.maximumFractionDigits;
     }
-    // We just want digits so cast the string to an integer then compare it
-    // to itself. If they're same then we're good.
-    NSInteger asInteger = [asText integerValue];
-    NSNumber *asNumber = [NSNumber numberWithInteger:asInteger];
-    if ([[asNumber stringValue] isEqualToString:asText]) {
-        // Convert it to a decimal and shift it over by the fractional part.
-        NSDecimalNumber *newAmount = [NSDecimalNumber decimalNumberWithDecimal:[asNumber decimalValue]];
-        [self setAmount:[newAmount decimalNumberByMultiplyingByPowerOf10:-formatter.maximumFractionDigits]];
-        return YES;
+    // If the edit point is to the right of the decimal point we need to do
+    // some shifting.
+    else if (range.location + formatter.maximumFractionDigits >= textField.text.length) {
+        // If there's a range of text selected, it'll delete part of the number
+        // so shift it back to the right.
+        if (range.length) {
+            powerOf10 = -range.length;
+        }
+        // Otherwise they're adding this many characters so shift left.
+        else {
+            powerOf10 = [string length];
+        }
     }
+    amount = [amount decimalNumberByMultiplyingByPowerOf10:powerOf10];
+
+    // Replace the value and then cancel this change.
+    [self setAmount:amount];
     return NO;
 }
 
 -(void)setAmount:(NSDecimalNumber *)amount
 {
     amount_ = amount;
-    amountLabel.text = [formatter stringFromNumber:amount];
+    amountText.text = [formatter stringFromNumber:amount];
     self.navigationItem.rightBarButtonItem.enabled = [self isValid];
 }
 

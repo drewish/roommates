@@ -31,7 +31,9 @@
         expense = [RMExpense new];
         participants = [NSMutableSet set];
         formatter = [NSNumberFormatter new];
-        formatter.numberStyle = NSNumberFormatterCurrencyStyle;
+        [formatter setNumberStyle: NSNumberFormatterCurrencyStyle];
+        [formatter setLenient:YES];
+        [formatter setGeneratesDecimalNumbers:YES];
     }
     return self;
 }
@@ -84,6 +86,7 @@
         // but that's what it's doing now.
     }
 }
+
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
     // For non-numberic fields just give them a pass.
@@ -91,25 +94,35 @@
         return YES;
     }
 
-    NSString *asText = [textField.text stringByReplacingCharactersInRange:range withString:string];
-    // Keep leading zeros out since they mess things up.
-    if ([@"0" isEqualToString:asText]) {
+    NSString *replaced = [textField.text stringByReplacingCharactersInRange:range withString:string];
+    NSDecimalNumber *amount = (NSDecimalNumber*) [formatter numberFromString:replaced];
+    if (amount == nil) {
+        // Something screwed up the parsing. Probably an alpha character.
         return NO;
     }
-    if ([asText length] == 0) {
-        self.amount = [NSDecimalNumber zero];
-        return YES;
+    // If the field is empty (the inital case) the number should be shifted to
+    // start in the right most decimal place.
+    short powerOf10 = 0;
+    if ([textField.text isEqualToString:@""]) {
+        powerOf10 = -formatter.maximumFractionDigits;
     }
-    // We just want digits so cast the string to an integer then compare it
-    // to itself. If they're same then we're good.
-    NSInteger asInteger = [asText integerValue];
-    NSNumber *asNumber = [NSNumber numberWithInteger:asInteger];
-    if ([[asNumber stringValue] isEqualToString:asText]) {
-        // Convert it to a decimal and shift it over by the fractional part.
-        NSDecimalNumber *newAmount = [NSDecimalNumber decimalNumberWithDecimal:[asNumber decimalValue]];
-        self.amount = [newAmount decimalNumberByMultiplyingByPowerOf10:-formatter.maximumFractionDigits];
-        return YES;
+    // If the edit point is to the right of the decimal point we need to do
+    // some shifting.
+    else if (range.location + formatter.maximumFractionDigits >= textField.text.length) {
+        // If there's a range of text selected, it'll delete part of the number
+        // so shift it back to the right.
+        if (range.length) {
+            powerOf10 = -range.length;
+        }
+        // Otherwise they're adding this many characters so shift left.
+        else {
+            powerOf10 = [string length];
+        }
     }
+    amount = [amount decimalNumberByMultiplyingByPowerOf10:powerOf10];
+
+    // Replace the value and then cancel this change.
+    [self setAmount:amount];
     return NO;
 }
 
@@ -144,8 +157,8 @@
 {
     expense.amount = val;
 
-    UILabel *amountLabel = (UILabel*) [self.tableView viewWithTag:3];
-    amountLabel.text = [formatter stringFromNumber:expense.amount];
+    UITextField *amountText = (UITextField*) [self.tableView viewWithTag:2];
+    amountText.text = [formatter stringFromNumber:val];
 
     self.navigationItem.rightBarButtonItem.enabled = [self isValid];
 
