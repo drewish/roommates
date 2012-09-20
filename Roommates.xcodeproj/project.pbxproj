@@ -15,8 +15,6 @@
 		5F0CA1EB15B0A83B00C7CFAC /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F0CA1EA15B0A83B00C7CFAC /* RootViewController.m */; };
 		5F0CA1EE15B0B1E000C7CFAC /* ExpensesSummaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F0CA1ED15B0B1DF00C7CFAC /* ExpensesSummaryViewController.m */; };
 		5F0FAA7A15AD4B33005408AF /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0FAA7515AD4B33005408AF /* libTestFlight.a */; };
-		5F0FAA7B15AD4B33005408AF /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5F0FAA7615AD4B33005408AF /* README.txt */; };
-		5F0FAA7C15AD4B33005408AF /* release_notes.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5F0FAA7715AD4B33005408AF /* release_notes.txt */; };
 		5F0FAA7F15AD4B8E005408AF /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0FAA7E15AD4B8E005408AF /* libz.dylib */; };
 		5F0FAA8215ADB75A005408AF /* RMComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F0FAA8115ADB75A005408AF /* RMComment.m */; };
 		5F15615615A8BFB40065BAA2 /* SigninViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F15615515A8BFB40065BAA2 /* SigninViewController.m */; };
@@ -46,7 +44,7 @@
 		5F703C571598FECD00EA51DF /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F703C551598FECD00EA51DF /* MainStoryboard.storyboard */; };
 		5F70D2D815B3B9E1009D6CB6 /* RMChecklistItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F70D2D715B3B9E1009D6CB6 /* RMChecklistItem.m */; };
 		5F70D2DA15B3B9FD009D6CB6 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F70D2D915B3B9FD009D6CB6 /* Icon@2x.png */; };
-		5F70D2DC15B3C05A009D6CB6 /* purty_wood.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F70D2DB15B3C05A009D6CB6 /* purty_wood.png */; };
+		5F70D2DC15B3C05A009D6CB6 /* purty_wood@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F70D2DB15B3C05A009D6CB6 /* purty_wood@2x.png */; };
 		5F7BE28D15C9B16300616576 /* NoteAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F7BE28C15C9B16300616576 /* NoteAddViewController.m */; };
 		5F9A252215BCBCA2004382C4 /* RMTransaction.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F9A252115BCBCA1004382C4 /* RMTransaction.m */; };
 		5F9A252515BCBCBA004382C4 /* RMExpense.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F9A252415BCBCBA004382C4 /* RMExpense.m */; };
@@ -54,6 +52,8 @@
 		5F9A5EE315AE84F50053D6B3 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F9A5EDE15AE84F50053D6B3 /* arrow.png */; };
 		5F9A5EE415AE84F50053D6B3 /* arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F9A5EDF15AE84F50053D6B3 /* arrow@2x.png */; };
 		5F9A5EE515AE84F50053D6B3 /* PullToRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F9A5EE115AE84F50053D6B3 /* PullToRefreshView.m */; };
+		5FA0B977160AAD97001DDE25 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FA0B976160AAD97001DDE25 /* Default-568h@2x.png */; };
+		5FA0B979160AB5AE001DDE25 /* purty_wood.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FA0B978160AB5AE001DDE25 /* purty_wood.png */; };
 		5FAD3D9015C42D4C002E0F86 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FAD3D8C15C42D4C002E0F86 /* logo.png */; };
 		5FAD3D9115C42D4C002E0F86 /* logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FAD3D8D15C42D4C002E0F86 /* logo@2x.png */; };
 		5FAD3D9215C42D4C002E0F86 /* background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FAD3D8E15C42D4C002E0F86 /* background@2x.png */; };
@@ -181,8 +181,6 @@
 		5F0CA1EC15B0B1DF00C7CFAC /* ExpensesSummaryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpensesSummaryViewController.h; sourceTree = "<group>"; };
 		5F0CA1ED15B0B1DF00C7CFAC /* ExpensesSummaryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpensesSummaryViewController.m; sourceTree = "<group>"; };
 		5F0FAA7515AD4B33005408AF /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
-		5F0FAA7615AD4B33005408AF /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
-		5F0FAA7715AD4B33005408AF /* release_notes.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.txt; sourceTree = "<group>"; };
 		5F0FAA7815AD4B33005408AF /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
 		5F0FAA7E15AD4B8E005408AF /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		5F0FAA8015ADB75A005408AF /* RMComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMComment.h; sourceTree = "<group>"; };
@@ -231,7 +229,7 @@
 		5F70D2D615B3B9E0009D6CB6 /* RMChecklistItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMChecklistItem.h; sourceTree = "<group>"; };
 		5F70D2D715B3B9E1009D6CB6 /* RMChecklistItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMChecklistItem.m; sourceTree = "<group>"; };
 		5F70D2D915B3B9FD009D6CB6 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
-		5F70D2DB15B3C05A009D6CB6 /* purty_wood.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = purty_wood.png; path = Resources/purty_wood.png; sourceTree = "<group>"; };
+		5F70D2DB15B3C05A009D6CB6 /* purty_wood@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "purty_wood@2x.png"; path = "Resources/purty_wood@2x.png"; sourceTree = "<group>"; };
 		5F7BE28B15C9B16300616576 /* NoteAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteAddViewController.h; sourceTree = "<group>"; };
 		5F7BE28C15C9B16300616576 /* NoteAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteAddViewController.m; sourceTree = "<group>"; };
 		5F9A252015BCBCA1004382C4 /* RMTransaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMTransaction.h; sourceTree = "<group>"; };
@@ -245,6 +243,8 @@
 		5F9A5EE015AE84F50053D6B3 /* PullToRefreshView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PullToRefreshView.h; sourceTree = "<group>"; };
 		5F9A5EE115AE84F50053D6B3 /* PullToRefreshView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PullToRefreshView.m; sourceTree = "<group>"; };
 		5F9E5ED015A29C08007D355C /* RMObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RMObject.h; sourceTree = "<group>"; };
+		5FA0B976160AAD97001DDE25 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "Roommates/Default-568h@2x.png"; sourceTree = SOURCE_ROOT; };
+		5FA0B978160AB5AE001DDE25 /* purty_wood.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = purty_wood.png; path = Roommates/Resources/purty_wood.png; sourceTree = SOURCE_ROOT; };
 		5FAD3D8C15C42D4C002E0F86 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = Resources/logo.png; sourceTree = "<group>"; };
 		5FAD3D8D15C42D4C002E0F86 /* logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "logo@2x.png"; path = "Resources/logo@2x.png"; sourceTree = "<group>"; };
 		5FAD3D8E15C42D4C002E0F86 /* background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "background@2x.png"; path = "Resources/background@2x.png"; sourceTree = "<group>"; };
@@ -391,8 +391,6 @@
 			isa = PBXGroup;
 			children = (
 				5F0FAA7515AD4B33005408AF /* libTestFlight.a */,
-				5F0FAA7615AD4B33005408AF /* README.txt */,
-				5F0FAA7715AD4B33005408AF /* release_notes.txt */,
 				5F0FAA7815AD4B33005408AF /* TestFlight.h */,
 			);
 			path = TestFlight;
@@ -603,10 +601,12 @@
 				5F70D2D915B3B9FD009D6CB6 /* Icon@2x.png */,
 				5FFBCFCF15A6A9D600CF161A /* default.png */,
 				5FFBCFD015A6A9D600CF161A /* default@2x.png */,
+				5FA0B976160AAD97001DDE25 /* Default-568h@2x.png */,
 				5FBCC83915B5BC210031CBB1 /* reveal.png */,
 				5FF1C1ED15B5EA8100077016 /* reveal@2x.png */,
 				5F56E58815B4FBC10086E161 /* placeholder.png */,
-				5F70D2DB15B3C05A009D6CB6 /* purty_wood.png */,
+				5FA0B978160AB5AE001DDE25 /* purty_wood.png */,
+				5F70D2DB15B3C05A009D6CB6 /* purty_wood@2x.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -809,12 +809,10 @@
 				5FFBCFD115A6A9D600CF161A /* default.png in Resources */,
 				5FFBCFD215A6A9D600CF161A /* default@2x.png in Resources */,
 				5FFBCFD515A6AB4300CF161A /* Icon.png in Resources */,
-				5F0FAA7B15AD4B33005408AF /* README.txt in Resources */,
-				5F0FAA7C15AD4B33005408AF /* release_notes.txt in Resources */,
 				5F9A5EE315AE84F50053D6B3 /* arrow.png in Resources */,
 				5F9A5EE415AE84F50053D6B3 /* arrow@2x.png in Resources */,
 				5F70D2DA15B3B9FD009D6CB6 /* Icon@2x.png in Resources */,
-				5F70D2DC15B3C05A009D6CB6 /* purty_wood.png in Resources */,
+				5F70D2DC15B3C05A009D6CB6 /* purty_wood@2x.png in Resources */,
 				5F56E58915B4FBC10086E161 /* placeholder.png in Resources */,
 				5FBCC83A15B5BC210031CBB1 /* reveal.png in Resources */,
 				5FF1C1EE15B5EA8100077016 /* reveal@2x.png in Resources */,
@@ -833,6 +831,8 @@
 				5FCC6EA115E5B776000AD1EA /* button-depressed@2x.png in Resources */,
 				5FCC6EA215E5B776000AD1EA /* button-normal.png in Resources */,
 				5FCC6EA315E5B776000AD1EA /* button-normal@2x.png in Resources */,
+				5FA0B977160AAD97001DDE25 /* Default-568h@2x.png in Resources */,
+				5FA0B979160AB5AE001DDE25 /* purty_wood.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

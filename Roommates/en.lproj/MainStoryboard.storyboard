@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2549" systemVersion="12B19" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="ouc-yX-Rrw">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2840" systemVersion="12C54" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="ouc-yX-Rrw">
     <dependencies>
-        <deployment defaultVersion="1296" identifier="iOS"/>
+        <deployment defaultVersion="1536" identifier="iOS"/>
         <development version="4300" identifier="xcode"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1498"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1926"/>
     </dependencies>
     <scenes>
         <!--Log Entry View Controller - Activity Feed-->
         <scene sceneID="zjV-vM-4rg">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="DeI-YY-qOa" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController storyboardIdentifier="" id="buW-vF-Tn7" customClass="LogEntryViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" allowsSelection="NO" rowHeight="49" sectionHeaderHeight="10" sectionFooterHeight="10" id="I8r-EE-R00">
                         <rect key="frame" x="0.0" y="64" width="320" height="372"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                         <prototypes>
                             <tableViewCell contentMode="center" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="LogEntryCell" rowHeight="52" id="knS-I7-1CC" customClass="LogEntryCell">
                                 <rect key="frame" x="0.0" y="46" width="320" height="54"/>
@@ -69,20 +68,19 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Activity Feed" id="XFg-8z-8e8"/>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DeI-YY-qOa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="803" y="-647"/>
         </scene>
         <!--Note List View Controller - Notes-->
         <scene sceneID="MVd-s2-TDo">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="WUf-Ly-JpT" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="eMj-DX-MrF" customClass="NoteListViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="ig3-Hd-Fv5">
                         <rect key="frame" x="0.0" y="64" width="320" height="372"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                         <color key="separatorColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                         <prototypes>
                             <tableViewCell autoresizesSubviews="NO" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="NoteCell" rowHeight="280" id="pvi-Y4-Nrd" customClass="NoteCell">
@@ -190,18 +188,18 @@
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WUf-Ly-JpT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="796" y="1783"/>
         </scene>
         <!--Note Add View Controller - Add Note-->
         <scene sceneID="QmO-Ne-e8y">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="P1O-bC-Oeq" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="auE-Wo-VcQ" customClass="NoteAddViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="rlE-H8-Y5e">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                         <sections>
                             <tableViewSection headerTitle="" id="rQM-FQ-Qi5">
                                 <cells>
@@ -268,13 +266,13 @@
                         <outlet property="bodyText" destination="mJu-mD-XTW" id="vPT-Pl-VJ9"/>
                     </connections>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="P1O-bC-Oeq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2001" y="1791"/>
         </scene>
         <!--Menu View Controller-->
         <scene sceneID="9fd-hc-8PW">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ZhT-Ml-HVY" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController storyboardIdentifier="Menu" id="hLV-Ac-HHo" customClass="MenuViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="TcX-dT-lNf">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
@@ -422,13 +420,13 @@
                         </connections>
                     </tableView>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZhT-Ml-HVY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-195" y="27"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="MoL-Ss-7mq">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="PAr-Uj-vwj" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="NoteList" toolbarHidden="NO" id="oqG-sD-4FB" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" barStyle="blackOpaque" id="Po8-HH-5Gb">
@@ -444,13 +442,13 @@
                         <segue destination="eMj-DX-MrF" kind="relationship" relationship="rootViewController" id="ilm-lP-5Bl"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PAr-Uj-vwj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="319" y="1783"/>
         </scene>
         <!--Signin View Controller - Log In-->
         <scene sceneID="gjR-ZG-OZd">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zhp-76-k4G" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="Login" title="Log In" id="ouc-yX-Rrw" customClass="SigninViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3Bk-wO-zyb">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
@@ -522,13 +520,13 @@
                         <outlet property="signup" destination="ZY3-qt-Pdf" id="UC3-9L-Ijy"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zhp-76-k4G" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-625" y="27"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="apl-jP-QQi">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6bH-uc-eSP" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="LogEntryList" toolbarHidden="NO" id="bya-N5-kwX" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" barStyle="blackOpaque" id="aPg-sJ-uWc">
@@ -544,13 +542,13 @@
                         <segue destination="buW-vF-Tn7" kind="relationship" relationship="rootViewController" id="3n4-ZA-lIN"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6bH-uc-eSP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="324" y="-647"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="XyY-lr-laP">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="HoT-19-eBG" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="ExpenseSummary" toolbarHidden="NO" id="WGY-8X-shn" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" barStyle="blackOpaque" id="dAe-za-TJD">
@@ -566,18 +564,18 @@
                         <segue destination="40W-ns-Y2D" kind="relationship" relationship="rootViewController" id="u28-a9-3Li"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HoT-19-eBG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="324" y="1"/>
         </scene>
         <!--Expenses Summary View Controller - Expenses-->
         <scene sceneID="H8n-YD-tcm">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="A6d-XC-GBV" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="40W-ns-Y2D" customClass="ExpensesSummaryViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="m8f-H7-NUw">
                         <rect key="frame" x="0.0" y="64" width="320" height="372"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MyBalance" textLabel="UZG-co-Dun" style="IBUITableViewCellStyleDefault" id="2Do-0L-Ipe">
                                 <rect key="frame" x="0.0" y="46" width="320" height="45"/>
@@ -638,18 +636,18 @@
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="A6d-XC-GBV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="803" y="1"/>
         </scene>
         <!--Reimbursal Add View Controller - Add Reimbursal-->
         <scene sceneID="ghB-eP-avT">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gfh-HP-lKQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="Lnb-sS-BZK" customClass="ReimbursalAddViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="olR-V6-4qs">
                         <rect key="frame" x="0.0" y="64" width="320" height="372"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                         <sections>
                             <tableViewSection id="Sdr-8b-pCk">
                                 <cells>
@@ -765,18 +763,18 @@
                         <outlet property="toUserCell" destination="jqs-xh-L88" id="bso-E1-Lb1"/>
                     </connections>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gfh-HP-lKQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2001" y="-295"/>
         </scene>
         <!--Expense Add View Controller - Add Expense-->
         <scene sceneID="44q-2P-Qev">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="FeQ-XK-GkC" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="ZbX-n7-gL0" customClass="ExpenseAddViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" allowsMultipleSelection="YES" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="D1N-Ij-iPq">
                         <rect key="frame" x="0.0" y="64" width="320" height="372"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                         <view key="tableFooterView" hidden="YES" contentMode="scaleToFill" id="wOI-6T-mC6">
                             <rect key="frame" x="0.0" y="234" width="320" height="43"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -902,13 +900,13 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FeQ-XK-GkC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2001" y="304"/>
         </scene>
         <!--User View Controller - Choose-->
         <scene sceneID="MXx-pK-ODo">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dUh-P7-WX7" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="P5R-Dq-p4y" customClass="UserViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="w0P-DE-eOv">
                         <rect key="frame" x="0.0" y="64" width="320" height="372"/>
@@ -942,18 +940,18 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Choose" id="RLN-VN-uDd"/>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dUh-P7-WX7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2583" y="-295"/>
         </scene>
         <!--Checklist Item List View Controller - Shopping List-->
         <scene sceneID="gL2-Ea-73K">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zTY-42-lbw" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="1rw-1Q-JOC" customClass="ChecklistItemListViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="8mZ-Ko-nGL">
                         <rect key="frame" x="0.0" y="64" width="320" height="372"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Add" id="FEh-AG-jhl">
                                 <rect key="frame" x="0.0" y="46" width="320" height="45"/>
@@ -1044,13 +1042,13 @@
                         <userDefinedRuntimeAttribute type="string" keyPath="kind" value="shopping"/>
                     </userDefinedRuntimeAttributes>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zTY-42-lbw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="796" y="590"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="rJo-mC-TZV">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Rh3-iQ-beK" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="ShoppingList" toolbarHidden="NO" id="EHC-o6-dTP" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" barStyle="blackOpaque" id="7mw-vh-ljA">
@@ -1066,18 +1064,18 @@
                         <segue destination="1rw-1Q-JOC" kind="relationship" relationship="rootViewController" id="q1o-fN-AiP"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rh3-iQ-beK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="319" y="590"/>
         </scene>
         <!--Checklist Item List View Controller - To-Do's-->
         <scene sceneID="eBS-Mj-uC4">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="LP0-sY-6aP" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="RYf-fo-g9O" customClass="ChecklistItemListViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="iEb-hl-ESd">
                         <rect key="frame" x="0.0" y="64" width="320" height="372"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Add" id="nAz-J7-x9q">
                                 <rect key="frame" x="0.0" y="46" width="320" height="45"/>
@@ -1168,13 +1166,13 @@
                         <userDefinedRuntimeAttribute type="string" keyPath="kind" value="todo"/>
                     </userDefinedRuntimeAttributes>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LP0-sY-6aP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="796" y="1184"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="eyW-I3-cKx">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ssy-ij-dIA" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="ToDoList" toolbarHidden="NO" id="hrz-0N-zkb" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" barStyle="blackOpaque" id="iTu-EV-vUN">
@@ -1190,18 +1188,18 @@
                         <segue destination="RYf-fo-g9O" kind="relationship" relationship="rootViewController" id="MKg-UE-sf8"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ssy-ij-dIA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="319" y="1184"/>
         </scene>
         <!--Comment Add View Controller - Add Comment-->
         <scene sceneID="dBe-7h-5iT">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qYk-YO-kDg" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="IDn-Ga-Ol8" customClass="CommentAddViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="93W-aJ-szX">
                         <rect key="frame" x="0.0" y="64" width="320" height="372"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                         <sections>
                             <tableViewSection id="P1V-Jc-eer">
                                 <cells>
@@ -1246,18 +1244,18 @@
                         <outlet property="doneButton" destination="K6H-yR-7av" id="DVP-Yu-Nwb"/>
                     </connections>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qYk-YO-kDg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2001" y="1169"/>
         </scene>
         <!--Checklist Item Detail View Controller - To-Do's-->
         <scene sceneID="Sh8-eJ-feP">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="82f-do-Qno" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="eT4-69-lhV" customClass="ChecklistItemDetailViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="ZMU-iI-hFE">
                         <rect key="frame" x="0.0" y="64" width="320" height="372"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="B5a-it-P5I">
                             <rect key="frame" x="0.0" y="189" width="320" height="49"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1360,18 +1358,17 @@
                     <navigationItem key="navigationItem" title="To-Do's" id="Rdv-8S-lzD">
                         <barButtonItem key="backBarButtonItem" title="Cancel" id="Nbh-sB-xQN"/>
                     </navigationItem>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="deleteButton" destination="yXu-oA-QFv" id="g57-GJ-ehZ"/>
                     </connections>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="82f-do-Qno" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1475" y="924"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="3ur-N8-uzs">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="DzF-rE-ixX" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="NoteAdd" id="bbG-QB-Wm7" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="Hoo-1e-kpl"/>
@@ -1384,13 +1381,13 @@
                         <segue destination="auE-Wo-VcQ" kind="relationship" relationship="rootViewController" id="fwP-CS-ZbS"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DzF-rE-ixX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1475" y="1791"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="fZb-3P-Mwt">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="61Y-0W-dez" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="ReimbursalAdd" id="3Pp-BM-5yZ" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="o2M-vm-0x1"/>
@@ -1403,13 +1400,13 @@
                         <segue destination="Lnb-sS-BZK" kind="relationship" relationship="rootViewController" id="V44-9x-Tse"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="61Y-0W-dez" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1475" y="-295"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="xgq-t2-d5v">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5cb-B3-qar" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="ExpenseAdd" id="BXY-b7-mEK" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="TPn-q2-Nnc"/>
@@ -1422,6 +1419,7 @@
                         <segue destination="ZbX-n7-gL0" kind="relationship" relationship="rootViewController" id="zyU-y2-eXX"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5cb-B3-qar" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1475" y="304"/>
         </scene>
@@ -1438,7 +1436,7 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="juz-ki-3rj"/>
-        <segue reference="KJS-UG-GG0"/>
+        <segue reference="iP0-IT-JJ6"/>
         <segue reference="ZdO-4V-hym"/>
     </inferredMetricsTieBreakers>
 </document>
