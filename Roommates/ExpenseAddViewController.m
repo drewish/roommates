@@ -317,7 +317,7 @@
 
 - (IBAction)attachPhoto:(id)sender {
     [UIActionSheet photoPickerWithTitle:@"" showInView:self.view presentVC:self onPhotoPicked:^(UIImage *chosenImage) {
-        self.photo = chosenImage;
+        self.photo = [UIActionSheet resize:chosenImage bounds:CGSizeMake(1200, 1200)];
     } onCancel:^{
         //
     }];

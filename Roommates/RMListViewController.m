@@ -180,9 +180,10 @@
         {
             UIStoryboard* mainStoryboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
             UINavigationController* vc = [mainStoryboard instantiateViewControllerWithIdentifier:buttonIndex == 0 ? @"NoteAdd" : @"ExpenseAdd"];
+
             [self presentViewController:vc animated:TRUE completion:^{
                 if ([vc.visibleViewController conformsToProtocol:@protocol(RMPhotoable)]) {
-                    [(id<RMPhotoable>) vc.visibleViewController setPhoto:chosenImage];
+                    [(id<RMPhotoable>) vc.visibleViewController setPhoto:[UIActionSheet resize:chosenImage bounds:CGSizeMake(1200, 1200)]];
                 }
             }];
         } onCancel:^{
