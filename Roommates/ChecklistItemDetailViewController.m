@@ -120,7 +120,7 @@
     // Section 0 is the checklist item, section 1 is the comments and add
     // comment link. The comments can have variable heights so we need to size
     // them up.
-    if (indexPath.section == 1 && indexPath.row > 0 && indexPath.row < self.item.comments.count) {
+    if (indexPath.section == 1 && indexPath.row >= 0 && indexPath.row < self.item.comments.count) {
         RMComment *comment = [self.item.comments objectAtIndex:indexPath.row];
         CGSize commentSize = CGSizeMake(280, FLT_MAX);
         commentSize = [comment.body sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:commentSize];
