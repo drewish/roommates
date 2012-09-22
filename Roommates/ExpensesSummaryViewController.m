@@ -154,7 +154,7 @@
     NSString *message = @"";
     NSNumberFormatter * f = [NSNumberFormatter new];
     f.numberStyle = NSNumberFormatterCurrencyStyle;
-    f.negativeFormat = f.positiveFormat;
+    //    f.negativeFormat = f.positiveFormat;
     UIColor *ourRed = [UIColor colorWithRed:0.882 green:0.000 blue:0.000 alpha:1.000];
     UIColor *ourGreen = [UIColor colorWithRed:0.349 green:0.812 blue:0.125 alpha:1.000];
     UIColor *color = [UIColor colorWithRed:0.216 green:0.325 blue:0.525 alpha:1.000];
@@ -225,6 +225,12 @@
                 cell.textLabel.text = [NSString stringWithFormat:message, [RMUser nameForId:item.userId]];
             }
             break;
+    }
+
+    // Avoid negative signs.
+    if ([amount compare:[NSDecimalNumber zero]] == NSOrderedAscending) {
+        NSDecimalNumber * negativeOne = [NSDecimalNumber decimalNumberWithMantissa:1 exponent:0 isNegative:YES];
+        amount = [amount decimalNumberByMultiplyingBy:negativeOne];
     }
     cell.detailTextLabel.text = [f stringFromNumber:amount];
     cell.detailTextLabel.textColor = color;
