@@ -56,12 +56,17 @@
 		self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"reveal.png"] style:UIBarButtonItemStylePlain target:self.navigationController.parentViewController action:@selector(revealToggle:)];
 	}
 
+    UIBarButtonItem *sideSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+    sideSpace.width = 20;
+    UIBarButtonItem *middleSpacer = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
     self.toolbarItems = @[
-        [[UIBarButtonItem alloc] initWithTitle:@"+$" style:UIBarButtonItemStylePlain target:self action:@selector(addTransaction:)],
-        [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
-        [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCompose target:self action:@selector(addNote:)],
-        [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
-        [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCamera target:self action:@selector(takePhoto:)],
+        sideSpace,
+        [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"toolbar-expense.png"] style:UIBarButtonItemStylePlain target:self action:@selector(addTransaction:)],
+        middleSpacer,
+        [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"toolbar-camera.png"] style:UIBarButtonItemStylePlain target:self action:@selector(takePhoto:)],
+        middleSpacer,
+        [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"toolbar-note.png"] style:UIBarButtonItemStylePlain target:self action:@selector(addNote:)],
+        sideSpace,
     ];
     
     [self attachObservers];

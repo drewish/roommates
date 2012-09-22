@@ -86,6 +86,7 @@
     [[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:0.961 green:0.325 blue:0.200 alpha:1.000]];
     // Lets darken up the buttons for now.
     [[UIToolbar appearance] setTintColor:[UIColor blackColor]];
+    [[UIToolbar appearance] setBackgroundImage:[UIImage imageNamed:@"toolbar.png"] forToolbarPosition:UIToolbarPositionBottom barMetrics:UIBarMetricsDefault];
 
 	self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     [self.window makeKeyAndVisible];
