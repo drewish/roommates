@@ -1016,6 +1016,7 @@
 		5F703C5E1598FECD00EA51DF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Roommat.es Inc";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "roommates/roommates-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -1029,6 +1030,7 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "7185FA70-BBB5-4AB3-B681-EA37BC58A919";
 				USER_HEADER_SEARCH_PATHS = "\"$(BUILT_PRODUCTS_DIR)/../../Headers\" \"$(SOURCE_ROOT)/SDWebImage\"";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1037,6 +1039,8 @@
 		5F703C5F1598FECD00EA51DF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Roommat.es Inc";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Roommat.es Inc";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "roommates/roommates-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -1050,6 +1054,8 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "7185FA70-BBB5-4AB3-B681-EA37BC58A919";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7185FA70-BBB5-4AB3-B681-EA37BC58A919";
 				USER_HEADER_SEARCH_PATHS = "\"$(BUILT_PRODUCTS_DIR)/../../Headers\" \"$(SOURCE_ROOT)/SDWebImage\"";
 				WRAPPER_EXTENSION = app;
 			};
