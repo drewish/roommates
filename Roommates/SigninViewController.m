@@ -11,11 +11,10 @@
 #import "RMData.h"
 #import "PDKeychainBindingsController.h"
 
-@interface SigninViewController ()
+@implementation SigninViewController {
+    UIGestureRecognizer *tapper;
+}
 
-@end
-
-@implementation SigninViewController
 @synthesize email;
 @synthesize password;
 @synthesize login;
@@ -49,16 +48,27 @@
     email.text = [keychain stringForKey:@"email"];
     password.text = [keychain stringForKey:@"password"];
     login.enabled = (email.text.length && password.text.length);
+
+    tapper = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
+    tapper.cancelsTouchesInView = FALSE;
+    [self.view addGestureRecognizer:tapper];
 }
 
-- (void)viewDidUnload
-{
+- (void)viewDidUnload {
+    [self.view removeGestureRecognizer:tapper];
+    tapper = nil;
+
     [self setEmail:nil];
     [self setPassword:nil];
     [self setLogin:nil];
     [self setSignup:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
+}
+
+- (void)handleSingleTap:(UITapGestureRecognizer *) sender
+{
+    [self.view endEditing:YES];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
