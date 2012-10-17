@@ -112,7 +112,10 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return (section == 0) ? 1 : self.item.comments.count + 1;
+    if (section == 0) {
+        return 1;
+    }
+    return self.item.comments.count + 1;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -120,6 +123,13 @@
     // Section 0 is the checklist item, section 1 is the comments and add
     // comment link. The comments can have variable heights so we need to size
     // them up.
+    if (indexPath.section == 0) {
+        CGSize commentSize = CGSizeMake(256, FLT_MAX);
+        commentSize = [self.item.title sizeWithFont:[UIFont systemFontOfSize:17] constrainedToSize:commentSize];
+        if (commentSize.height > 21) {
+            return 44 + commentSize.height - 21;
+        }
+    }
     if (indexPath.section == 1 && indexPath.row >= 0 && indexPath.row < self.item.comments.count) {
         RMComment *comment = [self.item.comments objectAtIndex:indexPath.row];
         CGSize commentSize = CGSizeMake(280, FLT_MAX);
