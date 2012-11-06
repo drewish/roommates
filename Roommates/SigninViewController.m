@@ -119,9 +119,15 @@
         // this view and dismiss the HUD.
     } OnFailure:^(NSError *error) {
         NSLog(@"Encountered an error: %@", error);
-        NSString *message = [[[error userInfo] valueForKeyPath:@"RKObjectMapperErrorObjectsKey.error"] lastObject];
-        if (message.length < 1) {
-            message = @"Sorry, the server is speaking in tongues.";
+        NSString *message;
+        if ([@"org.restkit.RestKit.ErrorDomain" isEqualToString:error.domain] && error.code == 2) {
+            message = @"Cannot connect.";
+        }
+        else {
+            message = [[[error userInfo] valueForKeyPath:@"RKObjectMapperErrorObjectsKey.error"] lastObject];
+            if (message.length < 1) {
+                message = @"Sorry, the server is speaking in tongues.";
+            }
         }
         [SVProgressHUD showErrorWithStatus:message];
     }];
