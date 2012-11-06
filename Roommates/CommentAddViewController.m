@@ -35,14 +35,6 @@
     UIImage *image = [UIImage imageNamed:@"purty_wood.png"];
     self.view.backgroundColor = [UIColor colorWithPatternImage:image];
 
-    CALayer *layer = bodyText.layer;
-    layer.backgroundColor = [[UIColor whiteColor] CGColor];
-    layer.borderColor = [[UIColor grayColor] CGColor];
-    layer.borderWidth = 1.0;
-    layer.cornerRadius = 10.0;
-    layer.masksToBounds = YES;
-    layer.shadowRadius = 5.0;
-
     [bodyText becomeFirstResponder];
 }
 
